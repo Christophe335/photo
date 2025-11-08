@@ -30,6 +30,11 @@ body {
   color: #24256d;
 }
 
+.title-h2 {
+  color: #24256d;
+  margin-bottom: 20px;
+}
+
 .subtitle {
   text-align: center;
   font-size: 18px;
@@ -51,6 +56,22 @@ body {
 
 .cadre {
   padding: 40px 0;
+}
+
+.section1 {
+  background: #f9f9f9;
+  padding: 40px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.section2 {
+  background: #eeefbda8;
+  padding: 40px;
+  margin: 20px 0;
+  border: 1px solid #eeefbda8;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #525252;
 }
 
 /* Compensation quand le navigation-banner devient fixe */
@@ -265,6 +286,7 @@ body.nav-fixed {
   font-weight: 500;
   transition: all 0.3s ease;
   min-width: 140px;
+  box-shadow: inset 0 0 10px #ffffff;
 }
 
 /* Boutons navigation en mode compact */
@@ -277,7 +299,7 @@ body.nav-fixed {
 .nav-btn:hover {
   background-color: #1a1b4d;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 8px #ff4800;
 }
 
 /* Menus déroulants */
@@ -323,7 +345,7 @@ body.nav-fixed {
 }
 
 .dropdown-item:hover {
-  background-color: #f5f5f5;
+  background-color: #ffc6b4;
   color: #24256d;
 }
 

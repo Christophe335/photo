@@ -15,9 +15,9 @@
             <div class="container">
                 <div class="top-banner-content">
                     <!-- Logo -->
-                    <div class="logo">
+                    <a class="logo" href="../index.php">
                         <img src="images/logo-icon/logo.svg" alt="Logo" class="logo-img">
-                    </div>
+                    </a>
                     
                     <!-- Phrase centrale -->
                     <div class="tagline">

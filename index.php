@@ -22,25 +22,25 @@
             <p class="subtitle">Découvrez nos services d'impression et de personnalisation.</p>
             
             <!-- Section pour tester le scroll -->
-            <div style="background: #f9f9f9; padding: 40px; margin: 20px 0; border-radius: 8px;">
-                <h2 style="color: #24256d; margin-bottom: 20px;">Nos Services</h2>
+            <div class="section1">
+                <h2 class="title-h2">Nos Services</h2>
                 <p style="margin-bottom: 20px;">Nous proposons toute une gamme de produits pour la reliure et la personnalisation de vos souvenirs.</p>
                 <p style="margin-bottom: 20px;">Créons ensembles de beaux albums photo personnalisés.</p>
             </div>
             
-            <div style="background: #fff; padding: 40px; margin: 20px 0; border: 1px solid #eee; border-radius: 8px;">
-                <h2 style="color: #24256d; margin-bottom: 20px;">Impression Photo</h2>
+            <div class="section2">
+                <h2 class="title-h2">Impression Photo</h2>
                 <p style="margin-bottom: 20px;">Nous imprimons vos photos pour toute la gamme des produits "Peel & Stick Sheets". Cette solution permet une personnalisation facile et rapide de vos images en disposant d'une zone auto-adhésive qui vous permet de coller vos photos où vous le souhaitez.</p>
             </div>
             
-            <div style="background: #f9f9f9; padding: 40px; margin: 20px 0; border-radius: 8px;">
-                <h2 style="color: #24256d; margin-bottom: 20px;">Personnalisation</h2>
+            <div class="section1">
+                <h2 class="title-h2">Personnalisation</h2>
                 <p style="margin-bottom: 20px;">Plusieurs de nos produits de reliure permettent une personnalisation avancée, que ce soit par le choix des matériaux, des finitions ou du mode d'impression choisi : <strong>impression sur métal, finition luxe, couverture rigide avec logo en dorure</strong>.</p>
                 <p style="margin-bottom: 20px;">D'autre produits sont personnalisés à l'aide d'un photo recouvrant partiellement ou entièrement la couverture rigide.</p>
             </div>
             
-            <div style="background: #fff; padding: 40px; margin: 20px 0; border: 1px solid #eee; border-radius: 8px;">
-                <h2 style="color: #24256d; margin-bottom: 20px;">Nos Produits</h2>
+            <div class="section2">
+                <h2 class="title-h2">Nos Produits</h2>
                 <p style="margin-bottom: 20px;">Nous vous proposons une large gamme de produits d'impression et de personnalisation, allant des albums photo aux couvertures rigides.</p>
                 <p style="margin-bottom: 20px;">La réalisation de calendriers personnalisés, ainsi que d'autres produits sur mesure, comme la réalisation de magnets, de panneaux photo, ou encore de boîtes personnalisées.</p>
             </div>

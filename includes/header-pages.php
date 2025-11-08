@@ -15,9 +15,9 @@
             <div class="container">
                 <div class="top-banner-content">
                     <!-- Logo -->
-                    <div class="logo">
-                        <img src="../images/logo.svg" alt="Logo" class="logo-img">
-                    </div>
+                    <a class="logo" href="../index.php">
+                        <img src="../images/logo-icon/logo.svg" alt="Logo" class="logo-img">
+                    </a>
                     
                     <!-- Phrase centrale -->
                     <div class="tagline">
@@ -39,6 +39,14 @@
                             <button class="btn-account">
                                 <i class="fas fa-user"></i>
                                 <span>Compte</span>
+                            </button>
+                        </div>
+
+                        <!-- Bouton Contact -->
+                        <div class="account-btn">
+                            <button class="btn-account">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>Contact</span>
                             </button>
                         </div>
                         
