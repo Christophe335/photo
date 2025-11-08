@@ -103,23 +103,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Gestion du scroll - masquer/afficher le bandeau principal
+  // Gestion du scroll - fixer le navigation-banner en haut
   let lastScrollTop = 0;
-  const header = document.querySelector('.header');
-  const topBanner = document.querySelector('.top-banner');
-  const navigationBanner = document.querySelector('.navigation-banner');
-  
-  window.addEventListener('scroll', function() {
+  const header = document.querySelector(".header");
+  const topBanner = document.querySelector(".top-banner");
+  const navigationBanner = document.querySelector(".navigation-banner");
+  const body = document.body;
+
+  // Calculer la hauteur du top-banner
+  const topBannerHeight = topBanner.offsetHeight;
+
+  window.addEventListener("scroll", function () {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop && scrollTop > 50) {
-      // Scroll vers le bas - masquer le top banner
-      header.classList.add('scrolled-down');
-    } else {
-      // Scroll vers le haut - afficher le top banner
-      header.classList.remove('scrolled-down');
+
+    if (scrollTop > lastScrollTop && scrollTop > topBannerHeight) {
+      // Scroll vers le bas - fixer le navigation-banner en haut
+      header.classList.add("scrolled-down");
+      body.classList.add("nav-fixed");
+    } else if (scrollTop < topBannerHeight / 2) {
+      // Scroll vers le haut - remettre le header normal
+      header.classList.remove("scrolled-down");
+      body.classList.remove("nav-fixed");
     }
-    
+
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
 });

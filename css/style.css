@@ -9,6 +9,12 @@ body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
   color: #333;
+  transition: padding-top 0.3s ease;
+}
+
+/* Compensation quand le navigation-banner devient fixe */
+body.nav-fixed {
+  padding-top: 60px;
 }
 
 .container {
@@ -20,21 +26,27 @@ body {
 /* Header Styles */
 .header {
   width: 100%;
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 1000;
   transition: all 0.3s ease;
 }
 
-/* Header en mode scroll */
-.header.scrolled-down .top-banner {
-  transform: translateY(-100%);
-  opacity: 0;
-  visibility: hidden;
+/* Header en mode scroll - seul le navigation-banner reste fixé */
+.header.scrolled-down .navigation-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1001;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.header.scrolled-down .navigation-banner {
-  height: 60px;
+/* Boutons navigation en mode compact */
+.header.scrolled-down .nav-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  min-width: 120px;
 }
 
 /* Bandeau principal - 122px */
