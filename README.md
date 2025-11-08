@@ -1,6 +1,6 @@
 # Projet Photo
 
-Un projet de galerie photo développé avec Laragon.
+Un projet de site web pour la personnalisation de reliure, l'impression et la création d'albums photos développé avec Laragon et PHP sur VScode.
 
 ## Installation
 

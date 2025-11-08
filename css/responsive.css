@@ -1,0 +1,207 @@
+/* Responsive Design */
+
+/* Gestion du scroll responsive */
+@media (max-width: 768px) {
+  .header.scrolled-down .navigation-banner {
+    height: 50px;
+  }
+  
+  .header.scrolled-down .nav-btn {
+    padding: 8px 15px;
+    font-size: 12px;
+    min-width: 100px;
+  }
+}
+
+/* Tablettes (768px et moins) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  /* Bandeau principal responsive */
+  .top-banner {
+    height: auto;
+    min-height: 122px;
+    padding: 15px 0;
+  }
+
+  .top-banner-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .tagline h1 {
+    font-size: 1.5rem;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .search-input {
+    min-width: auto;
+    flex: 1;
+  }
+
+  /* Navigation responsive */
+  .navigation-banner {
+    height: auto;
+    min-height: 100px;
+    padding: 15px 0;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .nav-btn {
+    min-width: 200px;
+  }
+
+  /* Menus déroulants sur mobile */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-top: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-item.active .dropdown-menu {
+    max-height: 300px;
+  }
+
+  .dropdown-menu::before {
+    display: none;
+  }
+}
+
+/* Mobiles (480px et moins) */
+@media (max-width: 480px) {
+  .tagline h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo-img {
+    height: 60px;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .btn-account,
+  .btn-cart {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .main-nav {
+    gap: 10px;
+  }
+
+  .nav-btn {
+    min-width: 180px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .dropdown-item {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Très petits écrans (320px et moins) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .tagline h1 {
+    font-size: 1rem;
+  }
+
+  .nav-btn {
+    min-width: 160px;
+    padding: 10px 15px;
+  }
+
+  .search-bar {
+    max-width: 250px;
+  }
+}
+
+/* Desktop large (1200px et plus) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .tagline h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-nav {
+    gap: 40px;
+  }
+
+  .nav-btn {
+    min-width: 160px;
+    padding: 18px 30px;
+    font-size: 18px;
+  }
+
+  .dropdown-menu {
+    min-width: 250px;
+  }
+}
+
+/* Menu mobile toggle (optionnel pour version avancée) */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: #f1f1f1;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .main-nav.mobile-hidden {
+    display: none;
+  }
+
+  .main-nav.mobile-visible {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 999;
+  }
+}

@@ -1,0 +1,8 @@
+<!-- Logo SVG placeholder -->
+<svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="80" fill="#f1f1f1" stroke="#ddd" stroke-width="2" rx="8"/>
+  <circle cx="60" cy="40" r="20" fill="#24256d" opacity="0.8"/>
+  <circle cx="60" cy="40" r="15" fill="none" stroke="#f1f1f1" stroke-width="2"/>
+  <circle cx="60" cy="40" r="8" fill="#f1f1f1"/>
+  <text x="60" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#24256d">PHOTO</text>
+</svg>
