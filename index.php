@@ -14,42 +14,38 @@
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
-    <main style="padding: 40px 0;">
+    <main class="cadre">
         <div class="container">
-            <h1 style="text-align: center; margin-bottom: 20px;">Bienvenue sur notre site d'impression photo</h1>
-            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">Découvrez nos services d'impression et de personnalisation.</p>
+            <h1 class="title-h1">Imprimez vos souvenirs sur tous nos supports, de l’album photo </br>aux couvertures personnalisés, toute une gamme de produits variés</h1>
+            
+            <img class="centre-div" src="../images/bandeaux/index.png" alt="Un bandeau présentant divers produits d'impression et de personnalisation">
+            <p class="subtitle">Découvrez nos services d'impression et de personnalisation.</p>
             
             <!-- Section pour tester le scroll -->
             <div style="background: #f9f9f9; padding: 40px; margin: 20px 0; border-radius: 8px;">
                 <h2 style="color: #24256d; margin-bottom: 20px;">Nos Services</h2>
-                <p style="margin-bottom: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p style="margin-bottom: 20px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p style="margin-bottom: 20px;">Nous proposons toute une gamme de produits pour la reliure et la personnalisation de vos souvenirs.</p>
+                <p style="margin-bottom: 20px;">Créons ensembles de beaux albums photo personnalisés.</p>
             </div>
             
             <div style="background: #fff; padding: 40px; margin: 20px 0; border: 1px solid #eee; border-radius: 8px;">
                 <h2 style="color: #24256d; margin-bottom: 20px;">Impression Photo</h2>
-                <p style="margin-bottom: 20px;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                <p style="margin-bottom: 20px;">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <p style="margin-bottom: 20px;">Nous imprimons vos photos pour toute la gamme des produits "Peel & Stick Sheets". Cette solution permet une personnalisation facile et rapide de vos images en disposant d'une zone auto-adhésive qui vous permet de coller vos photos où vous le souhaitez.</p>
             </div>
             
             <div style="background: #f9f9f9; padding: 40px; margin: 20px 0; border-radius: 8px;">
                 <h2 style="color: #24256d; margin-bottom: 20px;">Personnalisation</h2>
-                <p style="margin-bottom: 20px;">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                <p style="margin-bottom: 20px;">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+                <p style="margin-bottom: 20px;">Plusieurs de nos produits de reliure permettent une personnalisation avancée, que ce soit par le choix des matériaux, des finitions ou du mode d'impression choisi : <strong>impression sur métal, finition luxe, couverture rigide avec logo en dorure</strong>.</p>
+                <p style="margin-bottom: 20px;">D'autre produits sont personnalisés à l'aide d'un photo recouvrant partiellement ou entièrement la couverture rigide.</p>
             </div>
             
             <div style="background: #fff; padding: 40px; margin: 20px 0; border: 1px solid #eee; border-radius: 8px;">
                 <h2 style="color: #24256d; margin-bottom: 20px;">Nos Produits</h2>
-                <p style="margin-bottom: 20px;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                <p style="margin-bottom: 20px;">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                <p style="margin-bottom: 20px;">Nous vous proposons une large gamme de produits d'impression et de personnalisation, allant des albums photo aux couvertures rigides.</p>
+                <p style="margin-bottom: 20px;">La réalisation de calendriers personnalisés, ainsi que d'autres produits sur mesure, comme la réalisation de magnets, de panneaux photo, ou encore de boîtes personnalisées.</p>
             </div>
             
-            <div style="height: 600px; background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%); padding: 40px; margin: 20px 0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                <div style="text-align: center;">
-                    <h2 style="color: #24256d; margin-bottom: 20px;">Testez le Scroll !</h2>
-                    <p style="font-size: 18px; color: #666;">Faites défiler vers le haut et vers le bas pour voir l'effet sur le header</p>
-                </div>
-            </div>
+            
         </div>
     </main>
     <?php include 'includes/footer.php'; ?>
