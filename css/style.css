@@ -66,16 +66,15 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .bouton:hover {
   background-color: #f1f1f1;
   color: #ff5500;
   border: solid 1px #ff5500;
-}
-
-.bouton:hover {
-  background-color: #ff4400;
+  text-decoration: none;
 }
 
 .bull {
