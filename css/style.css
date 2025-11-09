@@ -877,14 +877,30 @@ body.nav-fixed {
 }
 
 /* Curseurs spécifiques pour chaque poignée */
-.crop-handle-nw { cursor: nw-resize; }
-.crop-handle-ne { cursor: ne-resize; }
-.crop-handle-sw { cursor: sw-resize; }
-.crop-handle-se { cursor: se-resize; }
-.crop-handle-n { cursor: n-resize; }
-.crop-handle-s { cursor: s-resize; }
-.crop-handle-e { cursor: e-resize; }
-.crop-handle-w { cursor: w-resize; }
+.crop-handle-nw {
+  cursor: nw-resize;
+}
+.crop-handle-ne {
+  cursor: ne-resize;
+}
+.crop-handle-sw {
+  cursor: sw-resize;
+}
+.crop-handle-se {
+  cursor: se-resize;
+}
+.crop-handle-n {
+  cursor: n-resize;
+}
+.crop-handle-s {
+  cursor: s-resize;
+}
+.crop-handle-e {
+  cursor: e-resize;
+}
+.crop-handle-w {
+  cursor: w-resize;
+}
 
 .crop-dimensions {
   position: absolute;
@@ -902,7 +918,7 @@ body.nav-fixed {
 }
 
 .crop-dimensions::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 10px;
@@ -917,9 +933,15 @@ body.nav-fixed {
 }
 
 @keyframes cropBoxDash {
-  0% { border-color: #24256d; }
-  50% { border-color: #1a1b4d; }
-  100% { border-color: #24256d; }
+  0% {
+    border-color: #24256d;
+  }
+  50% {
+    border-color: #1a1b4d;
+  }
+  100% {
+    border-color: #24256d;
+  }
 }
 
 /* Amélioration du modal */
