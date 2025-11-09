@@ -18,7 +18,7 @@
         <div class="container">
             <h1 class="title-h1">Imprimez vos souvenirs sur tous nos supports, de l’album photo </br>aux couvertures personnalisés, toute une gamme de produits variés</h1>
             
-            <img class="centre-div" src="../images/bandeaux/index.png" alt="Un bandeau présentant divers produits d'impression et de personnalisation">
+            <img class="centre-div" src="../images/bandeaux/index.webp" alt="Un bandeau présentant divers produits d'impression et de personnalisation">
             <p class="subtitle">Découvrez nos services d'impression et de personnalisation.</p>
             
             <!-- Section pour tester le scroll -->

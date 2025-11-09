@@ -2,7 +2,8 @@
 
 <main style="padding: 40px 0;">
     <div class="container">
-        <h1 class="title-h1">Impression sur Toile</h1>
+        <h1 class="title-h1 bull">Impression sur Toile</h1>
+        <img class="centre-div pose" src="../images/bandeaux/photo-sur-toile-1.webp" alt="Un bandeau présentant des impressions sur toile personnalisées">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Donnez vie à vos photos avec nos impressions sur toile de qualité artistique.
         </p>

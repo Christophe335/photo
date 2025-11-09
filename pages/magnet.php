@@ -2,7 +2,8 @@
 
 <main style="padding: 40px 0;">
     <div class="container">
-        <h1 class="title-h1">Magnets</h1>
+        <h1 class="title-h1 bull">Magnets</h1>
+        <img class="centre-div pose" src="../images/bandeaux/magnet-1.webp" alt="Un bandeau présentant des magnets personnalisés">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Transformez vos photos en magnets décoratifs pour votre réfrigérateur.
         </p>

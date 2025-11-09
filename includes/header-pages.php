@@ -71,9 +71,9 @@
                         <button class="nav-btn" data-menu="photo">Photo</button>
                         <div class="dropdown-menu" id="photo-menu">
                             <a href="livre-photo.php" class="dropdown-item">Livre Photo</a>
-                            <a href="livre-dela.php" class="dropdown-item">Livre Photo Delà</a>
+                            <a href="livre-dela.php" class="dropdown-item">Livre Photo Dela</a>
                             <a href="album.php" class="dropdown-item">Album Photos</a>
-                            <a href="#" class="dropdown-item">Dépliant Accordéon</a>
+                            <a href="infinity.php" class="dropdown-item">Dépliant Accordéon</a>
                             <a href="toile.php" class="dropdown-item">Impression sur Toile</a>
                         </div>
                     </div>
