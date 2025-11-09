@@ -44,10 +44,10 @@
 
                         <!-- Bouton Contact -->
                         <div class="account-btn">
-                            <button class="btn-account">
+                            <a href="formulaires/contact.php" class="btn-account">
                                 <i class="fa-solid fa-envelope"></i>
                                 <span>Contact</span>
-                            </button>
+                            </a>
                         </div>
                         
                         <!-- Panier -->
