@@ -1,0 +1,7 @@
+# Uploads
+# Ce dossier contient les fichiers uploadés par les utilisateurs
+
+# Sécurité : interdire l'exécution de scripts
+Options -ExecCGI
+AddHandler cgi-script .php .pl .py .jsp .asp .sh .cgi
+Options -Indexes

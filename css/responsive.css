@@ -204,4 +204,86 @@
     padding: 20px;
     z-index: 999;
   }
+
+  /* Formulaires responsive */
+  .contact-form .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .devis-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .devis-form .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .upload-dropzone {
+    padding: 30px 15px;
+  }
+
+  .upload-icon {
+    font-size: 36px;
+  }
+
+  .images-preview {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+  }
+}
+
+/* Mobiles (480px et moins) */
+@media (max-width: 480px) {
+  .contact-container,
+  .devis-form-section,
+  .upload-section {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .devis-form input,
+  .devis-form textarea {
+    padding: 10px 12px;
+    font-size: 16px; /* Évite le zoom sur iOS */
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-submit,
+  .btn-reset {
+    width: 200px;
+  }
+
+  .upload-dropzone {
+    padding: 20px 10px;
+  }
+
+  .upload-dropzone p {
+    font-size: 14px;
+  }
+
+  .images-preview {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 6px;
+  }
+
+  .btn-crop,
+  .btn-delete {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
 }

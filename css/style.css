@@ -58,6 +58,26 @@ body {
   margin-top: -60px;
 }
 
+.bouton {
+  background-color: #ff5500;
+  color: #f1f1f1;
+  border: solid 1px #ff5500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bouton:hover {
+  background-color: #f1f1f1;
+  color: #ff5500;
+  border: solid 1px #ff5500;
+}
+
+.bouton:hover {
+  background-color: #ff4400;
+}
+
 .bull {
   position: relative;
   background-color: #f1f1f1;
@@ -445,4 +465,563 @@ body.nav-fixed {
 .nav-item.active .dropdown-menu {
   opacity: 1;
   visibility: visible;
+}
+
+/* ===== FORMULAIRES ===== */
+
+/* Formulaire de contact */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #24256d;
+}
+
+.contact-form .required {
+  color: #ff4444;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #24256d;
+  box-shadow: 0 0 0 3px rgba(36, 37, 109, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-submit,
+.btn-reset {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit {
+  background-color: #24256d;
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #1a1b4d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(36, 37, 109, 0.3);
+}
+
+.btn-reset {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.btn-reset:hover {
+  background-color: #e0e0e0;
+}
+
+/* Formulaire de devis */
+.devis-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.devis-form-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.devis-form .form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.devis-form .form-group {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.devis-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #24256d;
+  font-size: 14px;
+}
+
+.devis-form .required {
+  color: #ff4444;
+}
+
+.devis-form input,
+.devis-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.devis-form input:focus,
+.devis-form textarea:focus {
+  outline: none;
+  border-color: #24256d;
+  box-shadow: 0 0 0 2px rgba(36, 37, 109, 0.1);
+}
+
+.devis-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Module d'upload d'images */
+.upload-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.upload-header h3 {
+  color: #24256d;
+  margin-bottom: 8px;
+  font-family: "Kapakana", Arial, sans-serif;
+}
+
+.upload-header p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.upload-dropzone {
+  border: 2px dashed #24256d;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(36, 37, 109, 0.02);
+}
+
+.upload-dropzone:hover {
+  border-color: #1a1b4d;
+  background: rgba(36, 37, 109, 0.05);
+}
+
+.upload-dropzone.drag-over {
+  border-color: #ff4800;
+  background: rgba(255, 72, 0, 0.05);
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.upload-dropzone p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #24256d;
+  margin-bottom: 8px;
+}
+
+.upload-dropzone span {
+  font-size: 12px;
+  color: #666;
+}
+
+.images-counter {
+  text-align: center;
+  margin: 15px 0;
+  font-weight: 500;
+  color: #24256d;
+}
+
+.images-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.image-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-controls {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.btn-crop,
+.btn-delete {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-crop {
+  background: rgba(36, 37, 109, 0.8);
+  color: white;
+}
+
+.btn-crop:hover {
+  background: #24256d;
+}
+
+.btn-delete {
+  background: rgba(255, 68, 68, 0.8);
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #ff4444;
+}
+
+/* Modal de recadrage */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  margin: 5% auto;
+  padding: 0;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #24256d;
+}
+
+.close-modal {
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-modal:hover {
+  color: #24256d;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.crop-container {
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.crop-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.crop-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-crop-confirm,
+.btn-crop-cancel {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-crop-confirm {
+  background: #24256d;
+  color: white;
+}
+
+.btn-crop-cancel {
+  background: #f1f1f1;
+  color: #333;
+}
+
+/* Système de recadrage personnalisé */
+.crop-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.crop-box {
+  position: absolute;
+  border: 2px dashed #24256d !important;
+  background: rgba(36, 37, 109, 0.1) !important;
+  cursor: move;
+  box-sizing: border-box;
+  min-width: 50px;
+  min-height: 50px;
+  z-index: 10;
+}
+
+.crop-box:hover {
+  border-color: #1a1b4d;
+  background: rgba(36, 37, 109, 0.15) !important;
+}
+
+.crop-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #24256d;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 11;
+  transition: all 0.2s ease;
+}
+
+.crop-handle:hover {
+  background: #1a1b4d;
+  transform: scale(1.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Curseurs spécifiques pour chaque poignée */
+.crop-handle-nw { cursor: nw-resize; }
+.crop-handle-ne { cursor: ne-resize; }
+.crop-handle-sw { cursor: sw-resize; }
+.crop-handle-se { cursor: se-resize; }
+.crop-handle-n { cursor: n-resize; }
+.crop-handle-s { cursor: s-resize; }
+.crop-handle-e { cursor: e-resize; }
+.crop-handle-w { cursor: w-resize; }
+
+.crop-dimensions {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  background: #24256d;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 12;
+}
+
+.crop-dimensions::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #24256d;
+}
+
+/* Animation de la bordure pointillée */
+.crop-box {
+  animation: cropBoxDash 2s linear infinite;
+}
+
+@keyframes cropBoxDash {
+  0% { border-color: #24256d; }
+  50% { border-color: #1a1b4d; }
+  100% { border-color: #24256d; }
+}
+
+/* Amélioration du modal */
+.modal-body {
+  padding: 25px;
+}
+
+.crop-container {
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid #e0e0e0;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.crop-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn-crop-confirm,
+.btn-crop-cancel {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-crop-confirm {
+  background: #24256d;
+  color: white;
+}
+
+.btn-crop-confirm:hover {
+  background: #1a1b4d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(36, 37, 109, 0.3);
+}
+
+/* Contrôles de zoom */
+.zoom-controls {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.zoom-btn {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #24256d;
+  background: white;
+  color: #24256d;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+  background: #24256d;
+  color: white;
+  transform: scale(1.1);
+}
+
+.zoom-display {
+  font-weight: bold;
+  font-size: 16px;
+  color: #24256d;
+  min-width: 60px;
+}
+
+.zoom-reset-btn {
+  padding: 8px 16px;
+  border: 2px solid #24256d;
+  background: white;
+  color: #24256d;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.zoom-reset-btn:hover {
+  background: #24256d;
+  color: white;
+  transform: translateY(-2px);
 }

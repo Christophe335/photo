@@ -7,7 +7,7 @@
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Transformez vos photos en livre photo professionnel de haute qualité.
         </p>
-        
+<?php include '../includes/bt-devis.php'; ?>
         <div class="content">
             <!-- Contenu spécifique à la page livre photo -->
             <p>Contenu de la page livre photo à développer...</p>
