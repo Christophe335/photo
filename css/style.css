@@ -35,6 +35,19 @@ body {
   margin-bottom: 20px;
 }
 
+.title-h3 {
+  color: #000000;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.ligne {
+  display: flex;
+  flex-direction: row;
+}
+
 .subtitle {
   text-align: center;
   font-size: 18px;
