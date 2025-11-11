@@ -90,6 +90,26 @@ body {
   text-decoration: none;
 }
 
+.bouton-ajout {
+  font-size: 9px;
+  background-color: #047100;
+  color: #f1f1f1;
+  border: solid 1px #047100;
+  padding: 1px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.bouton-ajout:hover {
+  background-color: #f1f1f1;
+  color: #047100;
+  border: solid 1px #047100;
+  text-decoration: none;
+}
+
 .bull {
   position: relative;
   background-color: #f1f1f1;
@@ -100,6 +120,107 @@ body {
   margin-right: auto;
   width: 50%;
   overflow: visible;
+}
+
+.id {
+  font-size: 14px;
+  color: #2a256d;
+  font-weight: 500;
+}
+
+.code {
+  font-size: 12px;
+  color: #ff5500;
+  font-weight: 300;
+  width: 800px;
+}
+
+/* Les colonnes et effets d'arrivée */
+.colonne-1 {
+  width: 33%;
+  padding: 20px;
+}
+
+.colonne-2 {
+  width: 66%;
+  padding: 20px;
+}
+
+.colonne-3 {
+  width: 50%;
+  padding: 20px 14%;
+}
+
+.colonne-4 {
+  width: 15%;
+  padding: 20px;
+}
+
+.colonne-1,
+.colonne-2,
+.colonne-3,
+.colonne-4 {
+  text-align: justify;
+}
+
+.onleft {
+  animation-duration: 3s;
+  animation-name: slideInFromLeft;
+  animation-fill-mode: both;
+}
+
+.onright {
+  animation-duration: 3s;
+  animation-name: slideInFromRight;
+  animation-fill-mode: both;
+}
+
+.ontop {
+  animation-duration: 3s;
+  animation-name: slideInFromTop;
+  animation-fill-mode: both;
+}
+
+.onbottom {
+  animation-duration: 3s;
+  animation-name: slideInFromBottom;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Étoile scintillante qui fait le tour de la bulle */
