@@ -914,8 +914,9 @@ body.nav-fixed {
 }
 
 .btn-crop {
-  background: rgba(36, 37, 109, 0.8);
-  color: white;
+  border: solid 1px #24256d;
+  background: #ffffff;
+  color: #24256d;
 }
 
 .btn-crop:hover {
@@ -923,12 +924,13 @@ body.nav-fixed {
 }
 
 .btn-delete {
-  background: rgba(255, 68, 68, 0.8);
+  border: solid 1px #fb2222;
+  background: #ffb0b0cc;
   color: white;
 }
 
 .btn-delete:hover {
-  background: #ff4444;
+  background: #f60000;
 }
 
 /* Modal de recadrage */
@@ -1095,7 +1097,7 @@ body.nav-fixed {
   max-height: 200px;
   border: 2px solid #24256d;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .preview-info {
@@ -1572,8 +1574,8 @@ body.nav-fixed {
   text-align: center;
   font-size: 13px;
   color: #e67e22;
-  background: rgba(230,126,34,0.06);
+  background: rgba(230, 126, 34, 0.06);
   padding: 8px 12px;
   border-radius: 6px;
-  border: 1px solid rgba(230,126,34,0.15);
+  border: 1px solid rgba(230, 126, 34, 0.15);
 }
