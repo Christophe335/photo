@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let originalImageWidth = 0;
   let originalImageHeight = 0;
 
-  // Variables pour l'orientation
-  let currentFormatWidth = 10;
-  let currentFormatHeight = 10;
-
   let uploadedImages = [];
   let currentCropIndex = -1;
   let cropper = null;
@@ -88,8 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Afficher la prévisualisation d'une image
   function renderImagePreview(imageData, index) {
-    console.log(`Rendu vignette ${index}:`, imageData.dataUrl.substring(0, 50) + '...');
-    
     const imageItem = document.createElement("div");
     imageItem.className = "image-item";
     imageItem.innerHTML = `
@@ -132,16 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
     cropImage.src = imageData.originalDataUrl;
     cropModal.style.display = "block";
 
-    // Initialiser l'interface de recadrage
+    // Initialiser le système de recadrage personnalisé
     setTimeout(() => {
       initCustomCropper();
-      
-      // Démarrer automatiquement avec le format 10×10
-      setTimeout(() => {
-        setCropFormat(10, 10);
-        // Afficher automatiquement l'aperçu
-        showPreviewSidebar();
-      }, 200);
     }, 100);
   };
 
@@ -153,54 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let startX = 0;
   let startY = 0;
 
-  // Fonction pour basculer entre portrait et paysage
-  function toggleOrientation() {
-    // Échanger largeur et hauteur
-    const newWidth = currentFormatHeight;
-    const newHeight = currentFormatWidth;
-    
-    console.log(`Basculement: ${currentFormatWidth}×${currentFormatHeight} → ${newWidth}×${newHeight}`);
-    
-    // Appliquer le nouveau format
-    setCropFormat(newWidth, newHeight);
-  }
-
-  // Fonction pour mettre à jour l'état visuel des boutons de format
-  function updateFormatButtonStates(selectedWidth, selectedHeight) {
-    const formatBtns = document.querySelectorAll('.format-btn');
-    formatBtns.forEach(btn => {
-      const format = btn.dataset.format;
-      // Vérifier les deux orientations possibles
-      if (format === `${selectedWidth}x${selectedHeight}` || format === `${selectedHeight}x${selectedWidth}`) {
-        // Bouton sélectionné - couleurs inversées
-        btn.style.background = '#24256d';
-        btn.style.color = 'white';
-        btn.style.fontWeight = 'bold';
-      } else {
-        // Bouton non sélectionné - style normal
-        btn.style.background = 'white';
-        btn.style.color = '#24256d';
-        btn.style.fontWeight = 'normal';
-      }
-    });
-  }
-
   // Fonction simple pour définir un format de recadrage fixe
   function setCropFormat(widthCm, heightCm) {
-    // Mémoriser les dimensions actuelles
-    currentFormatWidth = widthCm;
-    currentFormatHeight = heightCm;
-    
-    // Mettre à jour l'état des boutons
-    updateFormatButtonStates(widthCm, heightCm);
-    
-    // Utiliser le système simple
-    if (window.createSimpleCropGrid) {
-      window.createSimpleCropGrid(widthCm, heightCm);
-      // Mettre à jour l'aperçu automatiquement
-      setTimeout(() => showPreviewSidebar(), 100);
-      return;
-    }
     const img = document.querySelector(".crop-wrapper img");
     if (!img) return;
     
@@ -273,15 +214,12 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`Position grille: ${cropData.x}, ${cropData.y}`);
     
     // Recréer la grille sans poignées de redimensionnement
-    // createFixedCropBox();
-    // updateCropBoxFixed();
+    createFixedCropBox();
+    updateCropBoxFixed();
   }
   
-  // Créer une grille fixe (style Facebook) - DESACTIVE
+  // Créer une grille fixe (style Facebook)
   function createFixedCropBox() {
-    // Fonction désactivée - on utilise maintenant le système simple
-    return;
-    
     // Supprimer l'ancienne grille
     const oldBox = document.querySelector('.crop-box');
     if (oldBox) oldBox.remove();
@@ -411,8 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
     img.style.maxHeight = '400px';
     img.style.userSelect = 'none';
     
-    // Zone de recadrage - DESACTIVEE (on utilise le système simple)
-    /* 
+    // Zone de recadrage
     const cropBox = document.createElement('div');
     cropBox.className = 'crop-box';
     cropBox.style.cssText = `
@@ -424,8 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     
     // Poignées de redimensionnement
-    const handles = ['nw', 'ne', 'sw', 'se', 'n', 's', 'e', 'w'];*/
-    /* 
+    const handles = ['nw', 'ne', 'sw', 'se', 'n', 's', 'e', 'w'];
     handles.forEach(handle => {
       const handleEl = document.createElement('div');
       handleEl.className = `crop-handle crop-handle-${handle}`;
@@ -468,10 +404,8 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     cropBox.appendChild(dimensionsDisplay);
     
-    wrapper.appendChild(cropBox);
-    */
-    
     wrapper.appendChild(img);
+    wrapper.appendChild(cropBox);
     
     // Contrôles de zoom
     const zoomControls = document.createElement('div');
@@ -607,7 +541,6 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.textContent = format.name;
       btn.className = 'format-btn';
       btn.type = 'button';
-      btn.dataset.format = `${format.width}x${format.height}`;
       btn.style.cssText = `
         padding: 6px 10px;
         border: 1px solid #24256d;
@@ -616,36 +549,30 @@ document.addEventListener("DOMContentLoaded", function () {
         border-radius: 4px;
         font-size: 11px;
         cursor: pointer;
-        transition: all 0.2s ease;
       `;
       btn.addEventListener('click', () => setCropFormat(format.width, format.height));
       formatControls.appendChild(btn);
     });
     
     container.appendChild(wrapper);
-    // container.appendChild(zoomControls); // Supprimé - on utilise les contrôles inline
+    container.appendChild(zoomControls);
     container.appendChild(formatControls);
     
     // Attendre que l'image soit chargée pour initialiser la position
     img.onload = function() {
-      // Sauvegarder les dimensions réelles de l'image (pas l'affichage)
-      originalImageWidth = img.naturalWidth || img.width;
-      originalImageHeight = img.naturalHeight || img.height;
+      // Sauvegarder les dimensions réelles d'affichage initiales
+      originalImageWidth = img.offsetWidth;
+      originalImageHeight = img.offsetHeight;
       currentZoom = 1;
       
-      console.log('Image chargée - dimensions réelles:', originalImageWidth, 'x', originalImageHeight);
-      
-      // Position initiale au centre de l'image (40% de la taille)  
+      // Position initiale au centre de l'image (40% de la taille)
       resetCropPosition();
       updateCropBox();
     };
     
-    // Events  
-    // setupCropEvents(cropBox, wrapper); // Désactivé car cropBox n'existe plus
-    // setupZoomEvents(wrapper, img, zoomInBtn, zoomOutBtn, resetZoomBtn, zoomDisplay); // Supprimé - anciens contrôles
-    
-    // Connecter les boutons de zoom inline (nouveaux contrôles compacts)
-    setupInlineZoomEvents(wrapper, img);
+    // Events
+    setupCropEvents(cropBox, wrapper);
+    setupZoomEvents(wrapper, img, zoomInBtn, zoomOutBtn, resetZoomBtn, zoomDisplay);
   }
 
   function updateCropBox() {
@@ -811,27 +738,26 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     
-    // Calculer les dimensions de base d'affichage (taille optimale dans le modal)
-    const maxModalWidth = window.innerWidth * 0.8;
-    const maxModalHeight = window.innerHeight * 0.6;
+    // Calculer les nouvelles dimensions avec le zoom
+    const newWidth = originalImageWidth * currentZoom;
+    const newHeight = originalImageHeight * currentZoom;
     
-    // Ratio de l'image originale
-    const imageRatio = originalImageWidth / originalImageHeight;
+    // Limiter la taille d'affichage pour que ça tienne dans l'écran
+    const maxDisplayWidth = window.innerWidth * 0.7; // 70% de la largeur d'écran
+    const maxDisplayHeight = window.innerHeight * 0.6; // 60% de la hauteur d'écran
     
-    let baseDisplayWidth, baseDisplayHeight;
-    if (imageRatio > maxModalWidth / maxModalHeight) {
-      // Image plus large que haute
-      baseDisplayWidth = maxModalWidth;
-      baseDisplayHeight = maxModalWidth / imageRatio;
-    } else {
-      // Image plus haute que large
-      baseDisplayHeight = maxModalHeight;
-      baseDisplayWidth = maxModalHeight * imageRatio;
+    let displayWidth = newWidth;
+    let displayHeight = newHeight;
+    
+    // Si l'image zoomée est trop grande pour l'écran, la réduire visuellement
+    if (displayWidth > maxDisplayWidth || displayHeight > maxDisplayHeight) {
+      const scaleX = maxDisplayWidth / displayWidth;
+      const scaleY = maxDisplayHeight / displayHeight;
+      const displayScale = Math.min(scaleX, scaleY);
+      
+      displayWidth *= displayScale;
+      displayHeight *= displayScale;
     }
-    
-    // Appliquer le zoom à ces dimensions de base
-    const displayWidth = baseDisplayWidth * currentZoom;
-    const displayHeight = baseDisplayHeight * currentZoom;
     
     // Appliquer les dimensions d'affichage
     img.style.width = displayWidth + 'px';
@@ -878,47 +804,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function setupInlineZoomEvents(wrapper, img) {
-    const zoomInInline = document.getElementById('zoomInInline');
-    const zoomOutInline = document.getElementById('zoomOutInline');
-    const zoomResetInline = document.querySelector('.zoom-reset-inline');
-    const zoomDisplayInline = document.querySelector('.zoom-display-inline');
-    const orientationToggle = document.getElementById('orientationToggle');
-    
-    if (orientationToggle) {
-      orientationToggle.addEventListener('click', function() {
-        toggleOrientation();
-      });
-    }
-    
-    if (zoomInInline) {
-      zoomInInline.addEventListener('click', function() {
-        updateZoom(wrapper, img, zoomDisplayInline, currentZoom + 0.1);
-      });
-    }
-    
-    if (zoomOutInline) {
-      zoomOutInline.addEventListener('click', function() {
-        updateZoom(wrapper, img, zoomDisplayInline, currentZoom - 0.1);
-      });
-    }
-    
-    if (zoomResetInline) {
-      zoomResetInline.addEventListener('click', function() {
-        updateZoom(wrapper, img, zoomDisplayInline, 1);
-        resetCropPosition();
-        updateCropBox();
-      });
-    }
-    
-    // Zoom avec la molette de la souris
-    wrapper.addEventListener('wheel', function(e) {
-      e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.05 : 0.05;
-      updateZoom(wrapper, img, zoomDisplayInline, currentZoom + delta);
-    });
-  }
-
   // Fermer le modal
   function closeCropModal() {
     cropModal.style.display = "none";
@@ -931,34 +816,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   closeModal.addEventListener("click", closeCropModal);
   btnCropCancel.addEventListener("click", closeCropModal);
-  
-  // Fonction pour afficher l'aperçu automatiquement
-  async function showPreviewSidebar() {
-    if (currentCropIndex >= 0 && window.generateCropPreview) {
-      const previewSidebar = document.querySelector('.crop-preview-sidebar');
-      const previewImage = document.getElementById('cropPreviewImage');
-      const previewInfo = document.querySelector('.preview-info');
-      
-      try {
-        // Générer l'aperçu
-        const previewDataUrl = await window.generateCropPreview();
-        
-        if (previewDataUrl) {
-          previewImage.src = previewDataUrl;
-          
-          // Récupérer les données de recadrage
-          const cropData = window.getSimpleCropData();
-          if (cropData) {
-            previewInfo.innerHTML = `<strong>${cropData.realWidthCm} × ${cropData.realHeightCm} cm</strong><br>300 DPI`;
-          }
-          
-          previewSidebar.style.display = 'block';
-        }
-      } catch (error) {
-        console.error('Erreur lors de la génération de l\'aperçu:', error);
-      }
-    }
-  }
 
   // Fermer le modal en cliquant en dehors
   cropModal.addEventListener("click", function (e) {
@@ -973,24 +830,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const wrapper = document.querySelector('.crop-wrapper');
       const img = wrapper.querySelector('img');
       
-      // Récupérer les données de recadrage du système simple
-      const simpleCropData = window.getSimpleCropData ? window.getSimpleCropData() : null;
-      
-      if (!simpleCropData) {
-        console.error('Pas de données de recadrage disponibles - système simple non initialisé');
-        alert('Erreur: Veuillez d\'abord sélectionner un format de recadrage');
-        return;
-      }
-      
-      console.log('Données de recadrage simple récupérées:', simpleCropData);
-      
-      // Vérifier si les ratios sont valides
-      if (!simpleCropData.ratioX && simpleCropData.ratioX !== 0) {
-        console.error('Ratios de recadrage invalides');
-        alert('Erreur: Données de recadrage invalides');
-        return;
-      }
-      
       // Créer un canvas pour le recadrage
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
@@ -1003,15 +842,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const scaleX = originalImg.width / displayedImg.offsetWidth;
         const scaleY = originalImg.height / displayedImg.offsetHeight;
         
-        // Utiliser les ratios du système simple pour calculer les coordonnées sur l'image originale
-        let cropX = Math.max(0, simpleCropData.ratioX * originalImg.width);
-        let cropY = Math.max(0, simpleCropData.ratioY * originalImg.height);
-        let cropWidth = simpleCropData.ratioWidth * originalImg.width;
-        let cropHeight = simpleCropData.ratioHeight * originalImg.height;
-        
-        console.log('Recadrage - Dimensions originales:', originalImg.width, 'x', originalImg.height);
-        console.log('Recadrage - Ratios:', simpleCropData.ratioX, simpleCropData.ratioY, simpleCropData.ratioWidth, simpleCropData.ratioHeight);
-        console.log('Recadrage - Coordonnées calculées:', cropX, cropY, cropWidth, cropHeight);
+        // Dimensions du recadrage sur l'image originale
+        let cropX = cropData.x * scaleX;
+        let cropY = cropData.y * scaleY;
+        let cropWidth = cropData.width * scaleX;
+        let cropHeight = cropData.height * scaleY;
         
         // S'assurer que le recadrage ne dépasse pas l'image originale
         // Si ça dépasse, on étire la partie disponible pour remplir le format demandé
@@ -1030,74 +865,27 @@ document.addEventListener("DOMContentLoaded", function () {
           cropHeight = originalImg.height - cropY;
         }
         
-        // Créer deux canvas : un pour l'image finale haute résolution et un pour la vignette
-        const finalCanvas = document.createElement('canvas');
-        const finalCtx = finalCanvas.getContext('2d');
+        // Configurer le canvas avec les dimensions exactes demandées
+        canvas.width = cropData.width * scaleX;
+        canvas.height = cropData.height * scaleY;
         
-        // Canvas haute résolution pour l'image finale (300 DPI)
-        const dpi = 300;
-        const pixelsPerCm = dpi / 2.54;
-        finalCanvas.width = simpleCropData.realWidthCm * pixelsPerCm;
-        finalCanvas.height = simpleCropData.realHeightCm * pixelsPerCm;
-        
-        // Canvas pour la vignette (taille raisonnable)
-        const thumbnailMaxSize = 200;
-        const ratio = simpleCropData.realWidthCm / simpleCropData.realHeightCm;
-        let thumbWidth, thumbHeight;
-        
-        if (ratio > 1) {
-          // Paysage
-          thumbWidth = thumbnailMaxSize;
-          thumbHeight = thumbnailMaxSize / ratio;
-        } else {
-          // Portrait ou carré
-          thumbHeight = thumbnailMaxSize;
-          thumbWidth = thumbnailMaxSize * ratio;
-        }
-        
-        canvas.width = thumbWidth;
-        canvas.height = thumbHeight;
-        
-        // Dessiner sur le canvas haute résolution (pour le fichier final)
-        finalCtx.drawImage(
-          originalImg,
-          cropX, cropY, cropWidth, cropHeight,
-          0, 0, finalCanvas.width, finalCanvas.height
-        );
-        
-        // Dessiner sur le canvas vignette (pour l'affichage)
+        // Dessiner en étirant si nécessaire pour remplir exactement le format
         ctx.drawImage(
           originalImg,
           cropX, cropY, cropWidth, cropHeight,
           0, 0, canvas.width, canvas.height
         );
         
-        console.log('Canvas haute résolution créé:', finalCanvas.width, 'x', finalCanvas.height);
-        console.log('Canvas vignette créé:', canvas.width, 'x', canvas.height);
-        
-        // Générer la vignette pour l'affichage
-        const thumbnailDataUrl = canvas.toDataURL();
-        
-        // Convertir le canvas haute résolution en blob pour le fichier
-        finalCanvas.toBlob(function(finalBlob) {
-          console.log('Blob haute résolution créé, taille:', finalBlob.size, 'bytes');
-          
-          // Fichier haute résolution pour l'envoi
-          const croppedFile = new File([finalBlob], uploadedImages[currentCropIndex].file.name, {
+        // Convertir en blob et mettre à jour
+        canvas.toBlob(function(blob) {
+          const croppedFile = new File([blob], uploadedImages[currentCropIndex].file.name, {
             type: uploadedImages[currentCropIndex].file.type
           });
           
           uploadedImages[currentCropIndex].file = croppedFile;
-          uploadedImages[currentCropIndex].dataUrl = thumbnailDataUrl;
+          uploadedImages[currentCropIndex].dataUrl = canvas.toDataURL();
           
-          console.log('Image recadrée mise à jour, index:', currentCropIndex);
-          console.log('Vignette générée:', thumbWidth, 'x', thumbHeight);
-          
-          // Forcer la mise à jour complète de la vignette
-          setTimeout(() => {
-            refreshPreview();
-            console.log('Vignettes rechargées après recadrage');
-          }, 100);
+          refreshPreview();
           closeCropModal();
         }, uploadedImages[currentCropIndex].file.type, 0.9);
       };

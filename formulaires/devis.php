@@ -100,16 +100,45 @@
             <span class="close-modal">&times;</span>
         </div>
         <div class="modal-body">
-            <div class="crop-container">
-                <img id="cropImage" src="" alt="Image à recadrer">
-            </div>
-            <div class="crop-controls">
-                <button type="button" class="btn-crop-confirm">Confirmer</button>
-                <button type="button" class="btn-crop-cancel">Annuler</button>
+            <div class="crop-layout">
+                <!-- Aperçu sur le côté gauche -->
+                <div class="crop-preview-sidebar">
+                    <h4>Aperçu final</h4>
+                    <div class="preview-wrapper">
+                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage">
+                        <div class="preview-info"></div>
+                    </div>
+                </div>
+                
+                <!-- Zone principale de recadrage -->
+                <div class="crop-main">
+                    <div class="crop-container">
+                        <img id="cropImage" src="" alt="Image à recadrer">
+                    </div>
+                    
+                    <!-- Contrôles en bas -->
+                    <div class="crop-controls-layout">
+                        <!-- Boutons principaux à gauche -->
+                        <div class="crop-controls">
+                            <button type="button" class="btn-crop-confirm">Confirmer</button>
+                            <button type="button" class="btn-crop-cancel">Annuler</button>
+                        </div>
+                        
+                        <!-- Contrôles de zoom à droite -->
+                        <div class="zoom-controls-inline">
+                            <button type="button" class="orientation-btn" id="orientationToggle" title="Basculer Portrait/Paysage">⟲</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomOutInline">-</button>
+                            <span class="zoom-display-inline">100%</span>
+                            <button type="button" class="zoom-btn-inline" id="zoomInInline">+</button>
+                            <button type="button" class="zoom-reset-inline">Reset</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<script src="../js/simple-crop.js"></script>
 <script src="../js/image-upload.js"></script>
 <?php include '../includes/footer.php'; ?>
