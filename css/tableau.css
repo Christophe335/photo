@@ -1,0 +1,289 @@
+/* Import des polices Roboto */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* Variables CSS pour les couleurs */
+:root {
+  --primary-dark: #2a256d;
+  --primary-orange: #f05124;
+  --background-light: #f8f9fa;
+  --border-color: #dee2e6;
+  --text-dark: #333;
+  --text-muted: #6c757d;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Base du tableau produits */
+.tableau-produits {
+  font-family: "Roboto", sans-serif;
+  max-width: 100%;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Titre de la famille */
+.titre-famille {
+  background: var(--primary-dark);
+  color: white;
+  margin: 0;
+  padding: 20px 30px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Structure en grille du tableau */
+.tableau-header,
+.ligne-produit {
+  display: grid;
+  grid-template-columns: 120px 1fr 200px 80px 140px 120px 140px;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* En-tête du tableau */
+.tableau-header {
+  background: var(--background-light);
+  font-weight: 500;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+/* Lignes de produits */
+.ligne-produit {
+  transition: background-color 0.2s ease;
+}
+
+.ligne-produit:hover {
+  background-color: #f8f9ff;
+}
+
+.ligne-produit:last-child {
+  border-bottom: none;
+}
+
+/* Colonnes spécifiques */
+.col-code {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 500;
+  color: var(--primary-dark);
+  font-size: 14px;
+}
+
+.col-description {
+  line-height: 1.4;
+}
+
+.col-description .designation {
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.col-description .format,
+.col-description .matiere,
+.col-description .couleur-int {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+/* Couleurs */
+.couleurs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 80px;
+  overflow-y: auto;
+}
+
+.couleur-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--background-light);
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.couleur-image {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.couleur-nom {
+  color: var(--text-dark);
+  font-weight: 400;
+}
+
+/* Conditionnement */
+.col-nb {
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Contrôle de quantité */
+.quantite-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.btn-moins,
+.btn-plus {
+  background: var(--background-light);
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--primary-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-moins:hover,
+.btn-plus:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+.input-quantite {
+  border: none;
+  width: 50px;
+  height: 32px;
+  text-align: center;
+  font-weight: 500;
+  background: white;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Prix */
+.col-prix {
+  font-weight: 500;
+  color: var(--primary-orange);
+  font-size: 14px;
+  text-align: right;
+}
+
+/* Bouton ajouter au panier */
+.btn-ajouter-panier {
+  background: var(--primary-orange);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-ajouter-panier:hover {
+  background: #d43f1a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(240, 81, 36, 0.3);
+}
+
+.btn-ajouter-panier:active {
+  transform: translateY(0);
+}
+
+/* Messages d'erreur */
+.erreur {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .tableau-header,
+  .ligne-produit {
+    grid-template-columns: 100px 1fr 160px 70px 120px 100px 120px;
+    gap: 10px;
+    padding: 12px 15px;
+  }
+
+  .titre-famille {
+    padding: 15px 20px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableau-header,
+  .ligne-produit {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .tableau-header > div,
+  .ligne-produit > div {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tableau-header > div:before,
+  .ligne-produit > div:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+    color: var(--primary-dark);
+  }
+
+  .couleurs-container {
+    max-height: none;
+  }
+
+  .quantite-control {
+    width: fit-content;
+  }
+}
+
+/* Animation d'ajout au panier */
+@keyframes ajoutPanier {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-ajouter-panier.adding {
+  animation: ajoutPanier 0.3s ease;
+  background: #28a745;
+}
+
+.btn-ajouter-panier.adding:after {
+  content: " ✓";
+}

@@ -1,0 +1,46 @@
+-- Table des produits de reliure
+CREATE TABLE IF NOT EXISTS produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    famille VARCHAR(50) NOT NULL,
+    nomDeLaFamille VARCHAR(100) NOT NULL,
+    reference VARCHAR(50) NOT NULL,
+    designation TEXT NOT NULL,
+    format VARCHAR(50),
+    prixAchat DECIMAL(10,2),
+    prixVente DECIMAL(10,2) NOT NULL,
+    conditionnement VARCHAR(100),
+    matiere VARCHAR(100),
+    couleur_interieur VARCHAR(50),
+    couleur_ext1 VARCHAR(50),
+    imageCoul1 VARCHAR(255),
+    couleur_ext2 VARCHAR(50),
+    imageCoul2 VARCHAR(255),
+    couleur_ext3 VARCHAR(50),
+    imageCoul3 VARCHAR(255),
+    couleur_ext4 VARCHAR(50),
+    imageCoul4 VARCHAR(255),
+    couleur_ext5 VARCHAR(50),
+    imageCoul5 VARCHAR(255),
+    couleur_ext6 VARCHAR(50),
+    imageCoul6 VARCHAR(255),
+    couleur_ext7 VARCHAR(50),
+    imageCoul7 VARCHAR(255),
+    couleur_ext8 VARCHAR(50),
+    imageCoul8 VARCHAR(255),
+    couleur_ext9 VARCHAR(50),
+    imageCoul9 VARCHAR(255),
+    couleur_ext10 VARCHAR(50),
+    imageCoul10 VARCHAR(255),
+    couleur_ext11 VARCHAR(50),
+    imageCoul11 VARCHAR(255),
+    couleur_ext12 VARCHAR(50),
+    imageCoul12 VARCHAR(255),
+    couleur_ext13 VARCHAR(50),
+    imageCoul13 VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Index pour améliorer les performances
+CREATE INDEX idx_famille ON produits(famille);
+CREATE INDEX idx_reference ON produits(reference);
