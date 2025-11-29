@@ -35,7 +35,7 @@
             require_once __DIR__ . '/../includes/tableau.php';
             
             // Afficher les produits de reliure directement
-            afficherTableauProduits('RELI');
+            afficherTableauProduits('Peel & Stick Sheets');
             ?>
         </div>
     </div>
@@ -64,12 +64,14 @@ En un rien de temps, les clients créent leur propre souvenir ou cadeau personna
         <img src="../images/produits/livrephotoautocollant-couleur5.webp" alt="Album photo peel & stick fermé de couleur rose pâle">
     </div>
 </br>
-<div class="container tableau-produit centre-div" style="width: 740px;">
-            <p class="id" id="peel-stick-sheets">Famille test</p>
-            <p class="code">Code<span style="margin-left: 100px;">Description</span> <span style="margin-left: 150px;">Conditionnement</span> <span style="margin-left: 40px;">Prix HT</span><span style="margin-left: 20px;">Quantité</span></p>
-            <p>00000001 &emsp;<span>produit test 1 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-            <p>00000002 &emsp;<span>produit test 2 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-            </br>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Peel & Stick Photo Book');
+            ?>
         </div>
         </br>
     <?php include '../includes/bt-devis.php'; ?>
@@ -84,19 +86,21 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </div>
     <div class="ligne">
         <div class="colonne-2">
-            <div class="container tableau-produit centre-div" style="width: 740px;">
-                <p class="id" id="peel-stick-sheets">Famille test</p>
-                <p class="code">Code<span style="margin-left: 100px;">Description</span> <span style="margin-left: 150px;">Conditionnement</span> <span style="margin-left: 40px;">Prix HT</span><span style="margin-left: 20px;">Quantité</span></p>
-                <p>00000001 &emsp;<span>produit test 1 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-                <p>00000002 &emsp;<span>produit test 2 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-                </br>
-            </div>
-            <img src="../images/produits/album-photo-autocollant-1.webp" alt="Livre photo autocollant ouvert, de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album">
+            <img src="../images/produits/album-photo-autocollant-1.webp" alt="Livre photo autocollant ouvert, de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album">  
         </div>
         <div class="colonne-1 onright">
             <img src="../images/produits/album-photo-autocollant-2.webp" alt="Livre photo autocollant de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur la couverture">
         </div>
     </div>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Peel & Stick Photo BookB');
+            ?>
+        </div>
         </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
@@ -133,15 +137,18 @@ Le cadeau idéal pour une personne très spéciale.</p>
             <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur4.webp" alt="Exmple de la couleur violette disponible pour le livre créatif"></br>Purple</div>
             <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur5.webp" alt="Exmple de la couleur blanche disponible pour le livre créatif"></br>White</div>
         </div>
-            <div class="container tableau-produit centre-div" style="width: 740px;">
-                <p class="id" id="peel-stick-sheets">Famille test</p>
-                <p class="code">Code<span style="margin-left: 100px;">Description</span> <span style="margin-left: 150px;">Conditionnement</span> <span style="margin-left: 40px;">Prix HT</span><span style="margin-left: 20px;">Quantité</span></p>
-                <p>00000001 &emsp;<span>produit test 1 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-                <p>00000002 &emsp;<span>produit test 2 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-                </br>
-            </div>
+            
         </div>
     </div>
+    <div class="tableau-container">
+                <?php
+                // IMPORTANT: Ajuster le chemin selon votre structure
+                require_once __DIR__ . '/../includes/tableau.php';
+                
+                // Afficher les produits de reliure directement
+                afficherTableauProduits('Instant Photobooks');
+                ?>
+            </div>
     </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
