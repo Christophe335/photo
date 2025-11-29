@@ -44,7 +44,7 @@ function afficherTableauProduits($famille) {
             <div class="ligne-produit" data-id="<?= $produit['id'] ?>" data-prix="<?= $produit['prixVente'] ?>">
                 
                 <!-- Code/Référence -->
-                <div class="col-code">
+                <div class="col-code2">
                     <?= htmlspecialchars($produit['reference']) ?>
                 </div>
                 
@@ -81,7 +81,7 @@ function afficherTableauProduits($famille) {
                 </div>
                 
                 <!-- Conditionnement -->
-                <div class="col-nb">
+                <div class="col-nb2">
                     <?php if (!empty($produit['conditionnement'])): ?>
                         <?= htmlspecialchars($produit['conditionnement']) ?>
                     <?php endif; ?>

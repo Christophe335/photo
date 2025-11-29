@@ -1,5 +1,10 @@
 <?php include '../includes/header.php'; ?>
 
+<!-- Styles nécessaires pour le tableau des produits -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tableau.css">
+<link rel="stylesheet" href="../css/panier.css">
+
 <main style="padding: 40px 0;">
     <div class="container">
         <h1 class="title-h1 bull">Livre Photo</h1>
@@ -24,12 +29,14 @@
         <div class="container">
             <img src="../images/produits/peel-stick-utilisation1.webp" alt="4 images montrant l'utilisation des Peel & Stick Sheets">
         </div>
-        <div class="container tableau-produit centre-div" style="width: 740px;">
-            <p class="id" id="peel-stick-sheets">Famille test</p>
-            <p class="code">Code<span style="margin-left: 100px;">Description</span> <span style="margin-left: 150px;">Conditionnement</span> <span style="margin-left: 40px;">Prix HT</span><span style="margin-left: 20px;">Quantité</span></p>
-            <p>00000001 &emsp;<span>produit test 1 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-            <p>00000002 &emsp;<span>produit test 2 dimension format</span><span style="margin-left: 75px;">20</span><span style="margin-left: 85px;">20€</span><span style="margin-left: 30px;">- [] +</span>&emsp;<span class="bouton-ajout">Ajouter au Panier</span></p>
-            </br>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('RELI');
+            ?>
         </div>
     </div>
     <?php include '../includes/bt-devis.php'; ?>
@@ -138,5 +145,8 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
+
+<!-- Script nécessaire pour le panier -->
+<script src="../js/panier.js"></script>
 
 <?php include '../includes/footer.php'; ?>
