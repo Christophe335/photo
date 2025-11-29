@@ -70,7 +70,7 @@ function afficherTableauProduits($famille) {
                                 <div class="couleur-item">
                                     <span class="couleur-nom"><?= htmlspecialchars($produit["couleur_ext$i"]) ?></span>
                                     <?php if (!empty($produit["imageCoul$i"])): ?>
-                                        <img src="images/couleurs/<?= htmlspecialchars($produit["imageCoul$i"]) ?>" 
+                                        <img src="../images/couleurs/<?= htmlspecialchars($produit["imageCoul$i"]) ?>" 
                                              alt="<?= htmlspecialchars($produit["couleur_ext$i"]) ?>" 
                                              class="couleur-image">
                                     <?php endif; ?>

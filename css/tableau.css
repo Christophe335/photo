@@ -42,7 +42,7 @@
   grid-template-columns: 110px 300px 150px 60px 100px 80px 100px;
   gap: 15px;
   align-items: center;
-  padding: 15px 20px;
+  padding: 1px 20px;
   border-bottom: 1px solid var(--border-color);
   width: 80%;
   margin-left: auto;
@@ -120,14 +120,17 @@
 }
 
 .couleur-item {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   gap: 6px;
-  padding: 4px 8px;
+  padding: 0 8px;
   background: var(--background-light);
   border-radius: 4px;
   font-size: 11px;
   white-space: nowrap;
+  min-width: 80px;
+  width: 100%;
 }
 
 .couleur-image {
@@ -136,11 +139,16 @@
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--border-color);
+  flex-shrink: 0;
+  order: 2;
 }
 
 .couleur-nom {
   color: var(--text-dark);
   font-weight: 400;
+  flex-grow: 1;
+  order: 1;
+  text-align: left;
 }
 
 /* Conditionnement */
