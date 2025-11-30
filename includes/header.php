@@ -66,10 +66,10 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         
                         <!-- Panier -->
                         <div class="cart">
-                            <button class="btn-cart">
+                            <a href="/pages/panier.php" class="btn-cart">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span class="cart-count">0</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

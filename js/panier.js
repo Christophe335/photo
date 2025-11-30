@@ -52,7 +52,8 @@ class PanierManager {
    * Met à jour le compteur du panier
    */
   mettreAJourCompteurPanier() {
-    const compteur = document.querySelector(".compteur-panier");
+    // Pour le header principal
+    const compteur = document.querySelector(".cart-count");
     if (compteur) {
       const totalItems = this.panier.reduce(
         (total, item) => total + item.quantite,
@@ -61,34 +62,76 @@ class PanierManager {
       compteur.textContent = totalItems;
       compteur.style.display = totalItems > 0 ? "inline" : "none";
     }
+    // Pour l'admin si besoin
+    const compteurAdmin = document.querySelector(".compteur-panier");
+    if (compteurAdmin) {
+      const totalItems = this.panier.reduce(
+        (total, item) => total + item.quantite,
+        0
+      );
+      compteurAdmin.textContent = totalItems;
+      compteurAdmin.style.display = totalItems > 0 ? "inline" : "none";
+    }
   }
 
   /**
    * Affiche une notification
    */
-  afficherNotification(message, type = "success") {
+  afficherNotification(message, type = "success", produit = null) {
     // Supprimer les notifications existantes
-    const existingNotif = document.querySelector(".notification");
+    const existingNotif = document.querySelector(".notification-popup");
     if (existingNotif) {
       existingNotif.remove();
     }
 
-    // Créer la nouvelle notification
-    const notification = document.createElement("div");
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
+    // Détail du produit
+    let detailsHtml = "";
+    if (produit) {
+      detailsHtml = `<div style='text-align:left;margin-bottom:8px;'>
+        <strong>Référence :</strong> ${produit.code}<br>
+        <strong>Désignation :</strong> ${produit.designation}<br>
+        ${
+          produit.format
+            ? `<strong>Format :</strong> ${produit.format}<br>`
+            : ""
+        }
+        ${
+          produit.couleur
+            ? `<strong>Couleur :</strong> ${produit.couleur}<br>`
+            : ""
+        }
+        <strong>Quantité :</strong> ${produit.quantite}
+      </div>`;
+    }
 
-    // Ajouter au DOM
-    document.body.appendChild(notification);
+    // Créer la popup
+    const popup = document.createElement("div");
+    popup.className = `notification-popup notification-${type}`;
+    popup.innerHTML = `
+      <div class="popup-content">
+        <p>${message}</p>
+        ${detailsHtml}
+        <div class="popup-actions">
+          <button class="btn-panier">Voir le panier</button>
+          <button class="btn-continuer">Continuer mes achats</button>
+        </div>
+      </div>
+    `;
 
-    // Animation d'apparition
-    setTimeout(() => notification.classList.add("show"), 100);
+    document.body.appendChild(popup);
+    setTimeout(() => popup.classList.add("show"), 100);
 
-    // Suppression automatique
-    setTimeout(() => {
-      notification.classList.remove("show");
-      setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    // Bouton voir le panier
+    popup.querySelector(".btn-panier").onclick = function () {
+      window.location.href = "/pages/panier.php";
+    };
+    // Bouton continuer
+    popup.querySelector(".btn-continuer").onclick = function () {
+      popup.classList.remove("show");
+      setTimeout(() => popup.remove(), 300);
+    };
+
+    // Suppression automatique désactivée : la popup ne disparaît que sur action utilisateur
   }
 
   /**
@@ -174,6 +217,19 @@ function ajouterAuPanier(bouton) {
 
   // Ajout au panier
   panierManager.ajouterProduit(produitId, quantite, prix, details);
+  // Afficher la popup avec les détails
+  panierManager.afficherNotification(
+    "Votre article a bien été ajouté au panier !",
+    "success",
+    {
+      code: code,
+      designation: designation,
+      format: format,
+      couleur:
+        ligneProduit.querySelector(".couleur-nom")?.textContent.trim() || "",
+      quantite: quantite,
+    }
+  );
 
   // Remettre la quantité à 1
   ligneProduit.querySelector(".input-quantite").value = 1;

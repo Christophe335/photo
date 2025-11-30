@@ -288,6 +288,66 @@
   background: var(--primary-dark);
 }
 
+/* Popup notification panier */
+
+.notification-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  border: 2px solid var(--primary-dark);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  z-index: 10001;
+  min-width: 320px;
+  max-width: 95vw;
+  padding: 28px 32px;
+  font-family: "Roboto", sans-serif;
+  color: var(--primary-dark);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notification-popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-panier,
+.btn-continuer {
+  background: var(--primary-dark);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-panier:hover,
+.btn-continuer:hover {
+  background: var(--primary-orange);
+}
+
 /* Responsive pour le modal */
 @media (max-width: 768px) {
   .modal-contenu {

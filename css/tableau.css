@@ -249,6 +249,70 @@
   font-family: "Roboto", sans-serif;
 }
 
+/* Tableau du panier */
+.table-panier {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Roboto", sans-serif;
+  background: white;
+  margin-bottom: 20px;
+}
+.table-panier th,
+.table-panier td {
+  border: 1px solid var(--border-color);
+  padding: 10px 8px;
+  text-align: left;
+  font-size: 16px;
+}
+.table-panier th {
+  background: var(--primary-dark);
+  color: #fff;
+  font-weight: 500;
+}
+.table-panier tr:nth-child(even) {
+  background: var(--background-light);
+}
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.recap-panier {
+  background: var(--background-light);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  box-shadow: var(--shadow);
+}
+.recap-panier p {
+  margin: 8px 0;
+}
+@media (max-width: 900px) {
+  .table-panier th,
+  .table-panier td {
+    font-size: 15px;
+    padding: 8px 6px;
+  }
+  .recap-panier {
+    font-size: 16px;
+    padding: 14px 10px;
+  }
+}
+@media (max-width: 600px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .table-panier th,
+  .table-panier td {
+    font-size: 13px;
+    padding: 6px 4px;
+  }
+  .recap-panier {
+    font-size: 15px;
+    padding: 10px 5px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .tableau-header,

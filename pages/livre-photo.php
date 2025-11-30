@@ -154,6 +154,6 @@ Le cadeau idéal pour une personne très spéciale.</p>
 </section>
 
 <!-- Script nécessaire pour le panier -->
-<script src="../js/panier.js"></script>
+<script src="/js/panier.js"></script>
 
 <?php include '../includes/footer.php'; ?>

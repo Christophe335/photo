@@ -15,4 +15,6 @@
     </div>
 </main>
 
+<script src="/js/panier.js"></script>
+
 <?php include '../includes/footer.php'; ?>

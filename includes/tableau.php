@@ -44,7 +44,7 @@ function afficherTableauProduits($famille) {
             <div class="ligne-produit" data-id="<?= $produit['id'] ?>" data-prix="<?= $produit['prixVente'] ?>">
                 
                 <!-- Code/Référence -->
-                <div class="col-code2">
+                <div class="col-code">
                     <?= htmlspecialchars($produit['reference']) ?>
                 </div>
                 
