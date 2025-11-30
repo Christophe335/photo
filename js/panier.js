@@ -27,16 +27,18 @@ class PanierManager {
    * Ajoute un produit au panier
    */
   ajouterProduit(produitId, quantite, prix, details) {
-    // Vérifier si le produit existe déjà
-    const index = this.panier.findIndex((item) => item.id === produitId);
+    // On distingue chaque couleur comme un article unique
+    let couleur = details.couleur || "";
+    let idUnique = produitId + "_" + couleur;
+    const index = this.panier.findIndex((item) => item.id === idUnique);
 
     if (index > -1) {
-      // Produit existant : augmenter la quantité
+      // Variante déjà présente : augmenter la quantité
       this.panier[index].quantite += quantite;
     } else {
-      // Nouveau produit
+      // Nouvelle variante (référence + couleur)
       this.panier.push({
-        id: produitId,
+        id: idUnique,
         quantite: quantite,
         prix: prix,
         details: details,
@@ -154,6 +156,46 @@ class PanierManager {
             });
             // Ajoute la classe active à la couleur cliquée
             item.classList.add("active");
+
+            // Affiche l'image couleur en grand dans la ligne
+            const couleurActive = item.querySelector(".couleur-nom");
+            let couleur = couleurActive ? couleurActive.textContent.trim() : "";
+            if (couleur) {
+              let nomFichier = couleur
+                .toLowerCase()
+                .replace(/ /g, "-")
+                .replace(/[éèêë]/g, "e")
+                .replace(/[àâä]/g, "a")
+                .replace(/[îï]/g, "i")
+                .replace(/[ôö]/g, "o")
+                .replace(/[ûü]/g, "u")
+                .replace(/[^a-z0-9\-]/g, "");
+              let cheminBig = `../images/couleurs/big/${nomFichier}-B.webp`;
+              let imgBig = ligne.querySelector(".image-couleur-big");
+              if (!imgBig) {
+                imgBig = document.createElement("img");
+                imgBig.className = "image-couleur-big";
+                imgBig.style.width = "80px";
+                imgBig.style.height = "80px";
+                imgBig.style.borderRadius = "12px";
+                imgBig.style.margin = "10px 0";
+                imgBig.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)";
+                // Ajoute l'image juste après le tableau des couleurs
+                const couleursContainer = ligne.querySelector(
+                  ".couleurs-container"
+                );
+                if (couleursContainer) {
+                  couleursContainer.parentNode.insertBefore(
+                    imgBig,
+                    couleursContainer.nextSibling
+                  );
+                } else {
+                  ligne.appendChild(imgBig);
+                }
+              }
+              imgBig.src = cheminBig;
+              imgBig.alt = couleur;
+            }
           });
         });
     });
@@ -226,13 +268,23 @@ function ajouterAuPanier(bouton) {
   if (couleurItemActive) {
     const couleurActive = couleurItemActive.querySelector(".couleur-nom");
     if (couleurActive) couleur = couleurActive.textContent.trim();
-    const imgActive = couleurItemActive.querySelector(".couleur-image");
-    if (imgActive) imageCouleur = imgActive.getAttribute("src");
   } else {
     const couleurDefault = ligneProduit.querySelector(".couleur-nom");
     if (couleurDefault) couleur = couleurDefault.textContent.trim();
-    const imgDefault = ligneProduit.querySelector(".couleur-image");
-    if (imgDefault) imageCouleur = imgDefault.getAttribute("src");
+  }
+  // Construction du chemin d'image big
+  if (couleur) {
+    // Formatage du nom pour le fichier (remplace espaces, accents, etc.)
+    let nomFichier = couleur
+      .toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[éèêë]/g, "e")
+      .replace(/[àâä]/g, "a")
+      .replace(/[îï]/g, "i")
+      .replace(/[ôö]/g, "o")
+      .replace(/[ûü]/g, "u")
+      .replace(/[^a-z0-9\-]/g, "");
+    imageCouleur = `../images/couleurs/big/${nomFichier}-B.webp`;
   }
   const details = {
     code: code,

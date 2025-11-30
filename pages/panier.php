@@ -37,6 +37,8 @@ if (!isset($_SESSION['panier'])) {
                 $total = $item['prix'] * $quantite;
                 $totalHT += $total;
                 $id = htmlspecialchars($item['id']);
+
+                // Si l'id contient un séparateur, on l'utilise pour garantir l'unicité
                 echo '<tr data-id="' . $id . '">';
                 // Colonne Référence
                 echo '<td>' . $reference . '</td>';
