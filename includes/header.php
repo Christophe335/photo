@@ -55,7 +55,6 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                                 <span>Compte</span>
                             </button>
                         </div>
-
                         <!-- Bouton Contact -->
                         <div class="account-btn">
                             <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account">
@@ -63,7 +62,6 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                                 <span>Contact</span>
                             </a>
                         </div>
-                        
                         <!-- Panier -->
                         <div class="cart">
                             <a href="/pages/panier.php" class="btn-cart">
@@ -78,8 +76,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
         
         <!-- Bandeau de navigation -->
         <div class="navigation-banner">
-            <div class="container">
-                <nav class="main-nav">
+            <nav class="main-nav">
                     <!-- Bouton Photo -->
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="photo">Photo</button>
@@ -128,6 +125,21 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         </div>
                     </div>
                 </nav>
+                                <!-- Boutons actions header (mode compact) -->
+                                <div class="nav-actions-compact">
+                                    <button class="btn-account-compact">
+                                        <i class="fas fa-user"></i>
+                                        <span>Compte</span>
+                                    </button>
+                                    <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account-compact">
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <span>Contact</span>
+                                    </a>
+                                    <a href="/pages/panier.php" class="btn-cart-compact">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span class="cart-count">0</span>
+                                    </a>
+                                </div>
             </div>
         </div>
     </header>

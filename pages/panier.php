@@ -31,6 +31,7 @@ if (!isset($_SESSION['panier'])) {
                 $designation = htmlspecialchars($item['details']['designation'] ?? '');
                 $format = htmlspecialchars($item['details']['format'] ?? '');
                 $couleur = htmlspecialchars($item['details']['couleur'] ?? '');
+                $imageCouleur = htmlspecialchars($item['details']['imageCouleur'] ?? '');
                 $quantite = (int)$item['quantite'];
                 $prix = number_format($item['prix'], 2, ',', ' ');
                 $total = $item['prix'] * $quantite;
@@ -42,7 +43,13 @@ if (!isset($_SESSION['panier'])) {
                 // Colonne Désignation
                 echo '<td>' . $designation;
                 if ($format) echo '<br><span style="color:#666;font-size:13px">Format : ' . $format . '</span>';
-                if ($couleur) echo '<br><span style="color:#666;font-size:13px">Couleur : ' . $couleur . '</span>';
+                if ($couleur) {
+                    echo '<br><span style="color:#666;font-size:13px">Couleur : ' . $couleur;
+                    if ($imageCouleur) {
+                        echo ' <img src="' . $imageCouleur . '" alt="' . $couleur . '" style="width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;">';
+                    }
+                    echo '</span>';
+                }
                 echo '</td>';
                 // Colonne Quantité
                 echo '<td><span class="quantite-panier">' . $quantite . '</span></td>';
@@ -51,7 +58,7 @@ if (!isset($_SESSION['panier'])) {
                 // Colonne Total HT
                 echo '<td>' . number_format($total, 2, ',', ' ') . ' €</td>';
                 // Colonne Action
-                echo '<td><button class="btn-supprimer-panier" onclick="supprimerDuPanier(\'' . $id . '\')">🗑️</button></td>';
+                echo '<td><button class="btn-supprimer-panier" onclick="supprimerDuPanier(\'' . $id . '\');window.location.reload();">🗑️</button></td>';
                 echo '</tr>';
             }
             echo '</tbody></table>';
@@ -112,31 +119,63 @@ if (!isset($_SESSION['panier'])) {
             if (panierJS && JSON.parse(panierJS).length > 0) {
                 syncPanierToSession();
             }
+            // Ajout automatique de la synchronisation et du rechargement après ajout au panier
+            if (window.ajoutAuPanierEtSync === undefined) {
+                window.ajoutAuPanierEtSync = function() {
+                    localStorage.removeItem('panier_synced');
+                    if (typeof syncPanierToSession === 'function') {
+                        syncPanierToSession();
+                        setTimeout(function(){ window.location.reload(); }, 400);
+                    }
+                }
+            }
+            // Ajout direct dans le JS d'ajout au panier
+            if (typeof ajouterAuPanier === 'function') {
+                const oldAjouterAuPanier = ajouterAuPanier;
+                window.ajouterAuPanier = function() {
+                    oldAjouterAuPanier.apply(this, arguments);
+                    if (typeof ajoutAuPanierEtSync === 'function') ajoutAuPanierEtSync();
+                }
+            }
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'panier') {
+                    localStorage.removeItem('panier_synced');
+                    syncPanierToSession();
+                    setTimeout(function(){ window.location.reload(); }, 400);
+                }
+            });
         });
         // Fonctions JS pour modifier/supprimer dans le panier
         function modifierQuantitePanier(id, delta) {
-            let panier = JSON.parse(localStorage.getItem('panier') || '[]');
-            let item = panier.find(p => p.id == id);
-            if (item) {
-                item.quantite += delta;
-                if (item.quantite < 1) item.quantite = 1;
-                localStorage.setItem('panier', JSON.stringify(panier));
-                localStorage.removeItem('panier_synced');
-                syncPanierToSession();
+            let panier = JSON.parse(localStorage.getItem('panier'));
+            for (let i = 0; i < panier.length; i++) {
+                if (panier[i].id === id) {
+                    panier[i].quantite = Math.max(1, (panier[i].quantite || 0) + delta);
+                    break;
+                }
             }
+            localStorage.setItem('panier', JSON.stringify(panier));
+            window.location.reload();
         }
         function supprimerDuPanier(id) {
-            let panier = JSON.parse(localStorage.getItem('panier') || '[]');
-            panier = panier.filter(p => p.id != id);
+            let panier = JSON.parse(localStorage.getItem('panier'));
+            panier = panier.filter(item => item.id !== id);
             localStorage.setItem('panier', JSON.stringify(panier));
             localStorage.removeItem('panier_synced');
             syncPanierToSession();
+            setTimeout(function(){ window.location.reload(); }, 400);
         }
-    } catch(e) {
-        console.error('Erreur JS panier :', e);
+        // Ajout d'un hook JS pour forcer la synchronisation et le rechargement après ajout au panier
+        window.ajoutAuPanierEtSync = function() {
+            localStorage.removeItem('panier_synced');
+            if (typeof syncPanierToSession === 'function') {
+                syncPanierToSession();
+                setTimeout(function(){ window.location.reload(); }, 400);
+            }
+        }
+    } catch (e) {
+        console.error('[Panier] Erreur', e);
     }
-    </script>
-  
     </script>
 </body>
 </html>

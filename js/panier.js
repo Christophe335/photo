@@ -52,26 +52,20 @@ class PanierManager {
    * Met à jour le compteur du panier
    */
   mettreAJourCompteurPanier() {
-    // Pour le header principal
-    const compteur = document.querySelector(".cart-count");
-    if (compteur) {
-      const totalItems = this.panier.reduce(
-        (total, item) => total + item.quantite,
-        0
-      );
+    // Mettre à jour tous les compteurs du panier
+    const totalItems = this.panier.reduce(
+      (total, item) => total + item.quantite,
+      0
+    );
+    document.querySelectorAll(".cart-count").forEach((compteur) => {
       compteur.textContent = totalItems;
       compteur.style.display = totalItems > 0 ? "inline" : "none";
-    }
+    });
     // Pour l'admin si besoin
-    const compteurAdmin = document.querySelector(".compteur-panier");
-    if (compteurAdmin) {
-      const totalItems = this.panier.reduce(
-        (total, item) => total + item.quantite,
-        0
-      );
+    document.querySelectorAll(".compteur-panier").forEach((compteurAdmin) => {
       compteurAdmin.textContent = totalItems;
       compteurAdmin.style.display = totalItems > 0 ? "inline" : "none";
-    }
+    });
   }
 
   /**
@@ -97,7 +91,12 @@ class PanierManager {
         }
         ${
           produit.couleur
-            ? `<strong>Couleur :</strong> ${produit.couleur}<br>`
+            ? `<strong>Couleur :</strong> ${produit.couleur}
+              ${
+                produit.imageCouleur
+                  ? `<img src='${produit.imageCouleur}' alt='${produit.couleur}' style='width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;'>`
+                  : ""
+              }<br>`
             : ""
         }
         <strong>Quantité :</strong> ${produit.quantite}
@@ -141,6 +140,22 @@ class PanierManager {
     // Mise à jour du compteur au chargement
     document.addEventListener("DOMContentLoaded", () => {
       this.mettreAJourCompteurPanier();
+    });
+    // Ajout : gestion de la sélection de couleur
+    document.addEventListener("DOMContentLoaded", function () {
+      document
+        .querySelectorAll(".ligne-produit .couleur-item")
+        .forEach(function (item) {
+          item.addEventListener("click", function () {
+            // Retire la classe active des autres couleurs de la même ligne
+            const ligne = item.closest(".ligne-produit");
+            ligne.querySelectorAll(".couleur-item").forEach(function (c) {
+              c.classList.remove("active");
+            });
+            // Ajoute la classe active à la couleur cliquée
+            item.classList.add("active");
+          });
+        });
     });
   }
 
@@ -204,11 +219,28 @@ function ajouterAuPanier(bouton) {
   const matiere =
     ligneProduit.querySelector(".matiere")?.textContent.trim() || "";
 
+  // Récupère la couleur sélectionnée (active), sinon la première
+  let couleur = "";
+  let imageCouleur = "";
+  const couleurItemActive = ligneProduit.querySelector(".couleur-item.active");
+  if (couleurItemActive) {
+    const couleurActive = couleurItemActive.querySelector(".couleur-nom");
+    if (couleurActive) couleur = couleurActive.textContent.trim();
+    const imgActive = couleurItemActive.querySelector(".couleur-image");
+    if (imgActive) imageCouleur = imgActive.getAttribute("src");
+  } else {
+    const couleurDefault = ligneProduit.querySelector(".couleur-nom");
+    if (couleurDefault) couleur = couleurDefault.textContent.trim();
+    const imgDefault = ligneProduit.querySelector(".couleur-image");
+    if (imgDefault) imageCouleur = imgDefault.getAttribute("src");
+  }
   const details = {
     code: code,
     designation: designation,
     format: format,
     matiere: matiere,
+    couleur: couleur,
+    imageCouleur: imageCouleur,
   };
 
   // Animation du bouton
@@ -225,8 +257,8 @@ function ajouterAuPanier(bouton) {
       code: code,
       designation: designation,
       format: format,
-      couleur:
-        ligneProduit.querySelector(".couleur-nom")?.textContent.trim() || "",
+      couleur: couleur,
+      imageCouleur: imageCouleur,
       quantite: quantite,
     }
   );
@@ -300,6 +332,8 @@ function actualiserContenuPanier(modal) {
   const contenu = modal.querySelector("#contenu-panier");
   const totalElement = modal.querySelector("#total-panier");
 
+  console.log("[DEBUG] Panier:", panierManager.panier);
+
   if (panierManager.panier.length === 0) {
     contenu.innerHTML = '<p class="panier-vide">Votre panier est vide</p>';
     totalElement.textContent = "0,00 €";
@@ -309,37 +343,48 @@ function actualiserContenuPanier(modal) {
   let html = '<div class="items-panier">';
   panierManager.panier.forEach((item) => {
     html += `
-            <div class="item-panier" data-id="${item.id}">
-                <div class="item-details">
-                    <div class="item-code">${item.details.code}</div>
-                    <div class="item-designation">${
-                      item.details.designation
-                    }</div>
-                    ${
-                      item.details.format
-                        ? `<div class="item-format">${item.details.format}</div>`
-                        : ""
-                    }
-                </div>
-                <div class="item-quantite">
-                    <button type="button" onclick="modifierQuantitePanier('${
-                      item.id
-                    }', -1)">−</button>
-                    <span>${item.quantite}</span>
-                    <button type="button" onclick="modifierQuantitePanier('${
-                      item.id
-                    }', 1)">+</button>
-                </div>
-                <div class="item-prix">${(item.prix * item.quantite)
-                  .toFixed(2)
-                  .replace(".", ",")} €</div>
-                <button type="button" class="btn-supprimer" onclick="supprimerDuPanier('${
-                  item.id
-                }')">🗑️</button>
-            </div>
-        `;
+      <div class="item-panier" data-id="${item.id}">
+        <div class="item-details">
+          <div class="item-code">${item.details.code}</div>
+          <div class="item-designation">${item.details.designation}</div>
+          ${
+            item.details.couleur
+              ? `<div class="item-couleur" style="color:#666;font-size:13px">Couleur : ${
+                  item.details.couleur
+                }${
+                  item.details.imageCouleur
+                    ? ` <img src='${item.details.imageCouleur}' alt='${item.details.couleur}' style='width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;border:2px solid red;'>`
+                    : ""
+                }</div>`
+              : ""
+          }
+          ${
+            item.details.format
+              ? `<div class="item-format">${item.details.format}</div>`
+              : ""
+          }
+        </div>
+        <div class="item-quantite">
+          <button type="button" onclick="modifierQuantitePanier('${
+            item.id
+          }', -1)">−</button>
+          <span>${item.quantite}</span>
+          <button type="button" onclick="modifierQuantitePanier('${
+            item.id
+          }', 1)">+</button>
+        </div>
+        <div class="item-prix">${(item.prix * item.quantite)
+          .toFixed(2)
+          .replace(".", ",")} €</div>
+        <button type="button" class="btn-supprimer" onclick="supprimerDuPanier('${
+          item.id
+        }')">🗑️</button>
+      </div>
+    `;
   });
   html += "</div>";
+
+  console.log("[DEBUG] HTML panier:", html);
 
   contenu.innerHTML = html;
   totalElement.textContent =
@@ -358,9 +403,9 @@ function modifierQuantitePanier(produitId, increment) {
     }
     panierManager.sauvegarderPanier();
 
-    // Actualiser l'affichage
+    // Actualiser l'affichage systématiquement
     const modal = document.getElementById("modal-panier");
-    if (modal && modal.style.display !== "none") {
+    if (modal) {
       actualiserContenuPanier(modal);
     }
   }
@@ -374,13 +419,11 @@ function supprimerDuPanier(produitId) {
   if (index > -1) {
     panierManager.panier.splice(index, 1);
     panierManager.sauvegarderPanier();
-
-    // Actualiser l'affichage
+    // Actualiser l'affichage systématiquement
     const modal = document.getElementById("modal-panier");
-    if (modal && modal.style.display !== "none") {
+    if (modal) {
       actualiserContenuPanier(modal);
     }
-
     panierManager.afficherNotification("Produit supprimé du panier");
   }
 }
@@ -415,4 +458,44 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     fermerPanier();
   }
+});
+
+// Réactualisation du panier quand on clique sur "Voir le panier" dans la popup
+// et à chaque suppression
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.addEventListener("click", function (e) {
+    // Bouton "Voir le panier" dans la popup
+    if (e.target.classList.contains("btn-panier")) {
+      const modal = document.getElementById("modal-panier");
+      if (modal) {
+        actualiserContenuPanier(modal);
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+    }
+    // Bouton supprimer dans le panier
+    if (e.target.classList.contains("btn-supprimer")) {
+      const modal = document.getElementById("modal-panier");
+      if (modal && modal.style.display !== "none") {
+        setTimeout(() => actualiserContenuPanier(modal), 100);
+      }
+    }
+    // Délégation d'événements pour les boutons +/− du panier sur le conteneur #contenu-panier
+    const contenuPanier = document.getElementById("contenu-panier");
+    if (contenuPanier) {
+      contenuPanier.addEventListener("click", function (e) {
+        if (e.target.closest(".item-quantite button")) {
+          const btn = e.target.closest(".item-quantite button");
+          const itemPanier = btn.closest(".item-panier");
+          const produitId = itemPanier.getAttribute("data-id");
+          if (btn.textContent.trim() === "−") {
+            modifierQuantitePanier(produitId, -1);
+          } else if (btn.textContent.trim() === "+") {
+            modifierQuantitePanier(produitId, 1);
+          }
+        }
+      });
+    }
+  });
 });

@@ -35,15 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Gestion du compteur de panier
   function updateCartCount(count) {
-    const cartCount = document.querySelector(".cart-count");
-    if (cartCount) {
+    const cartCounts = document.querySelectorAll(".cart-count");
+    cartCounts.forEach(function (cartCount) {
       cartCount.textContent = count;
-      if (count > 0) {
+      // Toujours afficher le compteur dans le bouton compact
+      if (cartCount.closest(".btn-cart-compact")) {
         cartCount.style.display = "flex";
       } else {
-        cartCount.style.display = "none";
+        if (count > 0) {
+          cartCount.style.display = "flex";
+        } else {
+          cartCount.style.display = "none";
+        }
       }
-    }
+    });
   }
 
   // Initialiser le compteur à 0
@@ -115,15 +120,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", function () {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const navigationBanner = document.querySelector(".navigation-banner");
 
     if (scrollTop > lastScrollTop && scrollTop > topBannerHeight) {
       // Scroll vers le bas - fixer le navigation-banner en haut
       header.classList.add("scrolled-down");
       body.classList.add("nav-fixed");
+      if (navigationBanner) navigationBanner.classList.add("nav-compact");
     } else if (scrollTop < topBannerHeight / 2) {
       // Scroll vers le haut - remettre le header normal
       header.classList.remove("scrolled-down");
       body.classList.remove("nav-fixed");
+      if (navigationBanner) navigationBanner.classList.remove("nav-compact");
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
