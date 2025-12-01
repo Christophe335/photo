@@ -30,7 +30,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                 <div class="top-banner-content">
                     <!-- Logo -->
                     <a class="logo" href="<?php echo $indexPath; ?>">
-                        <img src="<?php echo $imagesPath; ?>logo-icon/logo.svg" alt="Logo" class="logo-img">
+                        <img src="<?php echo $imagesPath; ?>logo-icon/logo3.svg" alt="Logo" class="logo-img">
                     </a>
                     
                     <!-- Phrase centrale -->

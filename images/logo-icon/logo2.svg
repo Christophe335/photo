@@ -4,41 +4,41 @@
   <defs>
     <style>
       .st0 {
-        fill: #fff;
-        stroke: #000;
+        stroke: red;
+        stroke-dasharray: 12.03 12.03;
       }
 
       .st0, .st1 {
         stroke-miterlimit: 10;
       }
 
-      .st1 {
-        stroke: red;
-        stroke-dasharray: 12.03 12.03;
-      }
-
-      .st1, .st2 {
+      .st0, .st2 {
         fill: none;
       }
 
-      .st3 {
+      .st1 {
+        fill: #fff;
+        stroke: #000;
+      }
+
+      .st1, .st3 {
+        display: none;
+      }
+
+      .st4 {
         fill: #efbf04;
       }
 
-      .st3, .st2 {
+      .st4, .st2 {
         stroke: #efbf04;
         stroke-linecap: round;
         stroke-linejoin: round;
         stroke-width: 21px;
       }
 
-      .st4 {
+      .st5 {
         font-family: ArialRoundedMTBold, 'Arial Rounded MT Bold';
         font-size: 231.78px;
-      }
-
-      .st5 {
-        display: none;
       }
 
       .st6 {
@@ -49,10 +49,10 @@
     </style>
   </defs>
   <g id="Texte">
-    <rect class="st0" width="1024" height="1024" rx="73.28" ry="73.28"/>
+    <rect class="st1" width="1024" height="1024" rx="73.28" ry="73.28"/>
   </g>
   <g id="texte">
-    <text class="st4" transform="translate(200.22 794)"><tspan x="0" y="0">Bindy</tspan></text>
+    <text class="st5" transform="translate(200.22 794)"><tspan x="0" y="0">Bindy</tspan></text>
     <text class="st6" transform="translate(294.89 916.91)"><tspan x="0" y="0">STUDIO</tspan></text>
   </g>
   <g id="dessin">
@@ -65,9 +65,9 @@
     <path class="st2" d="M805.41,207.94v285.63s-185.48,30.81-280.3,116.74c0,0-104.89-96-282.67-116.74V207.94s176.59,28.44,281.48,112.59c0,0,68.15-68.74,281.48-112.59Z"/>
     <path class="st2" d="M845.7,252.98v284.44s-143.78-8.3-320.52,74.52c0,0-48.74-56.3-322.52-76.74v-278.22h34.67"/>
     <line class="st2" x1="524.19" y1="606.61" x2="523.93" y2="322.31"/>
-    <path class="st3" d="M343.48,336.17c-6.03.06-16.49,1.41-16.3,17.78.15,12.81,11.56,15.7,16.3,15.7s16.52-4.96,16.89-15.92c.35-10.29-5.32-17.67-16.89-17.56Z"/>
+    <path class="st4" d="M343.48,336.17c-6.03.06-16.49,1.41-16.3,17.78.15,12.81,11.56,15.7,16.3,15.7s16.52-4.96,16.89-15.92c.35-10.29-5.32-17.67-16.89-17.56Z"/>
   </g>
-  <g id="Calque_3" class="st5">
-    <circle class="st1" cx="512" cy="512" r="505.56"/>
+  <g id="Calque_3" class="st3">
+    <circle class="st0" cx="512" cy="512" r="505.56"/>
   </g>
 </svg>
