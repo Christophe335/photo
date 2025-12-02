@@ -60,7 +60,7 @@ if (!isset($_SESSION['panier'])) {
                 // Colonne Total HT
                 echo '<td>' . number_format($total, 2, ',', ' ') . ' €</td>';
                 // Colonne Action
-                echo '<td><button class="btn-supprimer-panier" onclick="supprimerDuPanier(\'' . $id . '\');window.location.reload();">🗑️</button></td>';
+                echo '<td><button class="btn-supprimer-panier" onclick="supprimerDuPanierPage(\'' . $id . '\')">🗑️</button></td>';
                 echo '</tr>';
             }
             echo '</tbody></table>';
@@ -105,20 +105,41 @@ if (!isset($_SESSION['panier'])) {
                         console.log('[Panier] Réponse sync_panier.php', data);
                         if (resp.ok) {
                             localStorage.setItem('panier_synced', '1');
-                            // Recharger la page uniquement si le panier PHP était vide avant
-                            var panierContent = document.querySelector('#panier-content p');
-                            if (panierContent && panierContent.textContent.includes('vide')) {
-                                window.location.reload();
-                            }
+                            console.log('[Panier] Synchronisation OK, pas de rechargement automatique');
                         }
                     });
                 });
             }
         }
         window.addEventListener('DOMContentLoaded', function() {
+            console.log('[Panier] Page panier chargée, vérification synchronisation...');
             localStorage.removeItem('panier_synced'); // Toujours supprimer le flag au chargement
+            
             var panierJS = localStorage.getItem('panier');
-            if (panierJS && JSON.parse(panierJS).length > 0) {
+            var panierJSArray = panierJS ? JSON.parse(panierJS) : [];
+            
+            // Vérifier si le panier JS et PHP sont différents
+            var panierPHPVide = document.querySelector('#panier-content p') && 
+                               document.querySelector('#panier-content p').textContent.includes('vide');
+            var panierJSNonVide = panierJSArray.length > 0;
+            
+            console.log('[Panier] PHP vide:', panierPHPVide, 'JS non vide:', panierJSNonVide);
+            
+            // Si JS a des articles mais PHP est vide, synchroniser et recharger
+            if (panierJSNonVide && panierPHPVide) {
+                console.log('[Panier] Désynchronisation détectée, synchronisation et rechargement...');
+                fetch('/pages/sync_panier.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(panierJSArray)
+                }).then(function(response) {
+                    console.log('[Panier] Synchronisation lors du chargement terminée, rechargement...');
+                    window.location.reload();
+                }).catch(function(error) {
+                    console.log('[Panier] Erreur synchronisation chargement:', error);
+                });
+            } else if (panierJSNonVide) {
+                // Simple synchronisation sans rechargement si tous les deux ont du contenu
                 syncPanierToSession();
             }
             // Ajout automatique de la synchronisation et du rechargement après ajout au panier
@@ -127,7 +148,7 @@ if (!isset($_SESSION['panier'])) {
                     localStorage.removeItem('panier_synced');
                     if (typeof syncPanierToSession === 'function') {
                         syncPanierToSession();
-                        setTimeout(function(){ window.location.reload(); }, 400);
+                        console.log('[Panier] Synchronisation demandée, pas de rechargement automatique');
                     }
                 }
             }
@@ -159,13 +180,35 @@ if (!isset($_SESSION['panier'])) {
             localStorage.setItem('panier', JSON.stringify(panier));
             window.location.reload();
         }
-        function supprimerDuPanier(id) {
-            let panier = JSON.parse(localStorage.getItem('panier'));
+        function supprimerDuPanierPage(id) {
+            console.log('[DEBUG] Suppression de l\'article:', id);
+            let panier = JSON.parse(localStorage.getItem('panier')) || [];
+            console.log('[DEBUG] Panier avant suppression:', panier);
             panier = panier.filter(item => item.id !== id);
-            localStorage.setItem('panier', JSON.stringify(panier));
+            console.log('[DEBUG] Panier après suppression:', panier);
+            
+            // Toujours sauvegarder même si le panier devient vide
+            if (panier.length === 0) {
+                localStorage.setItem('panier', '[]');
+                console.log('[DEBUG] Panier vide, sauvegardé comme tableau vide');
+            } else {
+                localStorage.setItem('panier', JSON.stringify(panier));
+            }
+            
             localStorage.removeItem('panier_synced');
-            syncPanierToSession();
-            setTimeout(function(){ window.location.reload(); }, 400);
+            
+            // Synchronisation forcée puis rechargement
+            fetch('/pages/sync_panier.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(panier)
+            }).then(function(response) {
+                console.log('[DEBUG] Synchronisation terminée, rechargement...');
+                window.location.reload();
+            }).catch(function(error) {
+                console.log('[DEBUG] Erreur synchronisation, rechargement quand même...', error);
+                window.location.reload();
+            });
         }
         // Ajout d'un hook JS pour forcer la synchronisation et le rechargement après ajout au panier
         window.ajoutAuPanierEtSync = function() {

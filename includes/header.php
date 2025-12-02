@@ -34,7 +34,6 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     </a>
                     <!-- Coordonnées -->
                     <div class="tagcontact">
-                        <p>9 rue de la Gare - Vallerois-le-bois</p>
                         <i class="fas fa-phone-alt"></i>
                         <span>Appelez-nous : <a class="lienTel" href="tel:0384783839">03 84 78 38 39</a></span>
                     </div>

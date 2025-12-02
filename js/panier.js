@@ -47,7 +47,25 @@ class PanierManager {
     }
 
     this.sauvegarderPanier();
-    this.afficherNotification("Produit ajouté au panier");
+    
+    // Si on est sur la page panier, synchroniser avec délai pour éviter les conflits
+    if (window.location.pathname.includes('/pages/panier.php')) {
+      console.log('[DEBUG] Ajout sur page panier, synchronisation avec délai...');
+      setTimeout(() => {
+        fetch('/pages/sync_panier.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.panier)
+        }).then(function(response) {
+          console.log('[DEBUG] Synchronisation ajout terminée, rechargement unique...');
+          window.location.reload();
+        }).catch(function(error) {
+          console.log('[DEBUG] Erreur synchronisation ajout:', error);
+        });
+      }, 500);
+    } else {
+      this.afficherNotification("Produit ajouté au panier");
+    }
   }
 
   /**
@@ -467,16 +485,34 @@ function modifierQuantitePanier(produitId, increment) {
  * Supprime un item du panier
  */
 function supprimerDuPanier(produitId) {
+  console.log('[DEBUG] Suppression demandée pour:', produitId);
   const index = panierManager.panier.findIndex((item) => item.id === produitId);
   if (index > -1) {
     panierManager.panier.splice(index, 1);
     panierManager.sauvegarderPanier();
-    // Actualiser l'affichage systématiquement
-    const modal = document.getElementById("modal-panier");
-    if (modal) {
-      actualiserContenuPanier(modal);
+    
+    // Si on est sur la page panier, synchroniser et recharger immédiatement
+    if (window.location.pathname.includes('/pages/panier.php')) {
+      console.log('[DEBUG] Suppression sur page panier, synchronisation immédiate...');
+      fetch('/pages/sync_panier.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(panierManager.panier)
+      }).then(function(response) {
+        console.log('[DEBUG] Suppression synchronisée, rechargement...');
+        window.location.reload();
+      }).catch(function(error) {
+        console.log('[DEBUG] Erreur suppression, rechargement quand même...', error);
+        window.location.reload();
+      });
+    } else {
+      // Actualiser l'affichage du modal seulement
+      const modal = document.getElementById("modal-panier");
+      if (modal) {
+        actualiserContenuPanier(modal);
+      }
+      panierManager.afficherNotification("Produit supprimé du panier");
     }
-    panierManager.afficherNotification("Produit supprimé du panier");
   }
 }
 

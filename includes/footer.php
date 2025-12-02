@@ -34,18 +34,23 @@
                     <span>Contact</span>
                 </a>
             </div>
+            <!-- Coordonnées -->
+                    <div class="tagcontact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Appelez-nous : <a class="lienTel" href="tel:0384783839">03 84 78 38 39</a></span>
+                    </div>
             <!-- Logo -->
             <div class="logo">
                 <a href="../index.php">
-                    <img src="../images/logo-icon/logo.svg" alt="Logo" class="logo-img">
+                    <img src="../images/logo-icon/logo3.svg" alt="Logo" class="logo-img">
                 </a>
             </div>
-
-                    </div>
-                </div>
-        <div class="container">
-            <p>&copy; 2025 Photo - Impression et Personnalisation. Tous droits réservés.</p>
         </div>
+        <div class="container">
+            <p>&copy; 2025 Bindy Studio - Impression et Personnalisation d'albums photos. Tous droits réservés.</p>
+        </div>
+    </div>
+        
     </footer>
 </body>
 </html>

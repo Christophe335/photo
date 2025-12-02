@@ -29,6 +29,7 @@
         <div class="container">
             <img src="../images/produits/peel-stick-utilisation1.webp" alt="4 images montrant l'utilisation des Peel & Stick Sheets">
         </div>
+    </div>
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
@@ -38,7 +39,7 @@
             afficherTableauProduits('Peel & Stick Sheets');
             ?>
         </div>
-    </div>
+    
     <?php include '../includes/bt-devis.php'; ?>
 </section>
 <section class="section2">

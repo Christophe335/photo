@@ -373,6 +373,7 @@ body.nav-fixed {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  text-align: center;
 }
 
 /* Header Styles */
@@ -447,12 +448,12 @@ body.nav-fixed {
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    animation: clignotte 150ms infinite;
+    animation: clignotte 1000ms infinite;
 }
 
 @keyframes clignotte {
     0% { opacity: 1; }
-    50% { opacity: 0.6; }
+    50% { opacity: 0.6; color: #FFD700;}
     100% { opacity: 1; }
 }
 
