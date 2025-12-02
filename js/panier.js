@@ -175,20 +175,20 @@ class PanierManager {
             // Ajoute la classe active à la couleur cliquée
             item.classList.add("active");
 
-            // Affiche l'image couleur en grand dans la ligne
-            const couleurActive = item.querySelector(".couleur-nom");
-            let couleur = couleurActive ? couleurActive.textContent.trim() : "";
-            if (couleur) {
-              let nomFichier = couleur
-                .toLowerCase()
-                .replace(/ /g, "-")
-                .replace(/[éèêë]/g, "e")
-                .replace(/[àâä]/g, "a")
-                .replace(/[îï]/g, "i")
-                .replace(/[ôö]/g, "o")
-                .replace(/[ûü]/g, "u")
-                .replace(/[^a-z0-9\-]/g, "");
+
+          const couleurActive = item.querySelector(".couleur-nom");
+          let couleur = couleurActive ? couleurActive.textContent.trim() : "";
+          if (couleur) {
+            // Au lieu de transformer le nom, récupérer le chemin de l'image mini existante
+            const imgMini = item.querySelector("img");
+            if (imgMini && imgMini.src) {
+              // Extraire le nom du fichier depuis l'image mini
+              const cheminMini = imgMini.src;
+              const nomFichier = cheminMini.split('/').pop().replace('.webp', '');
+              
+              // Construire le chemin vers l'image big
               let cheminBig = `../images/couleurs/big/${nomFichier}-B.webp`;
+              
               let imgBig = ligne.querySelector(".image-couleur-big");
               if (!imgBig) {
                 imgBig = document.createElement("img");
@@ -198,6 +198,8 @@ class PanierManager {
                 imgBig.style.borderRadius = "12px";
                 imgBig.style.margin = "10px 0";
                 imgBig.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)";
+
+
                 // Ajoute l'image juste après le tableau des couleurs
                 const couleursContainer = ligne.querySelector(
                   ".couleurs-container"
@@ -214,6 +216,7 @@ class PanierManager {
               imgBig.src = cheminBig;
               imgBig.alt = couleur;
             }
+          }
           });
         });
     });
@@ -292,17 +295,28 @@ function ajouterAuPanier(bouton) {
   }
   // Construction du chemin d'image big
   if (couleur) {
-    // Formatage du nom pour le fichier (remplace espaces, accents, etc.)
-    let nomFichier = couleur
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[éèêë]/g, "e")
-      .replace(/[àâä]/g, "a")
-      .replace(/[îï]/g, "i")
-      .replace(/[ôö]/g, "o")
-      .replace(/[ûü]/g, "u")
-      .replace(/[^a-z0-9\-]/g, "");
-    imageCouleur = `../images/couleurs/big/${nomFichier}-B.webp`;
+    // Au lieu de formater le nom, utiliser le chemin de l'image mini
+    const couleurItem = couleurItemActive || ligneProduit.querySelector(".couleur-item");
+    const imgMini = couleurItem ? couleurItem.querySelector("img") : null;
+    
+    if (imgMini && imgMini.src) {
+      // Extraire le nom du fichier depuis l'image mini
+      const cheminMini = imgMini.src;
+      const nomFichier = cheminMini.split('/').pop().replace('.webp', '');
+      imageCouleur = `../images/couleurs/big/${nomFichier}-B.webp`;
+    } else {
+      // Fallback: utiliser l'ancienne méthode si pas d'image mini trouvée
+      let nomFichier = couleur
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/[éèêë]/g, "e")
+        .replace(/[àâä]/g, "a")
+        .replace(/[îï]/g, "i")
+        .replace(/[ôö]/g, "o")
+        .replace(/[ûü]/g, "u")
+        .replace(/[^a-z0-9\-]/g, "");
+      imageCouleur = `../images/couleurs/big/${nomFichier}-B.webp`;
+    }
   }
   const details = {
     code: code,

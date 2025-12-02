@@ -7,11 +7,14 @@
   --primary-orange: #f05124;
   --primary-green: #28a745;
   --background-light: #f8f9fa;
+  --background-grey: #c4c4c4;
   --border-color: #dee2e6;
   --text-dark: #333;
   --text-muted: #6c757d;
-  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow: 1px 2px 8px #00000094;
 }
+
+
 
 /* Base du tableau produits */
 .tableau-produits {
@@ -19,7 +22,7 @@
   max-width: 100%;
   width: 1011px;
   margin: 20px auto;
-  background: white;
+  background: #f1f1f1;
   border-radius: 8px;
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -27,7 +30,7 @@
 
 /* Titre de la famille */
 .titre-famille {
-  background: var(--background-light);
+  background: #f1f1f1;
   color: var(--primary-dark);
   margin: 0;
   padding: 20px 30px;
@@ -126,7 +129,7 @@
   justify-content: space-between !important;
   gap: 6px;
   padding: 0 8px;
-  background: var(--background-light);
+  background: #cecece;
   border-radius: 4px;
   font-size: 11px;
   white-space: nowrap;
