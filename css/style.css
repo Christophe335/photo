@@ -138,6 +138,16 @@ body {
   margin-top: -60px;
 }
 
+.posCouleur {
+  padding: 20px;
+  margin-top: 13%;
+}
+
+.paragraphe {
+  width: 75%;
+  margin: 0 auto 30px auto;
+}
+
 .bouton {
   background-color: #ff5500;
   color: #f1f1f1;
@@ -188,6 +198,34 @@ body {
   width: 50%;
   overflow: visible;
 }
+
+.detail {
+  font-size: 12px;
+  font-weight: 700; 
+  font-style: italic; 
+  text-transform: uppercase;
+  padding: 5px;
+  margin: 10px;
+  background-color: #171717;
+  color: #FFD700;
+  animation: clignotter 1000ms infinite;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  width: 375px;
+}
+
+.detail a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+@keyframes clignotter {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; color: #FFD700;}
+    100% { opacity: 1; }
+}
+
 
 .id {
   font-size: 14px;

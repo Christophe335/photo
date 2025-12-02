@@ -45,7 +45,7 @@
 <section class="section2">
     <div class="container">
         <h2 class="title-h3 centre-text">Livres photo autocollants - Couverture couleur</h2>
-        <p>Produit à faire soi-même. Laissez vos clients personnaliser eux-mêmes leurs photos préférées, sans colle ni ruban adhésif !
+        <p class="paragraphe">Produit à faire soi-même. Laissez vos clients personnaliser eux-mêmes leurs photos préférées, sans colle ni ruban adhésif !
  Étape 1: retirez le ﬁlm protecteur de la couche adhésive de la couverture.  Étape 2: collez votre photo.
 En un rien de temps, les clients créent leur propre souvenir ou cadeau personnalisé.</p>
     </div>
@@ -80,7 +80,7 @@ En un rien de temps, les clients créent leur propre souvenir ou cadeau personna
 <section class="section1">
     <div class="container">
         <h2 class="title-h3 centre-text">Livres photo autocollants - Couverture Noir</h2>
-        <p>Créez facilement de magnifiques cadeaux photo en quelques secondes avec un pratique livre photo Peel & Stick. 
+        <p class="paragraphe">Créez facilement de magnifiques cadeaux photo en quelques secondes avec un pratique livre photo Peel & Stick. 
 Imprimez simplement vos photos et créez votre propre livre photo en un rien de temps. 
 Ces livres photo lay-flat sont sans aucun doute faciles à assembler et offrent une tenue solide et robuste. 
 Le cadeau idéal pour une personne très spéciale.</p>
@@ -111,11 +111,11 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </div>
     <div class="ligne">
         <div>
-            <p>Une image en dit plus que mille mots. Dans ces livres photo
+            <p class="paragraphe">Une image en dit plus que mille mots. Dans ces livres photo
             instantanés colorés, il y a de la place pour 10 images de ce type (soit
             plus de 10 000 mots) et pour ajouter un message spécial. Combien
             de mots cela représente-t-il ? Nous avons perdu le compte ...</p>
-            <p>Indispensable pour les créateurs de scrapbooking
+            <p class="paragraphe">Indispensable pour les créateurs de scrapbooking
             Les livres photo instantanés constituent la base idéale pour un
             scrapbook, une sorte de livre photo à l'ancienne, mais un peu plus
             personnel. Ils comprennent des autocollants double face pour fixer

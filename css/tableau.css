@@ -16,7 +16,8 @@
 /* Base du tableau produits */
 .tableau-produits {
   font-family: "Roboto", sans-serif;
-  max-width: 60%;
+  max-width: 100%;
+  width: 1011px;
   margin: 20px auto;
   background: white;
   border-radius: 8px;
@@ -39,8 +40,8 @@
 .tableau-header,
 .ligne-produit {
   display: grid;
-  grid-template-columns: 110px 300px 150px 60px 100px 80px 100px;
-  gap: 15px;
+  grid-template-columns: 125px 1fr 150px 25px 100px 80px 100px;
+  gap: 10px;
   align-items: center;
   padding: 1px 20px;
   border-bottom: 1px solid var(--border-color);
