@@ -436,6 +436,26 @@ body.nav-fixed {
   width: auto;
 }
 
+/* coordonnées dans le header */
+.tagcontact {
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.lienTel {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    animation: clignotte 150ms infinite;
+}
+
+@keyframes clignotte {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
 /* Phrase centrale */
 .tagline {
   flex: 1;
