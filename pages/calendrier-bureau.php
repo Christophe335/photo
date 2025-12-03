@@ -32,6 +32,7 @@
                         afficherTableauProduits('Peel & Stick Calendar Desktop');
                         ?>
                     </div>
+                    <p>** Ce calendrier de bureau est diponible dans plusieurs langues (NL, EN, DE, ES, FR, IT, PL, SK, CZ, DK, PT)</p>
                 </div>
             </div> 
             </br>   
@@ -48,11 +49,12 @@
                                 require_once __DIR__ . '/../includes/tableau.php';
                                 
                                 // Afficher les produits de reliure directement
-                                afficherTableauProduits('Peel & Stick Calendar Desktop');
+                                afficherTableauProduits('Peel & Stick Calendar Cardboard Desktop');
                                 ?>
                             </div>
                             
                         </div>
+                        
                     </div> 
                 </div>
                 <div class="colonne-1 onright">

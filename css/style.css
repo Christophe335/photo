@@ -146,6 +146,8 @@ body {
 .paragraphe {
   width: 75%;
   margin: 0 auto 30px auto;
+  font-size: 16px;
+  text-align: justify;
 }
 
 .bouton {
@@ -187,6 +189,17 @@ body {
   text-decoration: none;
 }
 
+/* ensemble des boutons demande de devis */
+.bt-devis {
+  margin: 40px auto 40px auto;
+  padding: 20px;
+  border: solid 0.5px #ff5500;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #acacac;
+  width: 415px;
+}
+
+/* titre des pages en forme de bulle */
 .bull {
   position: relative;
   background-color: #f1f1f1;
@@ -198,6 +211,8 @@ body {
   width: 50%;
   overflow: visible;
 }
+
+/* numéro de téléphone qui clignotte */
 
 .detail {
   font-size: 12px;
@@ -766,6 +781,14 @@ body.nav-fixed {
 .nav-item.active .dropdown-menu {
   opacity: 1;
   visibility: visible;
+}
+
+/* ====== Pour page calendrier-glissant */
+.triangle {
+  background-image: url(../images/produits/triangle.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 /* ===== FORMULAIRES ===== */
