@@ -19,8 +19,8 @@
             <h2 class="title-h3 centre-text">CALENDRIER DE BUREAU</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft ligne">
-                    <img class="centre-div" style="width: 50%; height: auto;" src="../images/produits/calendrier-bureau-1.webp" alt="Présentation d'un calendrier de bureau personnalisé avec des photos">
-                    <img class="centre-div" style="width: 50%; height: auto;" src="../images/produits/calendrier-bureau-2.webp" alt="Présentation du support d'un calendrier de bureau">
+                    <img class="centre-div" style="width: 50%; height: 85%;" src="../images/produits/calendrier-bureau-1.webp" alt="Présentation d'un calendrier de bureau personnalisé avec des photos">
+                    <img class="centre-div" style="width: 50%; height: 85%;" src="../images/produits/calendrier-bureau-2.webp" alt="Présentation du support d'un calendrier de bureau">
                 </div>
                 <div class="colonne-2">
                     <div class="tableau-container">

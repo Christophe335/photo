@@ -102,12 +102,35 @@ body {
   margin-bottom: 20px;
 }
 
+.titre-h2 {
+  color: #24256d;
+  margin-bottom: -20px;
+  margin-left: 10px;
+}
+
 .title-h3 {
   color: #000000;
   margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 24px;
+}
+
+.titre-h3 {
+  color: #24256d;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.interp {
+  line-height: 19px;
+}
+
+.petiteVignette {
+   width: 80px; 
+   height: 80px; 
+   margin: 10px; 
+   text-align: center;
 }
 
 .ligne {
@@ -193,7 +216,7 @@ body {
 .bt-devis {
   margin: 40px auto 40px auto;
   padding: 20px;
-  border: solid 0.5px #ff5500;
+  border: solid 0.5px #ddac17;
   border-radius: 8px;
   box-shadow: 0 0 5px #acacac;
   width: 415px;

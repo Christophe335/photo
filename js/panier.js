@@ -437,7 +437,7 @@ function actualiserContenuPanier(modal) {
                   item.details.couleur
                 }${
                   item.details.imageCouleur
-                    ? ` <img src='${item.details.imageCouleur}' alt='${item.details.couleur}' style='width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;border:2px solid red;'>`
+                    ? ` <img src='${item.details.imageCouleur}' alt='${item.details.couleur}' style='width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;'>`
                     : ""
                 }</div>`
               : ""

@@ -70,15 +70,18 @@ if (!isset($_SESSION['panier'])) {
             $ttc = $totalHT + $tva;
             $fraisPort = ($totalHT > 200) ? 0 : 13.95;
             echo '<div class="recap-panier">';
-            echo '<p>Total HT : <strong>' . number_format($totalHT, 2, ',', ' ') . ' €</strong></p>';
-            echo '<p>TVA (20%) : <strong>' . number_format($tva, 2, ',', ' ') . ' €</strong></p>';
-            echo '<p>Total TTC : <strong>' . number_format($ttc, 2, ',', ' ') . ' €</strong></p>';
+            echo '<p style="display:flex; justify-content:space-between;">Total HT : <strong>' . number_format($totalHT, 2, ',', ' ') . ' €</strong></p>';
+            echo '<p style="display:flex; justify-content:space-between;">TVA (20%) : <strong>' . number_format($tva, 2, ',', ' ') . ' €</strong></p>';
+            echo '<hr>';
+            echo '<p style="display:flex; justify-content:space-between;">Total TTC : <strong>' . number_format($ttc, 2, ',', ' ') . ' €</strong></p>';
             if ($fraisPort == 0) {
-                echo '<p>Frais de port : <strong style="color:green">Gratuit</strong></p>';
+                echo '<p style="display:flex; justify-content:space-between;">Frais de port : <strong style="color:green">Gratuit</strong></p>';
             } else {
-                echo '<p>Frais de port : <strong>' . number_format($fraisPort, 2, ',', ' ') . ' €</strong></p>';
+                echo '<p style="display:flex; justify-content:space-between;">Frais de port : <strong>' . number_format($fraisPort, 2, ',', ' ') . ' €</strong></p>';
             }
-            echo '<p><strong>Total à payer : ' . number_format($ttc + $fraisPort, 2, ',', ' ') . ' €</strong></p>';
+            echo '<hr>';
+            echo '<p style="display:flex; justify-content:space-between;"><strong>Total à payer :</strong><strong>' . number_format($ttc + $fraisPort, 2, ',', ' ') . ' €</strong>
+      </p>';
             echo '</div>';
         }
     ?>

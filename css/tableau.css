@@ -258,7 +258,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: "Roboto", sans-serif;
-  background: white;
+  background: antiquewhite;
   margin-bottom: 20px;
 }
 .table-panier th,
@@ -284,9 +284,10 @@
   background: var(--background-light);
   border-radius: 8px;
   padding: 18px 20px;
-  margin-top: 20px;
+  margin: 20px auto 20px auto;
   font-size: 18px;
   box-shadow: var(--shadow);
+  width: 260px;
 }
 .recap-panier p {
   margin: 8px 0;
