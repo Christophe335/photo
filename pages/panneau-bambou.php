@@ -1,4 +1,10 @@
 <?php include '../includes/header.php'; ?>
+<?php include '../includes/menu-flottant.php'; ?>
+
+<!-- Styles nécessaires pour le tableau des produits -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tableau.css">
+<link rel="stylesheet" href="../css/panier.css">
 
 <main style="padding: 40px 0;">
     <div class="container">
