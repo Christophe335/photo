@@ -15,7 +15,7 @@
         </p>
     </div>
 </main>
-<section class="section1">
+<section class="section1" id="Peel & Stick">
     <div class="container">
         <h2 class="title-h3 centre-text">Service de personnalisation</h2>
         <h3 class="title-h2 centre-text">Peel & Stick Sheets</h3>
@@ -43,7 +43,7 @@
     
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section2">
+<section class="section2" id="Livre photo autocollant">
     <div class="container">
         <h2 class="title-h3 centre-text">Livres photo autocollants - Couverture couleur</h2>
         <p class="paragraphe">Produit à faire soi-même. Laissez vos clients personnaliser eux-mêmes leurs photos préférées, sans colle ni ruban adhésif !
@@ -78,7 +78,7 @@ En un rien de temps, les clients créent leur propre souvenir ou cadeau personna
         </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section1">
+<section class="section1" id="Livre photo autocollant noir">
     <div class="container">
         <h2 class="title-h3 centre-text">Livres photo autocollants - Couverture Noir</h2>
         <p class="paragraphe">Créez facilement de magnifiques cadeaux photo en quelques secondes avec un pratique livre photo Peel & Stick. 
@@ -106,7 +106,7 @@ Le cadeau idéal pour une personne très spéciale.</p>
         </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section2">
+<section class="section2" id="Livre photo créatif">
     <div class="container">
         <h2 class="title-h3 centre-text">Livre Photo Créatif</h2>
     </div>

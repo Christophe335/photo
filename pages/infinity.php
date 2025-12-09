@@ -14,7 +14,7 @@
             Notre collection premium aux possibilités infinies de personnalisation.
         </p>
     </div>    
-     <section class="section1">
+     <section class="section1" id="Album Dépliant en accordéon">
         <div class="container">
             <h2 class="title-h3 centre-text">ALBUM DÉPLIANT EN ACCORÉON</h2>
             <p class="paragraphe">Le Photobook Infinity Lay-Flat est un nouveau et unique produit dans le monde de la photographie. 

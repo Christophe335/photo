@@ -14,7 +14,7 @@
             La durabilité et l'élégance avec nos couvertures rigides de qualité.
         </p>
     </div>
-    <section class="section1" id="Carnet">
+    <section class="section1" id="Carnet de Notes">
     <div class="container">
         <h2 class="title-h3 centre-text">Carnet de notes personnalisé</h2>
         <p class="paragraphe">Ce carnet, avec une couverture rigide au toucher cachemire, est un plaisir à écrire. Le papier pointillé est agréablement lisse, de sorte que l'encre ne bave pas. Personnalisez votre couverture rigide avec votre propre logo d'entreprise et le nom de votre employé.</p>
@@ -83,7 +83,7 @@
     </div>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section2" id="Cahier">
+<section class="section2" id="Cahier de Réunion">
     <div class="container">
         <h2 class="title-h3 centre-text">Cahier de réunion</h2>
         <div class="ligne">
@@ -140,7 +140,7 @@
     </div>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section1" id="Mono">
+<section class="section1" id="Couverture rigide 1 face">
     <div class="container">
         <h2 class="title-h3 centre-text">Couverture rigide 1 face personnalisable</h2>
         <p class="paragraphe">Les couvertures rigides Mono Hard sont des outils de personnalisation conviviales et rentables, créés en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures uniques préfabriquées vous permettent de personnaliser facilement le devant de votre HardCover. Son concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle. Les couvertures rigides sont la solution parfaite de fabrication de boîtiers pour toutes vos applications uniques ou en petite série.</p>
@@ -176,7 +176,7 @@
         </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section2" id="Duo">
+<section class="section2" id="Couverture rigide 2 faces">
     <div class="container">
         <h2 class="title-h3 centre-text">Couverture rigide 2 faces personnalisables</h2>
         <p class="paragraphe">Les couvertures rigides Duo sont un outil de personnalisation convivial et économique créé en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures rigides Duo uniques préfabriquées vous permettent de personnaliser facilement la police et le dos de votre HardCover. C'est un concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle.  Les couvertures rigides Duo sont la solution parfaite de fabrication de boîtiers pour toutes vos applications uniques ou en petite série.</p>
@@ -204,7 +204,7 @@
         </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section1" id="Carré">
+<section class="section1" id="Couverture rigide personnalisables">
     <div class="container">
         <h2 class="title-h3 centre-text">Couverture rigide personnalisables</br>formats 10x15 cm - 20x20 cm - 30x30 cm</h2>
         <p class="paragraphe">Le Hard Cover Basic est une couverture préfabriquée avec un revêtement en papier dotée d'une fine couche de colle thermofusible sur son extérieur et ses bords intérieurs. Développé pour fabriquer un livre relié sans utilisation de colles liquides, en petites ou grandes quantités.</p>
@@ -237,7 +237,7 @@
 </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section2" id="Clamps">
+<section class="section2" id="Couverture rigide clamps">
     <div class="container">
         <h2 class="title-h3 centre-text">Couverture rigide clamps personnalisables</h2>
         <p class="paragraphe">Les couvertures Hard Cover Basic reliure clamps sont des couvertures de  reliure personnalisable à l'aide de la machine de personnalisation Hard  Cover Maker 650. Le système Clamps est une baguette plastique qui permet de relier des feuilles sans l'utilisation de relieure.</p>
@@ -264,7 +264,7 @@
 </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section1" id="Classeur">
+<section class="section1" id="Classeurs">
     <div class="container">
         <h2 class="title-h3 centre-text">Classeur - 2 ou 4 anneaux</h2>
         <p class="paragraphe">Présentez vos documents de manière élégante et professionnelle. Le RingBinder est parfait pour organiser vos documents. Le RingBinder peut être personnalisé avec n'importe quel logo ou œuvre d'art.</br>Choisissez entre 2 anneaux ou 4 anneaux.</p>
@@ -303,7 +303,7 @@
 </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-<section class="section2" id="Matière">
+<section class="section2" id="Matériel de couverture">
     <div class="container">
         <h2 class="title-h3 centre-text">Matériel de couverture pour Classeurs</h2>
         <h3 class="sous-titre-h3">Cuir Vegan</h3>

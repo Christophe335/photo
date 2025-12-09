@@ -14,7 +14,7 @@
             Optez pour nos finitions luxe pour un rendu exceptionnel et premium.
         </p>
     </div>
-    <section class="section1">
+    <section class="section1" id="Finition Luxe">
         <div class="container">
             
             <h2 class="title-h3 centre-text">FINITION LUXE</h2>
@@ -52,7 +52,7 @@
         </div>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section2">
+    <section class="section2" id="Portfolio et Classeur">
         <div class="container">
             
             <h2 class="title-h3 centre-text">PORTFOLIO / CLASSEUR À 2 ANNEAUX</h2>

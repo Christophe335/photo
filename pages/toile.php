@@ -14,7 +14,7 @@
             Donnez vie à vos photos avec nos impressions sur toile de qualité artistique.
         </p>
     </div>
-    <section class="section1">
+    <section class="section1" id="Impression sur Toile">
         <div class="container">
             
             <h2 class="title-h3 centre-text">IMPRESSION SUR TOILE</h2>

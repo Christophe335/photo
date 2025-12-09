@@ -14,7 +14,7 @@
             Un calendrier glissant pratique et élégant pour votre bureau.
         </p>
     </div>
-    <section class="section1">
+    <section class="section1" id="Calendrier à feuilles glissantes">
         <div class="container">
             
             <h2 class="title-h3 centre-text">CALENDRIER A FEUILLES GLISSANTES</h2>

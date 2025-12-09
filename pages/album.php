@@ -15,7 +15,7 @@
             Créez un magnifique album photo pour conserver vos plus beaux souvenirs.
         </p>
     </div>    
-        <section class="section1">
+        <section class="section1" id="Album Photo">
         <div class="container">
             <h2 class="title-h3 centre-text">ALBUM PHOTO</h2>
             <p>Donnez à vos livres photo une finition professionnelle et un aspect de haute qualité avec notre PhotoBook Resin. Notre système breveté de reliure thermique en acier garantit une liaison solide et durable.</p>
@@ -89,7 +89,7 @@
         </br>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section2">
+    <section class="section2" id="Album Photo à fenêtre">
     <div class="container">
         <h2 class="title-h3 centre-text">ALBUM PHOTO À FENÊTRE</h2>
         <p class="paragraphe">Un livre relié en tissu kashmir classique avec une fenêtre découpée dans la couverture. 

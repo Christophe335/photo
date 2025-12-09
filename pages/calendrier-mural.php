@@ -14,7 +14,7 @@
             Décorez vos murs avec un calendrier mural personnalisé avec vos photos.
         </p>
     </div>
-    <section class="section1">
+    <section class="section1" id="Calendrier Mural pour la maison">
         <div class="container">
             
             <h2 class="title-h3 centre-text">CALENDRIER MURAL POUR LA MAISON</h2>
@@ -40,10 +40,10 @@
         </div>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section2">
+    <section class="section2" id="Calendrier Mural Professionnel">
         <div class="container">
             
-            <h2 class="title-h3 centre-text">CALENDRIER MURAL PROFESSIONEL</h2>
+            <h2 class="title-h3 centre-text">CALENDRIER MURAL PROFESSIONNEL</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft ligne">
                     <img class="centre-div" style="width: 170px; height: 272px; margin-left: 200px;" src="../images/produits/unicalendar-01.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 1 femme qui marche dans un champ et portant une robe bleue">
@@ -68,7 +68,7 @@
         </div>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section1">
+    <section class="section1" id="Porte-affiche">
         <div class="container">
             
             <h2 class="title-h3 centre-text">PORTE-AFFICHE OU CALENDRIER EN BOIS</h2>

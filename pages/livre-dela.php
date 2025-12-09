@@ -14,7 +14,7 @@
             Notre collection premium de livres photo avec finitions luxueuses.
         </p>
     </div>   
-    <section class="section1">
+    <section class="section1" id="Livre photo Dela">
         <div class="container">
             <h2 class="title-h3 centre-text">Livre photo Dela commémoratif A4</h2>
             <p class="paragraphe">Dans le monde numérique d’aujourd’hui, les images jouent un rôle  crucial, tant pour les entreprises que pour les particuliers. Nous  communiquons avec des images. 

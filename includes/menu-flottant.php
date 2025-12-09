@@ -33,7 +33,7 @@
 .menu-toggle {
     width: 50px;
     height: 50px;
-    background: #2c3e50;
+    background: #1a1b4d;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -44,7 +44,7 @@
 }
 
 .menu-toggle:hover {
-    background: #34495e;
+    background: #24256d;
     transform: scale(1.1);
 }
 
@@ -62,7 +62,7 @@
     background: white;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    min-width: 200px;
+    min-width: 270px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -132,7 +132,7 @@
     display: block;
     padding: 12px 20px;
     text-decoration: none;
-    color: #2c3e50;
+    color: #1a1b4d;
     font-size: 14px;
     font-weight: 400;
     transition: all 0.2s ease;
@@ -141,18 +141,18 @@
 
 .menu-links a:hover {
     background: #f8f9fa;
-    color: #3498db;
+    color: #24256d;
     padding-left: 25px;
 }
 
 .menu-links a.active {
-    background: #3498db;
+    background: #2a256d;
     color: white;
     font-weight: 500;
 }
 
 .menu-links a.active:hover {
-    background: #2980b9;
+    background: #3032a1;
     color: white;
 }
 
@@ -196,8 +196,8 @@ function generateMenu() {
     const menuLinks = document.getElementById('menu-links');
     if (!menuLinks) return;
     
-    // Trouver toutes les sections avec un ID
-    const sections = document.querySelectorAll('section[id], div[id]');
+    // Trouver uniquement les balises <section> avec un ID
+    const sections = document.querySelectorAll('section[id]');
     menuLinks.innerHTML = '';
     
     sections.forEach(section => {
@@ -256,7 +256,7 @@ function updateActiveSection(sectionId) {
 
 // Détecter la section visible lors du scroll
 function detectCurrentSection() {
-    const sections = document.querySelectorAll('section[id], div[id]');
+    const sections = document.querySelectorAll('section[id]');
     const scrollPosition = window.scrollY + 150; // Offset pour le header
     
     let currentSectionId = '';

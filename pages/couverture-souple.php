@@ -14,7 +14,7 @@
             Une option élégante et pratique avec couverture souple personnalisée.
         </p>
     </div>
-    <section class="section1">
+    <section class="section1" id="Couverture Souple">
         <div class="container">
             
             <h2 class="title-h3 centre-text">COUVERTURE SOUPLE</h2>
@@ -62,7 +62,7 @@
         </div>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section2">
+    <section class="section2" id="Couverture Souple Personnalisée">
         <div class="container">
             
             <h2 class="title-h3 centre-text">COUVERTURE SOUPLE PERSONNALISÉE</h2>

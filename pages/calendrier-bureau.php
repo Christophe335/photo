@@ -14,7 +14,7 @@
             Personnalisez votre espace de travail avec un calendrier de bureau unique.
         </p>
     </div>
-    <section class="section1">
+    <section class="section1" id="Calendrier de Bureau">
         <div class="container">
             
             <h2 class="title-h3 centre-text">CALENDRIER DE BUREAU</h2>
