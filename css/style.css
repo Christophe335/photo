@@ -122,6 +122,15 @@ body {
   font-size: 16px;
 }
 
+.sous-titre-h3 {
+  color: #24256d;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+}
+
 .interp {
   line-height: 19px;
 }
@@ -164,6 +173,15 @@ body {
 .posCouleur {
   padding: 20px;
   margin-top: 13%;
+}
+
+.posCouleurRigide {
+  padding: 20px 4px;
+  margin-top: 13%;
+}
+.posCouleurRigide p {
+  font-size: 11px;
+  text-align: center;
 }
 
 .paragraphe {
@@ -299,10 +317,15 @@ body {
   padding: 20px;
 }
 
+.colonne-5 {
+  width: 25%;
+}
+
 .colonne-1,
 .colonne-2,
 .colonne-3,
-.colonne-4 {
+.colonne-4,
+.colonne-5 {
   text-align: justify;
 }
 
