@@ -262,8 +262,8 @@ body {
   text-transform: uppercase;
   padding: 5px;
   margin: 10px;
-  background-color: #171717;
-  color: #FFD700;
+  background-color: #ff5500;
+  color: #ffffff;
   animation: clignotter 1000ms infinite;
   margin-left: auto;
   margin-right: auto;
@@ -272,7 +272,7 @@ body {
 }
 
 .detail a {
-    color: #FFD700;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -321,11 +321,23 @@ body {
   width: 25%;
 }
 
+.colonne-6 {
+  width: 50%;
+  margin: auto 10px;
+}
+
+.colonne-7 {
+  width: 20%;
+  margin: auto 10px;
+}
+
 .colonne-1,
 .colonne-2,
 .colonne-3,
 .colonne-4,
-.colonne-5 {
+.colonne-5,
+.colonne-6,
+.colonne-7 {
   text-align: justify;
 }
 
@@ -724,7 +736,7 @@ body.nav-fixed {
   align-items: center;
   gap: 30px;
   width: calc(100% - 100px);
-  margin-left: 100px;
+  margin-left: 30%;
   position: relative;
 }
 

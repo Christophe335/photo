@@ -112,7 +112,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
                             <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
                             <a href="<?php echo $pagesPath; ?>pochette.php" class="dropdown-item">Pochette de prospection</a>
-                            <a href="<?php echo $pagesPath; ?>impression-metal.php" class="dropdown-item">Impression sur métal</a>
+                            <a href="<?php echo $pagesPath; ?>metal.php" class="dropdown-item">Impression sur métal</a>
                         </div>
                     </div>
                     

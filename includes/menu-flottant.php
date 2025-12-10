@@ -20,6 +20,11 @@
     </nav>
 </div>
 
+<!-- Bouton retour en haut -->
+<button id="btn-retour-haut" class="btn-retour-haut" onclick="scrollToTop()" title="Retour en haut">
+    <span><img src="../images/logo-icon/arrow-up.png" alt="logo flèche vers le haut" width="25" height="25"></span>
+</button>
+
 <style>
 .menu-flottant {
     position: fixed;
@@ -161,6 +166,43 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Bouton retour en haut */
+.btn-retour-haut {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: #1a1b4d;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.btn-retour-haut.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-retour-haut:hover {
+    background: #3032a1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+}
+
+.btn-retour-haut span {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .menu-flottant {
@@ -171,6 +213,17 @@ html {
         left: 60px;
         min-width: 180px;
     }
+    
+    .btn-retour-haut {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .btn-retour-haut span {
+        font-size: 18px;
+    }
 }
 </style>
 
@@ -178,6 +231,7 @@ html {
 // Variables globales
 let menuOpen = false;
 let currentSection = '';
+let btnRetourHaut;
 
 // Toggle du menu
 function toggleMenu() {
@@ -283,17 +337,48 @@ function handleClickOutside(event) {
     }
 }
 
+// Fonction pour remonter en haut de page
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Gestion de l'affichage du bouton retour en haut
+function handleScrollButton() {
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > 300) {
+        btnRetourHaut.classList.add('visible');
+    } else {
+        btnRetourHaut.classList.remove('visible');
+    }
+}
+
+// Fonction combinée pour gérer le scroll
+function handleScroll() {
+    detectCurrentSection();
+    handleScrollButton();
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
     generateMenu();
     
-    // Écouter le scroll pour détecter la section active
-    window.addEventListener('scroll', detectCurrentSection);
+    // Initialiser le bouton retour en haut
+    btnRetourHaut = document.getElementById('btn-retour-haut');
+    
+    // Écouter le scroll pour détecter la section active et gérer le bouton
+    window.addEventListener('scroll', handleScroll);
     
     // Fermer le menu en cliquant à l'extérieur
     document.addEventListener('click', handleClickOutside);
     
-    // Détecter la section initiale
-    setTimeout(detectCurrentSection, 100);
+    // Détecter la section initiale et l'état du bouton
+    setTimeout(() => {
+        detectCurrentSection();
+        handleScrollButton();
+    }, 100);
 });
 </script>

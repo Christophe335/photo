@@ -15,19 +15,19 @@
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
-                                <span>+33 1 23 45 67 89</span>
+                                <span>03 84 78 38 39</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>contact@photo.fr</span>
+                                <span>contact@bindy-studio.fr</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>123 Rue de la Photo<br>75001 Paris</span>
+                                <span>9 rue de la Gare<br>70000 Vallerois-le-Bois</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-clock"></i>
-                                <span>Lun-Ven: 9h-18h<br>Sam: 9h-12h</span>
+                                <span>Lun-Ven: 9h-17h</span>
                             </div>
                         </div>
                     </div>
