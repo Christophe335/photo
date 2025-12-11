@@ -13,6 +13,7 @@ if ($_POST) {
         'reference' => $_POST['reference'] ?? '',
         'designation' => $_POST['designation'] ?? '',
         'format' => $_POST['format'] ?? '',
+        'ordre' => isset($_POST['ordre']) ? intval($_POST['ordre']) : 0,
         'prixAchat' => floatval($_POST['prixAchat'] ?? 0),
         'prixVente' => floatval($_POST['prixVente'] ?? 0),
         'conditionnement' => $_POST['conditionnement'] ?? '',
@@ -58,19 +59,26 @@ include 'header.php';
         <div class="form-section">
             <h3><i class="fas fa-info-circle"></i> Informations générales</h3>
             
-            <div class="form-row">
-                <div class="form-group">
+            <div class="form-row admin-form-row">
+                <div class="form-group admin-col-ordre">
+                    <label for="ordre">Ordre d'affichage</label>
+                    <input type="number" id="ordre" name="ordre" min="0" step="1"
+                           value="<?= htmlspecialchars($_POST['ordre'] ?? '0') ?>"
+                           placeholder="0" class="admin-input-full">
+                </div>
+
+                <div class="form-group admin-col-reference">
                     <label for="reference">Référence *</label>
                     <input type="text" id="reference" name="reference" required 
                            value="<?= htmlspecialchars($_POST['reference'] ?? '') ?>"
-                           placeholder="Ex: REL-A4-001">
+                           placeholder="Ex: REL-A4-001" class="admin-input-full">
                 </div>
-                
-                <div class="form-group">
+
+                <div class="form-group admin-col-designation">
                     <label for="designation">Désignation *</label>
                     <input type="text" id="designation" name="designation" required 
                            value="<?= htmlspecialchars($_POST['designation'] ?? '') ?>"
-                           placeholder="Ex: Reliure spirale A4">
+                           placeholder="Ex: Reliure spirale A4" class="admin-input-full">
                 </div>
             </div>
 
@@ -95,6 +103,7 @@ include 'header.php';
                     <small class="form-help">Nom descriptif complet de la famille</small>
                 </div>
             </div>
+            
             
             <div class="form-row">
                 <div class="form-group">
@@ -139,40 +148,40 @@ include 'header.php';
         <!-- Prix et marge - Section importante -->
         <div class="form-section highlight-section">
             <h3><i class="fas fa-euro-sign"></i> Prix et Marge (Important pour les étapes à venir)</h3>
-            
-            <div class="form-row">
-                <div class="form-group">
+
+            <div class="form-row admin-form-row center">
+                <div class="form-group admin-col-25">
                     <label for="prixAchat">Prix d'achat * (€)</label>
                     <input type="number" id="prixAchat" name="prixAchat" required 
                            min="0" step="0.01" 
                            value="<?= htmlspecialchars($_POST['prixAchat'] ?? '') ?>"
-                           placeholder="0.00">
+                           placeholder="0.00" class="admin-input-full">
                     <small class="form-help">Coût d'achat unitaire HT</small>
                 </div>
-                
-                <div class="form-group">
+
+                <div class="form-group admin-col-25">
                     <label for="prixVente">Prix de vente * (€)</label>
                     <input type="number" id="prixVente" name="prixVente" required 
                            min="0" step="0.01" 
                            value="<?= htmlspecialchars($_POST['prixVente'] ?? '') ?>"
-                           placeholder="0.00">
+                           placeholder="0.00" class="admin-input-full">
                     <small class="form-help">Prix de vente unitaire HT</small>
                 </div>
-                
-                <div class="form-group">
+
+                <div class="form-group admin-col-25">
                     <label for="marge">Marge calculée (%)</label>
                     <input type="number" id="marge" name="marge" readonly
                            value="<?= htmlspecialchars($_POST['marge'] ?? '') ?>"
-                           placeholder="0.00">
+                           placeholder="0.00" class="admin-input-full">
                     <small class="form-help">Calculée automatiquement</small>
                 </div>
-                
-                <div class="form-group">
-                    <label for="prixUnitaire" style="color: #28a745; font-weight: 600;">Prix unitaire de vente (€)</label>
+
+                <div class="form-group admin-col-25">
+                    <label for="prixUnitaire" class="admin-prixunitaire-label">Prix unitaire de vente (€)</label>
                     <input type="number" id="prixUnitaire" name="prixUnitaire" readonly
-                           style="background: #f8fff8; border-color: #28a745; color: #28a745; font-weight: 600;"
+                           class="admin-prixunitaire-input"
                            placeholder="0.00">
-                    <small class="form-help" style="color: #28a745;">Prix de vente ÷ conditionnement</small>
+                    <small class="form-help admin-form-help-green">Prix de vente ÷ conditionnement</small>
                 </div>
             </div>
         </div>
@@ -243,16 +252,12 @@ include 'header.php';
     }
 
     .product-form {
-        background: white;
+        background: #d2d2d2;
         border-radius: 8px;
         padding: 30px;
         box-shadow: var(--shadow);
         max-width: 1200px;
         margin: 0 auto;
-    }
-
-    .form-section {
-        border-bottom: 1px solid var(--border-color);
     }
 
     .form-section:last-of-type {
@@ -270,12 +275,7 @@ include 'header.php';
         gap: 10px;
     }
 
-    .highlight-section {
-        background: #fff8e1;
-        padding: 25px;
-        border-radius: 8px;
-        border: 2px solid var(--primary-orange);
-    }
+    /* .highlight-section moved to css/admin.css */
 
     .section-description {
         color: var(--text-muted);
@@ -284,7 +284,7 @@ include 'header.php';
         font-style: italic;
     }
 
-    .form-row {
+    .form-row:not(.admin-form-row) {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
@@ -429,10 +429,11 @@ include 'header.php';
             document.getElementById('marge').value = '';
         }
         
-        // Calcul du prix unitaire
+        // Calcul du prix unitaire (arrondi au centime supérieur)
         if (prixVente > 0 && conditionnement > 0) {
             const prixUnitaire = prixVente / conditionnement;
-            document.getElementById('prixUnitaire').value = prixUnitaire.toFixed(4);
+            const prixUnitaireArrondi = Math.ceil(prixUnitaire * 100) / 100; // centime supérieur
+            document.getElementById('prixUnitaire').value = prixUnitaireArrondi.toFixed(2);
         } else {
             document.getElementById('prixUnitaire').value = '';
         }

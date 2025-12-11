@@ -46,6 +46,7 @@ function creerProduit($data) {
     
     $sql = "INSERT INTO produits (
         famille, nomDeLaFamille, reference, designation, format, 
+        ordre,
         prixAchat, prixVente, conditionnement, matiere, couleur_interieur,
         couleur_ext1, imageCoul1, couleur_ext2, imageCoul2, couleur_ext3, imageCoul3,
         couleur_ext4, imageCoul4, couleur_ext5, imageCoul5, couleur_ext6, imageCoul6,
@@ -54,6 +55,7 @@ function creerProduit($data) {
         couleur_ext13, imageCoul13
     ) VALUES (
         :famille, :nomDeLaFamille, :reference, :designation, :format,
+        :ordre,
         :prixAchat, :prixVente, :conditionnement, :matiere, :couleur_interieur,
         :couleur_ext1, :imageCoul1, :couleur_ext2, :imageCoul2, :couleur_ext3, :imageCoul3,
         :couleur_ext4, :imageCoul4, :couleur_ext5, :imageCoul5, :couleur_ext6, :imageCoul6,
@@ -74,6 +76,7 @@ function modifierProduit($id, $data) {
     
     $sql = "UPDATE produits SET 
         famille = :famille, nomDeLaFamille = :nomDeLaFamille, reference = :reference, 
+        ordre = :ordre,
         designation = :designation, format = :format, prixAchat = :prixAchat, 
         prixVente = :prixVente, conditionnement = :conditionnement, matiere = :matiere, 
         couleur_interieur = :couleur_interieur,
@@ -126,7 +129,8 @@ function rechercherProduits($terme = '', $famille = '', $limit = 50, $offset = 0
     
     $whereClause = !empty($where) ? "WHERE " . implode(" AND ", $where) : "";
     
-    $sql = "SELECT * FROM produits $whereClause ORDER BY famille, reference LIMIT ? OFFSET ?";
+           // Tri par famille, puis par champ 'ordre' (valeurs numériques d'abord), puis par reference
+           $sql = "SELECT * FROM produits $whereClause ORDER BY famille ASC, (CASE WHEN ordre IS NULL OR ordre = 0 THEN 1 ELSE 0 END) ASC, (CASE WHEN ordre IS NULL OR ordre = 0 THEN NULL ELSE ordre END) ASC, reference ASC LIMIT ? OFFSET ?";
     $params[] = $limit;
     $params[] = $offset;
     

@@ -136,10 +136,10 @@ body {
 }
 
 .petiteVignette {
-   width: 80px; 
-   height: 80px; 
-   margin: 10px; 
-   text-align: center;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  text-align: center;
 }
 
 .ligne {
@@ -234,10 +234,10 @@ body {
 .bt-devis {
   margin: 40px auto 40px auto;
   padding: 20px;
-  border: solid 0.5px #ddac17;
+  /* border: solid 0.5px #ddac17; */
   border-radius: 8px;
-  box-shadow: 0 0 5px #acacac;
-  width: 415px;
+  /* box-shadow: 0 0 5px #acacac; */
+  width: 1011px;
 }
 
 /* titre des pages en forme de bulle */
@@ -257,8 +257,8 @@ body {
 
 .detail {
   font-size: 12px;
-  font-weight: 700; 
-  font-style: italic; 
+  font-weight: 700;
+  font-style: italic;
   text-transform: uppercase;
   padding: 5px;
   margin: 10px;
@@ -268,20 +268,26 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;
-  width: 375px;
+  width: 495px;
 }
 
 .detail a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 @keyframes clignotter {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; color: #FFD700;}
-    100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+    color: #ffd700;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 
 .id {
   font-size: 14px;
@@ -471,8 +477,7 @@ body {
   padding: 40px;
   margin: 20px 0;
   border: 1px solid #eeefbda8;
-  border-radius: 8px;
-  box-shadow: inset 0 0 10px #525252;
+  box-shadow: inset 0 0 10px #f2dbcd;
 }
 
 /* Compensation quand le navigation-banner devient fixe */
@@ -550,22 +555,29 @@ body.nav-fixed {
 
 /* coordonnées dans le header */
 .tagcontact {
-    font-size: 14px;
-    padding: 0 10px;
+  font-size: 14px;
+  padding: 0 10px;
 }
 
 .lienTel {
-    color: #f1f1f1;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    animation: clignotte 1000ms infinite;
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  animation: clignotte 1000ms infinite;
 }
 
 @keyframes clignotte {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; color: #FFD700;}
-    100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+    color: #ffd700;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Phrase centrale */
