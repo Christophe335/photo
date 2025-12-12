@@ -79,7 +79,15 @@
                         <div class="product-code"><?= htmlspecialchars($produit['reference']) ?></div>
                         <div><strong><?= htmlspecialchars($produit['famille']) ?></strong></div>
                         <div class="product-description">
-                            <div class="designation"><?= htmlspecialchars($produit['designation']) ?></div>
+                            <div class="designation">
+                                <?php if ($produit['est_compose'] ?? false): ?>
+                                    <i class="fas fa-layer-group" title="Article composé" style="color: #007bff; margin-right: 5px;"></i>
+                                <?php endif; ?>
+                                <?= htmlspecialchars($produit['designation']) ?>
+                                <?php if ($produit['est_compose'] ?? false): ?>
+                                    <small style="color: #007bff; font-style: italic; margin-left: 5px;">(Composé)</small>
+                                <?php endif; ?>
+                            </div>
                             <div class="details">
                                 <?php if (!empty($produit['format'])): ?>
                                     Format: <?= htmlspecialchars($produit['format']) ?> | 
@@ -103,6 +111,11 @@
                             </div>
                         </div>
                         <div class="product-actions">
+                            <?php if ($produit['est_compose'] ?? false): ?>
+                                <a href="voir_composition.php?id=<?= $produit['id'] ?>" class="btn btn-info btn-sm" title="Voir la composition">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            <?php endif; ?>
                             <a href="modifier.php?id=<?= $produit['id'] ?>" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>

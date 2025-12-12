@@ -281,6 +281,11 @@ function ajouterAuPanier(bouton) {
     ligneProduit.querySelector(".format")?.textContent.trim() || "";
   const matiere =
     ligneProduit.querySelector(".matiere")?.textContent.trim() || "";
+  // Récupérer le conditionnement (essayer col-nb puis col-nb2 si nécessaire)
+  let conditionnement = ligneProduit.querySelector(".col-nb")?.textContent.trim() || "";
+  if (!conditionnement) {
+    conditionnement = ligneProduit.querySelector(".col-nb2")?.textContent.trim() || "";
+  }
 
   // Récupère la couleur sélectionnée (active), sinon la première
   let couleur = "";
@@ -321,6 +326,7 @@ function ajouterAuPanier(bouton) {
   const details = {
     code: code,
     designation: designation,
+    conditionnement: conditionnement,
     format: format,
     matiere: matiere,
     couleur: couleur,
@@ -431,6 +437,11 @@ function actualiserContenuPanier(modal) {
         <div class="item-details">
           <div class="item-code">${item.details.code}</div>
           <div class="item-designation">${item.details.designation}</div>
+          ${
+            item.details.conditionnement
+              ? `<div class="item-conditionnement" style="color:#666;font-size:13px">Conditionnement : ${item.details.conditionnement}</div>`
+              : ""
+          }
           ${
             item.details.couleur
               ? `<div class="item-couleur" style="color:#666;font-size:13px">Couleur : ${

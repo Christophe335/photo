@@ -81,7 +81,7 @@ function afficherTableauProduits($famille) {
                 </div>
                 
                 <!-- Conditionnement -->
-                <div class="col-nb2">
+                <div class="col-nb">
                     <?php if (!empty($produit['conditionnement'])): ?>
                         <?= htmlspecialchars($produit['conditionnement']) ?>
                     <?php endif; ?>

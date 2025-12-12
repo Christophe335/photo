@@ -24,11 +24,12 @@ if (!isset($_SESSION['panier'])) {
         } else {
             echo '<div class="table-responsive">';
             echo '<table class="table-panier">';
-            echo '<thead><tr><th>Référence</th><th>Désignation</th><th>Qté</th><th>PU HT</th><th>Total HT</th><th>Action</th></tr></thead><tbody>';
+            echo '<thead><tr><th>Référence</th><th>Désignation</th><th>Cdt</th><th>Qté</th><th>PU HT</th><th>Total HT</th><th>Action</th></tr></thead><tbody>';
             $totalHT = 0;
             foreach ($panier as $index => $item) {
                 $reference = htmlspecialchars($item['details']['code'] ?? '');
                 $designation = htmlspecialchars($item['details']['designation'] ?? '');
+                $conditionnement = htmlspecialchars($item['details']['conditionnement'] ?? '');
                 $format = htmlspecialchars($item['details']['format'] ?? '');
                 $couleur = htmlspecialchars($item['details']['couleur'] ?? '');
                 $imageCouleur = htmlspecialchars($item['details']['imageCouleur'] ?? '');
@@ -53,6 +54,8 @@ if (!isset($_SESSION['panier'])) {
                     echo '</span>';
                 }
                 echo '</td>';
+                // Colonne Conditionnement
+                echo '<td>' . ($conditionnement ? $conditionnement : '-') . '</td>';
                 // Colonne Quantité
                 echo '<td><span class="quantite-panier">' . $quantite . '</span></td>';
                 // Colonne PU HT

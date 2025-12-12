@@ -7,6 +7,9 @@ checkAuth();
 // Traitement du formulaire
 if ($_POST) {
     // Préparer les données selon la vraie structure de la table
+    $estCompose = isset($_POST['est_compose']) && $_POST['est_compose'] == '1';
+    $compositionAuto = isset($_POST['composition_auto']) && $_POST['composition_auto'] == '1';
+    
     $donnees = [
         'famille' => $_POST['famille'] ?? '',
         'nomDeLaFamille' => $_POST['nomDeLaFamille'] ?? '',
@@ -14,6 +17,8 @@ if ($_POST) {
         'designation' => $_POST['designation'] ?? '',
         'format' => $_POST['format'] ?? '',
         'ordre' => isset($_POST['ordre']) ? intval($_POST['ordre']) : 0,
+        'est_compose' => $estCompose ? 1 : 0,
+        'composition_auto' => $compositionAuto ? 1 : 0,
         'prixAchat' => floatval($_POST['prixAchat'] ?? 0),
         'prixVente' => floatval($_POST['prixVente'] ?? 0),
         'conditionnement' => $_POST['conditionnement'] ?? '',
@@ -28,9 +33,20 @@ if ($_POST) {
     }
     
     // Créer le produit
-    $result = creerProduit($donnees);
+    $produitId = creerProduit($donnees);
     
-    if ($result) {
+    if ($produitId) {
+        // Si c'est un article composé, traiter les composants
+        if ($estCompose) {
+            $composantsData = $_POST['composants_data'] ?? '';
+            if (!empty($composantsData)) {
+                $composants = json_decode($composantsData, true);
+                if ($composants && is_array($composants)) {
+                    ajouterComposants($produitId, $composants);
+                }
+            }
+        }
+        
         $_SESSION['message'] = 'Produit créé avec succès';
         $_SESSION['message_type'] = 'success';
         header('Location: index.php');
@@ -183,6 +199,80 @@ include 'header.php';
                            placeholder="0.00">
                     <small class="form-help admin-form-help-green">Prix de vente ÷ conditionnement</small>
                 </div>
+            </div>
+        </div>
+
+        <!-- Article composé -->
+        <div class="form-section">
+            <h3><i class="fas fa-layer-group"></i> Article composé</h3>
+            <p class="section-description">Créer un article constitué de plusieurs autres articles</p>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="est_compose" name="est_compose" value="1" 
+                               <?= isset($_POST['est_compose']) ? 'checked' : '' ?>>
+                        <span>Cet article est un article composé</span>
+                    </label>
+                    <small class="form-help">Cochez cette case pour créer un article composé de plusieurs autres articles</small>
+                </div>
+            </div>
+            
+            <!-- Section des composants (masquée par défaut) -->
+            <div id="section-composants" style="display: none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="composition_auto" name="composition_auto" value="1" checked>
+                            Calcul automatique de la désignation et du prix
+                        </label>
+                        <small class="form-help">Si coché, la désignation et le prix seront automatiquement calculés à partir des articles composants</small>
+                    </div>
+                </div>
+                
+                <div class="composants-container">
+                    <h4>Articles composants</h4>
+                    <div class="search-article-container">
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 1;">
+                                <label for="recherche-article">Rechercher un article</label>
+                                <input type="text" id="recherche-article" placeholder="Tapez une référence ou désignation...">
+                            </div>
+                            <div class="form-group" style="flex: 0 0 100px;">
+                                <label for="quantite-article">Quantité</label>
+                                <input type="number" id="quantite-article" min="1" value="1" style="width: 100%;">
+                            </div>
+                            <div class="form-group" style="flex: 0 0 auto; align-self: end;">
+                                <button type="button" id="btn-ajouter-composant" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-plus"></i> Ajouter
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="resultats-recherche" class="resultats-recherche" style="display: none;"></div>
+                    </div>
+                    
+                    <div id="liste-composants" class="liste-composants">
+                        <div class="composants-header">
+                            <div>Référence</div>
+                            <div>Désignation</div>
+                            <div>Prix unitaire</div>
+                            <div>Quantité</div>
+                            <div>Prix total</div>
+                            <div>Actions</div>
+                        </div>
+                        <div id="composants-vides" class="composants-vide">
+                            Aucun article ajouté
+                        </div>
+                    </div>
+                    
+                    <div class="composants-total">
+                        <strong>Prix total calculé : <span id="prix-total-calcule">0.00</span> €</strong>
+                    </div>
+                </div>
+                
+                <!-- Champs cachés pour stocker les données des composants -->
+                <input type="hidden" id="composants-data" name="composants_data" value="">
             </div>
         </div>
 
@@ -412,6 +502,93 @@ include 'header.php';
             flex-direction: column-reverse;
         }
     }
+
+    /* Styles pour les articles composés */
+    .search-article-container {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 6px;
+    }
+
+    .resultats-recherche {
+        max-height: 200px;
+        overflow-y: auto;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        margin-top: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .resultat-item {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        line-height: 1.4;
+    }
+
+    .resultat-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .resultat-item:last-child {
+        border-bottom: none;
+    }
+
+    .liste-composants {
+        background: white;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+    }
+
+    .composants-header {
+        display: grid;
+        grid-template-columns: 1fr 2fr 120px 80px 120px 80px;
+        gap: 10px;
+        padding: 15px;
+        background: var(--primary-dark);
+        color: white;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .composant-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr 120px 80px 120px 80px;
+        gap: 10px;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        align-items: center;
+    }
+
+    .composant-item:last-child {
+        border-bottom: none;
+    }
+
+    .composants-vide {
+        padding: 30px;
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    .composants-total {
+        padding: 15px;
+        background: #e8f5e8;
+        color: var(--success-color);
+        text-align: right;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 </style>
 
 <script>
@@ -458,6 +635,299 @@ include 'header.php';
             reference.placeholder = `Ex: ${prefix}-001, ${prefix}-A4-001`;
         }
     });
+
+    // ========== GESTION DES ARTICLES COMPOSÉS ==========
+    let composants = [];
+    let rechercheTimeout = null;
+
+    // Attendre que le DOM soit complètement chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM chargé, initialisation des articles composés...');
+        
+        // Toggle de la section composants
+        const estComposeCheckbox = document.getElementById('est_compose');
+        const sectionComposants = document.getElementById('section-composants');
+        
+        console.log('Checkbox est_compose:', estComposeCheckbox);
+        console.log('Section composants:', sectionComposants);
+        
+        if (estComposeCheckbox) {
+            estComposeCheckbox.addEventListener('change', function() {
+                console.log('Checkbox changée, état:', this.checked);
+                const sectionComposants = document.getElementById('section-composants');
+                const sectionPrix = document.querySelector('.highlight-section');
+                
+                if (this.checked) {
+                    console.log('Affichage de la section composants');
+                    if (sectionComposants) {
+                        sectionComposants.style.display = 'block';
+                        console.log('Section composants affichée');
+                    }
+                    // Masquer la section prix si composition automatique activée
+                    toggleSectionPrix();
+                } else {
+                    console.log('Masquage de la section composants');
+                    if (sectionComposants) sectionComposants.style.display = 'none';
+                    if (sectionPrix) sectionPrix.style.display = 'block';
+                    // Vider la liste des composants
+                    composants = [];
+                    mettreAJourAffichageComposants();
+                }
+            });
+        } else {
+            console.error('Checkbox est_compose non trouvée !');
+        }
+
+        // Toggle de la section prix selon le mode de composition
+        const compositionAutoCheckbox = document.getElementById('composition_auto');
+        if (compositionAutoCheckbox) {
+            compositionAutoCheckbox.addEventListener('change', toggleSectionPrix);
+        }
+
+    function toggleSectionPrix() {
+        const sectionPrix = document.querySelector('.highlight-section');
+        const compositionAuto = document.getElementById('composition_auto').checked;
+        const estCompose = document.getElementById('est_compose').checked;
+        
+        if (estCompose && compositionAuto) {
+            sectionPrix.style.display = 'none';
+            // Vider les champs prix
+            document.getElementById('prixAchat').value = '';
+            document.getElementById('prixVente').value = '';
+        } else {
+            sectionPrix.style.display = 'block';
+        }
+    }
+
+        // Recherche d'articles
+        const rechercheArticleInput = document.getElementById('recherche-article');
+        if (rechercheArticleInput) {
+            rechercheArticleInput.addEventListener('input', function() {
+                const terme = this.value.trim();
+                
+                clearTimeout(rechercheTimeout);
+                
+                if (terme.length < 2) {
+                    masquerResultatsRecherche();
+                    return;
+                }
+                
+                rechercheTimeout = setTimeout(() => {
+                    rechercherArticles(terme);
+                }, 300);
+            });
+        }
+
+        // Masquer les résultats si on clique ailleurs
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-article-container')) {
+                masquerResultatsRecherche();
+            }
+        });
+    }); // Fermeture du DOMContentLoaded
+
+    async function rechercherArticles(terme) {
+        console.log('Recherche lancée pour:', terme);
+        try {
+            const response = await fetch('recherche_articles.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `terme=${encodeURIComponent(terme)}`
+            });
+            
+            console.log('Response status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP: ${response.status}`);
+            }
+            
+            const articles = await response.json();
+            console.log('Articles trouvés:', articles);
+            afficherResultatsRecherche(articles);
+        } catch (error) {
+            console.error('Erreur lors de la recherche:', error);
+            masquerResultatsRecherche();
+        }
+    }
+
+    function afficherResultatsRecherche(articles) {
+        const conteneur = document.getElementById('resultats-recherche');
+        
+        if (articles.length === 0) {
+            masquerResultatsRecherche();
+            return;
+        }
+        
+        const html = articles.map(article => {
+            const designationEchappee = article.designation.replace(/'/g, "\\'");
+            
+            // Construire les informations supplémentaires
+            let infosSupp = [];
+            if (article.format) {
+                infosSupp.push(`Format: ${article.format}`);
+            }
+            if (article.matiere) {
+                infosSupp.push(`Matière: ${article.matiere}`);
+            }
+            
+            let couleursHtml = '';
+            if (article.couleurs && article.couleurs.length > 0) {
+                couleursHtml = `<div style="font-size: 0.85em; color: #666; margin-top: 2px;">
+                    ${article.couleurs.join(' • ')}
+                </div>`;
+            }
+            
+            let infosSupplementaires = '';
+            if (infosSupp.length > 0) {
+                infosSupplementaires = `<div style="font-size: 0.85em; color: #666; font-style: italic;">
+                    ${infosSupp.join(' • ')}
+                </div>`;
+            }
+            
+            return `
+                <div class="resultat-item" onclick="selectionnerArticle(${article.id}, '${article.reference}', '${designationEchappee}', ${article.prixVente})">
+                    <div><strong>${article.reference}</strong></div>
+                    <div>${article.designation}</div>
+                    ${infosSupplementaires}
+                    ${couleursHtml}
+                    <div style="color: var(--success-color); font-weight: 500; margin-top: 4px;">${parseFloat(article.prixVente).toFixed(2)} €</div>
+                </div>
+            `;
+        }).join('');
+        
+        conteneur.innerHTML = html;
+        conteneur.style.display = 'block';
+    }
+
+    function masquerResultatsRecherche() {
+        document.getElementById('resultats-recherche').style.display = 'none';
+    }
+
+    function selectionnerArticle(id, reference, designation, prix) {
+        const quantite = parseInt(document.getElementById('quantite-article').value) || 1;
+        
+        // Vérifier si l'article n'est pas déjà présent
+        if (composants.find(c => c.id === id)) {
+            alert('Cet article est déjà dans la composition');
+            return;
+        }
+        
+        // Ajouter l'article à la liste
+        composants.push({
+            id: id,
+            reference: reference,
+            designation: designation,
+            prix: parseFloat(prix),
+            quantite: quantite
+        });
+        
+        // Mettre à jour l'affichage
+        mettreAJourAffichageComposants();
+        
+        // Vider les champs de recherche
+        document.getElementById('recherche-article').value = '';
+        document.getElementById('quantite-article').value = 1;
+        masquerResultatsRecherche();
+        
+        // Mettre à jour la désignation et le prix si mode automatique
+        if (document.getElementById('composition_auto').checked) {
+            mettreAJourCompositionAutomatique();
+        }
+    }
+
+    function supprimerComposant(index) {
+        composants.splice(index, 1);
+        mettreAJourAffichageComposants();
+        
+        if (document.getElementById('composition_auto').checked) {
+            mettreAJourCompositionAutomatique();
+        }
+    }
+
+    function modifierQuantiteComposant(index, nouvelleQuantite) {
+        if (nouvelleQuantite < 1) return;
+        
+        composants[index].quantite = nouvelleQuantite;
+        mettreAJourAffichageComposants();
+        
+        if (document.getElementById('composition_auto').checked) {
+            mettreAJourCompositionAutomatique();
+        }
+    }
+
+    function mettreAJourAffichageComposants() {
+        const conteneur = document.getElementById('liste-composants');
+        const vide = document.getElementById('composants-vides');
+        
+        if (composants.length === 0) {
+            vide.style.display = 'block';
+            document.getElementById('prix-total-calcule').textContent = '0.00';
+        } else {
+            vide.style.display = 'none';
+            
+            const html = composants.map((composant, index) => {
+                const prixTotal = composant.prix * composant.quantite;
+                return `
+                    <div class="composant-item">
+                        <div>${composant.reference}</div>
+                        <div>${composant.designation}</div>
+                        <div style="text-align: right;">${composant.prix.toFixed(2)} €</div>
+                        <div style="text-align: center;">
+                            <input type="number" min="1" value="${composant.quantite}" 
+                                   onchange="modifierQuantiteComposant(${index}, parseInt(this.value))"
+                                   style="width: 60px; text-align: center;">
+                        </div>
+                        <div style="text-align: right; font-weight: 500; color: var(--success-color);">
+                            ${prixTotal.toFixed(2)} €
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="supprimerComposant(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Insérer après l'en-tête
+            const header = conteneur.querySelector('.composants-header');
+            const items = conteneur.querySelectorAll('.composant-item');
+            items.forEach(item => item.remove());
+            
+            header.insertAdjacentHTML('afterend', html);
+            
+            // Calculer le prix total
+            const prixTotal = composants.reduce((total, composant) => {
+                return total + (composant.prix * composant.quantite);
+            }, 0);
+            
+            document.getElementById('prix-total-calcule').textContent = prixTotal.toFixed(2);
+        }
+        
+        // Mettre à jour le champ caché
+        document.getElementById('composants-data').value = JSON.stringify(composants);
+    }
+
+    function mettreAJourCompositionAutomatique() {
+        if (!document.getElementById('composition_auto').checked) return;
+        
+        // Générer la désignation automatique
+        const designations = composants.map(c => c.designation);
+        const designationComplete = designations.join(' + ');
+        document.getElementById('designation').value = designationComplete;
+        
+        // Calculer le prix total
+        const prixTotal = composants.reduce((total, composant) => {
+            return total + (composant.prix * composant.quantite);
+        }, 0);
+        
+        document.getElementById('prixVente').value = prixTotal.toFixed(2);
+        document.getElementById('prixAchat').value = (prixTotal * 0.7).toFixed(2); // Estimation 70% du prix de vente
+    }
+
+
 </script>
 
 <?php include 'footer_simple.php'; ?>

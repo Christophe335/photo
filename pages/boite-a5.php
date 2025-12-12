@@ -14,10 +14,29 @@
             Créez votre boîte personnalisée au format A5 avec vos photos préférées.
         </p>
     </div>
-    <section class="section2" id="Boîte format A5">
+<section class="section1" id="Boîte format A5">
     <div class="container">
         <h2 class="title-h3 centre-text">Boîte format A5</h2>
         <p class="paragraphe">Nous proposons un service de A à Z, avec un fort accent sur la personnalisation. Nous veillons à ce que votre identité de marque prenne forme. Nous proposons des Boîtes avec une touche douce en cachemire ou une finition soft touch avec un design de votre choix. Nos boîtes peuvent être utilisées pour une large gamme d'applications dans presque n'importe quelle industrie ou situation. Pensez : cadeaux classiques, marketing créatif, branding employeur, anniversaires, cadeaux pour nouveau-né, ...</p> 
+    </div>
+            <img class="centre-div" src="../images/produits/boiteA5-2.webp" width="400px" height="300px" alt="Un magnet en bamboo personnalisé avec une photo d'un couple de mariés"> 
+
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Peleman Box A5- 40 mm');
+            ?>
+        </div>
+        </br>
+    <?php include '../includes/bt-devis.php'; ?>
+</section>
+<section class="section2" id="Boîte format A5 Personnalisable">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Boîte format A5 Personnalisable</h2>
+        <p class="paragraphe">Cette boîte qualitative à fermeture magnétique offre des possibilités infinies pour créer une expérience éblouissante. Si vous souhaitez présenter quelque chose d'important - le cadeau peut être personnalisé dans l'apparence et le style de votre organisation ou d'un événement spécifique. Créez votre boîte avec le haut, le bas et un ensemble de clips.</p> 
     </div>
             <img class="centre-div" src="../images/produits/boiteA5-2.webp" width="400px" height="300px" alt="Un magnet en bamboo personnalisé avec une photo d'un couple de mariés"> 
 
