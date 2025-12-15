@@ -11,7 +11,8 @@ function afficherTableauProduits($famille) {
         $db = Database::getInstance()->getConnection();
         
         // Récupération des produits de la famille
-        $stmt = $db->prepare("SELECT * FROM produits WHERE famille = ? ORDER BY reference");
+        // Tri par champ 'ordre' (valeurs numériques d'abord), puis par reference
+        $stmt = $db->prepare("SELECT * FROM produits WHERE famille = ? ORDER BY (CASE WHEN ordre IS NULL OR ordre = 0 THEN 1 ELSE 0 END) ASC, (CASE WHEN ordre IS NULL OR ordre = 0 THEN NULL ELSE ordre END) ASC, reference ASC");
         $stmt->execute([$famille]);
         $produits = $stmt->fetchAll();
         

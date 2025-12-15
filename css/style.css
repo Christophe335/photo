@@ -179,7 +179,13 @@ body {
   padding: 20px 4px;
   margin-top: 13%;
 }
-.posCouleurRigide p {
+
+.posCouleurBoite {
+  padding: 20px 5px;
+  width: 60px;
+}
+
+.posCouleurRigide p, .posCouleurBoite p {
   font-size: 11px;
   text-align: center;
 }
