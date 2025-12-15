@@ -515,7 +515,7 @@ body.nav-fixed {
   height: 60px;
   z-index: 1001;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: #f1f1f141;
+  background-color: #f1f1f1;
 }
 
 /* Boutons navigation en mode compact */

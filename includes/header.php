@@ -54,10 +54,10 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         
                         <!-- Bouton Compte -->
                         <div class="account-btn">
-                            <button class="btn-account">
+                            <a href="<?php echo $basePath; ?>clients/connexion.php" class="btn-account">
                                 <i class="fas fa-user"></i>
                                 <span>Compte</span>
-                            </button>
+                            </a>
                         </div>
                         <!-- Bouton Contact -->
                         <div class="account-btn">
@@ -131,10 +131,10 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                 </nav>
                                 <!-- Boutons actions header (mode compact) -->
                                 <div class="nav-actions-compact">
-                                    <button class="btn-account-compact">
+                                    <a href="<?php echo $basePath; ?>clients/connexion.php" class="btn-account-compact">
                                         <i class="fas fa-user"></i>
                                         <span>Compte</span>
-                                    </button>
+                                    </a>
                                     <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account-compact">
                                         <i class="fa-solid fa-envelope"></i>
                                         <span>Contact</span>
