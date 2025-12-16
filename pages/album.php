@@ -9,8 +9,9 @@
 <main style="padding: 40px 0;">
     <div class="container">
         <h1 class="title-h1 bull">Album Photos</h1>
-        <img class="centre-div pose" src="../images/bandeaux/album-1.webp" alt="Un bandeau présentant divers albums photos personnalisés">
-            
+    </div>
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/album-1.webp" alt="Un bandeau présentant divers albums photos personnalisés">
+    <div class="container">  
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Créez un magnifique album photo pour conserver vos plus beaux souvenirs.
         </p>

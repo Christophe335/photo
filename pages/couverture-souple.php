@@ -9,7 +9,9 @@
 <main style="padding: 40px 0;">
     <div class="container">
         <h1 class="title-h1 bull">Couverture Souple</h1>
-        <img class="centre-div pose" src="../images/bandeaux/couverture-souple-1.webp" alt="Un bandeau présentant des couvertures souples personnalisées">
+    </div>
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-souple-1.webp" alt="Un bandeau présentant des couvertures souples personnalisées">
+    <div class="container">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Une option élégante et pratique avec couverture souple personnalisée.
         </p>

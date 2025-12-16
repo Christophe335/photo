@@ -18,13 +18,13 @@ try {
     $client = $stmt->fetch(PDO::FETCH_ASSOC);
     
     if (!$client) {
-        echo '<div class="alert alert-error">Erreur: client non trouvé (ID: ' . $_SESSION['client_id'] . ')</div>';
+        echo '<div class="alert alert-error">Erreur: client non trouvé</div>';
         exit;
     }
     
 } catch (Exception $e) {
     error_log("Erreur get-modifier-form: " . $e->getMessage());
-    echo '<div class="alert alert-error">Erreur lors du chargement du formulaire: ' . htmlspecialchars($e->getMessage()) . '</div>';
+    echo '<div class="alert alert-error">Erreur lors du chargement du formulaire.</div>';
     exit;
 }
 ?>
@@ -46,7 +46,7 @@ try {
         </div>
         
         <div class="form-group">
-            <label for="email">Adresse e-mail *</label>
+            <label for="email">Email *</label>
             <input type="email" id="email" name="email" required 
                    value="<?php echo htmlspecialchars($client['email']); ?>">
         </div>
@@ -336,132 +336,3 @@ try {
     }
 }
 </style>
-
-<script>
-// Attendre que le DOM soit prêt et s'assurer que les éléments existent
-setTimeout(function() {
-    console.log('Initialisation du formulaire de modification...');
-    
-    // Gestion de l'affichage de l'adresse de livraison
-    const adresseLivraisonCheckbox = document.getElementById('adresse_livraison_differente');
-    if (adresseLivraisonCheckbox) {
-        adresseLivraisonCheckbox.addEventListener('change', function() {
-            const fields = document.getElementById('adresse_livraison_fields');
-            const inputs = fields.querySelectorAll('input, textarea, select');
-            
-            if (this.checked) {
-                fields.style.display = 'block';
-            } else {
-                fields.style.display = 'none';
-                // Vider les champs si masqués
-                inputs.forEach(input => {
-                    input.value = '';
-                });
-            }
-        });
-        console.log('Event listener adresse livraison attaché');
-    }
-
-    // Validation du formulaire
-    const form = document.getElementById('modifier-form');
-    if (form) {
-        // Supprimer les anciens event listeners s'ils existent
-        form.removeEventListener('submit', handleFormSubmit);
-        form.addEventListener('submit', handleFormSubmit);
-        console.log('Event listener formulaire attaché');
-    } else {
-        console.error('Formulaire modifier-form introuvable !');
-    }
-}, 100);
-
-function handleFormSubmit(e) {
-    e.preventDefault();
-    console.log('Formulaire soumis !');
-    
-    const btnSave = document.getElementById('btn-save');
-    const btnText = document.getElementById('btn-text');
-    const btnLoading = document.getElementById('btn-loading');
-    
-    console.log('Éléments bouton trouvés:', {btnSave, btnText, btnLoading});
-    
-    // Validation des mots de passe
-    const motDePasseActuel = document.getElementById('mot_de_passe_actuel').value;
-    const nouveauMotDePasse = document.getElementById('nouveau_mot_de_passe').value;
-    const confirmerMotDePasse = document.getElementById('confirmer_mot_de_passe').value;
-    
-    if (nouveauMotDePasse || confirmerMotDePasse) {
-        if (!motDePasseActuel) {
-            showAlert('Veuillez saisir votre mot de passe actuel.', 'error');
-            return;
-        }
-        
-        if (nouveauMotDePasse !== confirmerMotDePasse) {
-            showAlert('Les nouveaux mots de passe ne correspondent pas.', 'error');
-            return;
-        }
-        
-        if (nouveauMotDePasse.length < 6) {
-            showAlert('Le nouveau mot de passe doit contenir au moins 6 caractères.', 'error');
-            return;
-        }
-    }
-    
-    // Validation de l'adresse de livraison si cochée
-    const adresseLivraisonDifferente = document.getElementById('adresse_livraison_differente').checked;
-    if (adresseLivraisonDifferente) {
-        const adresseLivraison = document.getElementById('adresse_livraison').value.trim();
-        const codePostalLivraison = document.getElementById('code_postal_livraison').value.trim();
-        const villeLivraison = document.getElementById('ville_livraison').value.trim();
-        
-        if (!adresseLivraison || !codePostalLivraison || !villeLivraison) {
-            showAlert('Veuillez remplir tous les champs obligatoires de l\'adresse de livraison.', 'error');
-            return;
-        }
-    }
-    
-    // Désactiver le bouton et afficher le loading
-    btnSave.disabled = true;
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline';
-    
-    // Envoyer les données
-    const formData = new FormData(e.target);
-    
-    console.log('Données du formulaire:', Object.fromEntries(formData));
-    
-    fetch('ajax/update-profile.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        console.log('Réponse reçue:', response.status);
-        return response.json();
-    })
-    .then(data => {
-        console.log('Données de réponse:', data);
-        if (data.success) {
-            showAlert(data.message, 'success');
-            // Mettre à jour les informations de session si nécessaire
-            if (data.update_session) {
-                // Recharger la page pour mettre à jour les données affichées
-                setTimeout(() => {
-                    location.reload();
-                }, 1500);
-            }
-        } else {
-            showAlert(data.message, 'error');
-        }
-    })
-    .catch(error => {
-        showAlert('Erreur lors de la sauvegarde. Veuillez réessayer.', 'error');
-        console.error('Erreur:', error);
-    })
-    .finally(() => {
-        // Réactiver le bouton
-        btnSave.disabled = false;
-        btnText.style.display = 'inline';
-        btnLoading.style.display = 'none';
-    });
-});
-
-// JavaScript sera géré par mon-compte.php

@@ -114,16 +114,16 @@ try {
     
     $stmt = $db->prepare("
         INSERT INTO clients (
-            prenom, nom, email, mot_de_passe, telephone, 
+            prenom, nom, email, mot_de_passe, mot_de_passe_clair, telephone, 
             adresse, code_postal, ville, pays,
             adresse_livraison_differente, adresse_livraison, 
             code_postal_livraison, ville_livraison, pays_livraison,
             newsletter, token_activation, actif
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
     ");
     
     $stmt->execute([
-        $prenom, $nom, $email, $password_hash, $telephone, 
+        $prenom, $nom, $email, $password_hash, $password, $telephone, 
         $adresse, $code_postal, $ville, $pays,
         $adresse_livraison_differente, $adresse_livraison,
         $code_postal_livraison, $ville_livraison, $pays_livraison,

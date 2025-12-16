@@ -75,7 +75,9 @@ try {
 
 include 'header.php';
 ?>
-
+<head>
+    <link rel="stylesheet" href="../css/client.css">
+</head>
 <div class="toolbar">
     <a href="client-details.php?id=<?php echo $client['id']; ?>" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Retour aux détails
@@ -172,89 +174,6 @@ include 'header.php';
     </form>
 </div>
 
-<style>
-.client-form {
-    max-width: 800px;
-}
 
-.form-section {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
 
-.form-section h3 {
-    margin: 0 0 20px 0;
-    color: #333;
-    border-bottom: 2px solid #dee2e6;
-    padding-bottom: 10px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #555;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-}
-
-.form-actions {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
-    padding: 20px 0;
-    border-top: 1px solid #dee2e6;
-    margin-top: 30px;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-}
-</style>
-
-<?php include 'footer.php'; ?>
+<?php //include 'footer.php'; ?>

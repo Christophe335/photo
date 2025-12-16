@@ -9,7 +9,9 @@
 <main style="padding: 40px 0;">
     <div class="container">
         <h1 class="title-h1 bull">Livre Photo</h1>
-        <img class="centre-div pose" src="../images/bandeaux/livre-photo-1.webp" alt="Un bandeau présentant des livres photo personnalisés">
+    </div>
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/livre-photo-1.webp" alt="Un bandeau présentant des livres photo personnalisés">
+    <div class="container">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Transformez vos photos en livre photo professionnel de haute qualité.
         </p>

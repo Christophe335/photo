@@ -46,7 +46,7 @@ try {
     }
     
     $tva = $sous_total * 0.20; // TVA 20%
-    $frais_livraison = ($sous_total < 50) ? 7.50 : 0; // Livraison gratuite à partir de 50€
+    $frais_livraison = ($sous_total > 200) ? 0 : 13.95; // Livraison gratuite à partir de 200€ HT
     $total = $sous_total + $tva + $frais_livraison;
     
     // Récupérer les données du formulaire

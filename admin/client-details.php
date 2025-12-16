@@ -30,7 +30,8 @@ try {
     $stmt = $db->prepare("
         SELECT c.*, 
                COUNT(ci.id) as nb_articles,
-               GROUP_CONCAT(CONCAT(ci.quantite, 'x ', ci.nom_produit) SEPARATOR '<br>') as produits
+               SUM(ci.quantite * ci.prix_unitaire) as total_ht,
+               GROUP_CONCAT(CONCAT(ci.quantite, 'x ', ci.designation) SEPARATOR '<br>') as produits
         FROM commandes c
         LEFT JOIN commande_items ci ON c.id = ci.commande_id
         WHERE c.client_id = ?
@@ -124,16 +125,63 @@ include 'header.php';
                     <?php endif; ?>
                 </span>
             </div>
+            
+            <div class="info-item">
+                <label>Mot de passe</label>
+                <span>
+                    <div class="password-section">
+                        <input type="<?php echo $client['mot_de_passe_clair'] ? 'text' : 'password'; ?>" id="client-password" value="<?php echo $client['mot_de_passe_clair'] ? htmlspecialchars($client['mot_de_passe_clair']) : 'Aucun mot de passe défini'; ?>" readonly class="password-display">
+                        <?php if ($client['mot_de_passe_clair']): ?>
+                            <button type="button" id="toggle-password" class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-eye-slash" id="eye-icon"></i>
+                            </button>
+                        <?php else: ?>
+                            <span class="text-muted">Pas de mot de passe défini</span>
+                        <?php endif; ?>
+                        <button type="button" id="change-password" class="btn btn-sm btn-warning">
+                            <i class="fas fa-key"></i> Modifier
+                        </button>
+                        <button type="button" id="generate-password" class="btn btn-sm btn-info">
+                            <i class="fas fa-random"></i> Générer
+                        </button>
+                        <button type="button" id="copy-password" class="btn btn-sm btn-success">
+                            <i class="fas fa-copy"></i> Copier
+                        </button>
+                    </div>
+                </span>
+            </div>
         </div>
         
-        <?php if ($client['adresse']): ?>
-        <h4><i class="fas fa-map-marker-alt"></i> Adresse de facturation</h4>
-        <div class="address-info">
-            <?php echo nl2br(htmlspecialchars($client['adresse'])); ?><br>
-            <?php echo htmlspecialchars($client['code_postal'] . ' ' . $client['ville']); ?><br>
-            <?php echo htmlspecialchars($client['pays'] ?: 'France'); ?>
+        <div class="address-container">
+            <?php if ($client['adresse']): ?>
+            <div class="address-section">
+                <h4><i class="fas fa-map-marker-alt"></i> Adresse de facturation</h4>
+                <div class="address-info">
+                    <?php echo nl2br(htmlspecialchars($client['adresse'])); ?><br>
+                    <?php echo htmlspecialchars($client['code_postal'] . ' ' . $client['ville']); ?><br>
+                    <?php echo htmlspecialchars($client['pays'] ?: 'France'); ?>
+                </div>
+            </div>
+            <?php endif; ?>
+            
+            <?php if ($client['adresse_livraison_differente'] && $client['adresse_livraison']): ?>
+            <div class="address-section">
+                <h4><i class="fas fa-shipping-fast"></i> Adresse de livraison</h4>
+                <div class="address-info">
+                    <?php echo nl2br(htmlspecialchars($client['adresse_livraison'])); ?><br>
+                    <?php echo htmlspecialchars($client['code_postal_livraison'] . ' ' . $client['ville_livraison']); ?><br>
+                    <?php echo htmlspecialchars($client['pays_livraison'] ?: 'France'); ?>
+                </div>
+            </div>
+            <?php elseif ($client['adresse']): ?>
+            <div class="address-section">
+                <h4><i class="fas fa-shipping-fast"></i> Adresse de livraison</h4>
+                <div class="address-info same-as-billing">
+                    <span class="text-muted"><i class="fas fa-link"></i> Identique à l'adresse de facturation</span>
+                </div>
+            </div>
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
     </div>
     
     <!-- Statistiques -->
@@ -147,12 +195,12 @@ include 'header.php';
             </div>
             
             <div class="stat-item">
-                <div class="stat-value"><?php echo number_format($stats['total_depense'], 0, ',', ' '); ?> €</div>
+                <div class="stat-value"><?php echo number_format($stats['total_depense'] ?? 0, 0, ',', ' '); ?> €</div>
                 <div class="stat-label">Total dépensé</div>
             </div>
             
             <div class="stat-item">
-                <div class="stat-value"><?php echo number_format($stats['panier_moyen'], 0, ',', ' '); ?> €</div>
+                <div class="stat-value"><?php echo number_format($stats['panier_moyen'] ?? 0, 0, ',', ' '); ?> €</div>
                 <div class="stat-label">Panier moyen</div>
             </div>
             
@@ -160,6 +208,41 @@ include 'header.php';
                 <div class="stat-value"><?php echo $stats['commandes_en_cours']; ?></div>
                 <div class="stat-label">En cours</div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal changement mot de passe -->
+<div id="password-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4><i class="fas fa-key"></i> Changer le mot de passe de <?php echo htmlspecialchars($client['prenom'] . ' ' . $client['nom']); ?></h4>
+            <span class="close" id="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form id="password-form">
+                <div class="form-group">
+                    <label for="new-password">Nouveau mot de passe :</label>
+                    <div class="input-group">
+                        <input type="text" id="new-password" name="new_password" class="form-control" required minlength="6">
+                        <button type="button" id="generate-random" class="btn btn-outline-info">Générer aléatoire</button>
+                    </div>
+                    <small class="text-muted">Minimum 6 caractères - Ce mot de passe sera visible pour transmission au client</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirmer le mot de passe :</label>
+                    <input type="text" id="confirm-password" name="confirm_password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> Le mot de passe sera hashé en base mais restera visible dans cette interface pour transmission au client.
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancel-password">Annuler</button>
+            <button type="button" class="btn btn-primary" id="save-password">Changer le mot de passe</button>
         </div>
     </div>
 </div>
@@ -200,7 +283,19 @@ include 'header.php';
                         </div>
                         
                         <div class="commande-total">
-                            <strong><?php echo number_format($commande['total'], 2, ',', ' '); ?> €</strong>
+                            <?php
+                            // Calcul des frais de port selon la logique du panier
+                            $totalHT = $commande['total_ht'] ? $commande['total_ht'] : 0;
+                            $fraisPort = ($totalHT > 200) ? 0 : 13.95;
+                            $fraisAffiches = $commande['frais_livraison'] !== null ? $commande['frais_livraison'] : $fraisPort;
+                            ?>
+                            <div class="total-detail">
+                                <div style="font-size: 0.85em; color: #666;">
+                                    HT: <?php echo number_format($totalHT, 2, ',', ' '); ?> € + Port: 
+                                    <?php echo $fraisAffiches > 0 ? number_format($fraisAffiches, 2, ',', ' ') . ' €' : 'Gratuit'; ?>
+                                </div>
+                                <strong><?php echo number_format($commande['total'], 2, ',', ' '); ?> € TTC</strong>
+                            </div>
                         </div>
                     </div>
                     
@@ -232,6 +327,12 @@ include 'header.php';
                                     <i class="fas fa-file-invoice"></i>
                                 </a>
                             <?php endif; ?>
+                            
+                            <button class="btn btn-sm btn-danger" 
+                                    onclick="confirmerSuppressionCommande(<?php echo $commande['id']; ?>, '<?php echo htmlspecialchars($commande['numero_commande']); ?>')"
+                                    title="Supprimer commande">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -246,6 +347,30 @@ include 'header.php';
     grid-template-columns: 2fr 1fr;
     gap: 20px;
     margin-bottom: 30px;
+}
+
+/* Section mot de passe */
+.password-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.password-display {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: #f8f9fa;
+    font-family: monospace;
+    min-width: 200px;
+    font-weight: bold;
+}
+
+.password-display[value*="Aucun"] {
+    color: #dc3545;
+    font-style: italic;
+    font-family: inherit;
+    background: #fff5f5;
 }
 
 .client-info-card,
@@ -289,11 +414,44 @@ include 'header.php';
     color: #333;
 }
 
+.address-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.address-section h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1rem;
+}
+
 .address-info {
     background: #f8f9fa;
     padding: 15px;
     border-radius: 5px;
     border-left: 3px solid #007bff;
+    line-height: 1.4;
+}
+
+.same-as-billing {
+    background: #f0f0f0 !important;
+    border-left: 3px solid #6c757d !important;
+    text-align: center;
+    padding: 20px 15px !important;
+}
+
+.same-as-billing .text-muted {
+    color: #6c757d !important;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .address-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
 }
 
 .stats-grid {
@@ -415,6 +573,28 @@ include 'header.php';
         gap: 15px;
     }
 }
+
+.input-group {
+    display: flex;
+    gap: 5px;
+}
+
+.input-group .form-control {
+    flex: 1;
+}
+
+.input-group .btn {
+    white-space: nowrap;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
 </style>
 
 <script>
@@ -460,6 +640,171 @@ document.querySelectorAll('.statut-select').forEach(select => {
     // Stocker la valeur initiale
     select.dataset.oldValue = select.value;
 });
+
+// Gestion du mot de passe
+const toggleButton = document.getElementById('toggle-password');
+if (toggleButton) {
+    toggleButton.addEventListener('click', function() {
+        const passwordField = document.getElementById('client-password');
+        const eyeIcon = document.getElementById('eye-icon');
+        
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.className = 'fas fa-eye-slash';
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.className = 'fas fa-eye';
+        }
+    });
+}
+
+document.getElementById('change-password').addEventListener('click', function() {
+    document.getElementById('password-modal').style.display = 'block';
+    document.getElementById('new-password').focus();
+});
+
+document.getElementById('close-modal').addEventListener('click', function() {
+    document.getElementById('password-modal').style.display = 'none';
+    document.getElementById('password-form').reset();
+});
+
+document.getElementById('cancel-password').addEventListener('click', function() {
+    document.getElementById('password-modal').style.display = 'none';
+    document.getElementById('password-form').reset();
+});
+
+// Génération de mot de passe aléatoire
+function genererMotDePasseAleatoire() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';
+    let result = '';
+    for (let i = 0; i < 8; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
+document.getElementById('generate-random').addEventListener('click', function() {
+    const password = genererMotDePasseAleatoire();
+    document.getElementById('new-password').value = password;
+    document.getElementById('confirm-password').value = password;
+});
+
+document.getElementById('generate-password').addEventListener('click', function() {
+    const password = genererMotDePasseAleatoire();
+    if (confirm('Générer et appliquer le mot de passe: ' + password + ' ?')) {
+        changerMotDePasse(<?php echo $client['id']; ?>, password);
+    }
+});
+
+document.getElementById('copy-password').addEventListener('click', function() {
+    const passwordField = document.getElementById('client-password');
+    const password = passwordField.value;
+    
+    if (password && password !== '*****') {
+        navigator.clipboard.writeText(password).then(function() {
+            // Feedback visuel
+            const btn = document.getElementById('copy-password');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-secondary');
+            
+            setTimeout(function() {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-secondary');
+                btn.classList.add('btn-success');
+            }, 2000);
+        }).catch(function() {
+            alert('Impossible de copier dans le presse-papier. Mot de passe: ' + password);
+        });
+    } else {
+        alert('Aucun mot de passe à copier.');
+    }
+});
+
+document.getElementById('save-password').addEventListener('click', function() {
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    
+    if (newPassword.length < 6) {
+        alert('Le mot de passe doit contenir au moins 6 caractères.');
+        return;
+    }
+    
+    if (newPassword !== confirmPassword) {
+        alert('Les mots de passe ne correspondent pas.');
+        return;
+    }
+    
+    if (confirm('Êtes-vous sûr de vouloir changer le mot de passe de ce client ?')) {
+        changerMotDePasse(<?php echo $client['id']; ?>, newPassword);
+    }
+});
+
+function changerMotDePasse(clientId, nouveauMotDePasse) {
+    fetch('changer-mot-de-passe.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            client_id: clientId,
+            nouveau_mot_de_passe: nouveauMotDePasse
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Mot de passe modifié avec succès\\n\\nNouveau mot de passe: ' + data.nouveau_mot_de_passe_clair + '\\n\\nVous pouvez maintenant le communiquer au client.');
+            document.getElementById('password-modal').style.display = 'none';
+            document.getElementById('password-form').reset();
+            // Mettre à jour l'affichage du mot de passe en clair
+            const passwordField = document.getElementById('client-password');
+            passwordField.value = data.nouveau_mot_de_passe_clair;
+            passwordField.type = 'text';
+            // Recharger la page pour mettre à jour l'interface complète
+            setTimeout(() => location.reload(), 1500);
+        } else {
+            alert('Erreur lors de la modification: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert('Erreur lors de la modification du mot de passe');
+    });
+}
+
+// Fonctions de suppression de commande
+function confirmerSuppressionCommande(commandeId, numeroCommande) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer définitivement la commande #' + numeroCommande + ' ?\n\nCette action est irréversible et supprimera :\n- La commande et tous ses articles\n- L\'historique des modifications\n- Toutes les données associées')) {
+        supprimerCommande(commandeId);
+    }
+}
+
+function supprimerCommande(commandeId) {
+    fetch('supprimer-commande.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            commande_id: commandeId
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Commande supprimée avec succès');
+            location.reload();
+        } else {
+            alert('Erreur lors de la suppression: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert('Erreur lors de la suppression de la commande');
+    });
+}
 </script>
 
-<?php include 'footer.php'; ?>
+<?php include 'footer_simple.php'; ?>

@@ -20,11 +20,20 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 try {
     $db = Database::getInstance()->getConnection();
     
+    // Debug : log des données reçues
+    error_log("UPDATE PROFILE DEBUG - Client ID: " . $_SESSION['client_id']);
+    error_log("UPDATE PROFILE DEBUG - POST data: " . print_r($_POST, true));
+    
     // Récupération et validation des données
     $prenom = trim($_POST['prenom'] ?? '');
     $nom = trim($_POST['nom'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $telephone = trim($_POST['telephone'] ?? '');
+    
+    // Debug : log des données traitées
+    error_log("UPDATE PROFILE DEBUG - Prenom traité: '$prenom'");
+    error_log("UPDATE PROFILE DEBUG - Nom traité: '$nom'");
+    error_log("UPDATE PROFILE DEBUG - Email traité: '$email'");
     
     // Adresse de facturation
     $adresse = trim($_POST['adresse'] ?? '');
@@ -181,13 +190,26 @@ try {
     if ($update_password) {
         $sql_parts[] = "mot_de_passe = ?";
         $params[] = password_hash($nouveau_mot_de_passe, PASSWORD_DEFAULT);
+        $sql_parts[] = "mot_de_passe_clair = ?";
+        $params[] = $nouveau_mot_de_passe;
     }
     
     $params[] = $_SESSION['client_id'];
     
     $sql = "UPDATE clients SET " . implode(', ', $sql_parts) . " WHERE id = ?";
+    
+    // Debug : log de la requête SQL
+    error_log("UPDATE PROFILE DEBUG - SQL: $sql");
+    error_log("UPDATE PROFILE DEBUG - Params: " . print_r($params, true));
+    
     $stmt = $db->prepare($sql);
-    $stmt->execute($params);
+    $result = $stmt->execute($params);
+    
+    // Debug : log du résultat
+    error_log("UPDATE PROFILE DEBUG - Result: " . ($result ? 'SUCCESS' : 'FAILED'));
+    if (!$result) {
+        error_log("UPDATE PROFILE DEBUG - SQL Error: " . print_r($stmt->errorInfo(), true));
+    }
     
     // Valider la transaction
     $db->commit();

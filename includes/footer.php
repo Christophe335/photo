@@ -22,7 +22,7 @@
             </div>
             <!-- Bouton Compte -->
             <div class="account-btn">
-                <a href="../formulaires/voir-compte.php" class="btn-account">
+                <a href="../qui-sommes-nous.php" class="btn-account">
                     <i class="fas fa-circle-question"></i>
                     <span>Qui sommes-nous ?</span>
                 </a>
@@ -48,6 +48,11 @@
         </div>
         <div class="container">
             <p>&copy; 2025 Bindy Studio - Impression et Personnalisation d'albums photos. Tous droits réservés.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="javascript:void(0)" onclick="openCookiePreferences()" style="color: #f1f1f1; text-decoration: underline;">
+                    Gérer mes préférences cookies
+                </a>
+            </p>
         </div>
     </div>
         
