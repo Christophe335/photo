@@ -392,9 +392,10 @@
     <!-- Header Admin -->
     <header class="admin-header">
         <div class="header-container">
-            <h1><i class="fas fa-cogs"></i> Administration - Gestion des Produits</h1>
+            <h1><i class="fas fa-cogs"></i> Administration et Gestion</h1>
             <nav class="admin-nav">
-                <a href="index.php"><i class="fas fa-home"></i> Accueil</a>
+                <a href="index.php"><i class="fas fa-boxes"></i> Produits</a>
+                <a href="gestion-clients.php"><i class="fas fa-users"></i> Clients</a>
                 <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le site</a>
                 <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
             </nav>

@@ -54,7 +54,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         
                         <!-- Bouton Compte -->
                         <div class="account-btn">
-                            <a href="<?php echo $basePath; ?>clients/connexion.php" class="btn-account">
+                            <a href="<?php echo $basePath; ?>compte.php" class="btn-account">
                                 <i class="fas fa-user"></i>
                                 <span>Compte</span>
                             </a>

@@ -1,0 +1,858 @@
+/* Styles spécifiques pour la création de compte */
+.account-background {
+    background: url(../images/logo-icon/bgMonCompte.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Styles pour le compte client - plus spécifiques */
+.account-container .account-content {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.account-container .account-sidebar {
+    min-width: 250px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.account-container .sidebar-title {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.account-container .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-container .sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+.account-container .menu-link {
+    display: block;
+    padding: 12px 15px;
+    color: #666;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.account-container .menu-link:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+.account-container .menu-link.active {
+    background: #24256d;
+    color: white;
+}
+
+.account-container .account-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.account-container .content-section {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-height: 200px;
+}
+
+.account-container .content-section.active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Forcer l'affichage des contenus AJAX */
+.account-container .content-section.active > div {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.account-container .section-title {
+    margin: 0 0 25px 0;
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.account-container .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.account-container .info-group {
+    margin-bottom: 20px;
+}
+
+.account-container .info-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.account-container .info-value {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.account-container .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.account-container .stat-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.account-container .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #24256d;
+    margin-bottom: 5px;
+}
+
+.account-container .stat-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.account-container .recent-orders {
+    space-y: 15px;
+}
+
+.account-container .order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.account-container .order-info strong {
+    color: #333;
+}
+
+.account-container .order-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: 15px;
+}
+
+.account-container .order-status {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.account-container .status-confirmee { color: #28a745; }
+.account-container .status-en_cours { color: #ffc107; }
+.account-container .status-expediee { color: #17a2b8; }
+.account-container .status-livree { color: #28a745; }
+
+/* Styles spécifiques pour le formulaire de modification */
+.account-container .modifier-form {
+    max-width: 800px;
+    background: white;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.account-container .modifier-form .form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.account-container .modifier-form .form-section h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+}
+
+.account-container .modifier-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.account-container .modifier-form .form-group {
+    margin-bottom: 20px;
+}
+
+.account-container .modifier-form .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.account-container .modifier-form .form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    padding: 20px 0;
+    border-top: 1px solid #dee2e6;
+    margin-top: 30px;
+}
+
+/* Styles pour les commandes AJAX */
+.account-container .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.account-container .empty-state h3 {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.account-container .commandes-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.account-container .commande-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+}
+
+.account-container .commande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.account-container .commande-numero strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.account-container .commande-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.account-container .statut-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.account-container .status-confirmee {
+    background: #d4edda;
+    color: #155724;
+}
+
+.account-container .status-en_preparation {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.account-container .status-en_cours {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.account-container .status-expediee {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.account-container .commande-details {
+    margin-bottom: 20px;
+}
+
+.account-container .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.account-container .detail-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.account-container .detail-value {
+    color: #333;
+}
+
+.account-container .detail-value code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+.account-container .commande-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.account-container .btn-details,
+.account-container .btn-track {
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.account-container .btn-details {
+    background: #007bff;
+    color: white;
+}
+
+.account-container .btn-details:hover {
+    background: #0056b3;
+}
+
+.account-container .btn-track {
+    background: #28a745;
+    color: white;
+    border: none;
+}
+
+.account-container .btn-track:hover {
+    background: #1e7e34;
+}
+
+.account-container .alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.account-container .alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.create-account-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 40px 20px;
+}
+
+.create-account-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.create-account-form {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 1px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #24256d;
+}
+
+.form-group.required label::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 3px;
+    width: auto;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+/* Titre de section d'adresse */
+.address-section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 30px 0 20px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Section d'adresse de livraison */
+.address-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #24256d;
+}
+
+/* ========================================
+   BOUTONS - STYLES GLOBAUX
+======================================== */
+
+/* Container pour les boutons */
+.btn-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Bouton principal (vert/bleu selon contexte) */
+.btn-primary {
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Bouton principal - version verte (création compte) */
+.create-account-form .btn-primary {
+    background: #28a745;
+}
+
+.create-account-form .btn-primary:hover {
+    background: #1e7e34;
+}
+
+/* Bouton principal - version bleue (mot de passe oublié et autres) */
+.forgot-password-form .btn-primary,
+.btn-primary:not(.create-account-form .btn-primary) {
+    background: #24256d;
+}
+
+.forgot-password-form .btn-primary:hover,
+.btn-primary:not(.create-account-form .btn-primary):hover {
+    background: #1a1b4d;
+}
+
+/* Bouton d'annulation */
+.btn-cancel {
+    background: #6c757d;
+    color: white;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #545b62;
+}
+
+/* Bouton d'édition */
+.btn-edit {
+    background: #24256d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: #1a1b4d;
+}
+
+/* Bouton de déconnexion */
+.btn-logout {
+    background: #dc3545;
+    color: white !important;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #c82333 !important;
+}
+
+/* Responsive pour les boutons */
+@media (max-width: 768px) {
+    .btn-container {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-cancel {
+        width: 100%;
+    }
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive pour création de compte */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .create-account-title {
+        font-size: 2rem;
+    }
+    
+    .create-account-form {
+        padding: 30px 20px;
+    }
+}
+
+/* Styles spécifiques pour la page mon compte */
+.account-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 40px 20px;
+}
+
+.account-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.welcome-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.account-content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+}
+
+.account-sidebar {
+    background: #f8f9fa;
+    padding: 30px 20px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.account-main {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.info-group {
+    margin-bottom: 20px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .account-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .account-title {
+        font-size: 2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Styles spécifiques pour la page mot de passe oublié */
+
+.forgot-password-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 40px 20px;
+}
+
+.forgot-password-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.forgot-password-form {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.instruction-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+
+
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive pour mot de passe oublié */
+@media (max-width: 768px) {
+    .forgot-password-title {
+        font-size: 1.8rem;
+    }
+    
+    .forgot-password-form {
+        padding: 30px 20px;
+    }
+}
+

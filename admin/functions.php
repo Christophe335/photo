@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Démarrer la session uniquement si elle n'est pas déjà active
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Configuration de base pour l'admin
 define('ADMIN_PATH', __DIR__);

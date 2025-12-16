@@ -6,15 +6,30 @@ CREATE TABLE IF NOT EXISTS clients (
     email VARCHAR(100) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(255) NOT NULL,
     telephone VARCHAR(20),
+    
+    -- Adresse de facturation
     adresse TEXT NOT NULL,
     code_postal VARCHAR(10) NOT NULL,
     ville VARCHAR(50) NOT NULL,
     pays VARCHAR(50) DEFAULT 'France',
+    
+    -- Adresse de livraison (optionnelle)
+    adresse_livraison_differente TINYINT(1) DEFAULT 0,
+    adresse_livraison TEXT NULL,
+    code_postal_livraison VARCHAR(10) NULL,
+    ville_livraison VARCHAR(50) NULL,
+    pays_livraison VARCHAR(50) NULL,
+    
+    -- Préférences et statut
     newsletter TINYINT(1) DEFAULT 0,
-    actif TINYINT(1) DEFAULT 0,
+    actif TINYINT(1) DEFAULT 1,
+    
+    -- Tokens de sécurité
     token_activation VARCHAR(64),
     token_reset VARCHAR(64),
     token_reset_expiration DATETIME,
+    
+    -- Horodatage
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     derniere_connexion TIMESTAMP NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

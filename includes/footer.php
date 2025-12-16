@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div class="account-btn">
-                <a href="../compte.php" class="btn-account">
+                <a href="../formulaires/voir-compte.php" class="btn-account">
                     <i class="fas fa-user"></i>
                     <span>Compte</span>
                 </a>

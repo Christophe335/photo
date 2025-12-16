@@ -15,12 +15,13 @@ if (!isset($_SESSION['panier'])) {
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
-    <h1>Votre panier</h1>
+    <h1 style="text-align:center;">Votre panier</h1>
     <div id="panier-content">
         <?php
         $panier = $_SESSION['panier'];
         if (empty($panier)) {
-            echo '<p>Votre panier est vide.</p>';
+            echo '<p style="text-align:center;">Votre panier est vide.</p>';
+            echo '<img src="/images/logo-icon/caddie-vide.webp" alt="Panier vide" style="display:block; margin:20px auto; width:375px;">';
         } else {
             echo '<div class="table-responsive">';
             echo '<table class="table-panier">';
@@ -85,6 +86,58 @@ if (!isset($_SESSION['panier'])) {
             echo '<hr>';
             echo '<p style="display:flex; justify-content:space-between;"><strong>Total à payer :</strong><strong>' . number_format($ttc + $fraisPort, 2, ',', ' ') . ' €</strong>
       </p>';
+            echo '</div>';
+            
+            // Section de commande
+            echo '<div class="panier-actions">';
+            if (isset($_SESSION['client_id'])) {
+                // Client connecté - afficher le bouton de commande
+                echo '<form action="../clients/process-commande.php" method="POST" class="commande-form">';
+                echo '<div class="commande-options">';
+                echo '<h3>Finaliser votre commande</h3>';
+                
+                echo '<div class="option-group">';
+                echo '<label for="mode_paiement">Mode de paiement :</label>';
+                echo '<select name="mode_paiement" id="mode_paiement" required>';
+                echo '<option value="carte_bancaire">Carte bancaire</option>';
+                echo '<option value="paypal">PayPal</option>';
+                echo '<option value="virement">Virement bancaire</option>';
+                echo '</select>';
+                echo '</div>';
+                
+                echo '<div class="option-group">';
+                echo '<label>';
+                echo '<input type="checkbox" name="utiliser_adresse_facturation" checked>';
+                echo 'Livrer à l\'adresse de facturation';
+                echo '</label>';
+                echo '</div>';
+                
+                echo '<div class="option-group">';
+                echo '<label for="commentaire">Commentaire (optionnel) :</label>';
+                echo '<textarea name="commentaire" id="commentaire" rows="3" placeholder="Instructions particulières pour votre commande..."></textarea>';
+                echo '</div>';
+                
+                echo '<div class="commande-resume">';
+                echo '<p><strong>Récapitulatif :</strong></p>';
+                echo '<p>Articles : ' . count($panier) . '</p>';
+                echo '<p>Total TTC : ' . number_format($ttc, 2, ',', ' ') . ' €</p>';
+                echo '<p>Frais de port : ' . ($fraisPort == 0 ? 'Gratuit' : number_format($fraisPort, 2, ',', ' ') . ' €') . '</p>';
+                echo '<p class="total-final"><strong>Total à payer : ' . number_format($ttc + $fraisPort, 2, ',', ' ') . ' €</strong></p>';
+                echo '</div>';
+                
+                echo '<button type="submit" class="btn-commander">Valider ma commande</button>';
+                echo '</form>';
+            } else {
+                // Client non connecté - invitation à se connecter
+                echo '<div class="connexion-required">';
+                echo '<h3>Finaliser votre commande</h3>';
+                echo '<p>Pour passer votre commande, vous devez être connecté.</p>';
+                echo '<div class="connexion-actions">';
+                echo '<a href="../clients/connexion.php" class="btn-connexion">Se connecter</a>';
+                echo '<a href="../clients/creer-compte.php" class="btn-creer-compte">Créer un compte</a>';
+                echo '</div>';
+                echo '</div>';
+            }
             echo '</div>';
         }
     ?>

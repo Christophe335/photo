@@ -15,10 +15,20 @@ $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 $password_confirm = $_POST['password_confirm'] ?? '';
 $telephone = trim($_POST['telephone'] ?? '');
+
+// Adresse de facturation
 $adresse = trim($_POST['adresse'] ?? '');
 $code_postal = trim($_POST['code_postal'] ?? '');
 $ville = trim($_POST['ville'] ?? '');
 $pays = $_POST['pays'] ?? 'France';
+
+// Adresse de livraison (optionnelle)
+$adresse_livraison_differente = isset($_POST['adresse_livraison_differente']) ? 1 : 0;
+$adresse_livraison = $adresse_livraison_differente ? trim($_POST['adresse_livraison'] ?? '') : null;
+$code_postal_livraison = $adresse_livraison_differente ? trim($_POST['code_postal_livraison'] ?? '') : null;
+$ville_livraison = $adresse_livraison_differente ? trim($_POST['ville_livraison'] ?? '') : null;
+$pays_livraison = $adresse_livraison_differente ? ($_POST['pays_livraison'] ?? 'France') : null;
+
 $newsletter = isset($_POST['newsletter']) ? 1 : 0;
 $cgv = isset($_POST['cgv']) ? 1 : 0;
 
@@ -65,6 +75,19 @@ if (!$cgv) {
     $errors[] = "Vous devez accepter les conditions générales de vente.";
 }
 
+// Validation de l'adresse de livraison si différente
+if ($adresse_livraison_differente) {
+    if (empty($adresse_livraison)) {
+        $errors[] = "L'adresse de livraison est requise.";
+    }
+    if (empty($code_postal_livraison)) {
+        $errors[] = "Le code postal de livraison est requis.";
+    }
+    if (empty($ville_livraison)) {
+        $errors[] = "La ville de livraison est requise.";
+    }
+}
+
 if (!empty($errors)) {
     $_SESSION['register_errors'] = $errors;
     $_SESSION['register_data'] = $_POST;
@@ -91,15 +114,20 @@ try {
     
     $stmt = $db->prepare("
         INSERT INTO clients (
-            prenom, nom, email, mot_de_passe, telephone, adresse, 
-            code_postal, ville, pays, newsletter, token_activation, 
-            date_creation, actif
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), 1)
+            prenom, nom, email, mot_de_passe, telephone, 
+            adresse, code_postal, ville, pays,
+            adresse_livraison_differente, adresse_livraison, 
+            code_postal_livraison, ville_livraison, pays_livraison,
+            newsletter, token_activation, actif
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
     ");
     
     $stmt->execute([
         $prenom, $nom, $email, $password_hash, $telephone, 
-        $adresse, $code_postal, $ville, $pays, $newsletter, $token_activation
+        $adresse, $code_postal, $ville, $pays,
+        $adresse_livraison_differente, $adresse_livraison,
+        $code_postal_livraison, $ville_livraison, $pays_livraison,
+        $newsletter, $token_activation
     ]);
     
     $client_id = $db->lastInsertId();

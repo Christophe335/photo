@@ -188,8 +188,8 @@
                     <span class="icone-panier">🛒 <span class="compteur-panier">0</span></span>
                     Panier
                 </a>
-                <a href="#">Contact</a>
-                <a href="#">Mon Compte</a>
+                <a href="formulaires/contact.php">Contact</a>
+                <a href="compte.php">Mon Compte</a>
             </nav>
         </div>
     </header>

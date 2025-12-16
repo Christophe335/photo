@@ -17,32 +17,34 @@
     <main class="cadre">
         <div class="container">
             <h1 class="title-h1">Imprimez vos souvenirs sur tous nos supports, de l’album photo </br>aux couvertures personnalisés, toute une gamme de produits variés</h1>
-            
-            <img class="centre-div" src="../images/bandeaux/index.webp" alt="Un bandeau présentant divers produits d'impression et de personnalisation">
+        </div>
+            <img class="centre-div" style="width: 100%;" src="../images/bandeaux/index.webp" alt="Un bandeau présentant divers produits d'impression et de personnalisation">
             <p class="subtitle">Découvrez nos services d'impression et de personnalisation.</p>
-            
-            <!-- Section pour tester le scroll -->
-            <div class="section1">
-                <h2 class="title-h2">Nos Services</h2>
-                <p style="margin-bottom: 20px;">Nous proposons toute une gamme de produits pour la reliure et la personnalisation de vos souvenirs.</p>
-                <p style="margin-bottom: 20px;">Créons ensembles de beaux albums photo personnalisés.</p>
+
+        <div class="container">    
+            <div class="ligne">
+                <div class="vignette-index">
+                    <img class="image-index" src="../images/bandeaux/album.webp" width="375px" height="250px" alt="Sur une table sont présentés 3 albums photos personnalisés avec des photos imprimées en couverture.">
+                    <span class="span-index">Album Photo</span>
+                    <p class="text-index">Créer un livre photo personnalisé pour partager tous vos souvenir avec vos proches.</p>
+                </div>
+                <div class="vignette-index">
+                    <img class="image-index" src="../images/bandeaux/calendrier.webp" width="375px" height="250px" alt="Photo d'un calendrier de couleur noir et personnalisé avec une photo.">
+                    <span class="span-index">Calendrier</span>
+                    <p class="text-index">Créer un calendrier personnalisé pour partager vos moments importants tout au long de l'année.</p>
+                </div>
             </div>
-            
-            <div class="section2">
-                <h2 class="title-h2">Impression Photo</h2>
-                <p style="margin-bottom: 20px;">Nous imprimons vos photos pour toute la gamme des produits "Peel & Stick Sheets". Cette solution permet une personnalisation facile et rapide de vos images en disposant d'une zone auto-adhésive qui vous permet de coller vos photos où vous le souhaitez.</p>
-            </div>
-            
-            <div class="section1">
-                <h2 class="title-h2">Personnalisation</h2>
-                <p style="margin-bottom: 20px;">Plusieurs de nos produits de reliure permettent une personnalisation avancée, que ce soit par le choix des matériaux, des finitions ou du mode d'impression choisi : <strong>impression sur métal, finition luxe, couverture rigide avec logo en dorure</strong>.</p>
-                <p style="margin-bottom: 20px;">D'autre produits sont personnalisés à l'aide d'un photo recouvrant partiellement ou entièrement la couverture rigide.</p>
-            </div>
-            
-            <div class="section2">
-                <h2 class="title-h2">Nos Produits</h2>
-                <p style="margin-bottom: 20px;">Nous vous proposons une large gamme de produits d'impression et de personnalisation, allant des albums photo aux couvertures rigides.</p>
-                <p style="margin-bottom: 20px;">La réalisation de calendriers personnalisés, ainsi que d'autres produits sur mesure, comme la réalisation de magnets, de panneaux photo, ou encore de boîtes personnalisées.</p>
+            <div class="ligne">
+                <div class="vignette-index">
+                    <img class="image-index" src="../images/bandeaux/photo.webp" width="375px" height="250px" alt="Sur une table sont présentés 3 albums photos personnalisés avec des photos imprimées en couverture.">
+                    <span class="span-index">Tirages Photo</span>
+                    <p class="text-index">Notre service d'impression de photo et là pour immortaliser vos moments précieux avec des tirages de haute qualité.</p>
+                </div>
+                <div class="vignette-index">
+                    <img class="image-index" src="../images/bandeaux/panneau.webp" width="375px" height="250px" alt="Photo d'un calendrier de couleur noir et personnalisé avec une photo.">
+                    <span class="span-index">Panneaux Photo</span>
+                    <p class="text-index">Toute une gamme de panneaux photo personnalisés pour embellir votre intérieur ou votre espace professionnel.</p>
+                </div>
             </div>
             
             

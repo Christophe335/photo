@@ -7,8 +7,8 @@ include '../includes/header.php';
 <style>
 .connexion-container {
     max-width: 1200px;
-    margin: 80px auto;
-    padding: 40px 20px;
+    margin: 1px auto;
+    padding: 10px 20px;
 }
 
 .connexion-title {
@@ -22,9 +22,9 @@ include '../includes/header.php';
 
 .connexion-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 900px;
+    grid-template-columns: 260px 375px 375px 260px;
+    gap: 10px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -65,13 +65,13 @@ include '../includes/header.php';
 
 .form-group input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #24256d;
 }
 
 .btn-primary {
-    background: #007bff;
+    background: #24256d;
     color: white;
-    padding: 15px 30px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -82,13 +82,13 @@ include '../includes/header.php';
 }
 
 .btn-primary:hover {
-    background: #0056b3;
+    background: #1a1b4d;
 }
 
 .btn-secondary {
     background: #28a745;
     color: white;
-    padding: 20px 40px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -183,6 +183,10 @@ include '../includes/header.php';
         <?php endif; ?>
         
         <div class="connexion-content">
+            <!-- image gauche -->
+            <div class="connexion-image">
+                <img src="../images/logo-icon/se-connecter-01.svg" alt="Image de connexion" style="width:261px; height:500px;">
+            </div>
             <!-- Section Connexion -->
             <div class="connexion-section">
                 <h2 class="section-title">Mon compte</h2>
@@ -219,6 +223,10 @@ include '../includes/header.php';
                 </p>
                 
                 <a href="creer-compte.php" class="btn-secondary">Je crée mon compte</a>
+            </div>
+            <!-- image droite -->
+            <div class="connexion-image">
+                <img src="../images/logo-icon/se-connecter-02.svg" alt="Image de connexion" style="width:261px; height:500px;">
             </div>
         </div>
     </div>

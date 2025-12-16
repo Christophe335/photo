@@ -3,163 +3,11 @@ session_start();
 include '../includes/header.php'; 
 ?>
 
-<!-- Styles spécifiques pour la création de compte -->
-<style>
-.create-account-container {
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 40px 20px;
-}
+<head>
+    <link rel="stylesheet" href="../css/client.css">
+</head>
 
-.create-account-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.create-account-form {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-.form-group.required label::after {
-    content: " *";
-    color: #e74c3c;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 25px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    margin-top: 3px;
-    width: auto;
-}
-
-.checkbox-group label {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.btn-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.btn-primary {
-    background: #28a745;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: #1e7e34;
-}
-
-.btn-cancel {
-    background: #6c757d;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-cancel:hover {
-    background: #545b62;
-}
-
-.login-link {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.login-link a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.login-link a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .create-account-title {
-        font-size: 2rem;
-    }
-    
-    .create-account-form {
-        padding: 30px 20px;
-    }
-    
-    .btn-container {
-        flex-direction: column;
-    }
-}
-</style>
-
-<main>
+<main class="account-background">
     <div class="create-account-container">
         <h1 class="create-account-title">Créer mon compte</h1>
         
@@ -211,6 +59,8 @@ include '../includes/header.php';
                        value="<?php echo isset($_SESSION['register_data']['telephone']) ? htmlspecialchars($_SESSION['register_data']['telephone']) : ''; ?>">
             </div>
             
+            <h3 class="address-section-title">Adresse de Facturation</h3>
+            
             <div class="form-group required">
                 <label for="adresse">Adresse</label>
                 <input type="text" id="adresse" name="adresse" required>
@@ -228,14 +78,58 @@ include '../includes/header.php';
             </div>
             
             <div class="form-group">
-                <label for="pays">Pays</label>
+                <label for="pays">Zone Géographique</label>
                 <select id="pays" name="pays">
                     <option value="France" selected>France</option>
+                    <option value="Corse">Corse</option>
+                    <option value="Dom">DOM / TOM</option>
                     <option value="Belgique">Belgique</option>
                     <option value="Suisse">Suisse</option>
                     <option value="Luxembourg">Luxembourg</option>
-                    <option value="Autre">Autre</option>
+                    <option value="eu">Union Européenne</option>
+                    <option value="heu">HORS Union Européenne</option>
                 </select>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="adresse_livraison_differente" name="adresse_livraison_differente" value="1">
+                <label for="adresse_livraison_differente">
+                    Adresse de livraison (si différente)
+                </label>
+            </div>
+            
+            <div id="adresse_livraison_fields" class="address-section" style="display: none;">
+                <h3 class="address-section-title">Adresse de Livraison</h3>
+                
+                <div class="form-group">
+                    <label for="adresse_livraison">Adresse</label>
+                    <input type="text" id="adresse_livraison" name="adresse_livraison">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="code_postal_livraison">Code postal</label>
+                        <input type="text" id="code_postal_livraison" name="code_postal_livraison" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="ville_livraison">Ville</label>
+                        <input type="text" id="ville_livraison" name="ville_livraison">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pays">Zone Géographique</label>
+                    <select id="pays" name="pays">
+                        <option value="France" selected>France</option>
+                        <option value="Corse">Corse</option>
+                        <option value="Dom">DOM / TOM</option>
+                        <option value="Belgique">Belgique</option>
+                        <option value="Suisse">Suisse</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="eu">Union Européenne</option>
+                        <option value="heu">HORS Union Européenne</option>
+                    </select>
+                </div>
             </div>
             
             <div class="checkbox-group">
@@ -314,6 +208,29 @@ document.getElementById('password_confirm').addEventListener('input', function()
         this.style.borderColor = '#e74c3c';
     } else {
         this.style.borderColor = '#ddd';
+    }
+});
+
+// Gestion de l'affichage de l'adresse de livraison
+document.getElementById('adresse_livraison_differente').addEventListener('change', function() {
+    const adresseLivraisonFields = document.getElementById('adresse_livraison_fields');
+    const inputs = adresseLivraisonFields.querySelectorAll('input, select');
+    
+    if (this.checked) {
+        adresseLivraisonFields.style.display = 'block';
+        // Rendre les champs optionnellement requis
+        inputs.forEach(input => {
+            if (['adresse_livraison', 'code_postal_livraison', 'ville_livraison'].includes(input.id)) {
+                input.required = true;
+            }
+        });
+    } else {
+        adresseLivraisonFields.style.display = 'none';
+        // Enlever la validation requise et vider les champs
+        inputs.forEach(input => {
+            input.required = false;
+            input.value = '';
+        });
     }
 });
 </script>
