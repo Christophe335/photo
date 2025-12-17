@@ -68,7 +68,9 @@ try {
 
 include 'header.php';
 ?>
-
+<head>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
 <div class="toolbar">
     <a href="gestion-clients.php" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Retour à la liste
@@ -221,8 +223,8 @@ include 'header.php';
                     
                     <!-- Actions -->
                     <div class="commande-actions">
-                        <a href="../clients/confirmation-commande.php?numero=<?php echo urlencode($commande['numero_commande']); ?>" 
-                           class="btn btn-info" target="_blank">
+                        <a href="detail-commande.php?numero=<?php echo urlencode($commande['numero_commande']); ?>" 
+                           class="btn btn-info">
                             <i class="fas fa-eye"></i> Voir détail complet
                         </a>
                         
@@ -251,213 +253,7 @@ include 'header.php';
     <?php endif; ?>
 </div>
 
-<style>
-.stats-grid-commandes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
 
-.stat-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.stat-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-}
-
-.stat-number {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-}
-
-.stat-label {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.commandes-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.commande-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    overflow: hidden;
-    border-left: 4px solid #24256D;
-}
-
-.commande-header {
-    background: #f8f9fa;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 20px;
-    align-items: start;
-}
-
-.commande-info h3 {
-    margin: 0 0 10px 0;
-    color: #333;
-}
-
-.commande-meta {
-    display: flex;
-    gap: 20px;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.commande-meta span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.status-change label {
-    display: block;
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-}
-
-.statut-select {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    min-width: 140px;
-    background: white;
-}
-
-.total-breakdown {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    color: #666;
-}
-
-.total-breakdown div {
-    margin-bottom: 3px;
-}
-
-.total-amount {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #28a745;
-    text-align: right;
-}
-
-.commande-content {
-    padding: 20px;
-}
-
-.produits-section h4 {
-    margin: 0 0 15px 0;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.produits-list {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.produit-item {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    color: #555;
-}
-
-.produit-item:last-child {
-    border-bottom: none;
-}
-
-.commande-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.suivi-info {
-    background: #e9ecef;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    color: #495057;
-}
-
-.empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: #666;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.empty-state i {
-    color: #ddd;
-    margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-    .commande-header {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .total-amount {
-        text-align: left;
-    }
-    
-    .commande-actions {
-        flex-direction: column;
-        align-items: start;
-    }
-}
-
-/* Bouton de suppression */
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    color: white;
-    transition: all 0.2s ease;
-}
-
-.btn-danger:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-    transform: translateY(-1px);
-}
-
-.btn-danger:active {
-    transform: translateY(0);
-}
-</style>
 
 <script>
 // Gestion du changement de statut (même code que dans client-details.php)

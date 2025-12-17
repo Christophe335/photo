@@ -91,7 +91,9 @@ $familles = getFamilles();
 
 include 'header.php';
 ?>
-
+<head>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
     <div class="page-header">
         <h2><i class="fas fa-edit"></i> Modifier le produit #<?= $produit['id'] ?></h2>
         <div>
@@ -106,22 +108,22 @@ include 'header.php';
         <div class="form-section">
             <h3><i class="fas fa-info-circle"></i> Informations générales</h3>
             
-            <div class="form-row admin-form-row">
-                <div class="form-group admin-col-ordre">
+            <div class="form-row admin-form-row" style="display: flex !important; gap: 12px !important;">
+                <div class="form-group admin-col-ordre" style="flex: 0 0 120px !important; width: 120px !important; max-width: 120px !important;">
                     <label for="ordre">Ordre d'affichage</label>
                     <input type="number" id="ordre" name="ordre" min="0" step="1"
                            value="<?= htmlspecialchars($_POST['ordre'] ?? $produit['ordre'] ?? '0') ?>"
                            placeholder="0" class="admin-input-full">
                 </div>
 
-                <div class="form-group admin-col-reference">
+                <div class="form-group admin-col-reference" style="flex: 0 0 200px !important; width: 200px !important; max-width: 200px !important;">
                     <label for="reference">Référence *</label>
                     <input type="text" id="reference" name="reference" required 
                            value="<?= htmlspecialchars($_POST['reference'] ?? $produit['reference'] ?? '') ?>"
                            placeholder="Ex: REL-A4-001" class="admin-input-full">
                 </div>
 
-                <div class="form-group admin-col-designation">
+                <div class="form-group admin-col-designation" style="flex: 1 1 auto !important; min-width: 200px !important;">
                     <label for="designation">Désignation *</label>
                     <input type="text" id="designation" name="designation" required 
                            value="<?= htmlspecialchars($_POST['designation'] ?? $produit['designation'] ?? '') ?>"
@@ -379,298 +381,6 @@ include 'header.php';
     </form>
 </div>
 
-<style>
-    .page-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-        padding-bottom: 15px;
-        border-bottom: 2px solid var(--primary-dark);
-        position: relative;
-        z-index: 10;
-    }
-
-    .page-header h2 {
-        color: var(--primary-dark);
-        font-weight: 500;
-        margin: 0;
-    }
-
-    .product-form {
-        background: #d2d2d2;
-        border-radius: 8px;
-        padding: 30px;
-        box-shadow: var(--shadow);
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .form-section {
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .form-section:last-of-type {
-        border-bottom: none;
-        margin-bottom: 20px;
-    }
-
-    .form-section h3 {
-        color: var(--primary-dark);
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .highlight-section {
-        background: #fff8e1;
-        padding: 25px;
-        border-radius: 8px;
-        border: 2px solid var(--primary-orange);
-    }
-
-    .section-description {
-        color: var(--text-muted);
-        font-size: 14px;
-        margin-bottom: 20px;
-        font-style: italic;
-    }
-
-    .form-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .form-group label {
-        font-weight: 500;
-        color: var(--text-dark);
-        margin-bottom: 8px;
-        font-size: 14px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        padding: 0 12px;
-        border: 1px solid var(--border-color);
-        border-radius: 6px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        transition: border-color 0.2s ease;
-        background: white !important;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-        outline: none;
-        border-color: var(--primary-dark);
-        box-shadow: 0 0 0 3px rgba(42, 37, 109, 0.1);
-    }
-
-    .form-help {
-        font-size: 12px;
-        color: var(--text-muted);
-        margin-top: 4px;
-        font-style: italic;
-    }
-
-    .couleurs-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 20px;
-    }
-    
-    .couleur-item {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-    }
-    
-    .couleur-item h4 {
-        color: var(--primary-dark);
-        margin-bottom: 15px;
-        font-size: 16px;
-        font-weight: 500;
-    }
-    
-    .couleur-fields {
-        display: grid;
-        gap: 15px;
-    }
-
-    .checkbox-group {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .checkbox-label {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 14px;
-        font-weight: 400;
-        cursor: pointer;
-    }
-
-    .checkbox-label input[type="checkbox"] {
-        width: auto;
-        margin: 0;
-    }
-
-    .info-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        background: var(--background-light);
-        padding: 15px;
-        border-radius: 6px;
-    }
-
-    .info-item {
-        font-size: 14px;
-        color: var(--text-muted);
-    }
-
-    .form-actions {
-        display: flex;
-        gap: 15px;
-        justify-content: flex-start;
-        padding-top: 20px;
-        border-top: 1px solid var(--border-color);
-        align-items: center;
-    }
-
-    .btn-secondary {
-        background: #6c757d;
-        color: white;
-    }
-
-    .btn-secondary:hover {
-        background: #5a6268;
-    }
-
-    /* Styles pour les articles composés */
-    .search-article-container {
-        margin-bottom: 20px;
-        padding: 15px;
-        background: #f8f9fa;
-        border-radius: 6px;
-    }
-
-    .resultats-recherche {
-        max-height: 200px;
-        overflow-y: auto;
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        margin-top: 5px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .resultat-item {
-        padding: 12px 15px;
-        border-bottom: 1px solid #eee;
-        cursor: pointer;
-        transition: background-color 0.2s;
-        line-height: 1.4;
-    }
-
-    .resultat-item:hover {
-        background-color: #f8f9fa;
-    }
-
-    .resultat-item:last-child {
-        border-bottom: none;
-    }
-
-    .liste-composants {
-        background: white;
-        border-radius: 6px;
-        overflow: hidden;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        margin-bottom: 15px;
-    }
-
-    .composants-header {
-        display: grid;
-        grid-template-columns: 1fr 2fr 120px 80px 120px 80px;
-        gap: 10px;
-        padding: 15px;
-        background: var(--primary-dark);
-        color: white;
-        font-weight: 500;
-        font-size: 14px;
-    }
-
-    .composant-item {
-        display: grid;
-        grid-template-columns: 1fr 2fr 120px 80px 120px 80px;
-        gap: 10px;
-        padding: 15px;
-        border-bottom: 1px solid #eee;
-        align-items: center;
-    }
-
-    .composant-item:last-child {
-        border-bottom: none;
-    }
-
-    .composants-vide {
-        padding: 30px;
-        text-align: center;
-        color: var(--text-muted);
-        font-style: italic;
-    }
-
-    .composants-total {
-        padding: 15px;
-        background: #e8f5e8;
-        color: var(--success-color);
-        text-align: right;
-        border-radius: 6px;
-        font-size: 16px;
-    }
-
-    .btn-sm {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .page-header {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-        }
-
-        .form-row {
-            grid-template-columns: 1fr;
-        }
-
-        .couleurs-container {
-            grid-template-columns: 1fr;
-        }
-
-        .form-actions {
-            flex-direction: column;
-            align-items: stretch;
-        }
-    }
-</style>
 
 <script>
     // Calcul automatique de la marge et du prix unitaire

@@ -26,6 +26,11 @@ try {
         $code_postal = trim($_POST['code_postal'] ?? '');
         $ville = trim($_POST['ville'] ?? '');
         $pays = trim($_POST['pays'] ?? '');
+        $adresse_livraison_differente = isset($_POST['adresse_livraison_differente']) ? 1 : 0;
+        $adresse_livraison = trim($_POST['adresse_livraison'] ?? '');
+        $code_postal_livraison = trim($_POST['code_postal_livraison'] ?? '');
+        $ville_livraison = trim($_POST['ville_livraison'] ?? '');
+        $pays_livraison = trim($_POST['pays_livraison'] ?? '');
         $actif = isset($_POST['actif']) ? 1 : 0;
         
         // Validation
@@ -42,11 +47,15 @@ try {
                 $stmt = $db->prepare("
                     UPDATE clients SET 
                         prenom = ?, nom = ?, email = ?, telephone = ?, 
-                        adresse = ?, code_postal = ?, ville = ?, pays = ?, actif = ?
+                        adresse = ?, code_postal = ?, ville = ?, pays = ?, 
+                        adresse_livraison_differente = ?, adresse_livraison = ?, 
+                        code_postal_livraison = ?, ville_livraison = ?, pays_livraison = ?, actif = ?
                     WHERE id = ?
                 ");
                 
-                if ($stmt->execute([$prenom, $nom, $email, $telephone, $adresse, $code_postal, $ville, $pays, $actif, $client_id])) {
+                if ($stmt->execute([$prenom, $nom, $email, $telephone, $adresse, $code_postal, $ville, $pays, 
+                                  $adresse_livraison_differente, $adresse_livraison, $code_postal_livraison, 
+                                  $ville_livraison, $pays_livraison, $actif, $client_id])) {
                     $_SESSION['message'] = "Client modifié avec succès";
                     $_SESSION['message_type'] = "success";
                     header('Location: client-details.php?id=' . $client_id);
@@ -155,6 +164,48 @@ include 'header.php';
         </div>
         
         <div class="form-section">
+            <h3>Adresse de livraison</h3>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="adresse_livraison_differente" name="adresse_livraison_differente" 
+                       <?php echo $client['adresse_livraison_differente'] ? 'checked' : ''; ?>
+                       onchange="toggleAdresseLivraison()">
+                <label for="adresse_livraison_differente">Adresse de livraison différente de l'adresse principale</label>
+            </div>
+            
+            <div id="adresse-livraison-fields" class="livraison-fields" style="<?php echo $client['adresse_livraison_differente'] ? '' : 'display: none;'; ?>">
+                <div class="form-group">
+                    <label for="adresse_livraison">Adresse de livraison</label>
+                    <textarea id="adresse_livraison" name="adresse_livraison" rows="3"><?php echo htmlspecialchars($client['adresse_livraison'] ?? ''); ?></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="code_postal_livraison">Code postal</label>
+                        <input type="text" id="code_postal_livraison" name="code_postal_livraison" 
+                               value="<?php echo htmlspecialchars($client['code_postal_livraison'] ?? ''); ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ville_livraison">Ville</label>
+                        <input type="text" id="ville_livraison" name="ville_livraison" 
+                               value="<?php echo htmlspecialchars($client['ville_livraison'] ?? ''); ?>">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pays_livraison">Pays</label>
+                    <select id="pays_livraison" name="pays_livraison">
+                        <option value="France" <?php echo ($client['pays_livraison'] ?? 'France') === 'France' ? 'selected' : ''; ?>>France</option>
+                        <option value="Belgique" <?php echo ($client['pays_livraison'] ?? '') === 'Belgique' ? 'selected' : ''; ?>>Belgique</option>
+                        <option value="Suisse" <?php echo ($client['pays_livraison'] ?? '') === 'Suisse' ? 'selected' : ''; ?>>Suisse</option>
+                        <option value="Luxembourg" <?php echo ($client['pays_livraison'] ?? '') === 'Luxembourg' ? 'selected' : ''; ?>>Luxembourg</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-section">
             <h3>Statut du compte</h3>
             
             <div class="checkbox-group">
@@ -174,6 +225,43 @@ include 'header.php';
     </form>
 </div>
 
+<script>
+function toggleAdresseLivraison() {
+    const checkbox = document.getElementById('adresse_livraison_differente');
+    const fields = document.getElementById('adresse-livraison-fields');
+    
+    if (checkbox.checked) {
+        fields.style.display = 'block';
+    } else {
+        fields.style.display = 'none';
+        // Vider les champs si on décoche
+        document.getElementById('adresse_livraison').value = '';
+        document.getElementById('code_postal_livraison').value = '';
+        document.getElementById('ville_livraison').value = '';
+        document.getElementById('pays_livraison').value = 'France';
+    }
+}
+</script>
 
+<style>
+.livraison-fields {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+}
+</style>
 
 <?php //include 'footer.php'; ?>

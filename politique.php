@@ -17,17 +17,17 @@
     <main class="cadre legal-content">
         <div class="container">
             <h1 class="title-h1">Politique de Confidentialité</h1>
-            <p class="privacy-intro">Dernière mise à jour : [À COMPLÉTER : Date de mise à jour]</p>
+            <p class="privacy-intro">Dernière mise à jour : 17 décembre 2025</p>
             
             <div class="legal-section">
                 <h2><i class="fas fa-info-circle"></i> Introduction</h2>
                 <div class="legal-content-box">
-                    <p>[À COMPLÉTER : Nom de votre entreprise] s'engage à protéger votre vie privée et vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, et protégeons vos informations personnelles conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.</p>
+                    <p>General Cover Office Products s'engage à protéger votre vie privée et vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, et protégeons vos informations personnelles conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.</p>
                     
                     <p><strong>Responsable du traitement :</strong><br>
-                    [À COMPLÉTER : Nom de votre entreprise]<br>
-                    [À COMPLÉTER : Adresse complète]<br>
-                    Email : [À COMPLÉTER : Email de contact DPO ou responsable]</p>
+                    General Cover Office Products<br>
+                    9 rue de la Gare, 70000 Vallerois le Bois<br>
+                    Email : contact@general-cover.com</p>
                 </div>
             </div>
 
@@ -36,11 +36,12 @@
                 <div class="legal-content-box">
                     <h3>Données d'identification</h3>
                     <ul>
+                        <li>Nom de société</li>
                         <li>Nom et prénom</li>
                         <li>Adresse email</li>
                         <li>Numéro de téléphone</li>
                         <li>Adresses de facturation et de livraison</li>
-                        <li>Date de naissance (si fournie)</li>
+                        
                     </ul>
 
                     <h3>Données de navigation</h3>
@@ -129,7 +130,7 @@
 
                     <h4>Cookies publicitaires (avec consentement)</h4>
                     <ul>
-                        <li>[À COMPLÉTER si applicable : Réseaux publicitaires utilisés]</li>
+                        
                         <li>Personnalisation des publicités</li>
                     </ul>
 
@@ -138,7 +139,7 @@
                     <ul>
                         <li>Le bandeau de consentement lors de votre première visite</li>
                         <li>Les paramètres de votre navigateur</li>
-                        <li>Notre centre de préférences : [À COMPLÉTER : Lien vers le centre de préférences]</li>
+                        
                     </ul>
                 </div>
             </div>
@@ -159,13 +160,14 @@
                     <ul>
                         <li>Utilisation uniquement pour la réalisation de votre commande</li>
                         <li>Pas de réutilisation à des fins commerciales sans accord</li>
-                        <li>Suppression automatique après [À COMPLÉTER : Délai de conservation]</li>
+                        <li>Suppression automatique après remise au client du produit fini</li>
+                        <li>Aucune conservation après suppression</li>
                         <li>Accès limité au personnel autorisé</li>
                         <li>Stockage sécurisé et chiffré</li>
                     </ul>
 
                     <h3>Droit à l'effacement</h3>
-                    <p>Vous pouvez demander la suppression immédiate de vos images après livraison de votre commande.</p>
+                    <p>Vous pouvez demander la suppression immédiate de vos images après livraison de votre commande. Sachant que cela est déjà prévu dans notre politique de conservation des données. Toute nouvelle demande de projet nécessitera l'envoi de nouvelles photos.</p>
                 </div>
             </div>
 
@@ -175,7 +177,7 @@
                     <ul>
                         <li><strong>Compte client :</strong> Tant que le compte est actif + 3 ans après dernière activité</li>
                         <li><strong>Commandes :</strong> 10 ans (obligations comptables)</li>
-                        <li><strong>Images clients :</strong> [À COMPLÉTER : Durée] après livraison ou sur demande</li>
+                        <li><strong>Images clients :</strong> 10 jours maximum après livraison ou sur demande</li>
                         <li><strong>Données de navigation :</strong> 13 mois maximum</li>
                         <li><strong>Newsletter :</strong> Jusqu'au désabonnement</li>
                     </ul>
@@ -198,9 +200,10 @@
                     <h3>Comment exercer vos droits</h3>
                     <p>Contactez-nous :</p>
                     <ul>
-                        <li>Email : [À COMPLÉTER : Email DPO ou contact privacy]</li>
-                        <li>Courrier : [À COMPLÉTER : Adresse postale]</li>
-                        <li>Formulaire en ligne : [À COMPLÉTER si applicable]</li>
+                        <li>DPO : Patrick Renaud</li>
+                        <li>Email : contact@general-cover.com</li>
+                        <li>Courrier : 9 rue de la Gare, 70000 Vallerois le Bois</li>
+                        
                     </ul>
                     <p>Réponse sous 1 mois maximum. Une pièce d'identité peut être demandée.</p>
 
@@ -245,7 +248,7 @@
                     </ul>
 
                     <h3>Transferts internationaux</h3>
-                    <p>[À COMPLÉTER selon vos prestataires :]</p>
+                    
                     <ul>
                         <li>Aucun transfert hors UE / Transferts vers pays avec décision d'adéquation / Garanties appropriées mises en place</li>
                     </ul>
@@ -264,9 +267,9 @@
                 <div class="legal-content-box">
                     <p>Pour toute question sur cette politique de confidentialité :</p>
                     <p><strong>Délégué à la Protection des Données (DPO) :</strong><br>
-                    [À COMPLÉTER : Nom du DPO ou responsable]<br>
-                    Email : [À COMPLÉTER : Email DPO]<br>
-                    Adresse : [À COMPLÉTER : Adresse postale]</p>
+                    Patrick Renaud<br>
+                    Email : contact@general-cover.com<br>
+                    Adresse : 9 rue de la Gare, 70000 Vallerois le Bois</p>
                 </div>
             </div>
         </div>
@@ -307,6 +310,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-left: 5px solid #2c5aa0;
+            text-align: left;
         }
 
         .legal-content-box h3 {

@@ -22,14 +22,13 @@
             <div class="about-hero">
                 <div class="hero-content">
                     <h2>Notre passion : donner vie à vos souvenirs</h2>
-                    <p class="hero-text">[À COMPLÉTER : Phrase d'accroche personnalisée sur votre entreprise et votre passion pour la photo]</p>
+                    <p class="hero-text">Nous vous accompagnons dans la création de vos albums photo, de vos plus beaux voyages aux moments les plus précieux de votre vie. Chaque page est imprimée avec le plus grand soin afin de préserver vos souvenirs dans les moindres détails et de les faire vivre encore longtemps, pour vous accompagner et inspirer les histoires de demain.</p>
                 </div>
                 <div class="hero-image">
-                    <!-- [À COMPLÉTER : Ajouter une image représentative de votre entreprise] -->
-                    <div class="placeholder-image">
-                        <i class="fas fa-camera fa-3x"></i>
-                        <p>Ajoutez ici une photo<br>de votre équipe ou atelier</p>
-                    </div>
+                    
+                        <img src="../images/bandeaux/photo-album.webp" width="400px" height="auto" style="border-radius: 8px;" alt="Photo noir et blanc d'un album photo ouvert" >
+                        
+                    
                 </div>
             </div>
 
@@ -39,27 +38,27 @@
                 <div class="about-content-box">
                     <div class="timeline">
                         <div class="timeline-item">
-                            <div class="timeline-year">[Année]</div>
                             <div class="timeline-content">
-                                <h3>Les débuts</h3>
-                                <p>[À COMPLÉTER : Racontez comment votre entreprise a commencé, par exemple :]<br>
-                                "Tout a commencé par une passion pour la photographie et le désir de permettre à chacun de préserver ses plus beaux souvenirs..."</p>
+                                <h3>Notre histoire</h3>
+                                <p>Bindy Studio est né d’une passion pour le livre, l’image et le savoir-faire artisanal. Spécialistes de la reliure, nous avons choisi de mettre notre expertise au service de la création d’albums photo, afin d’offrir aux particuliers et aux professionnels des ouvrages uniques, conçus pour traverser le temps. Chaque album est pensé comme un objet précieux, où la qualité des matériaux et le souci du détail transforment vos souvenirs en véritables livres d’histoires à conserver et à transmettre.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Nos promesses</h3>
+                                <p>Notre ambition est simple : sublimer vos souvenirs et leur offrir une place durable.</p>
+                                <ul>
+                                    <li>Un savoir-faire expert – La reliure est au cœur de notre métier. Chaque album est confectionné avec précision, dans le respect des techniques traditionnelles et des exigences contemporaines.</li>
+                                    <li>Une qualité durable – Nous sélectionnons soigneusement nos papiers, couvertures et finitions pour garantir des albums solides, élégants et faits pour durer.</li>
+                                    <li>Une expérience de confiance – Nous vous accompagnons à chaque étape de votre projet, avec exigence et attention, pour que le résultat final soit à la hauteur de vos attentes.</li>
+                                </ul>
                             </div>
                         </div>
                         
                         <div class="timeline-item">
-                            <div class="timeline-year">[Année]</div>
                             <div class="timeline-content">
-                                <h3>Développement</h3>
-                                <p>[À COMPLÉTER : Étapes clés du développement, nouveaux services, croissance...]</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-year">Aujourd'hui</div>
-                            <div class="timeline-content">
-                                <h3>Notre mission actuelle</h3>
-                                <p>[À COMPLÉTER : Votre mission actuelle, vos valeurs, votre vision...]</p>
+                                <h3>Nos produits</h3>
+                                <p>Bindy Studio conçoit et fabrique des albums photo reliés, pensés pour mettre en valeur vos moments les plus précieux. Albums de voyage, albums de famille, souvenirs de naissance ou projets professionnels : chaque création est réalisée sur mesure, avec une attention particulière portée à la reliure et aux finitions. Nos albums photo sont bien plus que de simples supports d’images : ce sont des objets durables, conçus pour raconter vos histoires, les préserver et les faire vivre au fil des années.</p>
                             </div>
                         </div>
                     </div>
@@ -75,8 +74,7 @@
                             <i class="fas fa-medal"></i>
                         </div>
                         <h3>Qualité</h3>
-                        <p>[À COMPLÉTER : Votre engagement qualité]<br>
-                        Exemple : "Nous utilisons uniquement des matériaux de qualité professionnelle et des technologies d'impression de pointe pour garantir la durabilité et l'éclat de vos créations."</p>
+                        <p>La qualité est au cœur de chacune de nos créations. De la sélection des matériaux à la précision de la reliure, chaque album est confectionné avec le plus grand soin afin de garantir un rendu élégant, durable et fidèle à vos souvenirs.</p>
                     </div>
                     
                     <div class="value-card">
@@ -84,8 +82,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>Service Client</h3>
-                        <p>[À COMPLÉTER : Votre approche service client]<br>
-                        Exemple : "Chaque client est unique. Notre équipe vous accompagne personnellement dans tous vos projets, des plus simples aux plus complexes."</p>
+                        <p>Nous plaçons l’écoute et l’accompagnement au centre de notre démarche. Notre équipe est à vos côtés à chaque étape, pour vous conseiller, vous guider et assurer une expérience fluide, humaine et personnalisée.</p>
                     </div>
                     
                     <div class="value-card">
@@ -93,8 +90,7 @@
                             <i class="fas fa-leaf"></i>
                         </div>
                         <h3>Responsabilité</h3>
-                        <p>[À COMPLÉTER : Vos engagements environnementaux/sociaux]<br>
-                        Exemple : "Nous nous engageons dans une démarche éco-responsable avec des papiers certifiés et un packaging recyclable."</p>
+                        <p>Conscients de notre impact, nous privilégions des pratiques responsables et des matériaux sélectionnés avec attention. Nous œuvrons chaque jour pour une production respectueuse, pensée pour durer et limiter le superflu.</p>
                     </div>
                     
                     <div class="value-card">
@@ -102,14 +98,13 @@
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <h3>Innovation</h3>
-                        <p>[À COMPLÉTER : Votre approche innovation]<br>
-                        Exemple : "Nous recherchons constamment de nouveaux supports et techniques pour vous offrir des possibilités créatives toujours plus étendues."</p>
+                        <p>Nous faisons évoluer notre savoir-faire en intégrant des solutions modernes et des techniques innovantes. Cette alliance entre tradition et innovation nous permet de créer des albums photo à la fois intemporels et adaptés aux attentes d’aujourd’hui.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Notre Équipe -->
-            <div class="about-section">
+            <!-- <div class="about-section">
                 <h2><i class="fas fa-users-cog"></i> Notre Équipe</h2>
                 <div class="about-content-box">
                     <p>[À COMPLÉTER : Présentation de votre équipe]</p>
@@ -117,7 +112,7 @@
                     <div class="team-grid">
                         <div class="team-member">
                             <div class="member-photo">
-                                <!-- [À COMPLÉTER : Photo du dirigeant/fondateur] -->
+                                
                                 <div class="placeholder-photo">
                                     <i class="fas fa-user"></i>
                                 </div>
@@ -127,7 +122,7 @@
                             <p class="member-description">[À COMPLÉTER : Courte présentation]</p>
                         </div>
                         
-                        <!-- Ajoutez d'autres membres de l'équipe si nécessaire -->
+                        
                         <div class="team-member">
                             <div class="member-photo">
                                 <div class="placeholder-photo">
@@ -140,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Nos Services -->
             <div class="about-section">
@@ -194,24 +189,23 @@
                         <div class="commitment-item">
                             <i class="fas fa-truck-fast"></i>
                             <h3>Livraison Rapide</h3>
-                            <p>[À COMPLÉTER : Vos délais de livraison, ex: "Livraison sous 5 à 7 jours ouvrés"]</p>
+                            <p>Livraison sous 5 à 7 jours ouvrés sur toute la France métropolitaine.</p>
                         </div>
                         
                         <div class="commitment-item">
                             <i class="fas fa-undo"></i>
                             <h3>Satisfaction Garantie</h3>
-                            <p>[À COMPLÉTER : Votre politique de satisfaction, ex: "Remboursement ou réimpression gratuite si vous n'êtes pas satisfait"]</p>
+                            <p>Nous assurons la satisfaction de nos clients avec une politique de réimpression gratuite en cas d'insatisfaction.</p>
                         </div>
                         
                         <div class="commitment-item">
                             <i class="fas fa-headset"></i>
                             <h3>Support Dédié</h3>
-                            <p>[À COMPLÉTER : Vos horaires de support, ex: "Support client disponible du lundi au vendredi de 9h à 18h"]</p>
+                            <p>Support client disponible du lundi au vendredi de 9h à 18h</p>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- Nos Coordonnées -->
             <div class="about-section">
                 <h2><i class="fas fa-map-marker-alt"></i> Nous Contacter</h2>
@@ -221,9 +215,9 @@
                         <div class="contact-item">
                             <i class="fas fa-building"></i>
                             <div>
-                                <strong>[À COMPLÉTER : Nom de votre entreprise]</strong><br>
-                                [À COMPLÉTER : Adresse complète]<br>
-                                [À COMPLÉTER : Code postal et ville]
+                                <strong>General Cover Office Products</strong><br>
+                                9 rue de la gare<br>
+                                70000 Vallerois-le-bois<br>
                             </div>
                         </div>
                         
@@ -231,7 +225,7 @@
                             <i class="fas fa-phone"></i>
                             <div>
                                 <strong>Téléphone :</strong><br>
-                                [À COMPLÉTER : Numéro de téléphone]
+                                03 84 78 38 39
                             </div>
                         </div>
                         
@@ -239,7 +233,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <strong>Email :</strong><br>
-                                [À COMPLÉTER : Adresse email]
+                                contact@general-cover.com
                             </div>
                         </div>
                         
@@ -247,17 +241,13 @@
                             <i class="fas fa-clock"></i>
                             <div>
                                 <strong>Horaires :</strong><br>
-                                [À COMPLÉTER : Horaires d'ouverture]
+                                Du lundi au vendredi de 9h à 18h
                             </div>
                         </div>
                     </div>
                     
                     <div class="contact-map">
-                        <!-- [À COMPLÉTER : Intégrer une carte Google Maps avec votre adresse] -->
-                        <div class="map-placeholder">
-                            <i class="fas fa-map fa-2x"></i>
-                            <p>Intégrer ici votre carte<br>Google Maps</p>
-                        </div>
+                        <img src="../images/bandeaux/france.webp" width="300px" height="auto" alt="carte de la france en forme de drapeau">
                     </div>
                 </div>
             </div>
@@ -378,6 +368,15 @@
             margin-bottom: 10px;
         }
 
+        .timeline-content p {
+            text-align: left;
+        }
+
+        .timeline-content ul li {
+            text-align: left;
+            margin-left: 50px;
+        }
+
         /* Grilles */
         .values-grid, .services-grid {
             display: grid;
@@ -496,6 +495,7 @@
             align-items: flex-start;
             gap: 15px;
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .contact-item i {

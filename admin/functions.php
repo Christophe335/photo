@@ -12,14 +12,20 @@ define('BASE_PATH', dirname(__DIR__));
 require_once BASE_PATH . '/includes/database.php';
 
 /**
- * Vérification simple de l'authentification (à améliorer selon vos besoins)
+ * Vérification de l'authentification admin
  */
 function checkAuth() {
-    // Pour l'instant, authentification basique (à remplacer par un vrai système)
-    if (!isset($_SESSION['admin_logged'])) {
-        $_SESSION['admin_logged'] = true; // Auto-login pour le développement
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION['admin_logged']) || $_SESSION['admin_logged'] !== true) {
+        // Si pas sur la page de login, rediriger
+        $current_page = basename($_SERVER['PHP_SELF']);
+        if ($current_page !== 'login.php') {
+            header('Location: login.php');
+            exit;
+        }
+        return false;
     }
-    return $_SESSION['admin_logged'];
+    return true;
 }
 
 /**

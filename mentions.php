@@ -22,27 +22,28 @@
                 <h2><i class="fas fa-info-circle"></i> Informations générales</h2>
                 <div class="legal-content-box">
                     <h3>Éditeur du site</h3>
-                    <p><strong>[À COMPLÉTER : Nom de votre entreprise]</strong><br>
-                    Forme juridique : [À COMPLÉTER : SARL, SAS, Auto-entrepreneur, etc.]<br>
-                    Capital social : [À COMPLÉTER si société]<br>
-                    Siège social : [À COMPLÉTER : Adresse complète]<br>
-                    SIRET : [À COMPLÉTER : Numéro SIRET]<br>
-                    TVA intracommunautaire : [À COMPLÉTER si applicable]<br>
-                    Téléphone : [À COMPLÉTER : Numéro de téléphone]<br>
-                    Email : [À COMPLÉTER : Adresse email de contact]</p>
+                    <p><strong>BINDY STUDIO</strong><br>
+                    <p><strong>General Cover Office Products</strong><br>
+                    Forme juridique : société à responsabilité limitée (SAS)<br>
+                    Capital social : 24 960 €<br>
+                    Siège social : 9 rue de la Gare, 70000 Vallerois le Bois (France).<br>
+                    SIRET : 423 249 879 00010<br>
+                    TVA intracommunautaire : FR55423249879000010<br>
+                    Téléphone : 03 84 78 38 39<br>
+                    Email : contact@general-cover.com</p>
                     
                     <h3>Directeur de la publication</h3>
-                    <p>[À COMPLÉTER : Nom et prénom du directeur de publication]</p>
+                    <p>M. RENAUD Patrick</p>
                 </div>
             </div>
 
             <div class="legal-section">
                 <h2><i class="fas fa-server"></i> Hébergement</h2>
                 <div class="legal-content-box">
-                    <p><strong>[À COMPLÉTER : Nom de l'hébergeur]</strong><br>
-                    Adresse : [À COMPLÉTER : Adresse de l'hébergeur]<br>
-                    Téléphone : [À COMPLÉTER : Numéro de l'hébergeur]<br>
-                    Site web : [À COMPLÉTER : Site de l'hébergeur]</p>
+                    <p><strong>OVH Groupe SA</strong><br>
+                    Adresse : 2 rue Kellermann - 59100 Roubaix - France<br>
+                    Forme juridique : SAS au capital de 50 000 000 €<br>
+                    Site web : www.ovhcloud.com/fr/</p>
                 </div>
             </div>
 
@@ -68,7 +69,7 @@
                 <h2><i class="fas fa-copyright"></i> Propriété intellectuelle</h2>
                 <div class="legal-content-box">
                     <h3>Droits sur le site</h3>
-                    <p>La structure générale, les textes, images, sons, savoir-faire ainsi que tout élément composant le site sont la propriété de [À COMPLÉTER : Nom de votre entreprise] ou de ses partenaires.</p>
+                    <p>La structure générale, les textes, images, sons, savoir-faire ainsi que tout élément composant le site sont la propriété de General cover ou de ses partenaires.</p>
 
                     <h3>Droits sur les images clients</h3>
                     <p><strong>Important :</strong> En utilisant nos services d'impression, vous garantissez :</p>
@@ -84,7 +85,7 @@
                     <ul>
                         <li>Ne pas utiliser d'images contraires à la loi ou aux bonnes mœurs</li>
                         <li>Respecter les droits de propriété intellectuelle de tiers</li>
-                        <li>Indemniser [À COMPLÉTER : Nom de votre entreprise] en cas de réclamation de tiers</li>
+                        <li>Indemniser General Cover en cas de réclamation de tiers</li>
                     </ul>
                 </div>
             </div>
@@ -93,14 +94,14 @@
                 <h2><i class="fas fa-shield-alt"></i> Limitation de responsabilité</h2>
                 <div class="legal-content-box">
                     <p>Les informations contenues sur ce site sont aussi précises que possible et le site remis à jour à différentes périodes de l'année, mais peut toutefois contenir des inexactitudes ou des omissions.</p>
-                    <p>[À COMPLÉTER : Nom de votre entreprise] ne pourra en aucun cas être tenue responsable de dommages directs ou indirects résultant de l'utilisation du site ou de l'impossibilité d'y accéder.</p>
+                    <p>General Cover ne pourra en aucun cas être tenue responsable de dommages directs ou indirects résultant de l'utilisation du site ou de l'impossibilité d'y accéder.</p>
                 </div>
             </div>
 
             <div class="legal-section">
                 <h2><i class="fas fa-gavel"></i> Droit applicable et juridiction</h2>
                 <div class="legal-content-box">
-                    <p>Tout litige en relation avec l'utilisation du site est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de [À COMPLÉTER : Ville du siège social].</p>
+                    <p>Tout litige en relation avec l'utilisation du site est soumis au droit français. Il est fait attribution exclusive de juridiction au Tribunal de Commerce de VESOUL sera seul compétent.</p>
                 </div>
             </div>
 
@@ -109,9 +110,9 @@
                 <div class="legal-content-box">
                     <p>Pour toute question relative aux mentions légales, vous pouvez nous contacter :</p>
                     <ul>
-                        <li>Par email : [À COMPLÉTER : Email de contact]</li>
-                        <li>Par téléphone : [À COMPLÉTER : Numéro de téléphone]</li>
-                        <li>Par courrier : [À COMPLÉTER : Adresse postale]</li>
+                        <li>Par email : contact@general-cover.com</li>
+                        <li>Par téléphone : 03 84 78 38 39</li>
+                        <li>Par courrier : General Cover Office Products - 9 rue de la gare - 70000 Vallerois-le-bois</li>
                     </ul>
                 </div>
             </div>
@@ -145,6 +146,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-left: 5px solid #2c5aa0;
+            text-align: left;
         }
 
         .legal-content-box h3 {

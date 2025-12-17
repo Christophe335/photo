@@ -1,0 +1,11 @@
+# Protection du fichier des identifiants administrateurs
+<Files ".admin_credentials.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protection générale des fichiers cachés
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
