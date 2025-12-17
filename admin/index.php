@@ -102,7 +102,7 @@ include 'header.php';
                     </select>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group button-group">
                     <button type="button" class="btn btn-primary" onclick="rechercherProduits()">
                         <i class="fas fa-search"></i> Rechercher
                     </button>

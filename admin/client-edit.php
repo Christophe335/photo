@@ -18,6 +18,7 @@ try {
     
     // Traitement du formulaire
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $societe = trim($_POST['societe'] ?? '');
         $prenom = trim($_POST['prenom'] ?? '');
         $nom = trim($_POST['nom'] ?? '');
         $email = trim($_POST['email'] ?? '');
@@ -46,14 +47,14 @@ try {
                 // Mettre à jour le client
                 $stmt = $db->prepare("
                     UPDATE clients SET 
-                        prenom = ?, nom = ?, email = ?, telephone = ?, 
+                        societe = ?, prenom = ?, nom = ?, email = ?, telephone = ?, 
                         adresse = ?, code_postal = ?, ville = ?, pays = ?, 
                         adresse_livraison_differente = ?, adresse_livraison = ?, 
                         code_postal_livraison = ?, ville_livraison = ?, pays_livraison = ?, actif = ?
                     WHERE id = ?
                 ");
                 
-                if ($stmt->execute([$prenom, $nom, $email, $telephone, $adresse, $code_postal, $ville, $pays, 
+                if ($stmt->execute([$societe, $prenom, $nom, $email, $telephone, $adresse, $code_postal, $ville, $pays, 
                                   $adresse_livraison_differente, $adresse_livraison, $code_postal_livraison, 
                                   $ville_livraison, $pays_livraison, $actif, $client_id])) {
                     $_SESSION['message'] = "Client modifié avec succès";
@@ -102,6 +103,12 @@ include 'header.php';
     <form method="POST" class="client-form">
         <div class="form-section">
             <h3>Informations personnelles</h3>
+            
+            <div class="form-group">
+                <label for="societe">Société</label>
+                <input type="text" id="societe" name="societe" 
+                       value="<?php echo htmlspecialchars($client['societe'] ?? ''); ?>">
+            </div>
             
             <div class="form-row">
                 <div class="form-group">

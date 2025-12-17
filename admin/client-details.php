@@ -83,6 +83,11 @@ include 'header.php';
         
         <div class="info-grid">
             <div class="info-item">
+                <label>Société</label>
+                <span><?php echo !empty($client['societe']) ? htmlspecialchars($client['societe']) : '<span class="text-muted">Non renseignée</span>'; ?></span>
+            </div>
+            
+            <div class="info-item">
                 <label>Nom complet</label>
                 <span><?php echo htmlspecialchars($client['prenom'] . ' ' . $client['nom']); ?></span>
             </div>

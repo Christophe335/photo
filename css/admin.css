@@ -114,6 +114,12 @@
             gap: 5px;
         }
         
+        .search-form .form-group.button-group {
+            flex-direction: row;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
         .search-form label {
             font-size: 12px;
             font-weight: 500;
@@ -203,23 +209,28 @@
             background: #e0a800;
             border-color: #d39e00;
         }
-        
-        .btn-danger {
-            color: white;
-            background: var(--danger-color);
-            border-color: var(--danger-color);
-        }
-        
-        .btn-danger:hover {
-            color: white;
-            background: #c82333;
-            border-color: #bd2130;
-        }
-        
-        .btn-sm {
-            padding: 5px 10px;
-            font-size: 12px;
-        }
+/* Bouton de suppression */
+.btn-danger {
+    background: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-1px);
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+}        
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
         
         /* Tableau des produits */
         .table-responsive {
@@ -469,9 +480,7 @@
             }
         }
 /* Styles administrateur centralisés pour les formulaires */
-:root {
-  --success-color: #28a745;
-}
+
 .admin-form-row {
   display: flex;
   gap: 12px !important;
@@ -742,13 +751,23 @@
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--primary-dark);
+    position: relative;
+    z-index: 10;
 }
 
 .page-header h2 {
     margin: 0;
-    color: #2A256D;
+    color: var(--primary-dark);
     font-size: 24px;
+    font-weight: 500;
 }
+
+
+
+
+
+
 
 .form-section {
     background: white;
@@ -1219,7 +1238,19 @@ div.form-section div.admin-form-row div.form-group.admin-col-designation {
 
 /* Ajouter nouveau produit */
 .product-form {
+    background: #d2d2d2;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Variante */
+.product-form--wide {
     max-width: none;
+}
+.product-form--standard {
+    max-width: 1200px;
 }
 
 .product-form .form-section {
@@ -1511,31 +1542,6 @@ div.form-section div.admin-form-row div.form-group.admin-col-designation {
 }
 /* Page Ajouter produit */
 
-    .page-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-        padding-bottom: 15px;
-        border-bottom: 2px solid var(--primary-dark);
-        position: relative;
-        z-index: 10;
-    }
-
-    .page-header h2 {
-        color: var(--primary-dark);
-        font-weight: 500;
-        margin: 0;
-    }
-
-    .product-form {
-        background: #d2d2d2;
-        border-radius: 8px;
-        padding: 30px;
-        box-shadow: var(--shadow);
-        max-width: 1200px;
-        margin: 0 auto;
-    }
 
     .form-section:last-of-type {
         border-bottom: none;
@@ -1968,23 +1974,7 @@ div.form-section div.admin-form-row div.form-group.admin-col-designation {
     }
 }
 
-/* Bouton de suppression */
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    color: white;
-    transition: all 0.2s ease;
-}
 
-.btn-danger:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-    transform: translateY(-1px);
-}
-
-.btn-danger:active {
-    transform: translateY(0);
-}
 /* Client détail */
 
 .client-layout {
@@ -2416,32 +2406,6 @@ div.form-section div.admin-form-row div.form-group.admin-col-designation {
 
 /* Modifier produit */
 
-    .page-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-        padding-bottom: 15px;
-        border-bottom: 2px solid var(--primary-dark);
-        position: relative;
-        z-index: 10;
-    }
-
-    .page-header h2 {
-        color: var(--primary-dark);
-        font-weight: 500;
-        margin: 0;
-    }
-
-    .product-form {
-        background: #d2d2d2;
-        border-radius: 8px;
-        padding: 30px;
-        box-shadow: var(--shadow);
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
     .form-section {
         border-bottom: 1px solid var(--border-color);
     }
@@ -2707,4 +2671,317 @@ div.form-section div.admin-form-row div.form-group.admin-col-designation {
             align-items: stretch;
         }
     }
+
+/* Aperçu client */
+.client-preview {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.client-info {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.client-info strong {
+    color: #007bff;
+    font-size: 16px;
+}
+
+/* Articles devis */
+.articles-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.articles-toolbar {
+    padding: 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    gap: 10px;
+}
+
+.articles-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    padding: 15px;
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+}
+
+.articles-header > div:first-child {
+    text-align: left;
+}
+
+.article-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
+}
+
+.article-item:last-child {
+    border-bottom: none;
+}
+
+.article-item input,
+.article-item select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.article-item .designation-col {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.article-item .designation-col input {
+    font-weight: 500;
+}
+
+.article-item .designation-col textarea {
+    padding: 5px 8px;
+    font-size: 12px;
+    resize: vertical;
+    min-height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.remise-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.remise-group input[type="number"] {
+    flex: 1;
+}
+
+.remise-group select {
+    width: 60px;
+}
+
+/* Totaux */
+.totaux {
+    background: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+.totaux-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.totaux-row:last-child {
+    border-bottom: none;
+}
+
+.totaux-row.total-final {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-dark);
+    border-top: 2px solid var(--primary-dark);
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.frais-input {
+    width: 100px;
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: right;
+}
+
+#frais-port-display {
+    font-weight: 500;
+    color: #28a745;
+}
+
+/* Alignment des champs dans les articles */
+.article-item input[type="number"] {
+    text-align: right;
+}
+
+.article-item .total-ligne {
+    background: #e8f5e8;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.btn-remove-article {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-remove-article:hover {
+    background: #c82333;
+}
+
+/* Responsive devis spécifiques */
+@media (max-width: 768px) {
+    .devis-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .articles-header {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+    
+    .articles-header > div:not(:first-child) {
+        display: none;
+    }
+    
+    .articles-header > div:first-child::after {
+        content: " (Swipe pour voir tous les champs)";
+        font-size: 12px;
+        font-weight: normal;
+        opacity: 0.7;
+    }
+    
+    .article-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .article-item > * {
+        width: 100%;
+    }
+    
+    .devis-form .modal-content {
+        width: 95%;
+        margin: 2% auto;
+    }
+    
+    .client-preview {
+        padding: 10px;
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+}
+
+.close {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+#recherche-produit {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.produit-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    gap: 15px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.produit-item:hover {
+    background-color: #f8f9fa;
+}
+
+.produit-item .prix {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Styles pour les champs client pré-remplis */
+#client-info-notice {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    background: #d1ecf1;
+    border: 1px solid #bee5eb;
+    border-radius: 4px;
+    color: #0c5460;
+    font-size: 14px;
+}
+
+#client-info-notice i {
+    margin-right: 8px;
+    color: #17a2b8;
+}
 

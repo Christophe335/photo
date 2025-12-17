@@ -247,7 +247,8 @@
                     </div>
                     
                     <div class="contact-map">
-                        <img src="../images/bandeaux/france.webp" width="300px" height="auto" alt="carte de la france en forme de drapeau">
+                        <img src="../images/bandeaux/france.webp" width="200px" height="auto" alt="carte de la france en forme de drapeau">
+                        <h3>General Cover Office Products</br>depuis 1999</h3>
                     </div>
                 </div>
             </div>

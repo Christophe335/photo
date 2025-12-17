@@ -20,6 +20,7 @@
             <nav class="admin-nav">
                 <a href="index.php"><i class="fas fa-boxes"></i> Produits</a>
                 <a href="gestion-clients.php"><i class="fas fa-users"></i> Clients</a>
+                <a href="gestion-devis.php"><i class="fas fa-file-invoice"></i> Devis</a>
                 <a href="gestion-mots-de-passe.php"><i class="fas fa-key"></i> Mots de passe clients</a>
                 <a href="gestion-identifiants.php"><i class="fas fa-users-cog"></i> Identifiants admin</a>
                 <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le site</a>

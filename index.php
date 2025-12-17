@@ -11,12 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/script.js" defer></script>
+    <script src="js/site-search.js" defer></script>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
     <main class="cadre">
         <div class="container">
-            <h1 class="title-h1">Imprimez vos souvenirs sur tous nos supports, de l’album photo </br>aux couvertures personnalisés, toute une gamme de produits variés</h1>
+            <h1 class="title-h1">Imprimez vos souvenirs sur tous nos supports, de l'album photo </br>aux couvertures personnalisés, toute une gamme de produits variés</h1>
         </div>
             <img class="centre-div" style="width: 100%;" src="../images/bandeaux/index.webp" alt="Un bandeau présentant divers produits d'impression et de personnalisation">
             <p class="subtitle">Découvrez nos services d'impression et de personnalisation.</p>

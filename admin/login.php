@@ -87,10 +87,10 @@ if ($_POST) {
 
         <!-- Informations de connexion pour le développement -->
         <div class="credentials-info">
-            <strong>Identifiants par défaut :</strong><br>
-            Utilisateur : <code>admin</code><br>
-            Mot de passe : <code>admin123</code><br>
-            <small><em>Vous pouvez modifier ces identifiants dans la gestion des identifiants après connexion.</em></small>
+            <strong>Identifiants :</strong><br>
+            Utiliser les mêmes identidfiants et mots<br>
+            de passe que pour les autres sites.</code><br>
+            <small><em>En cas de souci, contactez l'administrateur.</em></small>
         </div>
 
         <form method="POST">

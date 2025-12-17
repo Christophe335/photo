@@ -24,6 +24,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
     
     <!-- Gestion des cookies RGPD -->
     <script src="<?php echo $jsPath; ?>cookie-manager.js" defer></script>
+    <script src="<?php echo $jsPath; ?>site-search.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -49,8 +50,8 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <div class="header-actions">
                         <!-- Barre de recherche -->
                         <div class="search-bar">
-                            <input type="text" placeholder="Rechercher..." class="search-input">
-                            <button class="search-btn">
+                            <input type="text" id="site-search-input" placeholder="Recherche par thème..." class="search-input">
+                            <button class="search-btn" id="site-search-btn">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -89,7 +90,6 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         <button class="nav-btn" data-menu="photo">Photo</button>
                         <div class="dropdown-menu" id="photo-menu">
                             <a href="<?php echo $pagesPath; ?>livre-photo.php" class="dropdown-item">Livre Photo</a>
-                            <a href="<?php echo $pagesPath; ?>livre-dela.php" class="dropdown-item">Livre Photo Dela</a>
                             <a href="<?php echo $pagesPath; ?>album.php" class="dropdown-item">Album Photos</a>
                             <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Dépliant Accordéon</a>
                             <a href="<?php echo $pagesPath; ?>toile.php" class="dropdown-item">Impression sur Toile</a>
