@@ -1,0 +1,548 @@
+<?php include '../includes/header.php'; ?>
+
+<?php
+// Récupération des informations du produit depuis l'URL et la base de données
+$produit_id = $_GET['produit_id'] ?? null;
+$reference = $_GET['reference'] ?? '';
+$designation = $_GET['designation'] ?? '';
+$format = $_GET['format'] ?? '';
+$prix = $_GET['prix'] ?? 0;
+$conditionnement = $_GET['conditionnement'] ?? '';
+$quantite_selectionnee = intval($_GET['quantite'] ?? 1);
+
+// Si pas de conditionnement dans l'URL, récupération depuis la base de données
+if (empty($conditionnement) && $produit_id) {
+    require_once __DIR__ . '/../includes/database.php';
+    try {
+        $db = Database::getInstance()->getConnection();
+        $stmt = $db->prepare("SELECT conditionnement FROM produits WHERE id = ?");
+        $stmt->execute([$produit_id]);
+        $produit = $stmt->fetch();
+        if ($produit) {
+            $conditionnement = $produit['conditionnement'] ?? '';
+        }
+    } catch (Exception $e) {
+        error_log("Erreur récupération produit: " . $e->getMessage());
+    }
+}
+?>
+
+<main class="cadre">
+    <div class="container">
+        <h2 class="title-h3">Ajoutez vos photos pour mettre au panier</h2>
+        
+        <!-- Layout 2 colonnes -->
+        <div class="layout-2-colonnes" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
+        
+        <style>
+        /* Layout responsif 2 colonnes */
+        @media (max-width: 992px) {
+            .layout-2-colonnes {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .layout-2-colonnes {
+                gap: 15px !important;
+                padding: 0 10px !important;
+            }
+            
+            .produit-selectionne-cadre {
+                padding: 20px !important;
+            }
+        }
+        </style>
+            
+            <!-- Colonne gauche : Produit sélectionné -->
+            <?php if ($produit_id): ?>
+            <div class="produit-selectionne-cadre" style="
+                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                border: 2px solid #e9ecef;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.05);
+                padding: 25px;
+                position: relative;
+                overflow: hidden;
+                height: fit-content;
+            ">
+                <!-- Titre avec icône -->
+                <div style="
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    padding-bottom: 15px;
+                    border-bottom: 2px solid #f05124;
+                ">
+                    <div style="
+                        background: linear-gradient(135deg, #f05124 0%, #ff6b47 100%);
+                        color: white;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 18px;
+                        margin-right: 15px;
+                        box-shadow: 0 4px 10px rgba(240, 81, 36, 0.3);
+                    ">📸</div>
+                    <h3 style="
+                        margin: 0;
+                        color: #2a256d;
+                        font-size: 20px;
+                        font-weight: 600;
+                    ">Produit sélectionné</h3>
+                </div>
+                
+                <!-- Informations produit -->
+                <div style="
+                    padding: 20px;
+                    background: white;
+                    border-radius: 8px;
+                    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+                    border-left: 4px solid #f05124;
+                " data-id="<?= htmlspecialchars($produit_id) ?>" data-prix="<?= htmlspecialchars($prix) ?>">
+                    
+                    <!-- Code produit -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                            letter-spacing: 0.5px;
+                        ">Code</div>
+                        <div style="
+                            font-family: 'Roboto Mono', monospace;
+                            font-weight: 600;
+                            color: #f05124;
+                            font-size: 16px;
+                            background: #fff5f3;
+                            padding: 8px 12px;
+                            border-radius: 4px;
+                            display: inline-block;
+                        "><?= htmlspecialchars($reference) ?></div>
+                    </div>
+                    
+                    <!-- Description -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 8px;
+                            letter-spacing: 0.5px;
+                        ">Description</div>
+                        <div style="
+                            font-weight: 600;
+                            color: #2a256d;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                            line-height: 1.3;
+                        "><?= htmlspecialchars($designation) ?></div>
+                        <?php if ($format): ?>
+                            <div style="
+                                font-size: 13px;
+                                font-weight: 500;
+                                color: #f05124;
+                                background: #fff5f3;
+                                display: inline-block;
+                                padding: 5px 10px;
+                                border-radius: 4px;
+                                margin-right: 8px;
+                            "><?= htmlspecialchars($format) ?></div>
+                        <?php endif; ?>
+                        <?php if ($conditionnement): ?>
+                            <div style="
+                                font-size: 13px;
+                                font-weight: 500;
+                                color: #6f42c1;
+                                background: #f8f5ff;
+                                display: inline-block;
+                                padding: 5px 10px;
+                                border-radius: 4px;
+                            ">Pack de <?= htmlspecialchars($conditionnement) ?></div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Quantité -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                            letter-spacing: 0.5px;
+                        ">Quantité</div>
+                        <div style="
+                            font-weight: 600;
+                            color: #2a256d;
+                            font-size: 16px;
+                            background: #f0f0f0;
+                            padding: 8px 12px;
+                            border-radius: 4px;
+                            display: inline-block;
+                        " id="quantite-affichee"><?= $quantite_selectionnee ?></div>
+                        <?php if ($conditionnement && intval($conditionnement) > 1): ?>
+                            
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Prix -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <!-- Prix unitaire -->
+                        <div>
+                            <div style="
+                                font-size: 11px;
+                                color: #6c757d;
+                                text-transform: uppercase;
+                                font-weight: 500;
+                                margin-bottom: 5px;
+                                letter-spacing: 0.5px;
+                            ">Prix unitaire</div>
+                            <div style="
+                                font-weight: 600;
+                                color: #17a2b8;
+                                font-size: 16px;
+                                background: #f0fbff;
+                                padding: 8px 12px;
+                                border-radius: 4px;
+                                border: 1px solid #bee5eb;
+                            " id="prix-unitaire-affiche">
+                                <?php 
+                                $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix;
+                                echo number_format($prixUnitaire, 2, ',', ' ');
+                                ?> € HT
+                            </div>
+                            <?php if ($conditionnement && intval($conditionnement) > 1): ?>
+                               
+                            <?php endif; ?>
+                        </div>
+                        
+                        <!-- Prix total -->
+                        <div>
+                            <div style="
+                                font-size: 11px;
+                                color: #6c757d;
+                                text-transform: uppercase;
+                                font-weight: 500;
+                                margin-bottom: 5px;
+                                letter-spacing: 0.5px;
+                            ">Total</div>
+                            <div style="
+                                font-weight: 700;
+                                color: #28a745;
+                                font-size: 18px;
+                                background: #f8fff9;
+                                padding: 10px 14px;
+                                border-radius: 6px;
+                                border: 1px solid #d4edda;
+                            " id="prix-total-affiche"><?= number_format($prix * $quantite_selectionnee, 2, ',', ' ') ?> € HT</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Effet de décoration -->
+                <div style="
+                    position: absolute;
+                    top: -50px;
+                    right: -50px;
+                    width: 100px;
+                    height: 100px;
+                    background: linear-gradient(135deg, rgba(240, 81, 36, 0.1) 0%, rgba(255, 107, 71, 0.05) 100%);
+                    border-radius: 50%;
+                "></div>
+            </div>
+            <?php endif; ?>
+            
+            <!-- Colonne droite : Module d'upload d'images -->
+            <div class="upload-section">
+                <div class="upload-header">
+                    <h3>Vos images</h3>
+                    <p>Ajoutez jusqu'à 30 images (JPG, PNG, WebP - max 5MB chacune)</p>
+                </div>
+                
+                <div class="file-upload-area">
+                    <input type="file" id="imageUpload" name="images[]" multiple accept="image/*" style="display: none;">
+                    <div class="upload-dropzone" onclick="document.getElementById('imageUpload').click()">
+                        <div class="upload-icon">📁</div>
+                        <p>Cliquez ici ou glissez-déposez vos images</p>
+                        <span>Formats acceptés : JPG, PNG, WebP</span>
+                    </div>
+                </div>
+                
+                <div class="images-counter">
+                    <span id="imageCount">0</span> / 30 images
+                </div>
+                
+                <div class="images-preview" id="imagesPreview">
+                    <!-- Les images apparaîtront ici -->
+                </div>
+                
+                <?php if ($produit_id): ?>
+                <!-- Bouton d'action après upload -->
+                <div class="upload-actions" id="uploadActions" style="display: none; margin-top: 20px; text-align: center;">
+                    <button type="button" 
+                            class="btn-ajouter-panier-photos" 
+                            id="btnAjouterPanier"
+                            onclick="ajouterAuPanierAvecPhotos(<?= $produit_id ?>, '<?= htmlspecialchars($reference, ENT_QUOTES) ?>', '<?= htmlspecialchars($designation, ENT_QUOTES) ?>', '<?= htmlspecialchars($format ?? '', ENT_QUOTES) ?>', <?= $prix ?>, '<?= htmlspecialchars($conditionnement ?? '', ENT_QUOTES) ?>')" 
+                            style="
+                                background: #28a745; 
+                                color: white; 
+                                border: none; 
+                                padding: 12px 30px; 
+                                border-radius: 6px; 
+                                font-size: 16px; 
+                                font-weight: 600;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+                            ">
+                        Ajouter au panier
+                    </button>
+                </div>
+                <?php endif; ?>
+            </div>
+            
+        </div> <!-- Fin du layout 2 colonnes -->
+    </div>
+</main>
+
+<!-- Modal pour le recadrage -->
+<div id="cropModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Recadrer l'image</h3>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="crop-layout">
+                <!-- Aperçu sur le côté gauche -->
+                <div class="crop-preview-sidebar">
+                    <h4>Aperçu final</h4>
+                    <div class="preview-wrapper">
+                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage">
+                        <div class="preview-info"></div>
+                    </div>
+                </div>
+                
+                <!-- Zone principale de recadrage -->
+                <div class="crop-main">
+                    <div class="crop-container">
+                        <img id="cropImage" src="" alt="Image à recadrer">
+                    </div>
+                    
+                    <!-- Contrôles en bas -->
+                    <div class="crop-controls-layout">
+                        <!-- Boutons principaux à gauche -->
+                        <div class="crop-controls">
+                            <button type="button" class="btn-crop-confirm">Confirmer</button>
+                            <button type="button" class="btn-crop-cancel">Annuler</button>
+                        </div>
+                        
+                        <!-- Contrôles de zoom à droite -->
+                        <div class="zoom-controls-inline">
+                            <button type="button" class="orientation-btn" id="orientationToggle" title="Basculer Portrait/Paysage">⟲</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomOutInline">-</button>
+                            <span class="zoom-display-inline">100%</span>
+                            <button type="button" class="zoom-btn-inline" id="zoomInInline">+</button>
+                            <button type="button" class="zoom-reset-inline">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/simple-crop.js"></script>
+<script src="../js/image-upload.js"></script>
+<script src="../js/upload-produits.js"></script>
+
+<script>
+// Fonctions spécifiques au formulaire d'upload
+
+/**
+ * Récupérer les informations des images uploadées
+ */
+function obtenirInfosImages() {
+    const images = [];
+    const imageItems = document.querySelectorAll('#imagesPreview .image-item');
+    
+    imageItems.forEach((item, index) => {
+        const img = item.querySelector('img');
+        const fileName = item.getAttribute('data-filename') || `image_${index + 1}.jpg`;
+        
+        images.push({
+            nom: fileName,
+            url: img ? img.src : '',
+            index: index
+        });
+    });
+    
+    return images;
+}
+
+/**
+ * Ajouter le produit au panier avec les photos
+ */
+function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, prix, conditionnement) {
+    const images = obtenirInfosImages();
+    
+    if (images.length === 0) {
+        alert('Veuillez d\'abord ajouter des images avant d\'ajouter au panier.');
+        return;
+    }
+    
+    // Utiliser la quantité sélectionnée dans le tableau (pas de calcul automatique)
+    const quantite = <?= $quantite_selectionnee ?>;
+    const nombrePhotos = images.length;
+    
+    // Données du produit à ajouter au panier
+    const produitPanier = {
+        id: produitId,
+        reference: reference,
+        designation: designation,
+        format: format,
+        prix: prix,
+        quantite: quantite,
+        conditionnement: conditionnement,
+        photos: images,
+        nombrePhotos: nombrePhotos
+    };
+    
+    // Animation de confirmation immédiate
+    const btn = document.getElementById('btnAjouterPanier');
+    btn.style.background = '#ffc107';
+    btn.textContent = 'Ajout en cours...';
+    btn.disabled = true;
+    
+    // Envoyer au panier PHP via AJAX
+    const formData = new FormData();
+    formData.append('action', 'ajouter_avec_photos');
+    formData.append('produit', JSON.stringify(produitPanier));
+    
+    fetch('../pages/panier.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Animation de succès
+            btn.style.background = '#28a745';
+            btn.textContent = 'Ajouté au panier !';
+            
+            // Afficher message de confirmation
+            alert(`Produit ajouté au panier avec ${images.length} photo${images.length > 1 ? 's' : ''} !\nVous pouvez consulter votre panier ou continuer vos achats.`);
+            
+            // Optionnel : redirection vers le panier
+            setTimeout(() => {
+                if (confirm('Voulez-vous consulter votre panier maintenant ?')) {
+                    window.location.href = '../pages/panier.php';
+                }
+            }, 1500);
+        } else {
+            // Erreur
+            btn.style.background = '#dc3545';
+            btn.textContent = 'Erreur !';
+            alert('Erreur lors de l\'ajout au panier: ' + data.message);
+            
+            // Réactiver le bouton après 2 secondes
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.textContent = 'Ajouter au panier';
+                btn.style.background = '#28a745';
+            }, 2000);
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        btn.style.background = '#dc3545';
+        btn.textContent = 'Erreur !';
+        alert('Erreur de connexion lors de l\'ajout au panier.');
+        
+        // Réactiver le bouton après 2 secondes
+        setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = 'Ajouter au panier';
+            btn.style.background = '#28a745';
+        }, 2000);
+    });
+}
+
+/**
+ * Mettre à jour l'affichage de la quantité et du prix total
+ */
+function mettreAJourQuantiteEtPrix() {
+    const quantiteAffichee = document.getElementById('quantite-affichee');
+    const prixTotalAffiche = document.getElementById('prix-total-affiche');
+    
+    if (quantiteAffichee && prixTotalAffiche) {
+        const quantiteSelectionnee = <?= $quantite_selectionnee ?>; // Quantité choisie dans le tableau
+        const prixHT = <?= $prix ?>; // Prix du pack complet
+        
+        // La quantité reste celle sélectionnée dans le tableau
+        // Elle ne change pas selon le nombre d'images
+        quantiteAffichee.textContent = quantiteSelectionnee;
+        
+        // Calcul du prix total : quantité sélectionnée × prix HT du pack
+        const prixTotal = prixHT * quantiteSelectionnee;
+        prixTotalAffiche.textContent = new Intl.NumberFormat('fr-FR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(prixTotal).replace(',', ',') + ' € HT';
+        
+        // Changer la couleur selon la quantité
+        if (quantiteSelectionnee > 1) {
+            quantiteAffichee.style.background = '#fff3cd';
+            quantiteAffichee.style.color = '#856404';
+            prixTotalAffiche.style.background = '#fff3cd';
+            prixTotalAffiche.style.borderColor = '#ffeaa7';
+        } else {
+            quantiteAffichee.style.background = '#f0f0f0';
+            quantiteAffichee.style.color = '#2a256d';
+            prixTotalAffiche.style.background = '#f8fff9';
+            prixTotalAffiche.style.borderColor = '#d4edda';
+        }
+    }
+}
+
+// Observer les changements dans la zone d'aperçu pour afficher le bouton
+const observer = new MutationObserver(function(mutations) {
+    const imagesPreview = document.getElementById('imagesPreview');
+    const uploadActions = document.getElementById('uploadActions');
+    
+    if (imagesPreview && uploadActions) {
+        const hasImages = imagesPreview.children.length > 0;
+        uploadActions.style.display = hasImages ? 'block' : 'none';
+        
+        // Mettre à jour la quantité et le prix total
+        mettreAJourQuantiteEtPrix();
+        
+        // Réactiver le bouton si des images sont supprimées puis rajoutées
+        if (hasImages) {
+            const btn = document.getElementById('btnAjouterPanier');
+            if (btn && btn.disabled) {
+                btn.disabled = false;
+                btn.textContent = 'Ajouter au panier';
+                btn.style.background = '#28a745';
+            }
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imagesPreview = document.getElementById('imagesPreview');
+    if (imagesPreview) {
+        observer.observe(imagesPreview, { childList: true });
+    }
+});
+</script>
+
+<?php include '../includes/footer.php'; ?>

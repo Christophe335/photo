@@ -4,7 +4,50 @@ session_start();
 if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
-// ...affichage du panier à compléter plus tard...
+
+// Gestion de l'ajout de produit avec photos via AJAX
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'ajouter_avec_photos') {
+    header('Content-Type: application/json');
+    
+    $produit = json_decode($_POST['produit'], true);
+    
+    if ($produit && isset($produit['id'])) {
+        // Convertir le format du produit pour le panier existant
+        $itemPanier = [
+            'id' => $produit['id'],
+            'quantite' => $produit['quantite'] ?? 1,
+            'prix' => $produit['prix'],
+            'details' => [
+                'code' => $produit['reference'],
+                'designation' => $produit['designation'],
+                'format' => $produit['format'] ?? '',
+                'conditionnement' => $produit['conditionnement'] ?? '',
+                'couleur' => ''
+            ],
+            'photos' => $produit['photos'] ?? [],
+            'nombrePhotos' => $produit['nombrePhotos'] ?? 0
+        ];
+        
+        // Vérifier si le produit existe déjà
+        $found = false;
+        foreach ($_SESSION['panier'] as &$item) {
+            if ($item['id'] == $produit['id']) {
+                $item = $itemPanier; // Remplacer
+                $found = true;
+                break;
+            }
+        }
+        
+        if (!$found) {
+            $_SESSION['panier'][] = $itemPanier;
+        }
+        
+        echo json_encode(['success' => true, 'message' => 'Produit ajouté au panier']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Données invalides']);
+    }
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,6 +97,34 @@ if (!isset($_SESSION['panier'])) {
                     }
                     echo '</span>';
                 }
+                
+                // Affichage des photos uploadées
+                if (isset($item['photos']) && !empty($item['photos'])) {
+                    $nombrePhotos = count($item['photos']);
+                    $conditionInt = intval($conditionnement);
+                    $quantiteCalculee = $quantite;
+                    $totalPhotosPayees = $conditionInt > 0 ? ($quantiteCalculee * $conditionInt) : $nombrePhotos;
+                    
+                    echo '<br><div style="background:#f8f9fa; padding:8px; border-radius:4px; margin-top:5px; border-left:3px solid #28a745;">';
+                    echo '<strong style="color:#28a745;">📸 ' . $nombrePhotos . ' photo' . ($nombrePhotos > 1 ? 's' : '') . ' uploadée' . ($nombrePhotos > 1 ? 's' : '') . '</strong>';
+                    
+                    // Affichage des informations de conditionnement
+                    if ($conditionInt > 0 && $totalPhotosPayees > $nombrePhotos) {
+                        echo '<br><small style="color:#ffc107; font-weight:500;">⚠️ Vous payez pour ' . $totalPhotosPayees . ' photos (conditionnement par ' . $conditionInt . ')</small>';
+                    }
+                    
+                    echo '<div style="margin-top:5px; font-size:12px; color:#666;">';
+                    
+                    foreach ($item['photos'] as $index => $photo) {
+                        $nomFichier = htmlspecialchars($photo['nom'] ?? 'image_' . ($index + 1) . '.jpg');
+                        echo '<div style="display:flex; align-items:center; margin:2px 0;">';
+                        echo '<span style="color:#28a745; margin-right:5px;">•</span>';
+                        echo '<span title="' . $nomFichier . '">' . (strlen($nomFichier) > 25 ? substr($nomFichier, 0, 22) . '...' : $nomFichier) . '</span>';
+                        echo '</div>';
+                    }
+                    echo '</div></div>';
+                }
+                
                 echo '</td>';
                 // Colonne Conditionnement
                 echo '<td>' . ($conditionnement ? $conditionnement : '-') . '</td>';

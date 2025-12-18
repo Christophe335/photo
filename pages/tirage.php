@@ -11,7 +11,11 @@
         <h1 class="title-h1 bull">Tirage Photo</h1>
     </div>
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/tirage-1.webp" alt="Un bandeau présentant des photos imprimées de différents formats disposées en éventail">
-    
+    <div class="container">
+        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
+            Tirages photo RÉSERVÉ au clients qui commandent un album photo chez Bindy Studio.
+        </p>
+    </div>
     <section class="section1" id="Petit format">
         <div class="container">
             
@@ -100,7 +104,7 @@
         <div class="container">
             
             <h2 class="title-h3 centre-text">Tirage Format sur mesure</h2>
-            <h3>Feuille de couverture panoramique à partir de 35,9cm x 14,7cm</h3>
+            <h3>Feuille pré-encollée pour couverture panoramique</h3>
             </br>
             <p class="paragraphe">Parce que certaines images méritent un format unique, Bindy Studio vous propose des tirages entièrement sur mesure. Ce service est spécialement conçu pour les couvertures panoramiques d’albums photo ou les projets créatifs nécessitant des dimensions spécifiques. Nous adaptons le format à votre image afin de garantir un rendu harmonieux, sans compromis sur la qualité ou l’émotion.</p>
             </br>

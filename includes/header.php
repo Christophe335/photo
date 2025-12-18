@@ -85,21 +85,78 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
         <!-- Bandeau de navigation -->
         <div class="navigation-banner">
             <nav class="main-nav">
-                    <!-- Bouton Photo -->
+                    <!-- Bouton Tirage Photos -->
                     <div class="nav-item">
-                        <button class="nav-btn" data-menu="photo">Photo</button>
+                        <button class="nav-btn" data-menu="photo">Tirage Photos</button>
+                        <div class="dropdown-menu tirage-menu" id="photo-menu">
+                            <!-- Groupe Petit Format -->
+                            <div class="format-group">
+                                <div class="group-items">
+                                    <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="dropdown-item">10 x 15 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="dropdown-item">12 x 12 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="dropdown-item">13 x 18 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="dropdown-item">15 x 15 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="dropdown-item">15 x 20 cm</a>
+                                </div>
+                                <div class="group-label">Petit Format</div>
+                            </div>
+                            
+                            <!-- Groupe Grand Format -->
+                            <div class="format-group">
+                                <div class="group-items">
+                                    <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="dropdown-item">20 x 20 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="dropdown-item">20 x 25 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="dropdown-item">20 x 30 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="dropdown-item">21 x 21 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="dropdown-item">25 x 25 cm</a>
+                                </div>
+                                <div class="group-label">Grand Format</div>
+                            </div>
+                            
+                            <!-- Groupe A4/A3 -->
+                            <div class="format-group">
+                                <div class="group-items">
+                                    <a href="<?php echo $pagesPath; ?>tirage-A4A3.php" class="dropdown-item">A4 - 21 x 29.7 cm</a>
+                                    <a href="<?php echo $pagesPath; ?>tirage-A4A3.php" class="dropdown-item">A3 - 29.7 x 42 cm</a>
+                                </div>
+                                <div class="group-label">Format A4/A3</div>
+                            </div>
+                            
+                            <!-- Séparateur -->
+                            <div class="menu-separator"></div>
+                            
+                            <!-- Personnalisé -->
+                            <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="dropdown-item personalize-item">Personnalisé</a>
+                        </div>
+                    </div>
+                    <!-- Bouton Personnalisation -->
+                    <div class="nav-item">
+                        <button class="nav-btn" data-menu="photo">Personnalisation</button>
+                        <div class="dropdown-menu" id="photo-menu">
+                            <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
+                            <a href="<?php echo $pagesPath; ?>album.php" class="dropdown-item">Album Photos</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Boîte personnalisé A5</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Boîte personnalisé A4</a>
+                            <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Dépliant Accordéon</a>
+                            <a href="<?php echo $pagesPath; ?>toile.php" class="dropdown-item">Impression sur Toile</a>
+                        </div>
+                    </div>
+                    <!-- Bouton Livres / Albums -->
+                    <div class="nav-item">
+                        <button class="nav-btn" data-menu="photo">Livres / Albums</button>
                         <div class="dropdown-menu" id="photo-menu">
                             <a href="<?php echo $pagesPath; ?>livre-photo.php" class="dropdown-item">Livre Photo</a>
                             <a href="<?php echo $pagesPath; ?>album.php" class="dropdown-item">Album Photos</a>
                             <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Dépliant Accordéon</a>
                             <a href="<?php echo $pagesPath; ?>toile.php" class="dropdown-item">Impression sur Toile</a>
-                            <a href="<?php echo $pagesPath; ?>tirage.php" class="dropdown-item">Tirage Photo</a>
                         </div>
                     </div>
                     
-                    <!-- Bouton Calendrier -->
+                    <!-- Bouton Calendriers -->
                     <div class="nav-item">
-                        <button class="nav-btn" data-menu="calendrier">Calendrier</button>
+                        <button class="nav-btn" data-menu="calendrier">Calendriers</button>
                         <div class="dropdown-menu" id="calendrier-menu">
                             <a href="<?php echo $pagesPath; ?>calendrier-bureau.php" class="dropdown-item">Calendrier de bureau</a>
                             <a href="<?php echo $pagesPath; ?>calendrier-mural.php" class="dropdown-item">Calendrier Mural</a>
@@ -107,29 +164,28 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         </div>
                     </div>
                     
-                    <!-- Bouton Personnalisation -->
+                    <!-- Bouton Couvertures -->
                     <div class="nav-item">
-                        <button class="nav-btn" data-menu="personnalisation">Personnalisation</button>
+                        <button class="nav-btn" data-menu="personnalisation">Couvertures</button>
                         <div class="dropdown-menu" id="personnalisation-menu">
                             <a href="<?php echo $pagesPath; ?>luxe.php" class="dropdown-item">Finition Luxe</a>
                             <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
-                            <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
                             <a href="<?php echo $pagesPath; ?>pochette.php" class="dropdown-item">Pochette de prospection</a>
-                            <a href="<?php echo $pagesPath; ?>metal.php" class="dropdown-item">Impression sur métal</a>
+                            <a href="<?php echo $pagesPath; ?>metal.php" class="dropdown-item">Alu-Print</a>
                         </div>
                     </div>
                     
-                    <!-- Bouton Cadeaux -->
+                    <!-- Bouton Panneaux / Boîtes -->
                     <div class="nav-item">
-                        <button class="nav-btn" data-menu="cadeaux">Cadeaux</button>
+                        <button class="nav-btn" data-menu="cadeaux">Panneaux / Boîtes</button>
                         <div class="dropdown-menu" id="cadeaux-menu">
-                            <a href="<?php echo $pagesPath; ?>magnet.php" class="dropdown-item">Magnets</a>
                             <a href="<?php echo $pagesPath; ?>panneau-bambou.php" class="dropdown-item">Panneaux Bambou</a>
                             <a href="<?php echo $pagesPath; ?>panneau-acrylique.php" class="dropdown-item">Panneaux Acrylique</a>
                             <a href="<?php echo $pagesPath; ?>panneau-photo.php" class="dropdown-item">Panneaux Photo</a>
                             <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Boîte personnalisé A5</a>
                             <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Boîte personnalisé A4</a>
+                            <a href="<?php echo $pagesPath; ?>magnet.php" class="dropdown-item">Magnets</a>
                         </div>
                     </div>
                 </nav>

@@ -161,3 +161,45 @@ function updateCartCount(count) {
     }
   }
 }
+
+// Gestion des boutons "Nous Consulter" - Redirection vers la page contact
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script boutons 'Nous Consulter' chargé");
+  
+  // Activer les boutons "nous consulter" et ajouter l'écoute des clics
+  const nousConsulterBtns = document.querySelectorAll(".btn-nous-consulter");
+  console.log("Boutons 'nous consulter' trouvés:", nousConsulterBtns.length);
+  
+  nousConsulterBtns.forEach(function(btn) {
+    // Retirer l'attribut disabled et changer le cursor
+    btn.disabled = false;
+    btn.style.cursor = 'pointer';
+    
+    // Ajouter l'écouteur de clic
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      console.log("Clic détecté sur bouton 'Nous Consulter'");
+      
+      // Détecter si nous sommes dans un sous-dossier ou à la racine
+      const currentPath = window.location.pathname;
+      let contactUrl;
+      
+      if (currentPath.includes('/pages/') || 
+          currentPath.includes('/admin/') || 
+          currentPath.includes('/clients/')) {
+        // Nous sommes dans un sous-dossier, remonter d'un niveau
+        contactUrl = '../formulaires/contact.php';
+      } else {
+        // Nous sommes à la racine
+        contactUrl = 'formulaires/contact.php';
+      }
+      
+      console.log("Redirection vers:", contactUrl);
+      
+      // Redirection vers la page contact
+      window.location.href = contactUrl;
+    });
+  });
+});
