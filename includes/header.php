@@ -93,6 +93,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                             <a href="<?php echo $pagesPath; ?>album.php" class="dropdown-item">Album Photos</a>
                             <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Dépliant Accordéon</a>
                             <a href="<?php echo $pagesPath; ?>toile.php" class="dropdown-item">Impression sur Toile</a>
+                            <a href="<?php echo $pagesPath; ?>tirage.php" class="dropdown-item">Tirage Photo</a>
                         </div>
                     </div>
                     

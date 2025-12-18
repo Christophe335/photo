@@ -5,8 +5,9 @@ require_once __DIR__ . '/database.php';
 /**
  * Affichage du tableau des produits par famille
  * @param string $famille - Code de la famille de produits à afficher
+ * @param bool $afficherCouleur - Si true, affiche la colonne couleur (par défaut true)
  */
-function afficherTableauProduits($famille) {
+function afficherTableauProduits($famille, $afficherCouleur = true) {
     try {
         $db = Database::getInstance()->getConnection();
         
@@ -25,32 +26,34 @@ function afficherTableauProduits($famille) {
         $nomFamille = $produits[0]['nomDeLaFamille'];
         
         ?>
-        <div class="tableau-produits">
+        <div class="tableau-produits<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
             <!-- Titre de la famille -->
             <h2 class="titre-famille"><?= htmlspecialchars($nomFamille) ?></h2>
             
             <!-- En-têtes du tableau -->
-            <div class="tableau-header">
-                <div class="col-code">Code</div>
-                <div class="col-description">Description</div>
+            <div class="tableau-header<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
+                <div class="col-code<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">Code</div>
+                <div class="col-description<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">Description</div>
+                <?php if ($afficherCouleur): ?>
                 <div class="col-couleur">Couleur</div>
-                <div class="col-nb">Nb</div>
-                <div class="col-quantite">Quantité</div>
-                <div class="col-prix">Prix</div>
-                <div class="col-action"></div>
+                <?php endif; ?>
+                <div class="col-nb<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">Nb</div>
+                <div class="col-quantite<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">Quantité</div>
+                <div class="col-prix<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">Prix</div>
+                <div class="col-action<?= !$afficherCouleur ? ' sans-couleur' : '' ?>"></div>
             </div>
             
             <!-- Lignes de produits -->
             <?php foreach ($produits as $produit): ?>
-            <div class="ligne-produit" data-id="<?= $produit['id'] ?>" data-prix="<?= $produit['prixVente'] ?>">
+            <div class="ligne-produit<?= !$afficherCouleur ? ' sans-couleur' : '' ?>" data-id="<?= $produit['id'] ?>" data-prix="<?= $produit['prixVente'] ?>">
                 
                 <!-- Code/Référence -->
-                <div class="col-code">
+                <div class="col-code<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?= htmlspecialchars($produit['reference']) ?>
                 </div>
                 
                 <!-- Description -->
-                <div class="col-description">
+                <div class="col-description<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <div class="designation"><?= htmlspecialchars($produit['designation']) ?></div>
                     <?php if (!empty($produit['format'])): ?>
                         <div class="format"><?= htmlspecialchars($produit['format']) ?></div>
@@ -64,6 +67,7 @@ function afficherTableauProduits($famille) {
                 </div>
                 
                 <!-- Couleurs -->
+                <?php if ($afficherCouleur): ?>
                 <div class="col-couleur">
                     <div class="couleurs-container">
                         <?php for ($i = 1; $i <= 13; $i++): ?>
@@ -80,16 +84,17 @@ function afficherTableauProduits($famille) {
                         <?php endfor; ?>
                     </div>
                 </div>
+                <?php endif; ?>
                 
                 <!-- Conditionnement -->
-                <div class="col-nb">
+                <div class="col-nb<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?php if (!empty($produit['conditionnement'])): ?>
                         <?= htmlspecialchars($produit['conditionnement']) ?>
                     <?php endif; ?>
                 </div>
                 
                 <!-- Contrôle quantité -->
-                <div class="col-quantite">
+                <div class="col-quantite<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <div class="quantite-control">
                         <button type="button" class="btn-moins" onclick="modifierQuantite(this, -1)">−</button>
                         <input type="number" class="input-quantite" value="1" min="1" readonly>
@@ -98,12 +103,12 @@ function afficherTableauProduits($famille) {
                 </div>
                 
                 <!-- Prix -->
-                <div class="col-prix">
+                <div class="col-prix<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?= number_format($produit['prixVente'], 2, ',', ' ') ?> € HT
                 </div>
                 
                 <!-- Bouton ajouter au panier -->
-                <div class="col-action">
+                <div class="col-action<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?php if ($produit['prixVente'] > 0): ?>
                         <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)">
                             Ajouter au panier

@@ -25,14 +25,18 @@
         <div class="container">    
             <div class="ligne">
                 <div class="vignette-index">
-                    <img class="image-index" src="../images/bandeaux/album.webp" width="375px" height="250px" alt="Sur une table sont présentés 3 albums photos personnalisés avec des photos imprimées en couverture.">
-                    <span class="span-index">Album Photo</span>
-                    <p class="text-index">Créer un livre photo personnalisé pour partager tous vos souvenir avec vos proches.</p>
+                    <a style="text-decoration: none;" href="<?php echo $pagesPath; ?>album.php">
+                        <img class="image-index" src="../images/bandeaux/album.webp" width="375px" height="250px" alt="Sur une table sont présentés 3 albums photos personnalisés avec des photos imprimées en couverture.">
+                        <span class="span-index">Album Photo</span>
+                        <p class="text-index">Créer un livre photo personnalisé pour partager tous vos souvenir avec vos proches.</p>
+                    </a>
                 </div>
                 <div class="vignette-index">
-                    <img class="image-index" src="../images/bandeaux/calendrier.webp" width="375px" height="250px" alt="Photo d'un calendrier de couleur noir et personnalisé avec une photo.">
-                    <span class="span-index">Calendrier</span>
-                    <p class="text-index">Créer un calendrier personnalisé pour partager vos moments importants tout au long de l'année.</p>
+                    <a style="text-decoration: none;" href="<?php echo $pagesPath; ?>calendrier-mural.php">
+                        <img class="image-index" src="../images/bandeaux/calendrier.webp" width="375px" height="250px" alt="Photo d'un calendrier de couleur noir et personnalisé avec une photo.">
+                        <span class="span-index">Calendrier</span>
+                        <p class="text-index">Créer un calendrier personnalisé pour partager vos moments importants tout au long de l'année.</p>
+                    </a>
                 </div>
             </div>
             <div class="ligne">
@@ -42,9 +46,11 @@
                     <p class="text-index">Notre service d'impression de photo et là pour immortaliser vos moments précieux avec des tirages de haute qualité.</p>
                 </div>
                 <div class="vignette-index">
-                    <img class="image-index" src="../images/bandeaux/panneau.webp" width="375px" height="250px" alt="Photo d'un calendrier de couleur noir et personnalisé avec une photo.">
-                    <span class="span-index">Panneaux Photo</span>
-                    <p class="text-index">Toute une gamme de panneaux photo personnalisés pour embellir votre intérieur ou votre espace professionnel.</p>
+                    <a style="text-decoration: none;" href="<?php echo $pagesPath; ?>panneau-photo.php">
+                        <img class="image-index" src="../images/bandeaux/panneau.webp" width="375px" height="250px" alt="Photo d'un calendrier de couleur noir et personnalisé avec une photo.">
+                        <span class="span-index">Panneaux Photo</span>
+                        <p class="text-index">Toute une gamme de panneaux photo personnalisés pour embellir votre intérieur ou votre espace professionnel.</p>
+                    </a>
                 </div>
             </div>
             

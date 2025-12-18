@@ -398,3 +398,36 @@
 .btn-ajouter-panier.adding:after {
   content: " ✓";
 }
+
+/* Ajustements des largeurs quand la colonne couleur est masquée */
+
+
+.tableau-header.sans-couleur,
+.ligne-produit.sans-couleur {
+  grid-template-columns: 140px 1fr 30px 120px 90px 120px;
+}
+
+.tableau-header.sans-couleur .col-description.sans-couleur {
+  width: 40%;
+}
+
+.tableau-header.sans-couleur .col-code.sans-couleur {
+  width: 15%;
+}
+
+.tableau-header.sans-couleur .col-nb.sans-couleur {
+  text-align: center;
+  width: 10%;
+}
+
+.tableau-header.sans-couleur .col-quantite.sans-couleur {
+  width: 15%;
+}
+
+.tableau-header.sans-couleur .col-prix.sans-couleur {
+  width: 12%;
+}
+
+.tableau-header.sans-couleur .col-action.sans-couleur {
+  width: 8%;
+}
