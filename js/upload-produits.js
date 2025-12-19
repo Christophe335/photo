@@ -43,7 +43,38 @@ function uploaderImagesAvecQuantite(button, produitId, reference, designation, f
     const quantiteInput = ligneProduit.querySelector('.input-quantite');
     const quantite = quantiteInput ? parseInt(quantiteInput.value) || 1 : 1;
     
-    // Construire les paramètres URL avec la quantité
+    // Récupérer la couleur sélectionnée (active), sinon la première
+    let couleur = "";
+    let imageCouleur = "";
+    const couleurItemActive = ligneProduit.querySelector(".couleur-item.active");
+    if (couleurItemActive) {
+        const couleurActive = couleurItemActive.querySelector(".couleur-nom");
+        if (couleurActive) couleur = couleurActive.textContent.trim();
+        
+        // Récupérer l'image de couleur
+        const couleurImg = couleurItemActive.querySelector(".couleur-image");
+        if (couleurImg) {
+            const imgSrc = couleurImg.src;
+            // Convertir vers le chemin big
+            if (imgSrc.includes('/couleurs/')) {
+                imageCouleur = imgSrc.replace('/couleurs/', '/couleurs/big/').replace('.webp', '-B.webp');
+            }
+        }
+    } else {
+        // Si aucune couleur active, prendre la première disponible
+        const couleurDefault = ligneProduit.querySelector(".couleur-nom");
+        if (couleurDefault) couleur = couleurDefault.textContent.trim();
+        
+        const couleurImgDefault = ligneProduit.querySelector(".couleur-image");
+        if (couleurImgDefault) {
+            const imgSrc = couleurImgDefault.src;
+            if (imgSrc.includes('/couleurs/')) {
+                imageCouleur = imgSrc.replace('/couleurs/', '/couleurs/big/').replace('.webp', '-B.webp');
+            }
+        }
+    }
+    
+    // Construire les paramètres URL avec la quantité et la couleur
     const params = new URLSearchParams({
         produit_id: produitId,
         reference: reference,
@@ -51,7 +82,9 @@ function uploaderImagesAvecQuantite(button, produitId, reference, designation, f
         format: format || '',
         prix: prix,
         conditionnement: conditionnement || '',
-        quantite: quantite
+        quantite: quantite,
+        couleur: couleur,
+        imageCouleur: imageCouleur
     });
     
     // Détecter le chemin correct vers le formulaire

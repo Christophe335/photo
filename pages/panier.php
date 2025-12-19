@@ -5,6 +5,57 @@ if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
+// Gestion de la validation de commande
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'valider_commande') {
+    require_once __DIR__ . '/../includes/email-manager.php';
+    
+    // Récupérer les données de la commande
+    $commentaire = $_POST['commentaire'] ?? '';
+    $emailClient = $_POST['email'] ?? '';
+    
+    // Récupérer le panier unifié (session + localStorage)
+    $panierClient = json_decode($_POST['panier_complet'] ?? '[]', true);
+    if (empty($panierClient) && !empty($_SESSION['panier'])) {
+        $panierClient = $_SESSION['panier'];
+    }
+    
+    if (!empty($panierClient)) {
+        // Créer une liste des fichiers uploadés
+        $fichiersUploadés = [];
+        foreach ($panierClient as $item) {
+            if (!empty($item['photos'])) {
+                foreach ($item['photos'] as $photo) {
+                    $fichiersUploadés[] = $photo;
+                }
+            }
+        }
+        
+        // Envoyer l'email de confirmation
+        $emailManager = new EmailManager();
+        $envoyeWebmaster = $emailManager->envoyerConfirmationCommande($panierClient, $fichiersUploadés);
+        
+        // Optionnel : envoyer confirmation au client
+        $envoyeClient = false;
+        if ($emailClient && filter_var($emailClient, FILTER_VALIDATE_EMAIL)) {
+            $envoyeClient = $emailManager->envoyerConfirmationClient($emailClient, $panierClient);
+        }
+        
+        if ($envoyeWebmaster) {
+            // Succès - vider le panier
+            $_SESSION['panier'] = [];
+            
+            // Redirection avec message de succès
+            header('Location: /pages/panier.php?commande_validee=1&email_client=' . ($envoyeClient ? '1' : '0'));
+            exit;
+        } else {
+            // Erreur lors de l'envoi
+            $erreur_commande = "Une erreur s'est produite lors de l'envoi de votre commande. Veuillez réessayer.";
+        }
+    } else {
+        $erreur_commande = "Votre panier est vide.";
+    }
+}
+
 // Gestion de l'ajout de produit avec photos via AJAX
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'ajouter_avec_photos') {
     header('Content-Type: application/json');
@@ -12,9 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $produit = json_decode($_POST['produit'], true);
     
     if ($produit && isset($produit['id'])) {
+        // Créer un ID unique basé sur le produit et un timestamp pour éviter les conflits
+        $idUnique = $produit['id'] . '_' . time() . '_' . rand(1000, 9999);
+        
         // Convertir le format du produit pour le panier existant
         $itemPanier = [
-            'id' => $produit['id'],
+            'id' => $idUnique,
+            'produit_id_origine' => $produit['id'], // Garder l'ID original pour référence
             'quantite' => $produit['quantite'] ?? 1,
             'prix' => $produit['prix'],
             'details' => [
@@ -22,21 +77,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 'designation' => $produit['designation'],
                 'format' => $produit['format'] ?? '',
                 'conditionnement' => $produit['conditionnement'] ?? '',
-                'couleur' => ''
+                'couleur' => $produit['couleur'] ?? '',
+                'imageCouleur' => $produit['imageCouleur'] ?? ''
             ],
             'photos' => $produit['photos'] ?? [],
-            'nombrePhotos' => $produit['nombrePhotos'] ?? 0
+            'nombrePhotos' => $produit['nombrePhotos'] ?? 0,
+            'source' => $produit['source'] ?? 'photo' // 'photo' ou 'perso'
         ];
         
-        // Vérifier si le produit existe déjà
+        // Toujours ajouter comme nouvel item (permet d'avoir plusieurs variantes du même produit)
         $found = false;
-        foreach ($_SESSION['panier'] as &$item) {
-            if ($item['id'] == $produit['id']) {
-                $item = $itemPanier; // Remplacer
-                $found = true;
-                break;
-            }
-        }
         
         if (!$found) {
             $_SESSION['panier'][] = $itemPanier;
@@ -46,6 +96,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     } else {
         echo json_encode(['success' => false, 'message' => 'Données invalides']);
     }
+    exit;
+}
+
+// API pour synchroniser les paniers localStorage et session
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'sync_panier') {
+    header('Content-Type: application/json');
+    
+    $panierClient = json_decode($_POST['panier_client'] ?? '[]', true);
+    
+    // Créer un panier unifié sans doublons
+    $panierUnifie = $_SESSION['panier']; // Commencer par les articles session (photo/perso)
+    
+    // Ajouter les articles localStorage qui ne sont pas déjà présents
+    if (!empty($panierClient)) {
+        foreach ($panierClient as $itemClient) {
+            // Éviter les doublons en vérifiant l'ID
+            $dejaPresent = false;
+            foreach ($panierUnifie as $itemExistant) {
+                if ($itemExistant['id'] === $itemClient['id']) {
+                    $dejaPresent = true;
+                    break;
+                }
+            }
+            
+            if (!$dejaPresent) {
+                $panierUnifie[] = [
+                    'id' => $itemClient['id'],
+                    'quantite' => $itemClient['quantite'],
+                    'prix' => $itemClient['prix'],
+                    'details' => $itemClient['details'],
+                    'dateAjout' => $itemClient['dateAjout'] ?? date('c'),
+                    'fromLocalStorage' => true
+                ];
+            }
+        }
+    }
+    
+    // Retourner le panier unifié (sans modifier la session pour l'instant)
+    echo json_encode([
+        'success' => true, 
+        'panier_session' => $panierUnifie,
+        'total_items' => count($panierUnifie)
+    ]);
+    exit;
+}
+
+// API pour obtenir le panier session
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'get_panier_session') {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'panier_session' => $_SESSION['panier'],
+        'total_items' => count($_SESSION['panier'])
+    ]);
     exit;
 }
 ?>
@@ -58,6 +161,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
+    
+    <!-- Messages de confirmation/erreur -->
+    <?php if (isset($_GET['commande_validee']) && $_GET['commande_validee'] == '1'): ?>
+        <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; margin: 20px auto; max-width: 800px; border-radius: 5px; text-align: center;">
+            <h3>✅ Commande validée avec succès !</h3>
+            <p>Votre commande a été envoyée à notre équipe. Vous recevrez une confirmation par email dans quelques minutes.</p>
+            <?php if (isset($_GET['email_client']) && $_GET['email_client'] == '1'): ?>
+                <p><em>Un email de confirmation vous a également été envoyé.</em></p>
+            <?php endif; ?>
+        </div>
+    <?php elseif (isset($erreur_commande)): ?>
+        <div style="background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; margin: 20px auto; max-width: 800px; border-radius: 5px; text-align: center;">
+            <h3>❌ Erreur lors de la validation</h3>
+            <p><?php echo htmlspecialchars($erreur_commande); ?></p>
+        </div>
+    <?php endif; ?>
+    
     <h1 style="text-align:center;">Votre panier</h1>
     <div id="panier-content">
         <?php
@@ -93,25 +213,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 if ($couleur) {
                     echo '<br><span style="color:#666;font-size:13px">Couleur : ' . $couleur;
                     if ($imageCouleur) {
-                        echo ' <img src="' . $imageCouleur . '" alt="' . $couleur . '" style="width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;">';
+                        // S'assurer que le chemin de l'image est correct
+                        $cheminImage = $imageCouleur;
+                        if (strpos($cheminImage, '../') === 0) {
+                            $cheminImage = substr($cheminImage, 3); // Enlever '../' au début
+                        }
+                        if (strpos($cheminImage, '/') !== 0) {
+                            $cheminImage = '/' . $cheminImage; // Ajouter '/' au début si absent
+                        }
+                        echo ' <img src="' . $cheminImage . '" alt="' . $couleur . '" style="width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;" onerror="this.style.display=\'none\'">';
                     }
                     echo '</span>';
                 }
                 
-                // Affichage des photos uploadées
+                // Affichage des photos/personnalisations uploadées
                 if (isset($item['photos']) && !empty($item['photos'])) {
                     $nombrePhotos = count($item['photos']);
                     $conditionInt = intval($conditionnement);
                     $quantiteCalculee = $quantite;
                     $totalPhotosPayees = $conditionInt > 0 ? ($quantiteCalculee * $conditionInt) : $nombrePhotos;
                     
-                    echo '<br><div style="background:#f8f9fa; padding:8px; border-radius:4px; margin-top:5px; border-left:3px solid #28a745;">';
-                    echo '<strong style="color:#28a745;">📸 ' . $nombrePhotos . ' photo' . ($nombrePhotos > 1 ? 's' : '') . ' uploadée' . ($nombrePhotos > 1 ? 's' : '') . '</strong>';
+                    // Déterminer si c'est une personnalisation ou des photos
+                    $isPersonnalisation = (isset($item['source']) && $item['source'] === 'perso') || 
+                                         strpos(strtolower($designation), 'personnalis') !== false ||
+                                         strpos(strtolower($designation), 'custom') !== false;
                     
-                    // Affichage des informations de conditionnement
-                    if ($conditionInt > 0 && $totalPhotosPayees > $nombrePhotos) {
-                        echo '<br><small style="color:#ffc107; font-weight:500;">⚠️ Vous payez pour ' . $totalPhotosPayees . ' photos (conditionnement par ' . $conditionInt . ')</small>';
-                    }
+                    $icon = $isPersonnalisation ? '🎨' : '📸';
+                    $typeLabel = $isPersonnalisation ? 'personnalisation' : 'photo';
+                    $typeLabelPlural = $isPersonnalisation ? 'personnalisations' : 'photos';
+                    
+                    echo '<br><div style="background:#f8f9fa; padding:8px; border-radius:4px; margin-top:5px; border-left:3px solid #28a745;">';
+                    echo '<strong style="color:#28a745;">' . $icon . ' ' . $nombrePhotos . ' ' . ($nombrePhotos > 1 ? $typeLabelPlural : $typeLabel) . ' ajoutée' . ($nombrePhotos > 1 ? 's' : '') . '</strong>';
                     
                     echo '<div style="margin-top:5px; font-size:12px; color:#666;">';
                     
@@ -163,7 +295,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             echo '<div class="panier-actions">';
             if (isset($_SESSION['client_id'])) {
                 // Client connecté - afficher le bouton de commande
-                echo '<form action="../clients/process-commande.php" method="POST" class="commande-form">';
+                echo '<form id="commande-form" method="POST" class="commande-form">
+                <input type="hidden" name="action" value="valider_commande">
+                <input type="hidden" name="panier_complet" id="panier_complet" value="">';
                 echo '<div class="commande-options">';
                 echo '<h3>Finaliser votre commande</h3>';
                 
@@ -196,7 +330,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 echo '<p class="total-final"><strong>Total à payer : ' . number_format($ttc + $fraisPort, 2, ',', ' ') . ' €</strong></p>';
                 echo '</div>';
                 
-                echo '<button type="submit" class="btn-commander">Valider ma commande</button>';
+                echo '<button type="submit" class="btn-commander" onclick="preparerValidationCommande()">Valider ma commande</button>';
                 echo '</form>';
             } else {
                 // Client non connecté - invitation à se connecter
@@ -204,8 +338,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 echo '<h3>Finaliser votre commande</h3>';
                 echo '<p>Pour passer votre commande, vous devez être connecté.</p>';
                 echo '<div class="connexion-actions">';
-                echo '<a href="../clients/connexion.php" class="btn-connexion">Se connecter</a>';
-                echo '<a href="../clients/creer-compte.php" class="btn-creer-compte">Créer un compte</a>';
+                echo '<div class="account-btn" style="width: 115px;">
+                        <a href="../formulaires/voir-compte.php" class="btn-contact">
+                            <i class="fas fa-user"></i>
+                            <span>Compte</span>
+                        </a>
+                    </div>';
                 echo '</div>';
                 echo '</div>';
             }
@@ -348,6 +486,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 setTimeout(function(){ window.location.reload(); }, 400);
             }
         }
+        
+        // Fonction pour préparer la validation de commande
+        window.preparerValidationCommande = function() {
+            console.log('[Commande] Préparation validation commande');
+            
+            // Récupérer le panier localStorage
+            const panierLS = localStorage.getItem('panier');
+            let panierComplet = [];
+            
+            if (panierLS) {
+                try {
+                    panierComplet = JSON.parse(panierLS);
+                } catch (e) {
+                    console.error('[Commande] Erreur parsing localStorage:', e);
+                }
+            }
+            
+            // Ajouter le panier session (déjà dans la page PHP)
+            // Le panier session sera automatiquement inclus côté serveur
+            
+            // Passer le panier complet au formulaire
+            document.getElementById('panier_complet').value = JSON.stringify(panierComplet);
+            
+            console.log('[Commande] Panier complet préparé:', panierComplet.length, 'articles');
+            
+            return true; // Permettre la soumission du formulaire
+        }
+        
     } catch (e) {
         console.error('[Panier] Erreur', e);
     }

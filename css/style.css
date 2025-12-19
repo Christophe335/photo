@@ -1,9 +1,24 @@
-.nav-compact .nav-actions-compact {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-left: auto;
-  z-index: 2000;
+/* Pseudo-bouton breadcrumb dans la navigation */
+.breadcrumb-item {
+  position: relative;
+}
+
+.breadcrumb-btn {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #dee2e6;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb-btn strong {
+  color: #000;
+  font-weight: 500;
 }
 /* Boutons header compact dans la navigation */
 .nav-actions-compact {
@@ -754,7 +769,7 @@ body.nav-fixed {
   align-items: center;
   gap: 30px;
   width: calc(100% - 100px);
-  margin-left: 20%;
+  margin-left: 20px;
   position: relative;
 }
 

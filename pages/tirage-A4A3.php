@@ -20,15 +20,15 @@
                 </div>
                 <div class="colonne-2">
                     <p class="paragraphe">Les formats A4 et A3 sont parfaits pour ceux qui souhaitent un rendu spectaculaire. Grâce à leur grande surface d’impression, chaque détail prend vie et chaque photo raconte pleinement son histoire. Imprimés avec le savoir-faire Bindy Studio, ces tirages offrent une profondeur exceptionnelle et un rendu professionnel, digne d’une exposition.</p>
-                    <h1>à partir de 6.99 € l'unité</h1>
-                
+                    <h1>à partir de 1.90 € HT l'unité</h1>
+                    <p>Commande minimum 10 unités</p>
                 <div class="tableau-container">
                     <?php
                     // IMPORTANT: Ajuster le chemin selon votre structure
                     require_once __DIR__ . '/../includes/tableau2.php';
                             
-                    // Afficher les produits de reliure directement
-                    afficherTableauProduits('Tirage Photo A4 et A3', false);
+                    // Afficher les produits de reliure directement (quantité par défaut 10)
+                    afficherTableauProduits('Tirage Photo A4 et A3', false, 10);
                     ?>
                 </div> 
                 </div>

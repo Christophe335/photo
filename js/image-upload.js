@@ -109,6 +109,22 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mettre à jour le compteur d'images
   function updateImageCount() {
     imageCount.textContent = uploadedImages.length;
+    syncUploadedImages();
+  }
+
+  // Synchroniser les images uploadées avec la page (rendre visible le bouton final)
+  function syncUploadedImages() {
+    try {
+      // Exposer une version légère des images sur window pour que perso.js y accède
+      window.fichiersUploades = uploadedImages.map(img => ({ name: img.file.name, size: img.file.size, dataUrl: img.dataUrl }));
+      // Afficher/masquer le bloc d'actions d'upload
+      const uploadActions = document.getElementById('uploadActions');
+      if (uploadActions) {
+        uploadActions.style.display = uploadedImages.length > 0 ? 'block' : 'none';
+      }
+    } catch (e) {
+      console.error('Erreur syncUploadedImages:', e);
+    }
   }
 
   // Supprimer une image

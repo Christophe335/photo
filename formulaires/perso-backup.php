@@ -33,36 +33,112 @@ if (empty($conditionnement) && $produit_id) {
 
 <main class="cadre">
     <div class="container">
-        <h2 class="title-h3">Ajoutez vos photos pour mettre au panier</h2>
+        <h2 class="title-h3">Personnalisation de votre produit</h2>
         
-        <!-- Layout 2 colonnes -->
-        <div class="layout-2-colonnes" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
-        
-        <style>
-        /* Layout responsif 2 colonnes */
-        @media (max-width: 992px) {
-            .layout-2-colonnes {
-                grid-template-columns: 1fr !important;
-                gap: 20px !important;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .layout-2-colonnes {
-                gap: 15px !important;
-                padding: 0 10px !important;
-            }
+        <!-- Ascenseur horizontal des étapes -->
+        <div class="etapes-ascenseur" style="
+            display: flex; 
+            justify-content: center; 
+            margin: 30px 0; 
+            background: #fff; 
+            border-radius: 10px; 
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        ">
+            <div class="etape" id="etape-1" onclick="afficherEtape(1)" style="
+                display: flex; 
+                align-items: center; 
+                margin-right: 40px; 
+                cursor: pointer;
+                padding: 10px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            ">
+                <div class="etape-numero active" style="
+                    width: 40px; 
+                    height: 40px; 
+                    border-radius: 50%; 
+                    background: #f05124; 
+                    color: white; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    font-weight: bold;
+                    margin-right: 10px;
+                ">1</div>
+                <span class="etape-texte" style="font-weight: 600; color: #2a256d;">Produit</span>
+            </div>
             
-            .produit-selectionne-cadre {
-                padding: 20px !important;
-            }
-        }
-        </style>
+            <div class="separateur" style="width: 30px; height: 2px; background: #ddd; align-self: center; margin: 0 20px;"></div>
             
-            <!-- Colonne gauche : Produit sélectionné -->
+            <div class="etape" id="etape-2" onclick="afficherEtape(2)" style="
+                display: flex; 
+                align-items: center; 
+                margin-right: 40px; 
+                cursor: pointer;
+                padding: 10px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            ">
+                <div class="etape-numero" style="
+                    width: 40px; 
+                    height: 40px; 
+                    border-radius: 50%; 
+                    background: #ddd; 
+                    color: #666; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    font-weight: bold;
+                    margin-right: 10px;
+                ">2</div>
+                <span class="etape-texte" style="color: #666;">Personnalisation</span>
+            </div>
+            
+            <div class="separateur" style="width: 30px; height: 2px; background: #ddd; align-self: center; margin: 0 20px;"></div>
+            
+            <div class="etape" id="etape-3" onclick="afficherEtape(3)" style="
+                display: flex; 
+                align-items: center; 
+                cursor: pointer;
+                padding: 10px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            ">
+                <div class="etape-numero" style="
+                    width: 40px; 
+                    height: 40px; 
+                    border-radius: 50%; 
+                    background: #ddd; 
+                    color: #666; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    font-weight: bold;
+                    margin-right: 10px;
+                ">3</div>
+                <span class="etape-texte" style="color: #666;">Vos fichiers</span>
+            </div>
+        </div>
+        
+        <!-- Conteneur des étapes -->
+        <div class="conteneur-etapes">
+        
+        <!-- ÉTAPE 1: PRODUIT -->
+        <div class="etape-contenu" id="contenu-etape-1" style="display: block;">
+            <!-- Produit sélectionné en pleine largeur -->
             <?php if ($produit_id): ?>
-            <div class="produit-selectionne-cadre">
-                <!-- Titre avec icône (même style que perso.php, icône photo) -->
+            <div class="produit-selectionne-cadre" style="
+                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                border: 2px solid #e9ecef;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.05);
+                padding: 25px;
+                position: relative;
+                overflow: hidden;
+                height: fit-content;
+            ">
+                <!-- Titre avec icône -->
                 <div style="
                     display: flex;
                     align-items: center;
@@ -88,9 +164,9 @@ if (empty($conditionnement) && $produit_id) {
                         color: #2a256d;
                         font-size: 20px;
                         font-weight: 600;
-                    ">Produit sélectionné</h3>
+                    ">Personnalisation du Produit sélectionné</h3>
                 </div>
-
+                
                 <!-- Informations produit -->
                 <div style="
                     padding: 20px;
@@ -99,90 +175,207 @@ if (empty($conditionnement) && $produit_id) {
                     box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
                     border-left: 4px solid #f05124;
                 " data-id="<?= htmlspecialchars($produit_id) ?>" data-prix="<?= htmlspecialchars($prix) ?>">
-
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div style="flex: 0 0 auto;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Code</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#fff5f3;padding:6px 10px;border-radius:4px;"><?= htmlspecialchars($reference) ?></div>
-                        </div>
-
-                        <div style="flex:1; min-width:200px;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Désignation</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:16px;line-height:1.3;"><?= htmlspecialchars($designation) ?></div>
-                        </div>
-
+                    
+                    <!-- Code produit -->
+                    <div class="ligne" style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                            letter-spacing: 0.5px;
+                        ">Code</div>
+                        <div style="
+                            font-family: 'Roboto Mono', monospace;
+                            font-weight: 600;
+                            color: #f05124;
+                            font-size: 16px;
+                            background: #fff5f3;
+                            padding: 8px 12px;
+                            border-radius: 4px;
+                            display: inline-block;
+                        "><?= htmlspecialchars($reference) ?></div>
+                    </div>
+                    
+                    <!-- Description -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 8px;
+                            letter-spacing: 0.5px;
+                        ">Description</div>
+                        <div style="
+                            font-weight: 600;
+                            color: #2a256d;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                            line-height: 1.3;
+                        "><?= htmlspecialchars($designation) ?></div>
                         <?php if ($format): ?>
-                        <div style="flex:0 0 auto;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Format</div>
-                            <div style="font-size:14px;font-weight:500;color:#f05124;background:#fff5f3;padding:6px 10px;border-radius:4px;"><?= htmlspecialchars($format) ?></div>
-                        </div>
+                            <div style="
+                                font-size: 13px;
+                                font-weight: 500;
+                                color: #f05124;
+                                background: #fff5f3;
+                                display: inline-block;
+                                padding: 5px 10px;
+                                border-radius: 4px;
+                                margin-right: 8px;
+                            "><?= htmlspecialchars($format) ?></div>
                         <?php endif; ?>
-                    </div>
-
-                    <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px; flex-wrap:wrap;">
                         <?php if ($conditionnement): ?>
-                        <div style="flex:0 0 auto;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Conditionnement</div>
-                            <div style="font-size:14px;font-weight:500;color:#6f42c1;background:#f8f5ff;padding:6px 10px;border-radius:4px;">Pack de <?= htmlspecialchars($conditionnement) ?></div>
-                        </div>
+                            <div style="
+                                font-size: 13px;
+                                font-weight: 500;
+                                color: #6f42c1;
+                                background: #f8f5ff;
+                                display: inline-block;
+                                padding: 5px 10px;
+                                border-radius: 4px;
+                            ">Pack de <?= htmlspecialchars($conditionnement) ?></div>
                         <?php endif; ?>
-
-                        <?php if ($couleur): ?>
-                        <div style="flex:0 0 auto;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Couleur</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#f0f0f0;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:8px;"> 
-                                <?= htmlspecialchars($couleur) ?>
-                                <?php if ($imageCouleur): ?>
-                                    <img src="<?= htmlspecialchars($imageCouleur) ?>" alt="<?= htmlspecialchars($couleur) ?>" style="width:20px;height:20px;border-radius:50%;border:1px solid #ddd;">
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-
-                        <div style="flex:0 0 auto;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Quantité</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#f0f0f0;padding:6px 10px;border-radius:4px;"><?= $quantite_selectionnee ?></div>
+                    </div>
+                    
+                    <?php if ($couleur): ?>
+                    <!-- Couleur -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                            letter-spacing: 0.5px;
+                        ">Couleur</div>
+                        <div style="
+                            font-weight: 600;
+                            color: #2a256d;
+                            font-size: 16px;
+                            background: #f0f0f0;
+                            padding: 8px 12px;
+                            border-radius: 4px;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            width: fit-content;
+                        ">
+                            <?= htmlspecialchars($couleur) ?>
+                            <?php if ($imageCouleur): ?>
+                                <img src="<?= htmlspecialchars($imageCouleur) ?>" 
+                                     alt="<?= htmlspecialchars($couleur) ?>" 
+                                     style="width:22px;height:22px;border-radius:50%;border:1px solid #ddd;">
+                            <?php endif; ?>
                         </div>
                     </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top:20px; padding-top:20px; border-top:1px solid #eee;">
+                    <?php endif; ?>
+                    
+                    <!-- Quantité -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="
+                            font-size: 11px;
+                            color: #6c757d;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                            letter-spacing: 0.5px;
+                        ">Quantité</div>
+                        <div style="
+                            font-weight: 600;
+                            color: #2a256d;
+                            font-size: 16px;
+                            background: #f0f0f0;
+                            padding: 8px 12px;
+                            border-radius: 4px;
+                            display: inline-block;
+                        " id="quantite-affichee"><?= $quantite_selectionnee ?></div>
+                    </div>
+                    
+                    <!-- Prix -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <!-- Prix unitaire -->
                         <div>
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Prix unitaire</div>
-                            <div style="font-weight:600;color:#17a2b8;font-size:16px;background:#f0fbff;padding:8px 12px;border-radius:4px;border:1px solid #bee5eb;">
-                                <?php $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix; echo number_format($prixUnitaire,2,',',' '); ?> € HT
+                            <div style="
+                                font-size: 11px;
+                                color: #6c757d;
+                                text-transform: uppercase;
+                                font-weight: 500;
+                                margin-bottom: 5px;
+                                letter-spacing: 0.5px;
+                            ">Prix unitaire</div>
+                            <div style="
+                                font-weight: 600;
+                                color: #17a2b8;
+                                font-size: 16px;
+                                background: #f0fbff;
+                                padding: 8px 12px;
+                                border-radius: 4px;
+                                border: 1px solid #bee5eb;
+                            " id="prix-unitaire-affiche">
+                                <?php 
+                                $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix;
+                                echo number_format($prixUnitaire, 2, ',', ' ');
+                                ?> € HT
                             </div>
                         </div>
+                        
+                        <!-- Prix total -->
                         <div>
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Total</div>
-                            <div style="font-weight:700;color:#28a745;font-size:18px;background:#f8fff9;padding:10px 14px;border-radius:6px;border:1px solid #d4edda;"><?= number_format($prix * $quantite_selectionnee,2,',',' ') ?> € HT</div>
+                            <div style="
+                                font-size: 11px;
+                                color: #6c757d;
+                                text-transform: uppercase;
+                                font-weight: 500;
+                                margin-bottom: 5px;
+                                letter-spacing: 0.5px;
+                            ">Total</div>
+                            <div style="
+                                font-weight: 700;
+                                color: #28a745;
+                                font-size: 18px;
+                                background: #f8fff9;
+                                padding: 10px 14px;
+                                border-radius: 6px;
+                                border: 1px solid #d4edda;
+                            " id="prix-total-affiche"><?= number_format($prix * $quantite_selectionnee, 2, ',', ' ') ?> € HT</div>
                         </div>
                     </div>
-
                 </div>
-
+                
                 <!-- Effet de décoration -->
-                <div style="position:absolute; top:-50px; right:-50px; width:100px; height:100px; background: linear-gradient(135deg, rgba(240,81,36,0.1) 0%, rgba(255,107,71,0.05) 100%); border-radius:50%;"></div>
+                <div style="
+                    position: absolute;
+                    top: -50px;
+                    right: -50px;
+                    width: 100px;
+                    height: 100px;
+                    background: linear-gradient(135deg, rgba(240, 81, 36, 0.1) 0%, rgba(255, 107, 71, 0.05) 100%);
+                    border-radius: 50%;
+                "></div>
             </div>
             <?php endif; ?>
             
             <!-- Colonne droite : Module d'upload d'images -->
             <div class="upload-section">
                 <div class="upload-header">
-                    <h3>Vos images</h3>
-                    <p>Ajoutez jusqu'à 30 images (JPG, PNG, WebP - max 5MB chacune)</p>
+                    <h3>Votre personnalisation</h3>
+                    <p>Fichier accepté en ligne (max 5MB chacune)</p>
                 </div>
                 
                 <div class="file-upload-area">
                     <input type="file" id="imageUpload" name="images[]" multiple accept="image/*" style="display: none;">
                     <div class="upload-dropzone" onclick="document.getElementById('imageUpload').click()">
                         <div class="upload-icon">📁</div>
-                        <p>Cliquez ici ou glissez-déposez vos images</p>
+                        <p>Cliquez ici ou glissez-déposez vos fichiers</p>
                         <span>Formats acceptés : JPG, PNG, WebP</span>
                     </div>
                 </div>
                 
                 <div class="images-counter">
-                    <span id="imageCount">0</span> / 30 images
+                    <span id="imageCount">0</span> / 30 
                 </div>
                 
                 <div class="images-preview" id="imagesPreview">
@@ -322,7 +515,7 @@ function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, pr
         imageCouleur: '<?= htmlspecialchars($imageCouleur, ENT_QUOTES) ?>',
         photos: images,
         nombrePhotos: nombrePhotos,
-        source: 'photo'
+        source: 'perso'
     };
     
     // Animation de confirmation immédiate
@@ -363,7 +556,7 @@ function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, pr
                     setTimeout(() => attendrePanierManager(callback, tentatives + 1), 100);
                 } else {
                     // Fallback si panierManager n'est toujours pas disponible
-                    alert(`Produit ajouté au panier avec ${images.length} photo${images.length > 1 ? 's' : ''} !\nRéférence: ${reference}\nDésignation: ${designation}\nFormat: ${format || 'N/A'}\nCouleur: <?= htmlspecialchars($couleur) ? htmlspecialchars($couleur) : 'N/A' ?>\n\nVous pouvez consulter votre panier ou continuer vos achats.`);
+                    alert(`Produit ajouté au panier avec ${images.length} personnalisation${images.length > 1 ? 's' : ''} !\nRéférence: ${reference}\nDésignation: ${designation}\nFormat: ${format || 'N/A'}\nCouleur: <?= htmlspecialchars($couleur) ? htmlspecialchars($couleur) : 'N/A' ?>\n\nVous pouvez consulter votre panier ou continuer vos achats.`);
                 }
             }
             
@@ -378,7 +571,7 @@ function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, pr
                         format: format || '',
                         couleur: '<?= htmlspecialchars($couleur, ENT_QUOTES) ?>',
                         imageCouleur: '<?= htmlspecialchars($imageCouleur, ENT_QUOTES) ?>',
-                        quantite: quantite + ' avec ' + nombrePhotos + ' photo' + (nombrePhotos > 1 ? 's' : '')
+                        quantite: quantite + ' avec ' + nombrePhotos + ' personnalisation' + (nombrePhotos > 1 ? 's' : '')
                     }
                 );
             });

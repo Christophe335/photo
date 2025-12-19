@@ -5,6 +5,7 @@ class PanierManager {
   constructor() {
     this.panier = this.chargerPanier();
     this.mettreAJourCompteurPanier();
+    this.initialiserEventListeners();
   }
 
   /**
@@ -47,6 +48,25 @@ class PanierManager {
     }
 
     this.sauvegarderPanier();
+    
+    // Si on est sur la page panier, synchroniser avec délai pour éviter les conflits
+    if (window.location.pathname.includes('/pages/panier.php')) {
+      console.log('[DEBUG] Ajout sur page panier, synchronisation avec délai...');
+      setTimeout(() => {
+        fetch('/pages/sync_panier.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.panier)
+        }).then(function(response) {
+          console.log('[DEBUG] Synchronisation ajout terminée, rechargement unique...');
+          window.location.reload();
+        }).catch(function(error) {
+          console.log('[DEBUG] Erreur synchronisation ajout:', error);
+        });
+      }, 500);
+    } else {
+      this.afficherNotification("Produit ajouté au panier");
+    }
   }
 
   /**
@@ -58,10 +78,77 @@ class PanierManager {
       (total, item) => total + item.quantite,
       0
     );
-    document.querySelectorAll(".cart-count, .compteur-panier").forEach((compteur) => {
+    document.querySelectorAll(".cart-count").forEach((compteur) => {
       compteur.textContent = totalItems;
       compteur.style.display = totalItems > 0 ? "inline" : "none";
     });
+    // Pour l'admin si besoin
+    document.querySelectorAll(".compteur-panier").forEach((compteurAdmin) => {
+      compteurAdmin.textContent = totalItems;
+      compteurAdmin.style.display = totalItems > 0 ? "inline" : "none";
+    });
+  }
+
+  /**
+   * Synchronise le panier localStorage avec le panier session
+   */
+  async synchroniserAvecSession() {
+    try {
+      // Envoyer le panier localStorage au serveur pour synchronisation
+      const currentPath = window.location.pathname;
+      let panierUrl = '/pages/panier.php';
+      
+      // Ajuster le chemin selon la page actuelle  
+      if (currentPath.includes('/pages/') || currentPath.includes('/admin/') || currentPath.includes('/clients/') || currentPath.includes('/formulaires/') || currentPath.includes('/pages-perso/')) {
+        panierUrl = '../pages/panier.php';
+      }
+      
+      const response = await fetch(panierUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          action: 'sync_panier',
+          panier_client: JSON.stringify(this.panier)
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.panier_session) {
+          // Convertir les éléments de session au format localStorage pour une synchronisation complète
+          const panierFusionne = [];
+          
+          // Ajouter les éléments du localStorage existants
+          this.panier.forEach(item => {
+            panierFusionne.push(item);
+          });
+
+          // Ajouter les éléments de session (photo/perso) s'ils ne sont pas déjà présents
+          data.panier_session.forEach(sessionItem => {
+            const existeDejaIndex = panierFusionne.findIndex(item => item.id === sessionItem.id);
+            if (existeDejaIndex === -1) {
+              // Convertir au format localStorage
+              panierFusionne.push({
+                id: sessionItem.id,
+                quantite: sessionItem.quantite,
+                prix: sessionItem.prix,
+                details: sessionItem.details,
+                dateAjout: sessionItem.dateAjout || new Date().toISOString(),
+                fromSession: true // Marquer comme venant de session
+              });
+            }
+          });
+
+          this.panier = panierFusionne;
+          this.sauvegarderPanier();
+          console.log('[DEBUG] Synchronisation terminée, panier fusionné:', this.panier.length, 'articles');
+        }
+      }
+    } catch (error) {
+      console.error('Erreur lors de la synchronisation du panier:', error);
+    }
   }
 
   /**
@@ -130,6 +217,75 @@ class PanierManager {
   }
 
   /**
+   * Initialise les event listeners
+   */
+  initialiserEventListeners() {
+    // Mise à jour du compteur au chargement
+    document.addEventListener("DOMContentLoaded", () => {
+      this.mettreAJourCompteurPanier();
+    });
+    // Ajout : gestion de la sélection de couleur
+    document.addEventListener("DOMContentLoaded", function () {
+      document
+        .querySelectorAll(".ligne-produit .couleur-item")
+        .forEach(function (item) {
+          item.addEventListener("click", function () {
+            // Retire la classe active des autres couleurs de la même ligne
+            const ligne = item.closest(".ligne-produit");
+            ligne.querySelectorAll(".couleur-item").forEach(function (c) {
+              c.classList.remove("active");
+            });
+            // Ajoute la classe active à la couleur cliquée
+            item.classList.add("active");
+
+
+          const couleurActive = item.querySelector(".couleur-nom");
+          let couleur = couleurActive ? couleurActive.textContent.trim() : "";
+          if (couleur) {
+            // Au lieu de transformer le nom, récupérer le chemin de l'image mini existante
+            const imgMini = item.querySelector("img");
+            if (imgMini && imgMini.src) {
+              // Extraire le nom du fichier depuis l'image mini
+              const cheminMini = imgMini.src;
+              const nomFichier = cheminMini.split('/').pop().replace('.webp', '');
+              
+              // Construire le chemin vers l'image big
+              let cheminBig = `../images/couleurs/big/${nomFichier}-B.webp`;
+              
+              let imgBig = ligne.querySelector(".image-couleur-big");
+              if (!imgBig) {
+                imgBig = document.createElement("img");
+                imgBig.className = "image-couleur-big";
+                imgBig.style.width = "80px";
+                imgBig.style.height = "80px";
+                imgBig.style.borderRadius = "12px";
+                imgBig.style.margin = "10px 0";
+                imgBig.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)";
+
+
+                // Ajoute l'image juste après le tableau des couleurs
+                const couleursContainer = ligne.querySelector(
+                  ".couleurs-container"
+                );
+                if (couleursContainer) {
+                  couleursContainer.parentNode.insertBefore(
+                    imgBig,
+                    couleursContainer.nextSibling
+                  );
+                } else {
+                  ligne.appendChild(imgBig);
+                }
+              }
+              imgBig.src = cheminBig;
+              imgBig.alt = couleur;
+            }
+          }
+          });
+        });
+    });
+  }
+
+  /**
    * Obtient le total du panier
    */
   getTotal() {
@@ -147,9 +303,6 @@ class PanierManager {
     this.sauvegarderPanier();
   }
 }
-
-// Instance globale du gestionnaire de panier
-let panierManager;
 
 /**
  * Modifie la quantité d'un produit
@@ -246,7 +399,6 @@ function ajouterAuPanier(bouton) {
 
   // Ajout au panier
   panierManager.ajouterProduit(produitId, quantite, prix, details);
-  
   // Afficher la popup avec les détails
   panierManager.afficherNotification(
     "Votre article a bien été ajouté au panier !",
@@ -330,6 +482,8 @@ function actualiserContenuPanier(modal) {
   const contenu = modal.querySelector("#contenu-panier");
   const totalElement = modal.querySelector("#total-panier");
 
+  console.log("[DEBUG] Panier:", panierManager.panier);
+
   if (panierManager.panier.length === 0) {
     contenu.innerHTML = '<p class="panier-vide">Votre panier est vide</p>';
     totalElement.textContent = "0,00 €";
@@ -385,6 +539,8 @@ function actualiserContenuPanier(modal) {
   });
   html += "</div>";
 
+  console.log("[DEBUG] HTML panier:", html);
+
   contenu.innerHTML = html;
   totalElement.textContent =
     panierManager.getTotal().toFixed(2).replace(".", ",") + " €";
@@ -414,15 +570,29 @@ function modifierQuantitePanier(produitId, increment) {
  * Supprime un item du panier
  */
 function supprimerDuPanier(produitId) {
+  console.log('[DEBUG] Suppression demandée pour:', produitId);
+  if (!panierManager) {
+    console.error('panierManager non disponible');
+    return;
+  }
+  
   const index = panierManager.panier.findIndex((item) => item.id === produitId);
+  console.log('[DEBUG] Index trouvé:', index, 'sur', panierManager.panier.length, 'articles');
+  
   if (index > -1) {
-    panierManager.panier.splice(index, 1);
+    // Supprimer seulement l'élément à l'index trouvé
+    const itemSupprime = panierManager.panier.splice(index, 1);
+    console.log('[DEBUG] Article supprimé:', itemSupprime[0]?.details?.designation);
+    console.log('[DEBUG] Panier après suppression:', panierManager.panier.length, 'articles');
+    
     panierManager.sauvegarderPanier();
     
     // Actualiser l'affichage
     const modal = document.getElementById("modal-panier");
-    if (modal) {
-      actualiserContenuPanier(modal);
+      if (modal) {
+        actualiserContenuPanier(modal);
+      }
+      panierManager.afficherNotification("Produit supprimé du panier");
     }
   }
 }
@@ -439,6 +609,8 @@ function viderPanier() {
     if (modal && modal.style.display !== "none") {
       actualiserContenuPanier(modal);
     }
+
+    panierManager.afficherNotification("Panier vidé");
   }
 }
 
@@ -457,7 +629,7 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-// Gestionnaire pour les popups de notification
+// Gestionnaires d'événements simplifiés
 document.addEventListener("DOMContentLoaded", function () {
   // Bouton "Voir le panier" dans les popups
   document.body.addEventListener("click", function (e) {
@@ -470,68 +642,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-});
-
-// Gestion de la sélection de couleur dans les tableaux (délégation d'événements)
-document.addEventListener("click", function(e) {
-  if (e.target.closest(".couleur-item")) {
-    const item = e.target.closest(".couleur-item");
-    const ligne = item.closest(".ligne-produit");
-    
-    // Retire la classe active des autres couleurs de la même ligne
-    ligne.querySelectorAll(".couleur-item").forEach(function (c) {
-      c.classList.remove("active");
-    });
-    // Ajoute la classe active à la couleur cliquée
-    item.classList.add("active");
-
-    const couleurActive = item.querySelector(".couleur-nom");
-    let couleur = couleurActive ? couleurActive.textContent.trim() : "";
-    if (couleur) {
-      // Au lieu de transformer le nom, récupérer le chemin de l'image mini existante
-      const imgMini = item.querySelector("img");
-      if (imgMini && imgMini.src) {
-        // Extraire le nom du fichier depuis l'image mini
-        const cheminMini = imgMini.src;
-        const nomFichier = cheminMini.split('/').pop().replace('.webp', '');
-        
-        // Construire le chemin vers l'image big
-        let cheminBig = `../images/couleurs/big/${nomFichier}-B.webp`;
-        
-        let imgBig = ligne.querySelector(".image-couleur-big");
-        if (!imgBig) {
-          imgBig = document.createElement("img");
-          imgBig.className = "image-couleur-big";
-          imgBig.style.width = "80px";
-          imgBig.style.height = "80px";
-          imgBig.style.borderRadius = "12px";
-          imgBig.style.margin = "10px 0";
-          imgBig.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)";
-
-          // Ajoute l'image juste après le tableau des couleurs
-          const couleursContainer = ligne.querySelector(
-            ".couleurs-container"
-          );
-          if (couleursContainer) {
-            couleursContainer.parentNode.insertBefore(
-              imgBig,
-              couleursContainer.nextSibling
-            );
-          } else {
-            ligne.appendChild(imgBig);
-          }
-        }
-        imgBig.src = cheminBig;
-        imgBig.alt = couleur;
-      }
-    }
-  }
-});
-
-// Initialisation
-document.addEventListener('DOMContentLoaded', function() {
-    panierManager = new PanierManager();
-    console.log('PanierManager initialisé');
 });
 
 /**
@@ -552,20 +662,16 @@ window.ajouterAuPanierProduit = function(produit) {
                 imageCouleur: produit.imageCouleur || ''
             }
         );
-        // Afficher la popup pour cette fonction globale aussi
-        panierManager.afficherNotification(
-            "Votre article a bien été ajouté au panier !",
-            "success",
-            {
-                code: produit.reference,
-                designation: produit.designation,
-                format: produit.format || '',
-                couleur: produit.couleur || '',
-                imageCouleur: produit.imageCouleur || '',
-                quantite: produit.quantite || 1
-            }
-        );
     } else {
         console.error('PanierManager non disponible');
     }
 };
+
+// Instance globale du gestionnaire de panier
+let panierManager;
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    panierManager = new PanierManager();
+    console.log('PanierManager initialisé');
+});

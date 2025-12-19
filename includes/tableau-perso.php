@@ -3,11 +3,11 @@
 require_once __DIR__ . '/database.php';
 
 /**
- * Affichage du tableau des produits par famille
+ * Affichage du tableau des produits par famille pour les pages personnalisées
  * @param string $famille - Code de la famille de produits à afficher
  * @param bool $afficherCouleur - Si true, affiche la colonne couleur (par défaut true)
  */
-function afficherTableauProduits($famille, $afficherCouleur = true, $quantiteParDefaut = 1) {
+function afficherTableauProduits($famille, $afficherCouleur = true) {
     try {
         $db = Database::getInstance()->getConnection();
         
@@ -70,9 +70,10 @@ function afficherTableauProduits($famille, $afficherCouleur = true, $quantitePar
                 <?php if ($afficherCouleur): ?>
                 <div class="col-couleur">
                     <div class="couleurs-container">
+                        <?php $premiereCouleur = true; ?>
                         <?php for ($i = 1; $i <= 13; $i++): ?>
                             <?php if (!empty($produit["couleur_ext$i"])): ?>
-                                <div class="couleur-item">
+                                <div class="couleur-item<?= $premiereCouleur ? ' active' : '' ?>">
                                     <span class="couleur-nom"><?= htmlspecialchars($produit["couleur_ext$i"]) ?></span>
                                     <?php if (!empty($produit["imageCoul$i"])): ?>
                                         <img src="../images/couleurs/<?= htmlspecialchars($produit["imageCoul$i"]) ?>" 
@@ -80,6 +81,7 @@ function afficherTableauProduits($famille, $afficherCouleur = true, $quantitePar
                                              class="couleur-image">
                                     <?php endif; ?>
                                 </div>
+                                <?php $premiereCouleur = false; ?>
                             <?php endif; ?>
                         <?php endfor; ?>
                     </div>
@@ -96,10 +98,10 @@ function afficherTableauProduits($famille, $afficherCouleur = true, $quantitePar
                 <!-- Contrôle quantité -->
                 <div class="col-quantite<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <div class="quantite-control">
-                            <button type="button" class="btn-moins" onclick="modifierQuantite(this, -1)">−</button>
-                            <input type="number" class="input-quantite" value="<?= intval($quantiteParDefaut) ?>" min="1" readonly>
-                            <button type="button" class="btn-plus" onclick="modifierQuantite(this, 1)">+</button>
-                        </div>
+                        <button type="button" class="btn-moins" onclick="modifierQuantite(this, -1)">−</button>
+                        <input type="number" class="input-quantite" value="1" min="1" readonly>
+                        <button type="button" class="btn-plus" onclick="modifierQuantite(this, 1)">+</button>
+                    </div>
                 </div>
                 
                 <!-- Prix -->
@@ -107,12 +109,12 @@ function afficherTableauProduits($famille, $afficherCouleur = true, $quantitePar
                     <?= number_format($produit['prixVente'], 2, ',', ' ') ?> € HT
                 </div>
                 
-                <!-- Bouton uploader images ou ajouter au panier -->
+                <!-- Bouton uploader personnalisation ou ajouter au panier -->
                 <div class="col-action<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?php if ($produit['prixVente'] > 0): ?>
-                        <!-- Vérifier s'il y a déjà des images uploadées pour ce produit -->
+                        <!-- Vérifier s'il y a déjà des personnalisations uploadées pour ce produit -->
                         <div class="upload-status" id="upload-status-<?= $produit['id'] ?>" style="display: none;">
-                            <span class="images-uploaded" id="images-count-<?= $produit['id'] ?>">0</span> photos uploadées
+                            <span class="images-uploaded" id="images-count-<?= $produit['id'] ?>">0</span> personnalisations ajoutées
                             <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)" data-uploaded="true">
                                 Ajouter au panier
                             </button>
@@ -120,7 +122,7 @@ function afficherTableauProduits($famille, $afficherCouleur = true, $quantitePar
                         <button type="button" 
                                 class="btn-uploader-images" 
                                 onclick="uploaderImagesAvecQuantite(this, <?= $produit['id'] ?>, '<?= htmlspecialchars($produit['reference'], ENT_QUOTES) ?>', '<?= htmlspecialchars($produit['designation'], ENT_QUOTES) ?>', '<?= htmlspecialchars($produit['format'] ?? '', ENT_QUOTES) ?>', <?= $produit['prixVente'] ?>, '<?= htmlspecialchars($produit['conditionnement'] ?? '', ENT_QUOTES) ?>')">
-                            Uploader mes images
+                            Ajouter votre personnalisation
                         </button>
                     <?php else: ?>
                         <button type="button" class="btn-nous-consulter" style="background-color: orange; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: default;" disabled>

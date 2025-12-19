@@ -248,30 +248,44 @@ function toggleMenu() {
 // Génération automatique du menu basé sur les ID des sections
 function generateMenu() {
     const menuLinks = document.getElementById('menu-links');
-    if (!menuLinks) return;
+    const menuFlottant = document.getElementById('menu-flottant');
+    if (!menuLinks || !menuFlottant) return;
     
     // Trouver uniquement les balises <section> avec un ID
     const sections = document.querySelectorAll('section[id]');
     menuLinks.innerHTML = '';
     
-    sections.forEach(section => {
+    // Compter les sections valides
+    const validSections = Array.from(sections).filter(section => {
         const id = section.id;
-        if (id && id.trim() !== '') {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            
-            // Le nom du lien est l'ID avec la première lettre en majuscule
-            a.textContent = id.charAt(0).toUpperCase() + id.slice(1);
-            a.href = `#${id}`;
-            a.onclick = function(e) {
-                e.preventDefault();
-                scrollToSection(id);
-                toggleMenu(); // Fermer le menu après clic
-            };
-            
-            li.appendChild(a);
-            menuLinks.appendChild(li);
-        }
+        return id && id.trim() !== '';
+    });
+    
+    // Cacher le menu s'il n'y a qu'une seule section ou moins
+    if (validSections.length <= 1) {
+        menuFlottant.style.display = 'none';
+        return;
+    }
+    
+    // Afficher le menu s'il y a plus d'une section
+    menuFlottant.style.display = 'block';
+    
+    validSections.forEach(section => {
+        const id = section.id;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        
+        // Le nom du lien est l'ID avec la première lettre en majuscule
+        a.textContent = id.charAt(0).toUpperCase() + id.slice(1);
+        a.href = `#${id}`;
+        a.onclick = function(e) {
+            e.preventDefault();
+            scrollToSection(id);
+            toggleMenu(); // Fermer le menu après clic
+        };
+        
+        li.appendChild(a);
+        menuLinks.appendChild(li);
     });
 }
 

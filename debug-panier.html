@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Panier Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        button { padding: 10px; margin: 5px; }
+        #debug-log { height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test Debug Panier</h1>
+    
+    <button onclick="testAjout()">Ajouter un article</button>
+    <button onclick="testSuppression()">Supprimer un article</button>
+    <button onclick="testViderPanier()">Vider panier</button>
+    <button onclick="afficherPanier()">Afficher panier</button>
+    <button onclick="clearLog()">Clear log</button>
+    
+    <div class="debug">
+        <h3>État du panier</h3>
+        <div id="etat-panier">Non initialisé</div>
+    </div>
+    
+    <div class="debug">
+        <h3>Log debug</h3>
+        <div id="debug-log"></div>
+    </div>
+
+    <script>
+        let logDiv = document.getElementById('debug-log');
+        let etatDiv = document.getElementById('etat-panier');
+        
+        function log(message) {
+            const time = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${time}] ${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function clearLog() {
+            logDiv.innerHTML = '';
+        }
+        
+        function updateEtat() {
+            if (typeof panierManager !== 'undefined' && panierManager) {
+                etatDiv.innerHTML = `Panier: ${panierManager.panier.length} articles<br>`;
+                panierManager.panier.forEach((item, index) => {
+                    etatDiv.innerHTML += `- ${index}: ${item.id} (q:${item.quantite})<br>`;
+                });
+            } else {
+                etatDiv.innerHTML = 'PanierManager non disponible';
+            }
+        }
+        
+        function testAjout() {
+            log('Test ajout...');
+            if (typeof panierManager !== 'undefined' && panierManager) {
+                const id = 'TEST_' + Date.now();
+                panierManager.ajouterProduit(id, 1, 10.5, {
+                    code: id,
+                    designation: 'Article test ' + id,
+                    couleur: 'Rouge'
+                });
+                log('Article ajouté: ' + id);
+                updateEtat();
+            } else {
+                log('ERREUR: panierManager non disponible');
+            }
+        }
+        
+        function testSuppression() {
+            log('Test suppression...');
+            if (typeof panierManager !== 'undefined' && panierManager && panierManager.panier.length > 0) {
+                const premier = panierManager.panier[0];
+                log('Suppression de: ' + premier.id);
+                supprimerDuPanier(premier.id);
+                updateEtat();
+            } else {
+                log('Aucun article à supprimer');
+            }
+        }
+        
+        function testViderPanier() {
+            if (typeof panierManager !== 'undefined' && panierManager) {
+                panierManager.panier = [];
+                panierManager.sauvegarderPanier();
+                log('Panier vidé');
+                updateEtat();
+            }
+        }
+        
+        function afficherPanier() {
+            updateEtat();
+        }
+        
+        // Surveiller l'initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM chargé');
+            setTimeout(() => {
+                log('Vérification panierManager après 1s...');
+                if (typeof panierManager !== 'undefined') {
+                    log('panierManager disponible');
+                    log('Type: ' + typeof panierManager);
+                    log('Méthodes: ' + Object.getOwnPropertyNames(Object.getPrototypeOf(panierManager)).join(', '));
+                } else {
+                    log('panierManager NON disponible');
+                }
+                updateEtat();
+            }, 1000);
+        });
+    </script>
+    
+    <script src="js/panier.js"></script>
+</body>
+</html>

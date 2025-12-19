@@ -8,7 +8,7 @@
 
 <main style="padding: 40px 0;">
     <div class="container">
-        <h1 class="title-h1 bull">Infinity</h1>
+        <h1 class="title-h1 bull">Infinity Personnalisé</h1>
     </div>
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/mariage-1.webp" alt="Un bandeau présentant des dépliants en accordéon personnalisés">
     <div class="container">
@@ -18,7 +18,7 @@
     </div>    
      <section class="section1" id="Album Dépliant en accordéon">
         <div class="container">
-            <h2 class="title-h3 centre-text">ALBUM DÉPLIANT EN ACCORÉON</h2>
+            <h2 class="title-h3 centre-text">ALBUM DÉPLIANT EN ACCORÉON personnalisé</h2>
             <p class="paragraphe">Le Photobook Infinity Lay-Flat est un nouveau et unique produit dans le monde de la photographie. 
             Avec cette technologie conviviale, vous créez une expérience utilisateur fantastique en un rien de temps !
             Les photos peuvent être imprimées en continu sur 2 pages, sans fissure ni pli visible dans la ligne de séparation.</p>
@@ -37,31 +37,12 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
-                // Afficher les produits de reliure directement
-                afficherTableauProduits('Infinity Lay-Flat sans couverture');
-                 ?>
-            </div>
-            <div class="tableau-container">
-                <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-perso.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Infinity Lay-Flat avec couverture rigide');
                  ?>
             </div>
-            <div class="tableau-container">
-                <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
-                // Afficher les produits de reliure directement
-                afficherTableauProduits('Infinity Lay Flat Hard Cover Basic 21,6x21,6 cm');
-                 ?>
-            </div>
-            
         </div>
         <div>
                 <div class="ligne">
@@ -72,11 +53,10 @@
                     <img class="centre-div" src="../images/produits/infinity-lay-flat-4.webp" alt="Détail du rabat magnétique de l'album photo en accordéon">
                 </div>
             </div>
-        </br>
-        <?php include '../includes/bt-devis.php'; ?>
     </section>
 </main>
 
 <script src="/js/panier.js"></script>
+<script src="../js/upload-perso.js"></script>
 
 <?php include '../includes/footer.php'; ?>

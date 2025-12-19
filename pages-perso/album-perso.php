@@ -18,7 +18,7 @@
     </div>    
         <section class="section1" id="Album Photo">
         <div class="container">
-            <h2 class="title-h3 centre-text">ALBUM PHOTO</h2>
+            <h2 class="title-h3 centre-text">ALBUM PHOTO Personnalisé</h2>
             <p>Donnez à vos livres photo une finition professionnelle et un aspect de haute qualité avec notre PhotoBook Resin. Notre système breveté de reliure thermique en acier garantit une liaison solide et durable.</p>
             
         </div>
@@ -35,7 +35,7 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-perso.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A4 Landscape (black mirror)');
@@ -44,7 +44,7 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-perso.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A5 Landscape (black mirror)');
@@ -63,7 +63,7 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-perso.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A4 Portrait (black mirror)');
@@ -72,74 +72,18 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-perso.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A3 Landscape (black mirror)');
                  ?>
             </div>
         </div>
-        <div>
-            <div class="ontop">
-                <img class="centre-div" src="../images/produits/personnalisation-1.webp" alt="Album photo entièrement personnalisé">
-            </div>
-            <div class="onbottom">
-                <img class="centre-div" src="../images/produits/personnalisation-2.webp" alt="Album photo entièrement personnalisé">
-            </div>
-        </div>
-        </br>
-        <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section2" id="Album Photo à fenêtre">
-    <div class="container">
-        <h2 class="title-h3 centre-text">ALBUM PHOTO À FENÊTRE</h2>
-        <p class="paragraphe">Un livre relié en tissu kashmir classique avec une fenêtre découpée dans la couverture. 
-        Ce détail élégant crée une véritable sensation de profondeur et ajoute une interaction 
-        ludique avec la première page. Vous n'avez pas besoin d'un système de reliure. 
-        Vous pouvez choisir parmi différentes couleurs de kashmir ou en Noir, adapté à toutes les occasions.</p>
-    </div>
-    <div class="ligne">
-        <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/album-photo-kasmir-a-fenetre-1.webp" alt="Livre relier en tissus finition kasmir avec fenêtre découpée sur la couverture">
-        </div>
-        <div class="colonne-3 ligne">
-            <div class="posCouleur">
-                <img src="../images/couleurs/big/oyster-B.webp" alt="Couleur kasmir oyster">
-                <p>Kashmir</br>Oyster</p>
-            </div>
-            <div class="posCouleur">
-                <img src="../images/couleurs/big/red-B.webp" alt="Couleur kasmir red">
-                <p>Kashmir</br>Red</p>
-            </div>
-            <div class="posCouleur">
-                <img src="../images/couleurs/big/ultra-marine-B.webp" alt="Couleur kasmir ultra-marine">
-                <p>Kashmir</br>Ultra Marine</p>
-            </div>
-            <div class="posCouleur">
-                <img src="../images/couleurs/big/black-silk-B.webp" alt="Couleur kasmir black silk">
-                <p>Black</br>Silk</p>
-            </div>
 
-        </div>
-        
-    </div>
-    
-</br>
-        <div class="tableau-container">
-            <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
-            // Afficher les produits de reliure directement
-            afficherTableauProduits('Photo Books with window');
-            ?>
-        </div>
-        </br>
-    <?php include '../includes/bt-devis.php'; ?>
-    
-</section>
 </main>
 
 <script src="/js/panier.js"></script>
+<script src="../js/upload-perso.js"></script>
 
 <?php include '../includes/footer.php'; ?>

@@ -70,6 +70,13 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                                 <span>Contact</span>
                             </a>
                         </div>
+                        <!-- Bouton Devis -->
+                        <div class="account-btn">
+                            <a href="<?php echo $basePath; ?>formulaires/devis.php" class="btn-account">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>Devis</span>
+                            </a>
+                        </div>
                         <!-- Panier -->
                         <div class="cart">
                             <a href="/pages/panier.php" class="btn-cart">
@@ -85,6 +92,78 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
         <!-- Bandeau de navigation -->
         <div class="navigation-banner">
             <nav class="main-nav">
+                    <!-- Indicateur de page actuelle sous forme de pseudo-bouton -->
+                    <?php
+                    // Récupération du nom de la page actuelle
+                    $currentPage = basename($_SERVER['PHP_SELF'], '.php');
+                    $currentPath = $_SERVER['PHP_SELF'];
+                    
+                    // Tableau des titres des pages
+                    $pageTitles = [
+                        'index' => 'Accueil',
+                        'catalogue' => 'Catalogue',
+                        'compte' => 'Mon Compte',
+                        'panier' => 'Mon Panier',
+                        'qui-sommes-nous' => 'Qui sommes-nous ?',
+                        'mentions' => 'Mentions légales',
+                        'politique' => 'Politique de confidentialité',
+                        // Pages de tirage
+                        'tirage-petit' => 'Tirages petit format',
+                        'tirage-grand' => 'Tirages grand format',
+                        'tirage-xxl' => 'Tirages XXL',
+                        // Pages couvertures
+                        'luxe' => 'Finition Luxe',
+                        'couverture-souple' => 'Couverture Souple',
+                        'couverture-rigide' => 'Couverture Rigide',
+                        // Pages panneaux/boîtes
+                        'panneau-bambou' => 'Panneaux Bambou',
+                        'panneau-acrylique' => 'Panneaux Acrylique',
+                        'panneau-photo' => 'Panneaux Photo',
+                        'boite-a5' => 'Boîte A5',
+                        'boite-a4' => 'Boîte A4',
+                        'metal' => 'Alu-Print',
+                        'magnet' => 'Magnets',
+                        // Pages cadeaux
+                        'album' => 'Albums Photos',
+                        'calendrier' => 'Calendriers',
+                        'calendrier-glissant' => 'Calendrier Glissant',
+                        'infinity' => 'Infinity',
+                        'toile' => 'Toiles',
+                        'pochette' => 'Pochettes',
+                        // Pages personnalisation
+                        'couverture-rigide-perso' => 'Couverture Rigide Personnalisé',
+                        'couverture-panorama-perso' => 'Panorama Personnalisé',
+                        'couverture-souple-perso' => 'Couverture Souple Personnalisé',
+                        'album-perso' => 'Album Photos Personnalisé',
+                        'pochette-perso' => 'Pochettes Personnalisé',
+                        'boite-a5-perso' => 'Boîte A5 Personnalisé',
+                        'boite-a4-perso' => 'Boîte A4 Personnalisé',
+                        'infinity-perso' => 'Infinity Personnalisé',
+                        'toile-perso' => 'Toile Personnalisé',
+                        // Pages formulaires
+                        'photo' => 'Upload photos',
+                        'perso' => 'Upload personnalisation',
+                        'contact' => 'Contact',
+                        'devis' => 'Demande de devis',
+                        // Pages clients
+                        'connexion' => 'Connexion',
+                        'creer-compte' => 'Créer un compte',
+                        'mon-compte' => 'Mon compte',
+                        'mot-de-passe-oublie' => 'Mot de passe oublié',
+                        'reset-password' => 'Réinitialiser le mot de passe'
+                    ];
+                    
+                    // Récupération du titre de la page
+                    $pageTitle = isset($pageTitles[$currentPage]) ? $pageTitles[$currentPage] : ucfirst(str_replace('-', ' ', $currentPage));
+                    
+                    // Affichage du fil d'Ariane sous forme de pseudo-bouton
+                    if ($currentPage !== 'index') {
+                        echo '<div class="nav-item breadcrumb-item">
+                                <div class="breadcrumb-btn">Vous êtes ici : <strong>' . htmlspecialchars($pageTitle) . '</strong></div>
+                              </div>';
+                    }
+                    ?>
+                    
                     <!-- Bouton Tirage Photos -->
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="photo">Tirage Photos</button>
@@ -129,20 +208,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                             <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="dropdown-item personalize-item">Personnalisé</a>
                         </div>
                     </div>
-                    <!-- Bouton Personnalisation -->
-                    <div class="nav-item">
-                        <button class="nav-btn" data-menu="photo">Personnalisation</button>
-                        <div class="dropdown-menu" id="photo-menu">
-                            <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
-                            <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
-                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
-                            <a href="<?php echo $pagesPath; ?>album.php" class="dropdown-item">Album Photos</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Boîte personnalisé A5</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Boîte personnalisé A4</a>
-                            <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Dépliant Accordéon</a>
-                            <a href="<?php echo $pagesPath; ?>toile.php" class="dropdown-item">Impression sur Toile</a>
-                        </div>
-                    </div>
+                    
                     <!-- Bouton Livres / Albums -->
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="photo">Livres / Albums</button>
@@ -167,12 +233,11 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <!-- Bouton Couvertures -->
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="personnalisation">Couvertures</button>
-                        <div class="dropdown-menu" id="personnalisation-menu">
-                            <a href="<?php echo $pagesPath; ?>luxe.php" class="dropdown-item">Finition Luxe</a>
+                        <div class="dropdown-menu" id="personnalisation-menu">  
                             <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
-                            <a href="<?php echo $pagesPath; ?>pochette.php" class="dropdown-item">Pochette de prospection</a>
-                            <a href="<?php echo $pagesPath; ?>metal.php" class="dropdown-item">Alu-Print</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
+                            <a href="<?php echo $pagesPath; ?>luxe.php" class="dropdown-item">Finition Luxe</a>
                         </div>
                     </div>
                     
@@ -183,27 +248,47 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                             <a href="<?php echo $pagesPath; ?>panneau-bambou.php" class="dropdown-item">Panneaux Bambou</a>
                             <a href="<?php echo $pagesPath; ?>panneau-acrylique.php" class="dropdown-item">Panneaux Acrylique</a>
                             <a href="<?php echo $pagesPath; ?>panneau-photo.php" class="dropdown-item">Panneaux Photo</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Boîte personnalisé A5</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Boîte personnalisé A4</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Boîte A5</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Boîte A4</a>
+                            <a href="<?php echo $pagesPath; ?>metal.php" class="dropdown-item">Alu-Print</a>
                             <a href="<?php echo $pagesPath; ?>magnet.php" class="dropdown-item">Magnets</a>
                         </div>
                     </div>
+                    <!-- Bouton Personnalisation -->
+                    <div class="nav-item">
+                        <button class="nav-btn" data-menu="photo">Personnalisation</button>
+                        <div class="dropdown-menu" id="photo-menu">
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-rigide-perso.php" class="dropdown-item">Couv. Rigide Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-panorama-perso.php" class="dropdown-item">Panorama Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-souple-perso.php" class="dropdown-item">Couv. Souple Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/album-perso.php" class="dropdown-item">Album Photos Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/pochette-perso.php" class="dropdown-item">Pochettes Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a5-perso.php" class="dropdown-item">Boîte A5 Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a4-perso.php" class="dropdown-item">Boîte A4 Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/infinity-perso.php" class="dropdown-item">Infinity Personnalisé</a>
+                            <!-- <a href="<?php echo $pagesPath; ?>../pages-perso/toile-perso.php" class="dropdown-item">Toile Personnalisé</a> -->
+                        </div>
+                    </div>
                 </nav>
-                                <!-- Boutons actions header (mode compact) -->
-                                <div class="nav-actions-compact">
-                                    <a href="<?php echo $basePath; ?>clients/connexion.php" class="btn-account-compact">
-                                        <i class="fas fa-user"></i>
-                                        <span>Compte</span>
-                                    </a>
-                                    <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account-compact">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <span>Contact</span>
-                                    </a>
-                                    <a href="/pages/panier.php" class="btn-cart-compact">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        <span class="cart-count">0</span>
-                                    </a>
-                                </div>
+                <!-- Boutons actions header (mode compact) -->
+                    <div class="nav-actions-compact">
+                        <a href="<?php echo $basePath; ?>clients/connexion.php" class="btn-account-compact">
+                            <i class="fas fa-user"></i>
+                            <span>Compte</span>
+                        </a>
+                        <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account-compact">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                        <a href="<?php echo $basePath; ?>formulaires/devis.php" class="btn-account-compact">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Devis</span>
+                        </a>
+                        <a href="/pages/panier.php" class="btn-cart-compact">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
             </div>
         </div>
     </header>

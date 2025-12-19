@@ -18,7 +18,7 @@
     </div>
     <section class="section1" id="Carnet de Notes">
     <div class="container">
-        <h2 class="title-h3 centre-text">Carnet de notes personnalisé</h2>
+        <h2 class="title-h3 centre-text">Carnet de notes</h2>
         <p class="paragraphe">Ce carnet, avec une couverture rigide au toucher cachemire, est un plaisir à écrire. Le papier pointillé est agréablement lisse, de sorte que l'encre ne bave pas. Personnalisez votre couverture rigide avec votre propre logo d'entreprise et le nom de votre employé.</p>
         <div class="tableau-container">
             <?php
@@ -144,7 +144,7 @@
 </section>
 <section class="section1" id="Couverture rigide 1 face">
     <div class="container">
-        <h2 class="title-h3 centre-text">Couverture rigide 1 face personnalisable</h2>
+        <h2 class="title-h3 centre-text">Couverture rigide 1 face personnalisable</br>système Peel & Stick</h2>
         <p class="paragraphe">Les couvertures rigides Mono Hard sont des outils de personnalisation conviviales et rentables, créés en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures uniques préfabriquées vous permettent de personnaliser facilement le devant de votre HardCover. Son concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle. Les couvertures rigides sont la solution parfaite de fabrication de boîtiers pour toutes vos applications uniques ou en petite série.</p>
     </div>
     <div class="ligne">
@@ -180,7 +180,7 @@
 </section>
 <section class="section2" id="Couverture rigide 2 faces">
     <div class="container">
-        <h2 class="title-h3 centre-text">Couverture rigide 2 faces personnalisables</h2>
+        <h2 class="title-h3 centre-text">Couverture rigide 2 faces personnalisables</br>système Peel & Stick</h2>
         <p class="paragraphe">Les couvertures rigides Duo sont un outil de personnalisation convivial et économique créé en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures rigides Duo uniques préfabriquées vous permettent de personnaliser facilement la police et le dos de votre HardCover. C'est un concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle.  Les couvertures rigides Duo sont la solution parfaite de fabrication de boîtiers pour toutes vos applications uniques ou en petite série.</p>
     </div>
     <div class="ligne">
