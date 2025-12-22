@@ -195,6 +195,14 @@ include 'header.php';
                     <?php foreach ($items as $item): ?>
                         <?php $sous_total = $item['prix_unitaire'] * $item['quantite']; ?>
                         <?php $total_ht += $sous_total; ?>
+                    <tr>
+                        <td colspan="4" class="text-right"><strong>Frais de port:</strong></td>
+                        <td class="price"><strong><?php echo number_format($commande['frais_livraison'], 2, ',', ' '); ?>€</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right"><strong>TVA (20%) :</strong></td>
+                        <td class="price"><strong><?php echo number_format($commande['tva'], 2, ',', ' '); ?>€</strong></td>
+                    </tr>
                         <tr>
                             <td><?php echo htmlspecialchars($item['designation']); ?></td>
                             <td><?php echo htmlspecialchars($item['produit_code']); ?></td>

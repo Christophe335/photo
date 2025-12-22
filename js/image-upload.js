@@ -95,13 +95,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const imageItem = document.createElement("div");
     imageItem.className = "image-item";
+    // Conserver le nom de fichier original pour réutilisation ultérieure
+    const originalName = (imageData.file && imageData.file.name) ? imageData.file.name : `image_${index + 1}.jpg`;
+    imageItem.setAttribute('data-filename', originalName);
     imageItem.innerHTML = `
-            <img src="${imageData.dataUrl}" alt="Image ${index + 1}">
-            <div class="image-controls">
-                <button type="button" class="btn-crop" onclick="openCropModal(${index})" title="Recadrer">✂️</button>
-                <button type="button" class="btn-delete" onclick="deleteImage(${index})" title="Supprimer">🗑️</button>
-            </div>
-        `;
+        <img src="${imageData.dataUrl}" alt="${originalName}">
+        <div class="image-controls">
+          <button type="button" class="btn-crop" onclick="openCropModal(${index})" title="Recadrer">✂️</button>
+          <button type="button" class="btn-delete" onclick="deleteImage(${index})" title="Supprimer">🗑️</button>
+        </div>
+      `;
 
     imagesPreview.appendChild(imageItem);
   }

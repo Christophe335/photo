@@ -156,12 +156,10 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     // Récupération du titre de la page
                     $pageTitle = isset($pageTitles[$currentPage]) ? $pageTitles[$currentPage] : ucfirst(str_replace('-', ' ', $currentPage));
                     
-                    // Affichage du fil d'Ariane sous forme de pseudo-bouton
-                    if ($currentPage !== 'index') {
-                        echo '<div class="nav-item breadcrumb-item">
-                                <div class="breadcrumb-btn">Vous êtes ici : <strong>' . htmlspecialchars($pageTitle) . '</strong></div>
-                              </div>';
-                    }
+                    // Affichage du fil d'Ariane sous forme de pseudo-bouton (affiché aussi sur la page d'accueil)
+                    echo '<div class="nav-item breadcrumb-item">'
+                        . '<div class="breadcrumb-btn">Vous êtes ici : <strong>' . htmlspecialchars($pageTitle) . '</strong></div>'
+                        . '</div>';
                     ?>
                     
                     <!-- Bouton Tirage Photos -->

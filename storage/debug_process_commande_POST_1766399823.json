@@ -1,0 +1,7 @@
+{
+    "action": "valider_commande",
+    "panier_complet": "[]",
+    "mode_paiement": "carte_bancaire",
+    "utiliser_adresse_facturation": "on",
+    "commentaire": ""
+}

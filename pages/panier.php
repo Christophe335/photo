@@ -5,56 +5,31 @@ if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
-// Gestion de la validation de commande
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'valider_commande') {
-    require_once __DIR__ . '/../includes/email-manager.php';
-    
-    // Récupérer les données de la commande
-    $commentaire = $_POST['commentaire'] ?? '';
-    $emailClient = $_POST['email'] ?? '';
-    
-    // Récupérer le panier unifié (session + localStorage)
-    $panierClient = json_decode($_POST['panier_complet'] ?? '[]', true);
-    if (empty($panierClient) && !empty($_SESSION['panier'])) {
-        $panierClient = $_SESSION['panier'];
+// Handler pour vider le panier
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'vider_panier') {
+    // Debug: écrire un fichier pour vérifier la requête reçue
+    try {
+        $storageDir = __DIR__ . '/../storage';
+        if (!is_dir($storageDir)) @mkdir($storageDir, 0777, true);
+        $dump = [
+            'time' => time(),
+            'post' => $_POST,
+            'server_request_method' => $_SERVER['REQUEST_METHOD'] ?? null,
+            'remote_addr' => $_SERVER['REMOTE_ADDR'] ?? null
+        ];
+        @file_put_contents($storageDir . '/debug_vider_panier_' . time() . '.json', json_encode($dump, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    } catch (Exception $e) {
+        error_log('Impossible d\'écrire debug vider_panier: ' . $e->getMessage());
     }
-    
-    if (!empty($panierClient)) {
-        // Créer une liste des fichiers uploadés
-        $fichiersUploadés = [];
-        foreach ($panierClient as $item) {
-            if (!empty($item['photos'])) {
-                foreach ($item['photos'] as $photo) {
-                    $fichiersUploadés[] = $photo;
-                }
-            }
-        }
-        
-        // Envoyer l'email de confirmation
-        $emailManager = new EmailManager();
-        $envoyeWebmaster = $emailManager->envoyerConfirmationCommande($panierClient, $fichiersUploadés);
-        
-        // Optionnel : envoyer confirmation au client
-        $envoyeClient = false;
-        if ($emailClient && filter_var($emailClient, FILTER_VALIDATE_EMAIL)) {
-            $envoyeClient = $emailManager->envoyerConfirmationClient($emailClient, $panierClient);
-        }
-        
-        if ($envoyeWebmaster) {
-            // Succès - vider le panier
-            $_SESSION['panier'] = [];
-            
-            // Redirection avec message de succès
-            header('Location: /pages/panier.php?commande_validee=1&email_client=' . ($envoyeClient ? '1' : '0'));
-            exit;
-        } else {
-            // Erreur lors de l'envoi
-            $erreur_commande = "Une erreur s'est produite lors de l'envoi de votre commande. Veuillez réessayer.";
-        }
-    } else {
-        $erreur_commande = "Votre panier est vide.";
-    }
+
+    unset($_SESSION['panier']);
+    $_SESSION['success_message'] = 'Votre panier a été vidé.';
+    // rediriger vers la même page (utiliser chemin relatif explicite)
+    header('Location: /pages/panier.php');
+    exit;
 }
+
+// (La validation de commande est gérée par clients/process-commande.php)
 
 // Gestion de l'ajout de produit avec photos via AJAX
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'ajouter_avec_photos') {
@@ -163,6 +138,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
     <?php include '../includes/header.php'; ?>
     
     <!-- Messages de confirmation/erreur -->
+    <?php if (!empty($_SESSION['success_message'])): ?>
+        <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; margin: 20px auto; max-width: 800px; border-radius: 5px; text-align: center;">
+            <h3>✅</h3>
+            <p><?php echo htmlspecialchars($_SESSION['success_message']); ?></p>
+        </div>
+        <?php unset($_SESSION['success_message']); ?>
+    <?php endif; ?>
+
     <?php if (isset($_GET['commande_validee']) && $_GET['commande_validee'] == '1'): ?>
         <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; margin: 20px auto; max-width: 800px; border-radius: 5px; text-align: center;">
             <h3>✅ Commande validée avec succès !</h3>
@@ -179,6 +162,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
     <?php endif; ?>
     
     <h1 style="text-align:center;">Votre panier</h1>
+    <?php if (!empty($_SESSION['panier'])): ?>
+        <div style="text-align:center;margin-bottom:12px;">
+            <form method="POST" onsubmit="if(!confirm('Êtes-vous sûr de vouloir vider votre panier ?')) return false; try{ localStorage.removeItem('panier'); localStorage.removeItem('panier_synced'); }catch(e){};" style="display:inline-block;">
+                <input type="hidden" name="action" value="vider_panier">
+                <button type="submit" style="background:#dc3545;color:#fff;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;">Vider le panier</button>
+            </form>
+        </div>
+    <?php endif; ?>
     <div id="panier-content">
         <?php
         $panier = $_SESSION['panier'];
@@ -272,22 +263,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
             }
             echo '</tbody></table>';
             echo '</div>';
-            // Calculs TVA, TTC, frais de port
-            $tva = $totalHT * 0.20;
-            $ttc = $totalHT + $tva;
+            // Calculs frais de port, TVA et TTC (frais placés entre HT et TVA)
             $fraisPort = ($totalHT > 200) ? 0 : 13.95;
+            $tva = ($totalHT + $fraisPort) * 0.20; // TVA appliquée sur HT + frais
+            $ttc = $totalHT + $fraisPort + $tva;
+
             echo '<div class="recap-panier">';
             echo '<p style="display:flex; justify-content:space-between;">Total HT : <strong>' . number_format($totalHT, 2, ',', ' ') . ' €</strong></p>';
-            echo '<p style="display:flex; justify-content:space-between;">TVA (20%) : <strong>' . number_format($tva, 2, ',', ' ') . ' €</strong></p>';
-            echo '<hr>';
-            echo '<p style="display:flex; justify-content:space-between;">Total TTC : <strong>' . number_format($ttc, 2, ',', ' ') . ' €</strong></p>';
             if ($fraisPort == 0) {
                 echo '<p style="display:flex; justify-content:space-between;">Frais de port : <strong style="color:green">Gratuit</strong></p>';
             } else {
                 echo '<p style="display:flex; justify-content:space-between;">Frais de port : <strong>' . number_format($fraisPort, 2, ',', ' ') . ' €</strong></p>';
             }
+            echo '<p style="display:flex; justify-content:space-between;">TVA (20%) : <strong>' . number_format($tva, 2, ',', ' ') . ' €</strong></p>';
             echo '<hr>';
-            echo '<p style="display:flex; justify-content:space-between;"><strong>Total à payer :</strong><strong>' . number_format($ttc + $fraisPort, 2, ',', ' ') . ' €</strong>
+            echo '<p style="display:flex; justify-content:space-between;"><strong>Total à payer :</strong><strong>' . number_format($ttc, 2, ',', ' ') . ' €</strong>
       </p>';
             echo '</div>';
             
@@ -295,7 +285,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
             echo '<div class="panier-actions">';
             if (isset($_SESSION['client_id'])) {
                 // Client connecté - afficher le bouton de commande
-                echo '<form id="commande-form" method="POST" class="commande-form">
+                    echo '<form id="commande-form" action="/clients/process-commande.php" method="POST" class="commande-form">
                 <input type="hidden" name="action" value="valider_commande">
                 <input type="hidden" name="panier_complet" id="panier_complet" value="">';
                 echo '<div class="commande-options">';
@@ -305,7 +295,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
                 echo '<label for="mode_paiement">Mode de paiement :</label>';
                 echo '<select name="mode_paiement" id="mode_paiement" required>';
                 echo '<option value="carte_bancaire">Carte bancaire</option>';
-                echo '<option value="paypal">PayPal</option>';
+                echo '<option value="mandat_administratif">Mandat Administratif</option>';
                 echo '<option value="virement">Virement bancaire</option>';
                 echo '</select>';
                 echo '</div>';
@@ -449,32 +439,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
             window.location.reload();
         }
         function supprimerDuPanierPage(id) {
-            console.log('[DEBUG] Suppression de l\'article:', id);
-            let panier = JSON.parse(localStorage.getItem('panier')) || [];
-            console.log('[DEBUG] Panier avant suppression:', panier);
-            panier = panier.filter(item => item.id !== id);
-            console.log('[DEBUG] Panier après suppression:', panier);
-            
-            // Toujours sauvegarder même si le panier devient vide
-            if (panier.length === 0) {
-                localStorage.setItem('panier', '[]');
-                console.log('[DEBUG] Panier vide, sauvegardé comme tableau vide');
-            } else {
-                localStorage.setItem('panier', JSON.stringify(panier));
+            console.log('[DEBUG] Suppression page article:', id);
+
+            // Tenter de mettre à jour localStorage si présent
+            try {
+                let panierLS = JSON.parse(localStorage.getItem('panier')) || [];
+                const avant = panierLS.map(p => p.id);
+                panierLS = panierLS.filter(item => item.id !== id);
+                localStorage.setItem('panier', JSON.stringify(panierLS));
+                if (avant.length !== panierLS.length) console.log('[DEBUG] localStorage mis à jour, ids now', panierLS.map(p=>p.id));
+            } catch (e) {
+                console.warn('[DEBUG] localStorage absent ou invalide', e);
             }
-            
-            localStorage.removeItem('panier_synced');
-            
-            // Synchronisation forcée puis rechargement
-            fetch('/pages/sync_panier.php', {
+
+            // Appeler l'endpoint serveur pour supprimer l'article côté session
+            fetch('/pages/remove_panier_item.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(panier)
+                body: JSON.stringify({ id: id })
             }).then(function(response) {
-                console.log('[DEBUG] Synchronisation terminée, rechargement...');
-                window.location.reload();
+                return response.json().then(function(data) {
+                    console.log('[DEBUG] remove_panier_item response', data);
+                    // Forcer la suppression du flag de synchro et recharger pour refléter la session
+                    localStorage.removeItem('panier_synced');
+                    window.location.reload();
+                });
             }).catch(function(error) {
-                console.log('[DEBUG] Erreur synchronisation, rechargement quand même...', error);
+                console.error('[DEBUG] Erreur suppression serveur, rechargement', error);
                 window.location.reload();
             });
         }

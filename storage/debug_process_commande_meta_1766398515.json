@@ -1,0 +1,11 @@
+{
+    "time": 1766398515,
+    "POST_keys": [
+        "action",
+        "panier_complet",
+        "mode_paiement",
+        "commentaire"
+    ],
+    "POST_panier_complet_present": true,
+    "SESSION_panier_count": 1
+}

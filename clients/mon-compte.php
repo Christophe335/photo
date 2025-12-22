@@ -275,7 +275,7 @@ include '../includes/header.php';
                 <h3 class="sidebar-title">Navigation</h3>
                 <ul class="sidebar-menu">
                     <li><a href="#informations" class="menu-link active" data-section="informations">Informations personnelles</a></li>
-                    <li><a href="#commandes" class="menu-link" data-section="commandes">Suivi de vos commandes</a></li>
+                    <li><a href="#commandes" class="menu-link" data-section="commandes">Suivi de vos commandes</br>confirmées</a></li>
                     <li><a href="#historique" class="menu-link" data-section="historique">Historique des achats</a></li>
                     <li><a href="#modifier" class="menu-link" data-section="modifier">Modifier mes informations</a></li>
                     <li><a href="logout.php" class="btn-logout">Déconnexion</a></li>
@@ -455,6 +455,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Si la page est chargée avec un hash (#historique, #commandes...), activer la section correspondante
+    try {
+        const hash = window.location.hash;
+        if (hash && hash.length > 1) {
+            const target = hash.replace('#', '');
+            const targetLink = Array.from(menuLinks).find(l => l.getAttribute('data-section') === target || l.getAttribute('href') === hash || l.getAttribute('href') === ('#' + target));
+            if (targetLink) {
+                // Simuler un clic pour réutiliser la logique existante
+                targetLink.click();
+                console.log('Activation section depuis hash:', target);
+            } else {
+                console.log('Hash présent mais lien non trouvé:', hash);
+            }
+        }
+    } catch (e) {
+        console.warn('Erreur lors du traitement du hash:', e);
+    }
 });
 
 function loadCommandes() {

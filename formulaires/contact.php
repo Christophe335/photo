@@ -95,4 +95,24 @@
     </div>
 </main>
 
+<?php if (!empty($_GET['sent'])): ?>
+    <div id="sentPopup" style="position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:14px 18px;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:1px solid #e6e6e6">
+        <img src="../images/logo-icon/logo3.svg" alt="Bindy Studio" style="height:48px">
+        <div style="min-width:200px">
+            <strong>Message envoyé</strong>
+            <div style="color:#666;font-size:14px">Votre message a bien été envoyé à Bindy Studio.</div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var popup = document.getElementById('sentPopup');
+            if (!popup) return;
+            popup.style.opacity = 0;
+            popup.style.transition = 'opacity 300ms ease';
+            setTimeout(function(){ popup.style.opacity = 1; }, 50);
+            setTimeout(function(){ popup.style.opacity = 0; setTimeout(function(){ popup.remove(); }, 350); }, 4500);
+        })();
+    </script>
+<?php endif; ?>
+
 <?php include '../includes/footer.php'; ?>

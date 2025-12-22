@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test AJAX</title>
+  </head>
+  <body>
+    <h1>Test des appels AJAX</h1>
+
+    <button onclick="testFamille('CLAS')">Test CLAS (Classeurs)</button>
+    <button onclick="testFamille('RELI')">Test RELI (Reliure)</button>
+    <button onclick="testFamille('CART')">Test CART (Cartonnage)</button>
+    <button onclick="testFamille('ACCE')">Test ACCE (Accessoires)</button>
+    <button onclick="testFamille('OUTI')">Test OUTI (Outils)</button>
+
+    <div
+      id="resultat"
+      style="margin-top: 20px; border: 1px solid #ccc; padding: 10px"
+    >
+      Résultats apparaîtront ici...
+    </div>
+
+    <script>
+      async function testFamille(famille) {
+        const resultat = document.getElementById("resultat");
+        resultat.innerHTML = `<p>Test en cours pour ${famille}...</p>`;
+
+        try {
+          const url = `includes/tableau.php?famille=${famille}`;
+          console.log("Test URL:", url);
+
+          const response = await fetch(url);
+          console.log("Réponse:", response.status, response.statusText);
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          }
+
+          const html = await response.text();
+          console.log("HTML reçu:", html.length, "caractères");
+
+          // Afficher dans la div
+          resultat.innerHTML = `
+                    <h3>Résultat pour ${famille}</h3>
+                    <p><strong>Status:</strong> ${response.status}</p>
+                    <p><strong>Longueur:</strong> ${html.length} caractères</p>
+                    <hr>
+                    ${html}
+                `;
+        } catch (error) {
+          console.error("Erreur:", error);
+          resultat.innerHTML = `
+                    <h3>Erreur pour ${famille}</h3>
+                    <p style="color: red;">${error.message}</p>
+                `;
+        }
+      }
+    </script>
+  </body>
+</html>

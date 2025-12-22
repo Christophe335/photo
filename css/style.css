@@ -1713,7 +1713,7 @@ body.nav-fixed {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(36, 37, 109, 0.9), transparent);
+  background: linear-gradient(to top, rgba(36, 37, 109, 0.9), #4b489b87);
   color: white;
   padding: 30px 25px;
 }
@@ -1735,6 +1735,8 @@ body.nav-fixed {
   align-items: flex-start;
   gap: 12px;
   font-size: 14px;
+  /* pour tester */
+  text-align: left;
 }
 
 .contact-item i {

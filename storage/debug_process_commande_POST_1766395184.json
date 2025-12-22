@@ -1,0 +1,7 @@
+{
+    "action": "valider_commande",
+    "panier_complet": "[]",
+    "mode_paiement": "virement",
+    "utiliser_adresse_facturation": "on",
+    "commentaire": ""
+}

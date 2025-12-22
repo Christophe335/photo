@@ -1,0 +1,7 @@
+{
+    "action": "valider_commande",
+    "panier_complet": "[{\"id\":\"6_\",\"quantite\":1,\"prix\":108,\"details\":{\"code\":\"TRP0000000A4\",\"designation\":\"Feuilles autocollantes\",\"conditionnement\":\"100\",\"format\":\"Format A4\",\"matiere\":\"\",\"couleur\":\"\",\"imageCouleur\":\"\"},\"dateAjout\":\"2025-12-22T09:43:17.768Z\"}]",
+    "mode_paiement": "carte_bancaire",
+    "utiliser_adresse_facturation": "on",
+    "commentaire": ""
+}

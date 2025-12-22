@@ -588,13 +588,63 @@ if (empty($conditionnement) && $produit_id) {
 </main>
 
 <script src="../js/panier.js"></script>
+<script src="../js/simple-crop.js"></script>
 <script src="../js/image-upload.js"></script>
+
+<!-- Modal pour le recadrage (copié depuis formulaires/photo.php) -->
+<div id="cropModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Recadrer l'image</h3>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="crop-layout">
+                <!-- Aperçu sur le côté gauche -->
+                <div class="crop-preview-sidebar">
+                    <h4>Aperçu final</h4>
+                    <div class="preview-wrapper">
+                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage">
+                        <div class="preview-info"></div>
+                    </div>
+                </div>
+                
+                <!-- Zone principale de recadrage -->
+                <div class="crop-main">
+                    <div class="crop-container">
+                        <img id="cropImage" src="" alt="Image à recadrer">
+                    </div>
+                    
+                    <!-- Contrôles en bas -->
+                    <div class="crop-controls-layout">
+                        <!-- Boutons principaux à gauche -->
+                        <div class="crop-controls">
+                            <button type="button" class="btn-crop-confirm">Confirmer</button>
+                            <button type="button" class="btn-crop-cancel">Annuler</button>
+                        </div>
+                        
+                        <!-- Contrôles de zoom à droite -->
+                        <div class="zoom-controls-inline">
+                            <button type="button" class="orientation-btn" id="orientationToggle" title="Basculer Portrait/Paysage">⟲</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomOutInline">-</button>
+                            <span class="zoom-display-inline">100%</span>
+                            <button type="button" class="zoom-btn-inline" id="zoomInInline">+</button>
+                            <button type="button" class="zoom-reset-inline">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
 // Variables globales pour le processus de personnalisation
 let etapeActuelle = 1;
 let personnalisationChoisie = null;
 let fichiersUploadés = [];
+// Désactiver complètement l'affichage des popups panier sur cette page
+window.disablePanierPopup = true;
 
 /**
  * Affiche une étape spécifique
@@ -644,9 +694,34 @@ function afficherTableauPersonnalisation(type) {
     
     // Simuler le chargement des produits de personnalisation
     setTimeout(() => {
-        const famille = type === 'dorure' ? 'dorure' : 'imprime';
-        // Envoyer la quantité sélectionnée et le conditionnement du produit principal
-        chargerTableauPersonnalisation(famille, <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>);
+        // Pour la dorure on charge la famille 'dorure', pour l'impression couleur on charge plusieurs sections
+        if (type === 'dorure') {
+            chargerTableauPersonnalisation('dorure', <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>);
+        } else if (type === 'imprime') {
+            // Construire plusieurs sections empilées pour les différents tirages
+            const sections = [
+                { id: 'imprime-petit', family: 'Tirage Photo Petit Format', title: 'Tirage Photo Petit Format' },
+                { id: 'imprime-grand', family: 'Tirage Photo Grand Format', title: 'Tirage Photo Grand Format' },
+                { id: 'imprime-a4-a3', family: 'Tirage Photo A4 et A3', title: 'Tirage Photo A4 et A3' },
+                { id: 'imprime-panoramique', family: 'Tirage Panoramique', title: 'Tirage Photo Panoramique' }
+            ];
+
+            // Remplacer le contenu par des conteneurs vides pour chaque section
+            tableauDiv.innerHTML = sections.map(s => `
+                <div class="imprime-section" style="margin-bottom:24px;">
+                    <h4 style="margin:0 0 10px 0; color:#2a256d;">${s.title}</h4>
+                    <div id="${s.id}" class="personnalisation-subtable" style="background:#fff; border:1px solid #eee; padding:12px; border-radius:6px;">Chargement...</div>
+                </div>
+            `).join('');
+
+            // Lancer les requêtes AJAX pour remplir chaque conteneur (parallèle)
+            sections.forEach(s => {
+                chargerTableauPersonnalisation(s.family, <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>, s.id);
+            });
+        } else {
+            // Comportement par défaut: charger la famille demandée
+            chargerTableauPersonnalisation(type, <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>);
+        }
     }, 1000);
 }
 
@@ -654,24 +729,29 @@ function afficherTableauPersonnalisation(type) {
  * Charge le tableau de personnalisation via AJAX
  */
 async function chargerTableauPersonnalisation(famille, quantite = 1, conditionnement = 1) {
-    const tableauDiv = document.getElementById('tableau-personnalisation');
-    
+    // If a target container id is passed as 4th argument, use it; otherwise use main tableau element
+    const args = Array.prototype.slice.call(arguments);
+    const targetId = args.length >= 4 ? args[3] : null;
+    const tableauDiv = targetId ? document.getElementById(targetId) : document.getElementById('tableau-personnalisation');
+
     try {
-        const response = await fetch(`../ajax/charger-personnalisation.php?type=${famille}&quantite=${encodeURIComponent(quantite)}&conditionnement=${encodeURIComponent(conditionnement)}`);
+        const response = await fetch(`../ajax/charger-personnalisation.php?type=${encodeURIComponent(famille)}&quantite=${encodeURIComponent(quantite)}&conditionnement=${encodeURIComponent(conditionnement)}`);
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
-        
+
         const html = await response.text();
-        tableauDiv.innerHTML = html;
-        
+        if (tableauDiv) tableauDiv.innerHTML = html;
+
     } catch (error) {
         console.error('Erreur lors du chargement:', error);
-        tableauDiv.innerHTML = `
-            <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; border: 1px solid #f5c6cb; text-align: center;">
-                <strong>Erreur de chargement :</strong> ${error.message}
-            </div>
-        `;
+        if (tableauDiv) {
+            tableauDiv.innerHTML = `
+                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; border: 1px solid #f5c6cb; text-align: center;">
+                    <strong>Erreur de chargement :</strong> ${error.message}
+                </div>
+            `;
+        }
     }
 }
 
@@ -922,12 +1002,32 @@ function finaliserCommande() {
     let fichiers = [];
     const globalFiles = (typeof window !== 'undefined' && window.fichiersUploades) ? window.fichiersUploades : (typeof fichiersUploadés !== 'undefined' ? fichiersUploadés : null);
     if (Array.isArray(globalFiles)) {
-        fichiers = globalFiles.map(f => (f && (f.name || (f.file && f.file.name))) ? (f.name || f.file.name) : f);
+        fichiers = globalFiles.map(f => {
+            if (!f) return f;
+            if (typeof f === 'string') return f;
+
+            const obj = {};
+            if (f.name) obj.name = f.name;
+            if (f.dataUrl) obj.dataUrl = f.dataUrl;
+            if (f.originalDataUrl) obj.originalDataUrl = f.originalDataUrl;
+            if (f.size) obj.size = f.size;
+            if (f.type) obj.type = f.type;
+            if (f.url) obj.url = f.url;
+            if (f.src) obj.src = f.src;
+            if (f.file && f.file.name && !obj.name) obj.name = f.file.name;
+
+            // If we only have a name, keep the string for backward compatibility
+            if (Object.keys(obj).length === 1 && obj.name) return obj.name;
+            return obj;
+        });
     }
 
-    // Ajouter au panier principal
+    // Ajouter l'article principal au panier en y joignant les fichiers de personnalisation
     if (typeof panierManager !== 'undefined') {
-        const details = {
+        // Utiliser l'ID produit si disponible, sinon fallback sur la référence
+        const produitId = "<?= addslashes($produit_id ?: 'prod_' . $reference) ?>";
+
+        const detailsProduit = {
             code: reference,
             designation: designation,
             format: format,
@@ -938,16 +1038,44 @@ function finaliserCommande() {
             nombrePhotos: fichiers.length,
             source: 'perso'
         };
-        panierManager.ajouterProduit(`perso_${reference}_${Date.now()}`, quantite, prix, details);
+
+        // On ajoute l'article principal avec les photos attachées — ainsi le produit original n'est pas perdu
+        panierManager.ajouterProduit(produitId, quantite, prix, detailsProduit);
         panierManager.afficherNotification(
             `Produit personnalisé ajouté au panier !`,
             "success",
-            details
+            Object.assign({ quantite: quantite }, detailsProduit)
         );
+
+        // Debug: log du panier local après ajout
+        try {
+            console.log('[perso] Panier local après ajout :', panierManager.panier);
+        } catch (e) {
+            console.warn('[perso] Impossible de logger panierManager', e);
+        }
+
+        // Forcer la synchronisation client -> session avant de rediriger pour éviter la perte lors du rendu serveur
+        try {
+            fetch('/pages/sync_panier.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(panierManager.panier)
+            }).then(resp => resp.json()).then(data => {
+                console.log('[perso] Synchronisation vers session terminée:', data);
+                // Redirection après confirmation de sync
+                window.location.href = '/pages/panier.php';
+            }).catch(err => {
+                console.warn('[perso] Erreur sync, redirection quand même:', err);
+                window.location.href = '/pages/panier.php';
+            });
+            return; // empêcher la redirection immédiate ci-dessous
+        } catch (e) {
+            console.warn('[perso] Exception lors de la sync:', e);
+        }
     }
 
-    // Rediriger vers le panier
-    window.location.href = '../pages/panier.php';
+    // Rediriger vers le panier (fallback si la sync asynchrone n'a pas pu être lancée)
+    window.location.href = '/pages/panier.php';
 }
 
 // Initialisation

@@ -146,21 +146,28 @@ include '../includes/header.php';
             </table>
             
             <div class="total-section">
+                <?php
+                // Calcul local pour s'assurer que la TVA est appliquée sur (sous-total + frais de livraison)
+                $sous_total = floatval($commande['sous_total'] ?? 0);
+                $frais_livraison = floatval($commande['frais_livraison'] ?? 0);
+                $tva_calc = ($sous_total + $frais_livraison) * 0.20;
+                $total_calc = $sous_total + $frais_livraison + $tva_calc;
+                ?>
                 <div class="total-line">
                     <span>Sous-total :</span>
-                    <span><?php echo number_format($commande['sous_total'], 2, ',', ' '); ?> €</span>
-                </div>
-                <div class="total-line">
-                    <span>TVA (20%) :</span>
-                    <span><?php echo number_format($commande['tva'], 2, ',', ' '); ?> €</span>
+                    <span><?php echo number_format($sous_total, 2, ',', ' '); ?> €</span>
                 </div>
                 <div class="total-line">
                     <span>Frais de livraison :</span>
-                    <span><?php echo number_format($commande['frais_livraison'], 2, ',', ' '); ?> €</span>
+                    <span><?php echo number_format($frais_livraison, 2, ',', ' '); ?> €</span>
+                </div>
+                <div class="total-line">
+                    <span>TVA (20%) :</span>
+                    <span><?php echo number_format($tva_calc, 2, ',', ' '); ?> €</span>
                 </div>
                 <div class="total-line total-final">
                     <span>Total :</span>
-                    <span><?php echo number_format($commande['total'], 2, ',', ' '); ?> €</span>
+                    <span><?php echo number_format($total_calc, 2, ',', ' '); ?> €</span>
                 </div>
             </div>
             
@@ -175,10 +182,22 @@ include '../includes/header.php';
         </div>
         
         <div class="actions">
-            <a href="mon-compte.php" class="btn-primary">Voir mes commandes</a>
-            <a href="../index.php" class="btn-cancel">Continuer mes achats</a>
+            <a href="/clients/mon-compte.php#historique" class="btn-primary">Voir mes commandes</a>
+            <a href="/index.php" class="btn-cancel">Continuer mes achats</a>
         </div>
     </div>
 </main>
 
 <?php include '../includes/footer.php'; ?>
+<script>
+// Vider le panier localStorage après confirmation de commande
+try {
+    if (window && window.localStorage) {
+        localStorage.removeItem('panier');
+        localStorage.removeItem('panier_synced');
+        console.log('[Panier] localStorage vidé après confirmation de commande');
+    }
+} catch (e) {
+    console.warn('Erreur vidage localStorage après commande', e);
+}
+</script>

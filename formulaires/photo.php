@@ -282,8 +282,15 @@ function obtenirInfosImages() {
     
     imageItems.forEach((item, index) => {
         const img = item.querySelector('img');
-        const fileName = item.getAttribute('data-filename') || `image_${index + 1}.jpg`;
-        
+        // Priorité : data-filename sur l'élément, sinon essayer window.fichiersUploades, sinon fallback généré
+        let fileName = item.getAttribute('data-filename');
+        if ((!fileName || fileName.trim() === '') && window.fichiersUploades && Array.isArray(window.fichiersUploades) && window.fichiersUploades[index] && window.fichiersUploades[index].name) {
+            fileName = window.fichiersUploades[index].name;
+        }
+        if (!fileName || fileName.trim() === '') {
+            fileName = `image_${index + 1}.jpg`;
+        }
+
         images.push({
             nom: fileName,
             url: img ? img.src : '',

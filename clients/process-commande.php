@@ -2,6 +2,33 @@
 session_start();
 require_once '../includes/database.php';
 
+// Debug: dump POST and session panier au début pour diagnostiquer
+try {
+    $storageDir = __DIR__ . '/../storage';
+    if (!is_dir($storageDir)) @mkdir($storageDir, 0777, true);
+    $meta = [
+        'time' => time(),
+        'POST_keys' => array_keys($_POST),
+        'POST_panier_complet_present' => isset($_POST['panier_complet']),
+        'SESSION_panier_count' => isset($_SESSION['panier']) ? count($_SESSION['panier']) : 0
+    ];
+    @file_put_contents($storageDir . '/debug_process_commande_meta_' . time() . '.json', json_encode($meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    // full dumps
+    @file_put_contents($storageDir . '/debug_process_commande_POST_' . time() . '.json', json_encode($_POST, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    @file_put_contents($storageDir . '/debug_process_commande_SESSION_panier_' . time() . '.json', json_encode($_SESSION['panier'] ?? [], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    error_log('process-commande: debug meta écrit');
+} catch (Exception $e) {
+    error_log('process-commande: erreur écriture debug meta: ' . $e->getMessage());
+}
+
+// Si le panier session est vide mais que le client a posté un `panier_complet` (localStorage), l'utiliser
+if ((empty($_SESSION['panier']) || !isset($_SESSION['panier'])) && isset($_POST['panier_complet']) && !empty($_POST['panier_complet'])) {
+    $panierClient = json_decode($_POST['panier_complet'], true);
+    if (is_array($panierClient) && !empty($panierClient)) {
+        $_SESSION['panier'] = $panierClient;
+    }
+}
+
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['client_id'])) {
     $_SESSION['redirect_after_login'] = '../pages/panier.php';
@@ -44,10 +71,12 @@ try {
     foreach ($_SESSION['panier'] as $item) {
         $sous_total += $item['prix'] * $item['quantite'];
     }
-    
-    $tva = $sous_total * 0.20; // TVA 20%
+
+    // Déterminer les frais de livraison avant le calcul de la TVA
     $frais_livraison = ($sous_total > 200) ? 0 : 13.95; // Livraison gratuite à partir de 200€ HT
-    $total = $sous_total + $tva + $frais_livraison;
+    // Calculer la TVA sur le total HT + frais de port (TVA applicable aux frais de port)
+    $tva = ($sous_total + $frais_livraison) * 0.20; // TVA 20%
+    $total = $sous_total + $frais_livraison + $tva;
     
     // Récupérer les données du formulaire
     $mode_paiement = $_POST['mode_paiement'] ?? 'carte_bancaire';
@@ -141,9 +170,106 @@ try {
     // Valider la transaction
     $db->commit();
     
+    // Construire la liste des fichiers uploadés (photos/personnalisations) depuis le panier
+    $fichiersUploades = [];
+    $panierPourEmail = $_SESSION['panier'];
+    foreach ($panierPourEmail as $item) {
+        // plusieurs formats possibles : top-level 'photos' ou dans 'details' => 'photos'
+        $candidates = [];
+        if (!empty($item['photos']) && is_array($item['photos'])) $candidates[] = $item['photos'];
+        if (!empty($item['details']['photos']) && is_array($item['details']['photos'])) $candidates[] = $item['details']['photos'];
+
+        foreach ($candidates as $photosList) {
+            foreach ($photosList as $p) {
+                $fichiersUploades[] = $p;
+            }
+        }
+    }
+
+    // Normaliser les objets dataUrl en contenu binaire pour l'envoi par email
+    foreach ($fichiersUploades as $k => $f) {
+        if (is_array($f)) {
+            // support: dataUrl, dataUrl base64, data_url, originalDataUrl, file object
+            $dataUrl = $f['dataUrl'] ?? $f['data_url'] ?? $f['originalDataUrl'] ?? ($f['data'] ?? null);
+            if (is_string($dataUrl) && preg_match('#^data:([^;]+);base64,(.*)$#', $dataUrl, $m)) {
+                $mime = $m[1];
+                $base64 = $m[2];
+                $decoded = base64_decode($base64);
+                if ($decoded !== false) {
+                    $name = $f['name'] ?? $f['nom'] ?? ('file_' . uniqid());
+                    $fichiersUploades[$k] = [
+                        'name' => $name,
+                        'type' => $mime,
+                        'content' => $decoded
+                    ];
+                    continue;
+                }
+            }
+            // If content already provided
+            if (isset($f['content']) && is_string($f['content'])) {
+                // keep as is
+                continue;
+            }
+        }
+        // If it's a string path or filename, keep as-is
+    }
+
+    // Dump debug des fichiers uploadés (avant envoi)
+    try {
+        $storageDir = __DIR__ . '/../storage';
+        if (!is_dir($storageDir)) @mkdir($storageDir, 0777, true);
+        $dumpFile = $storageDir . '/debug_fichiers_uploades_' . time() . '.json';
+        @file_put_contents($dumpFile, json_encode($fichiersUploades, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        error_log('process-commande: dump fichiersUploades écrit dans ' . $dumpFile);
+    } catch (Exception $e) {
+        error_log('process-commande: erreur écriture dump fichiersUploades: ' . $e->getMessage());
+    }
+
+    // Envoyer emails (webmaster + client) via EmailManager
+    try {
+        require_once __DIR__ . '/../includes/email-manager.php';
+        $emailManager = new EmailManager();
+
+        // Construire un tableau client complet pour l'email (inclut adresses)
+        $clientInfo = [
+            'prenom' => $client['prenom'] ?? '',
+            'nom' => $client['nom'] ?? '',
+            'email' => $client['email'] ?? '',
+            'telephone' => $client['telephone'] ?? '',
+            'societe' => $client['societe'] ?? '',
+            'adresse_facturation' => [
+                'ligne1' => $adresse_facturation ?? ($client['adresse'] ?? ''),
+                'code_postal' => $code_postal_facturation ?? ($client['code_postal'] ?? ''),
+                'ville' => $ville_facturation ?? ($client['ville'] ?? ''),
+                'pays' => $pays_facturation ?? ($client['pays'] ?? '')
+            ],
+            'adresse_livraison' => [
+                'ligne1' => $adresse_livraison ?? ($client['adresse_livraison'] ?? ($adresse_facturation ?? '')),
+                'code_postal' => $code_postal_livraison ?? ($client['code_postal_livraison'] ?? ($code_postal_facturation ?? ($client['code_postal'] ?? ''))),
+                'ville' => $ville_livraison ?? ($client['ville_livraison'] ?? ($ville_facturation ?? ($client['ville'] ?? ''))),
+                'pays' => $pays_livraison ?? ($client['pays_livraison'] ?? ($pays_facturation ?? ($client['pays'] ?? '')))
+            ],
+        ];
+
+        // Debug: log détaillé des fichiers uploadés avant envoi
+        error_log('process-commande: fichiersUploades (count=' . count($fichiersUploades) . '): ' . json_encode($fichiersUploades));
+
+        // Envoyer au webmaster (avec pièces jointes)
+        $sentWebmaster = $emailManager->envoyerConfirmationCommande($panierPourEmail, $fichiersUploades, $numero_commande, $clientInfo);
+        error_log('process-commande: envoi email webmaster retour: ' . var_export($sentWebmaster, true));
+
+        // Envoyer au client (liste des fichiers, sans pièces jointes)
+        if (!empty($client['email']) && filter_var($client['email'], FILTER_VALIDATE_EMAIL)) {
+            $sentClient = $emailManager->envoyerConfirmationClient($client['email'], $panierPourEmail, $fichiersUploades, $numero_commande, $clientInfo);
+            error_log('process-commande: envoi email client retour: ' . var_export($sentClient, true));
+        }
+    } catch (Exception $e) {
+        error_log('Erreur envoi email commande: ' . $e->getMessage());
+    }
+
     // Vider le panier
     unset($_SESSION['panier']);
-    
+
     // Rediriger vers la page de confirmation
     $_SESSION['success_message'] = "Votre commande n°$numero_commande a été enregistrée avec succès !";
     header("Location: confirmation-commande.php?numero=$numero_commande");

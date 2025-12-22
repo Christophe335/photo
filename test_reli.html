@@ -1,0 +1,217 @@
+        <div class="tableau-produits">
+            <!-- Titre de la famille -->
+            <h2 class="titre-famille">Reliure</h2>
+            
+            <!-- En-têtes du tableau -->
+            <div class="tableau-header">
+                <div class="col-code">Code</div>
+                <div class="col-description">Description</div>
+                <div class="col-couleur">Couleur</div>
+                <div class="col-nb">Nb</div>
+                <div class="col-quantite">Quantité</div>
+                <div class="col-prix">Prix</div>
+                <div class="col-action"></div>
+            </div>
+            
+            <!-- Lignes de produits -->
+                        <div class="ligne-produit" data-id="4" data-prix="6.90">
+                
+                <!-- Code/Référence -->
+                <div class="col-code">
+                    RELI001                </div>
+                
+                <!-- Description -->
+                <div class="col-description">
+                    <div class="designation">Reliure spirale métal</div>
+                                            <div class="format">A4</div>
+                                                                <div class="matiere">Métal laqué</div>
+                                                                <div class="couleur-int">Intérieur: Blanc</div>
+                                    </div>
+                
+                <!-- Couleurs -->
+                <div class="col-couleur">
+                    <div class="couleurs-container">
+                                                                                    <div class="couleur-item">
+                                    <span class="couleur-nom">Noir</span>
+                                                                            <img src="images/couleurs/noir.jpg" 
+                                             alt="Noir" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Blanc</span>
+                                                                            <img src="images/couleurs/blanc.jpg" 
+                                             alt="Blanc" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Rouge</span>
+                                                                            <img src="images/couleurs/rouge.jpg" 
+                                             alt="Rouge" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Bleu</span>
+                                                                            <img src="images/couleurs/bleu.jpg" 
+                                             alt="Bleu" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                </div>
+                
+                <!-- Conditionnement -->
+                <div class="col-nb">
+                                            50 pièces                                    </div>
+                
+                <!-- Contrôle quantité -->
+                <div class="col-quantite">
+                    <div class="quantite-control">
+                        <button type="button" class="btn-moins" onclick="modifierQuantite(this, -1)">−</button>
+                        <input type="number" class="input-quantite" value="1" min="1" readonly>
+                        <button type="button" class="btn-plus" onclick="modifierQuantite(this, 1)">+</button>
+                    </div>
+                </div>
+                
+                <!-- Prix -->
+                <div class="col-prix">
+                    6,90 € HT
+                </div>
+                
+                <!-- Bouton ajouter au panier -->
+                <div class="col-action">
+                    <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)">
+                        Ajouter au panier
+                    </button>
+                </div>
+                
+            </div>
+                        <div class="ligne-produit" data-id="5" data-prix="4.50">
+                
+                <!-- Code/Référence -->
+                <div class="col-code">
+                    RELI002                </div>
+                
+                <!-- Description -->
+                <div class="col-description">
+                    <div class="designation">Reliure thermique</div>
+                                            <div class="format">A4 - 3mm</div>
+                                                                <div class="matiere">Plastique thermofusible</div>
+                                                                <div class="couleur-int">Intérieur: Transparent</div>
+                                    </div>
+                
+                <!-- Couleurs -->
+                <div class="col-couleur">
+                    <div class="couleurs-container">
+                                                                                    <div class="couleur-item">
+                                    <span class="couleur-nom">Transparent</span>
+                                                                            <img src="images/couleurs/transparent.jpg" 
+                                             alt="Transparent" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Bleu</span>
+                                                                            <img src="images/couleurs/bleu_clair.jpg" 
+                                             alt="Bleu" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Rouge</span>
+                                                                            <img src="images/couleurs/rouge_clair.jpg" 
+                                             alt="Rouge" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                </div>
+                
+                <!-- Conditionnement -->
+                <div class="col-nb">
+                                            100 pièces                                    </div>
+                
+                <!-- Contrôle quantité -->
+                <div class="col-quantite">
+                    <div class="quantite-control">
+                        <button type="button" class="btn-moins" onclick="modifierQuantite(this, -1)">−</button>
+                        <input type="number" class="input-quantite" value="1" min="1" readonly>
+                        <button type="button" class="btn-plus" onclick="modifierQuantite(this, 1)">+</button>
+                    </div>
+                </div>
+                
+                <!-- Prix -->
+                <div class="col-prix">
+                    4,50 € HT
+                </div>
+                
+                <!-- Bouton ajouter au panier -->
+                <div class="col-action">
+                    <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)">
+                        Ajouter au panier
+                    </button>
+                </div>
+                
+            </div>
+                        <div class="ligne-produit" data-id="6" data-prix="18.90">
+                
+                <!-- Code/Référence -->
+                <div class="col-code">
+                    RELI003                </div>
+                
+                <!-- Description -->
+                <div class="col-description">
+                    <div class="designation">Reliure manuelle premium</div>
+                                            <div class="format">A4 - 15mm</div>
+                                                                <div class="matiere">Cuir synthétique</div>
+                                                                <div class="couleur-int">Intérieur: Crème</div>
+                                    </div>
+                
+                <!-- Couleurs -->
+                <div class="col-couleur">
+                    <div class="couleurs-container">
+                                                                                    <div class="couleur-item">
+                                    <span class="couleur-nom">Noir</span>
+                                                                            <img src="images/couleurs/cuir_noir.jpg" 
+                                             alt="Noir" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Marron</span>
+                                                                            <img src="images/couleurs/cuir_marron.jpg" 
+                                             alt="Marron" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                <div class="couleur-item">
+                                    <span class="couleur-nom">Bleu Marine</span>
+                                                                            <img src="images/couleurs/cuir_bleu.jpg" 
+                                             alt="Bleu Marine" 
+                                             class="couleur-image">
+                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                </div>
+                
+                <!-- Conditionnement -->
+                <div class="col-nb">
+                                            20 pièces                                    </div>
+                
+                <!-- Contrôle quantité -->
+                <div class="col-quantite">
+                    <div class="quantite-control">
+                        <button type="button" class="btn-moins" onclick="modifierQuantite(this, -1)">−</button>
+                        <input type="number" class="input-quantite" value="1" min="1" readonly>
+                        <button type="button" class="btn-plus" onclick="modifierQuantite(this, 1)">+</button>
+                    </div>
+                </div>
+                
+                <!-- Prix -->
+                <div class="col-prix">
+                    18,90 € HT
+                </div>
+                
+                <!-- Bouton ajouter au panier -->
+                <div class="col-action">
+                    <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)">
+                        Ajouter au panier
+                    </button>
+                </div>
+                
+            </div>
+                    </div>
+        
+        

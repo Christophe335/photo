@@ -1,0 +1,7 @@
+{
+    "action": "valider_commande",
+    "panier_complet": "[{\"id\":\"72_\",\"quantite\":1,\"prix\":67,\"details\":{\"code\":\"UCHDR0608**\",\"designation\":\"Calendrier Amovible pour la maison avec guide d'utilisation (version consommateur)\",\"conditionnement\":\"10\",\"format\":\"15 x 20 cm\",\"matiere\":\"\",\"couleur\":\"\",\"imageCouleur\":\"\"},\"dateAjout\":\"2025-12-22T08:24:01.196Z\"}]",
+    "mode_paiement": "virement",
+    "utiliser_adresse_facturation": "on",
+    "commentaire": ""
+}

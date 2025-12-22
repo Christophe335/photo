@@ -1,3 +1,14 @@
+./* Variables CSS globales (valeurs par défaut pour pages qui ne chargent pas le fichier de variables) */
+:root {
+  --primary-dark: #2a256d;
+  --primary-orange: #f05124;
+  --primary-green: #28a745;
+  --background-light: #f8f9fa;
+  --border-color: #dee2e6;
+  --text-dark: #333;
+  --text-muted: #6c757d;
+}
+
 /* Styles pour le modal du panier */
 .modal-panier {
   position: fixed;
@@ -331,7 +342,7 @@
 
 .btn-panier,
 .btn-continuer {
-  background: var(--primary-dark);
+  background: var(--primary-dark, #2a256d);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -345,7 +356,7 @@
 
 .btn-panier:hover,
 .btn-continuer:hover {
-  background: var(--primary-orange);
+  background: var(--primary-orange, #f05124);
 }
 
 /* Responsive pour le modal */
