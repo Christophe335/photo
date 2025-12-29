@@ -57,4 +57,61 @@
             
         </div>
     </main>
+    <script>
+    // Ouvrir le menu 'Tirage Photos' au clic sur la vignette de la page d'accueil
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            const vignettes = document.querySelectorAll('.vignette-index');
+            let cible = null;
+            vignettes.forEach(v => {
+                const label = v.querySelector('.span-index');
+                if (label && label.textContent.trim().toLowerCase().includes('tirage')) {
+                    cible = v;
+                }
+            });
+
+            if (!cible) return;
+
+            cible.style.cursor = 'pointer';
+            cible.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Trouver le bouton de navigation correspondant (texte contient 'Tirage')
+                const navBtns = document.querySelectorAll('.nav-btn');
+                let targetBtn = null;
+                navBtns.forEach(btn => {
+                    if (btn.textContent.trim().toLowerCase().includes('tirage')) {
+                        targetBtn = btn;
+                    }
+                });
+
+                if (!targetBtn) {
+                    console.warn('Bouton Tirage non trouvé');
+                    return;
+                }
+
+                const navItem = targetBtn.closest('.nav-item');
+                const dropdown = navItem ? navItem.querySelector('.dropdown-menu') : null;
+
+                // Sur mobile, simuler le click pour ouvrir le menu
+                if (window.innerWidth <= 768) {
+                    targetBtn.click();
+                    return;
+                }
+
+                // Sur desktop, forcer l'affichage du menu
+                if (dropdown) {
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                    // Fermer après 6 secondes si l'utilisateur ne fait rien
+                    setTimeout(() => {
+                        dropdown.style.opacity = '';
+                        dropdown.style.visibility = '';
+                    }, 6000);
+                }
+            });
+        } catch (err) {
+            console.error('Erreur ouverture menu Tirage:', err);
+        }
+    });
+    </script>
     <?php include 'includes/footer.php'; ?>

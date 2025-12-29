@@ -32,57 +32,70 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
         <div class="top-banner">
             <div class="container">
                 <div class="top-banner-content">
-                    <!-- Logo -->
-                    <a class="logo" href="<?php echo $indexPath; ?>">
-                        <img src="<?php echo $imagesPath; ?>logo-icon/logo3.svg" alt="Logo" class="logo-img">
-                    </a>
-                    <!-- Coordonnées -->
-                    <div class="tagcontact">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>Appelez-nous : <a class="lienTel" href="tel:0384783839">03 84 78 38 39</a></span>
+                    <div class="top-row">
+                        <!-- Logo -->
+                        <a class="logo" href="<?php echo $indexPath; ?>">
+                            <img src="<?php echo $imagesPath; ?>logo-icon/logo3.svg" alt="Logo" class="logo-img">
+                        </a>
+
+                        <!-- Coordonnées (icone + numéro seulement) -->
+                        <div class="tagcontact">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <a class="lienTel" href="tel:0384783839">03 84 78 38 39</a>
+                        </div>
+
+                        <!-- Bouton burger (déplacé ici, à droite) -->
+                        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Ouvrir le menu">
+                            <i class="fas fa-bars" aria-hidden="true"></i>
+                        </button>
                     </div>
-                    <!-- Phrase centrale -->
-                    <div class="tagline">
-                        <h1>Nous imprimons pour vous</h1>
+
+                    <div class="middle-row">
+                        <!-- Phrase centrale (pleine largeur) -->
+                        <div class="tagline">
+                            <h1>Nous imprimons pour vous</h1>
+                        </div>
                     </div>
-                    
-                    <!-- Zone actions (recherche, compte, panier) -->
-                    <div class="header-actions">
-                        <!-- Barre de recherche -->
-                        <div class="search-bar">
-                            <input type="text" id="site-search-input" placeholder="Recherche par thème..." class="search-input">
-                            <button class="search-btn" id="site-search-btn">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- Bouton Compte -->
-                        <div class="account-btn">
-                            <a href="<?php echo $basePath; ?>compte.php" class="btn-account">
-                                <i class="fas fa-user"></i>
-                                <span>Compte</span>
-                            </a>
-                        </div>
-                        <!-- Bouton Contact -->
-                        <div class="account-btn">
-                            <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account">
-                                <i class="fa-solid fa-envelope"></i>
-                                <span>Contact</span>
-                            </a>
-                        </div>
-                        <!-- Bouton Devis -->
-                        <div class="account-btn">
-                            <a href="<?php echo $basePath; ?>formulaires/devis.php" class="btn-account">
-                                <i class="fa-solid fa-envelope"></i>
-                                <span>Devis</span>
-                            </a>
-                        </div>
-                        <!-- Panier -->
-                        <div class="cart">
-                            <a href="/pages/panier.php" class="btn-cart">
-                                <i class="fas fa-shopping-cart"></i>
-                                <span class="cart-count">0</span>
-                            </a>
+
+                    <div class="bottom-row">
+                        <!-- Zone actions (recherche, compte, panier) -->
+                        <div class="header-actions">
+                            <!-- Barre de recherche -->
+                            <div class="search-bar">
+                                <input type="text" id="site-search-input" placeholder="Recherche par thème..." class="search-input">
+                                <button class="search-btn" id="site-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Bouton Compte -->
+                            <div class="account-btn">
+                                <a href="<?php echo $basePath; ?>compte.php" class="btn-account">
+                                    <i class="fas fa-user"></i>
+                                    <span>Compte</span>
+                                </a>
+                            </div>
+                            <!-- Bouton Contact -->
+                            <div class="account-btn">
+                                <a href="<?php echo $basePath; ?>formulaires/contact.php" class="btn-account">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>Contact</span>
+                                </a>
+                            </div>
+                            <!-- Bouton Devis -->
+                            <div class="account-btn">
+                                <a href="<?php echo $basePath; ?>formulaires/devis.php" class="btn-account">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>Devis</span>
+                                </a>
+                            </div>
+                            <!-- Panier -->
+                            <div class="cart">
+                                <a href="/pages/panier.php" class="btn-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span class="cart-count">0</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -232,8 +245,8 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="personnalisation">Couvertures</button>
                         <div class="dropdown-menu" id="personnalisation-menu">  
-                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
                             <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
                             <a href="<?php echo $pagesPath; ?>luxe.php" class="dropdown-item">Finition Luxe</a>
                         </div>
@@ -257,17 +270,90 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         <button class="nav-btn" data-menu="photo">Personnalisation</button>
                         <div class="dropdown-menu" id="photo-menu">
                             <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-rigide-perso.php" class="dropdown-item">Couv. Rigide Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-panorama-perso.php" class="dropdown-item">Panorama Personnalisé</a>
                             <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-souple-perso.php" class="dropdown-item">Couv. Souple Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-panorama-perso.php" class="dropdown-item">Panorama Personnalisé</a>
                             <a href="<?php echo $pagesPath; ?>../pages-perso/album-perso.php" class="dropdown-item">Album Photos Personnalisé</a>
                             <a href="<?php echo $pagesPath; ?>../pages-perso/pochette-perso.php" class="dropdown-item">Pochettes Personnalisé</a>
                             <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a5-perso.php" class="dropdown-item">Boîte A5 Personnalisé</a>
                             <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a4-perso.php" class="dropdown-item">Boîte A4 Personnalisé</a>
                             <a href="<?php echo $pagesPath; ?>../pages-perso/infinity-perso.php" class="dropdown-item">Infinity Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/luxe-perso.php" class="dropdown-item">Finition Luxe Personnalisé</a>
                             <!-- <a href="<?php echo $pagesPath; ?>../pages-perso/toile-perso.php" class="dropdown-item">Toile Personnalisé</a> -->
                         </div>
                     </div>
                 </nav>
+                <!-- Menu mobile (contenu affiché par le burger) -->
+                <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+                    <div class="mobile-group">
+                        <button class="mobile-group-title" aria-expanded="false">Tirage Photos <span class="arrow">▾</span></button>
+                        <div class="mobile-group-items">
+                            <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="mobile-menu-link">10 x 15 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="mobile-menu-link">12 x 12 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="mobile-menu-link">13 x 18 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="mobile-menu-link">15 x 15 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-petit.php" class="mobile-menu-link">15 x 20 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="mobile-menu-link">20 x 20 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="mobile-menu-link">20 x 25 cm</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-A4A3.php" class="mobile-menu-link">A4 / A3</a>
+                            <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="mobile-menu-link">Personnalisé</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-group">
+                        <button class="mobile-group-title" aria-expanded="false">Livres / Albums <span class="arrow">▾</span></button>
+                        <div class="mobile-group-items">
+                            <a href="<?php echo $pagesPath; ?>livre-photo.php" class="mobile-menu-link">Livre Photo</a>
+                            <a href="<?php echo $pagesPath; ?>album.php" class="mobile-menu-link">Album Photos</a>
+                            <a href="<?php echo $pagesPath; ?>infinity.php" class="mobile-menu-link">Dépliant Accordéon</a>
+                            <a href="<?php echo $pagesPath; ?>toile.php" class="mobile-menu-link">Impression sur Toile</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-group">
+                        <button class="mobile-group-title" aria-expanded="false">Calendriers <span class="arrow">▾</span></button>
+                        <div class="mobile-group-items">
+                            <a href="<?php echo $pagesPath; ?>calendrier-bureau.php" class="mobile-menu-link">Calendrier de bureau</a>
+                            <a href="<?php echo $pagesPath; ?>calendrier-mural.php" class="mobile-menu-link">Calendrier Mural</a>
+                            <a href="<?php echo $pagesPath; ?>calendrier-glissant.php" class="mobile-menu-link">Calendrier Glissant</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-group">
+                        <button class="mobile-group-title" aria-expanded="false">Couvertures <span class="arrow">▾</span></button>
+                        <div class="mobile-group-items">
+                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="mobile-menu-link">Couverture Souple</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="mobile-menu-link">Couverture Rigide</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="mobile-menu-link">Couverture Panorama</a>
+                            <a href="<?php echo $pagesPath; ?>luxe.php" class="mobile-menu-link">Finition Luxe</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-group">
+                        <button class="mobile-group-title" aria-expanded="false">Panneaux / Boîtes <span class="arrow">▾</span></button>
+                        <div class="mobile-group-items">
+                            <a href="<?php echo $pagesPath; ?>panneau-bambou.php" class="mobile-menu-link">Panneaux Bambou</a>
+                            <a href="<?php echo $pagesPath; ?>panneau-acrylique.php" class="mobile-menu-link">Panneaux Acrylique</a>
+                            <a href="<?php echo $pagesPath; ?>panneau-photo.php" class="mobile-menu-link">Panneaux Photo</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="mobile-menu-link">Boîte A5</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="mobile-menu-link">Boîte A4</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-group">
+                        <button class="mobile-group-title" aria-expanded="false">Personnalisation <span class="arrow">▾</span></button>
+                        <div class="mobile-group-items">
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/album-perso.php" class="mobile-menu-link">Album Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-rigide-perso.php" class="mobile-menu-link">Couv. Rigide Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>../pages-perso/infinity-perso.php" class="mobile-menu-link">Infinity Personnalisé</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-menu-separator" aria-hidden="true"></div>
+                    <a href="<?php echo $basePath; ?>compte.php" class="mobile-menu-link">Compte</a>
+                    <a href="<?php echo $basePath; ?>formulaires/contact.php" class="mobile-menu-link">Contact</a>
+                    <a href="<?php echo $basePath; ?>formulaires/devis.php" class="mobile-menu-link">Devis</a>
+                </div>
+
                 <!-- Boutons actions header (mode compact) -->
                     <div class="nav-actions-compact">
                         <a href="<?php echo $basePath; ?>clients/connexion.php" class="btn-account-compact">

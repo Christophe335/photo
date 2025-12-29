@@ -1,0 +1,12 @@
+{
+    "time": 1766926075,
+    "POST_keys": [
+        "action",
+        "panier_complet",
+        "mode_paiement",
+        "utiliser_adresse_facturation",
+        "commentaire"
+    ],
+    "POST_panier_complet_present": true,
+    "SESSION_panier_count": 3
+}

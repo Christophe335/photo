@@ -19,6 +19,7 @@
             <h1><i class="fas fa-cogs"></i> Administration et Gestion</h1>
             <nav class="admin-nav">
                 <a href="index.php"><i class="fas fa-boxes"></i> Produits</a>
+                	<a href="liaisons_personnalisation.php"><i class="fas fa-link"></i> Liaisons personnalisation</a>
                 <a href="gestion-clients.php"><i class="fas fa-users"></i> Clients</a>
                 <a href="gestion-devis.php"><i class="fas fa-file-invoice"></i> Devis</a>
                 <a href="gestion-mots-de-passe.php"><i class="fas fa-key"></i> Mots de passe clients</a>

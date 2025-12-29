@@ -341,6 +341,11 @@ class EmailManager {
                     <td>' . number_format($item['prix'], 2, ',', ' ') . ' € HT</td>
                     <td>' . number_format($totalLigne, 2, ',', ' ') . ' € HT</td>
                 </tr>';
+
+                // Si le client a fourni un détail de personnalisation, l'afficher sous la ligne
+                if (!empty($item['details']['personnalisation_detail'])) {
+                    $html .= '<tr><td colspan="7" style="background:#fff7e6;padding:8px;color:#333"><strong>Détail de la personnalisation :</strong> ' . nl2br(htmlspecialchars($item['details']['personnalisation_detail'])) . '</td></tr>';
+                }
             }
             
             $html .= '</tbody>
@@ -456,6 +461,9 @@ class EmailManager {
                     $prix = number_format($item['prix'] ?? 0, 2, ',', ' ') . ' €';
                     $html .= '<tr><td>' . $ref . '</td><td>' . $des . '</td><td>' . $qty . '</td><td>' . $prix . '</td></tr>';
                     $total += ($item['prix'] ?? 0) * $qty;
+                    if (!empty($item['details']['personnalisation_detail'])) {
+                        $html .= '<tr><td colspan="4" style="background:#fff7e6;padding:8px;color:#333"><strong>Détail de la personnalisation :</strong> ' . nl2br(htmlspecialchars($item['details']['personnalisation_detail'])) . '</td></tr>';
+                    }
                 }
                 $html .= '</tbody></table>';
                 $fraisPort = ($total > 200) ? 0 : 13.95;

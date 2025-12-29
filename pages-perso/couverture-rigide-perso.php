@@ -6,16 +6,16 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 40px 0;">
-    <div class="container">
+<main style="padding: 60px 0;">
+    <!-- <div class="container">
         <h1 class="title-h1 bull">Couverture Rigide Personnalisée</h1>
-    </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-rigide-1.webp" alt="Un bandeau présentant des couvertures rigides personnalisées">
-    <div class="container">
+    </div> -->
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-rigide-perso.webp" alt="Un bandeau présentant des couvertures rigides personnalisées">
+    <!-- <div class="container">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             La durabilité et l'élégance avec nos couvertures rigides de qualité.
         </p>
-    </div>
+    </div> -->
     <section class="section1" id="Carnet de Notes">
     <div class="container">
         <h2 class="title-h3 centre-text">Carnet de notes personnalisé</h2>
@@ -73,13 +73,7 @@
             afficherTableauProduits('Thermal Hard Cover A4 Eco');
             ?>
         
-            <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau-perso.php';
             
-            // Afficher les produits de reliure directement
-            afficherTableauProduits('V-Paper');
-            ?>
         </div>
     </div>    
 </section>
@@ -138,7 +132,99 @@
             </div>
         </div>
 </section>
+<section class="section1" id="Couverture rigide personnalisables">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Couverture rigide personnalisables</br>formats 10x15 cm - 20x20 cm - 30x30 cm</h2>
+        <p class="paragraphe">Le Hard Cover Basic est une couverture préfabriquée avec un revêtement en papier dotée d'une fine couche de colle thermofusible sur son extérieur et ses bords intérieurs. Développé pour fabriquer un livre relié sans utilisation de colles liquides, en petites ou grandes quantités.</p>
+    </div>
+    <img class="centre-div" src="../images/produits/hard-cover-basic-1.webp" alt="Présentation de la conception des couvertures rigide personnalisables formats 10x15 cm - 20x20 cm - 30x30 cm">
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Hard Cover Basic');
+            ?>
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Infinity Lay Flat Hard Cover Basic 21,6x21,6 cm');
+            ?>
+        </div>
+    <div class="ligne">
+        <div class="colonne-3 onleft">
+            <img class="centre-div" src="../images/produits/hard-cover-basic-2.webp" alt="Couverture rigide format paysage avec personnalisation recto verso représentant ici une photo d'immeubles modernes">
+        </div>
+        <div class="colonne-3 onright">
+            <img class="centre-div" src="../images/produits/hard-cover-basic-3.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente">
+        </div>
+    </div>
+</section>
+<section class="section2" id="Couverture rigide clamps">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Couverture rigide clamps personnalisables</h2>
+        <p class="paragraphe">Les couvertures Hard Cover Basic reliure clamps sont des couvertures de  reliure personnalisable à l'aide de la machine de personnalisation Hard  Cover Maker 650. Le système Clamps est une baguette plastique qui permet de relier des feuilles sans l'utilisation de relieure.</p>
+    </div>
+    <div class="ligne">
+        <div class="colonne-3 onleft">
+            <img class="centre-div" src="../images/produits/hard_cover_basic_clamp-1.webp" alt="Présentation de la conception des couvertures rigide clamp personnalisables ">
+        </div>
+        <div class="colonne-3 onright">
+            <img class="centre-div" src="../images/produits/clamp.webp" alt="Présentation de la conception des couvertures rigide clamp">
+        </div>
+    </div>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Hard Cover Basic Clamp Binding');
+            ?>
+            
+        </div>
+</section>
+<section class="section1" id="Classeurs">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Classeur - 2 ou 4 anneaux</h2>
+        <p class="paragraphe">Présentez vos documents de manière élégante et professionnelle. Le RingBinder est parfait pour organiser vos documents. Le RingBinder peut être personnalisé avec n'importe quel logo ou œuvre d'art.</br>Choisissez entre 2 anneaux ou 4 anneaux.</p>
+    </div>
+    <div class="ligne">
+        <div class="colonne-3 onleft">
+            <img class="centre-div" src="../images/produits/hard_cover_basic_classeur-1.webp" alt="Présentation de la conception des couvertures rigide pour classeur personnalisables">
+        </div>
+        <div class="colonne-3 onright">
+            <img class="centre-div" src="../images/produits/accessoires classeur-1.webp" alt="Présentation des accessoires nécessaires à la conception des couvertures rigide pour classeur, tels que les anneaux et les rivets">
+        </div>
+    </div>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Hard Cover Basic Ringbinder');
+            ?>
+        </div>
+    <div class="ligne">
+        <div class="colonne-5 onleft">
+            <img class="centre-div" src="../images/produits/classeur-1.webp" alt="Classeur au format A4 blanc avec des dessins d'ordinateurs et de bonhommes bleus avec couverture rigide personnalisée et système de reliure à anneaux">
+        </div>
+        <div class="colonne-5">
+            <img class="centre-div" src="../images/produits/classeur-2.webp" alt="Classeur au format A4 blanc ouvert montrant le système de reliure à 2 anneaux et un document d'architecte">
+        </div>
+        <div class="colonne-5">
+            <img class="centre-div" src="../images/produits/classeur-4.webp" alt="Classeur au format A4 noir ouvert montrant le système de reliure à 2 anneaux avec des  documents déjà en place">
+        </div>
+        <div class="colonne-5 onright">
+            <img class="centre-div" src="../images/produits/classeur-3.webp" alt="Classeur au format A4 noir entre ouvert avec un logo vert personnalisé sur la couverture rigide et système de reliure à anneaux">
+        </div>
+    </div>
 
+</section>
 </main>
 
 <script src="/js/panier.js"></script>

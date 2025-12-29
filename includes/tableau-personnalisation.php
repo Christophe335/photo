@@ -11,23 +11,102 @@ function afficherTablenalogPersonnalisation_deprecated($famille) {
     afficherTableauPersonnalisation($famille, 1);
 }
 
-function afficherTableauPersonnalisation($famille, $quantiteParDefaut = 1) {
+function afficherTableauPersonnalisation($famille, $quantiteParDefaut = 1, $produit_ref = null, $produit_format = null) {
     try {
         $db = Database::getInstance()->getConnection();
-        
-        // Récupération des produits de la famille
-        $stmt = $db->prepare("SELECT * FROM produits WHERE famille = ? ORDER BY reference ASC");
-        $stmt->execute([$famille]);
-        $produits = $stmt->fetchAll();
-        
+
+        // Récupération des produits de personnalisation selon les liaisons (si référence produit fournie)
+        $produits = [];
+        $use_liaison = false;
+        if (!empty($produit_ref)) {
+                try {
+                // Récupérer la liaison pour ce produit (on peut avoir plusieurs lignes mais on s'intéresse aux champs ref_pre_encollage/ref_impression/ref_impression_2/ref_impression_3/enabled)
+                $stmtL = $db->prepare("SELECT ref_pre_encollage, ref_impression, ref_impression_2, ref_impression_3, type, enabled FROM personnalisation_liaisons WHERE produit_ref = ?");
+                $stmtL->execute([$produit_ref]);
+                $liaisons = $stmtL->fetchAll();
+            } catch (Exception $e) {
+                $liaisons = [];
+            }
+
+            // Si on a des liaisons, déterminer l'affichage selon la famille demandée
+            if (!empty($liaisons)) {
+                $use_liaison = true;
+
+                // Mode debug: afficher les liaisons récupérées si demandé
+                if (isset($_GET['debug']) && $_GET['debug'] == '1') {
+                    echo '<pre style="background:#eef;padding:10px;border:1px solid #99c;margin-bottom:10px;">DEBUG LIAISONS: ' . htmlspecialchars(print_r($liaisons, true)) . '</pre>';
+                }
+
+                // Si on demande la dorure et qu'une liaison dorure active existe -> afficher toute la famille 'dorure'
+                if (stripos($famille, 'dorure') !== false) {
+                    $foundDorure = false;
+                    foreach ($liaisons as $l) {
+                        // La présence de la case 'enabled' active l'accès à la dorure, indépendamment du champ type
+                        if (isset($l['enabled']) && $l['enabled']) { $foundDorure = true; break; }
+                    }
+                    if ($foundDorure) {
+                        $stmt = $db->prepare("SELECT * FROM produits WHERE famille = ? ORDER BY reference ASC");
+                        $stmt->execute([$famille]);
+                        $produits = $stmt->fetchAll();
+                    } else {
+                        echo '<div style="text-align:center;padding:20px;background:#fff3f3;border:1px solid #ffd6d6;border-radius:8px;color:#8a1f1f;">Aucune personnalisation pour ce produit. Contactez-nous</div>';
+                        return;
+                    }
+                }
+                // Si on demande les feuilles pré-encollées (ex: "Tirage Panoramique") : chercher la ref_pre_encollage et afficher uniquement cette référence (si fournie)
+                elseif (stripos($famille, 'feuilles') !== false || stripos($famille, 'panoram') !== false || stripos($famille, 'pré-encoll') !== false) {
+                    $refs = [];
+                    foreach ($liaisons as $l) {
+                        if (!empty($l['ref_pre_encollage'])) $refs[] = trim($l['ref_pre_encollage']);
+                    }
+                    $refs = array_values(array_unique(array_filter($refs)));
+                    if (!empty($refs)) {
+                        $placeholders = implode(',', array_fill(0, count($refs), '?'));
+                        $stmt = $db->prepare("SELECT * FROM produits WHERE TRIM(reference) IN ($placeholders) ORDER BY reference ASC");
+                        $stmt->execute($refs);
+                        $produits = $stmt->fetchAll();
+                    } else {
+                        echo '<div style="text-align:center;padding:20px;background:#fff3f3;border:1px solid #ffd6d6;border-radius:8px;color:#8a1f1f;">Aucune personnalisation pour ce produit. Contactez-nous</div>';
+                        return;
+                    }
+                }
+                // Sinon (typiquement les familles de type "Tirage Photo ...") on considère qu'il s'agit d'impression couleur
+                elseif (true) {
+                    $refs = [];
+                    foreach ($liaisons as $l) {
+                        if (!empty($l['ref_impression'])) $refs[] = trim($l['ref_impression']);
+                        if (!empty($l['ref_impression_2'])) $refs[] = trim($l['ref_impression_2']);
+                        if (!empty($l['ref_impression_3'])) $refs[] = trim($l['ref_impression_3']);
+                    }
+                    $refs = array_values(array_unique(array_filter($refs)));
+                    if (!empty($refs)) {
+                        $placeholders = implode(',', array_fill(0, count($refs), '?'));
+                        $stmt = $db->prepare("SELECT * FROM produits WHERE TRIM(reference) IN ($placeholders) ORDER BY reference ASC");
+                        $stmt->execute($refs);
+                        $produits = $stmt->fetchAll();
+                    } else {
+                        echo '<div style="text-align:center;padding:20px;background:#fff3f3;border:1px solid #ffd6d6;border-radius:8px;color:#8a1f1f;">Aucune personnalisation pour ce produit. Contactez-nous</div>';
+                        return;
+                    }
+                }
+            }
+        }
+
+        // Si on n'utilise pas la table de liaison ou qu'il n'y a pas de référence fournie, on affiche la famille complète
+        if (!$use_liaison) {
+            $stmt = $db->prepare("SELECT * FROM produits WHERE famille = ? ORDER BY reference ASC");
+            $stmt->execute([$famille]);
+            $produits = $stmt->fetchAll();
+        }
+
         if (empty($produits)) {
             echo '<p style="text-align: center; color: #666; padding: 20px;">Aucun produit de personnalisation trouvé pour cette catégorie. Les produits seront bientôt disponibles.</p>';
             return;
         }
         
         // Déterminer si c'est de la dorure (affiche couleurs) ou impression (pas de couleurs)
-        $afficherCouleur = ($famille === 'dorure');
-        $titreFamille = ($famille === 'dorure') ? 'Dorure' : 'Impression Couleur';
+        $afficherCouleur = (strtolower($famille) === 'dorure');
+        $titreFamille = ($afficherCouleur) ? 'Dorure' : 'Impression Couleur';
             // Colonnes de grille : spécifique pour dorure
             $gridColsDorure = '80px 1fr 200px 100px 90px 120px';
             $gridColsDefault = '140px 1fr 120px 120px 160px 100px';

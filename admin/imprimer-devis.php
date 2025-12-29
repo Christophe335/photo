@@ -30,12 +30,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $devis = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($devis) {
-            // Récupérer les articles du devis
-            $stmt = $db->prepare("
-                SELECT * FROM devis_items 
-                WHERE devis_id = ? 
-                ORDER BY id
-            ");
+            // Récupérer les articles du devis et certaines informations produit (référence, format, conditionnement, couleur)
+            $stmt = $db->prepare(
+                "SELECT di.*, p.reference AS produit_reference_full, p.designation AS produit_designation, p.format AS produit_format, p.conditionnement AS produit_conditionnement, p.couleur_interieur AS produit_couleur
+                 FROM devis_items di
+                 LEFT JOIN produits p ON di.produit_id = p.id
+                 WHERE di.devis_id = ?
+                 ORDER BY di.id"
+            );
             $stmt->execute([$devis_id]);
             $devis_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else {
@@ -255,24 +257,29 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <div class="devis-container">
             <!-- En-tête -->
             <div class="header">
-                <div class="logo-section">
-                    <div class="company-name">Mouillet Photos</div>
-                    <div class="company-info">
-                        Spécialiste en photographie et impression<br>
-                        123 Avenue de la Photo<br>
-                        75000 Paris<br>
-                        Tél: 01 23 45 67 89<br>
-                        Email: contact@mouillet-photos.fr
+                    <div class="logo-section">
+                        <img src="../images/logo-icon/logo.svg" alt="Bindy Studio" style="max-height:80px; display:block; margin-bottom:10px;">
+                        <div class="company-name">Bindy Studio</div>
+                        <div class="company-info">
+                            by General Cover<br>
+                            9 rue de la gare<br>
+                            70000 Vallerois-le-Boiss<br>
+                            Tél: 03 84 78 38 39<br>
+                            Email: contact@bindy-studio.fr
+                        </div>
                     </div>
-                </div>
                 <div class="devis-info">
                     <div class="devis-title">DEVIS</div>
                     <div class="devis-number">N° <?php echo htmlspecialchars($devis['numero']); ?></div>
                     <div class="devis-date">
                         Date: <?php echo date('d/m/Y', strtotime($devis['date_creation'])); ?>
                     </div>
+                    <?php
+                    $duree_validite = isset($devis['duree_validite']) && $devis['duree_validite'] !== '' ? (int)$devis['duree_validite'] : 30;
+                    $validite_date = isset($devis['date_creation']) ? date('d/m/Y', strtotime($devis['date_creation'] . " +{$duree_validite} days")) : '—';
+                    ?>
                     <div class="devis-date">
-                        Validité: <?php echo date('d/m/Y', strtotime($devis['date_validite'])); ?>
+                        Validité: <?php echo $validite_date; ?>
                     </div>
                 </div>
             </div>
@@ -280,21 +287,69 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <!-- Informations client -->
             <div class="client-section">
                 <div class="section-title">Client</div>
-                <div class="client-info">
-                    <?php if (!empty($devis['client_societe'])): ?>
-                        <strong><?php echo htmlspecialchars($devis['client_societe']); ?></strong><br>
-                    <?php endif; ?>
-                    <?php echo htmlspecialchars($devis['client_prenom'] . ' ' . $devis['client_nom']); ?><br>
-                    <?php if (!empty($devis['client_adresse'])): ?>
-                        <?php echo nl2br(htmlspecialchars($devis['client_adresse'])); ?><br>
-                    <?php endif; ?>
-                    <?php if (!empty($devis['client_code_postal']) && !empty($devis['client_ville'])): ?>
-                        <?php echo htmlspecialchars($devis['client_code_postal'] . ' ' . $devis['client_ville']); ?><br>
-                    <?php endif; ?>
-                    <?php if (!empty($devis['client_telephone'])): ?>
-                        Tél: <?php echo htmlspecialchars($devis['client_telephone']); ?><br>
-                    <?php endif; ?>
-                    Email: <?php echo htmlspecialchars($devis['client_email']); ?>
+                <?php
+                // Colonne 1 : nom & email
+                $client_name = trim((string)($devis['client_prenom'] ?? '') . ' ' . (string)($devis['client_nom'] ?? ''));
+                $client_email = $devis['client_email'] ?? '';
+
+                // Adresse de facturation : utiliser les informations de la fiche client
+                $billing_parts = [];
+                if (!empty($devis['client_societe'])) $billing_parts[] = $devis['client_societe'];
+                if ($client_name) $billing_parts[] = $client_name;
+                if (!empty($devis['client_adresse'])) $billing_parts[] = $devis['client_adresse'];
+                $pc = trim((string)($devis['client_code_postal'] ?? '') . ' ' . (string)($devis['client_ville'] ?? ''));
+                if ($pc) $billing_parts[] = $pc;
+                if (!empty($devis['client_telephone'])) $billing_parts[] = 'Tél: ' . $devis['client_telephone'];
+
+                // Adresse de livraison : priorité champs devis, sinon client, sinon même que facturation
+                $shipping_parts = [];
+                if (!empty($devis['adresse_livraison'])) {
+                    $shipping_parts[] = $devis['adresse_livraison'];
+                    $pcl = trim((string)($devis['code_postal_livraison'] ?? '') . ' ' . (string)($devis['ville_livraison'] ?? ''));
+                    if ($pcl) $shipping_parts[] = $pcl;
+                } elseif (!empty($devis['client_adresse_livraison'])) {
+                    $shipping_parts[] = $devis['client_adresse_livraison'];
+                    $pcl = trim((string)($devis['client_code_postal_livraison'] ?? '') . ' ' . (string)($devis['client_ville_livraison'] ?? ''));
+                    if ($pcl) $shipping_parts[] = $pcl;
+                }
+
+                $col1 = [];
+                if ($client_name) $col1[] = htmlspecialchars($client_name);
+                if ($client_email) $col1[] = 'Email: ' . htmlspecialchars($client_email);
+
+                $billing_html = '';
+                if (!empty($billing_parts)) {
+                    $billing_html = implode("<br>", array_map(function($v){ return htmlspecialchars((string)$v); }, $billing_parts));
+                }
+
+                $shipping_html = '';
+                if (!empty($shipping_parts)) {
+                    $shipping_html = implode("<br>", array_map(function($v){ return htmlspecialchars((string)$v); }, $shipping_parts));
+                } else {
+                    $shipping_html = '<em>Même que facturation</em>';
+                }
+                ?>
+
+                <div style="display:flex; gap:20px;">
+                    <div style="flex:1;">
+                        <div class="client-info">
+                            <?php if (!empty($col1)): ?>
+                                <?php echo implode('<br>', $col1); ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div style="flex:1;">
+                        <div class="client-info">
+                            <strong>Adresse de facturation</strong><br>
+                            <?php echo $billing_html; ?>
+                        </div>
+                    </div>
+                    <div style="flex:1;">
+                        <div class="client-info">
+                            <strong>Adresse de livraison</strong><br>
+                            <?php echo $shipping_html; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -302,12 +357,13 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <table class="items-table">
                 <thead>
                     <tr>
-                        <th>Description</th>
-                        <th>Détails</th>
-                        <th>Quantité</th>
-                        <th>Prix unitaire</th>
-                        <th>TVA</th>
-                        <th>Total HT</th>
+                                        <th>Ref</th>
+                                        <th>Description</th>
+                                        <th>Cdt</th>
+                                        <th>Qte</th>
+                                    <th>Prix unitaire</th>
+                                    <th>TVA</th>
+                                    <th>Total HT</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -315,22 +371,48 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     $total_ht = 0;
                     $total_tva = 0;
                     foreach ($devis_items as $item): 
-                        $ligne_ht = $item['quantite'] * $item['prix_unitaire'];
-                        $ligne_tva = $ligne_ht * ($item['taux_tva'] / 100);
+                        // référence : priorité champ dans la ligne puis référence produit liée
+                        $ref = !empty($item['produit_reference']) ? $item['produit_reference'] : ($item['produit_reference_full'] ?? '');
+                        // désignation (ligne de devis) ou fallback sur produit
+                        $designation = $item['designation'] ?? ($item['produit_designation'] ?? '');
+                        $format = $item['produit_format'] ?? '';
+                        $couleur = $item['produit_couleur'] ?? '';
+                        $conditionnement = $item['produit_conditionnement'] ?? '';
+                        $quantite = isset($item['quantite']) ? $item['quantite'] : 0;
+                        $prix_unitaire = isset($item['prix_unitaire']) ? $item['prix_unitaire'] : 0;
+                        $taux_tva = isset($item['taux_tva']) && $item['taux_tva'] !== '' ? $item['taux_tva'] : 20;
+                        $ligne_ht = $quantite * $prix_unitaire;
+                        $ligne_tva = $ligne_ht * ($taux_tva / 100);
                         $total_ht += $ligne_ht;
                         $total_tva += $ligne_tva;
+
+                        $desc_parts = [];
+                        if ($designation !== '') $desc_parts[] = $designation;
+                        if ($format !== '') $desc_parts[] = $format;
+                        if ($couleur !== '') $desc_parts[] = $couleur;
+                        $description_display = implode(' — ', $desc_parts);
                     ?>
                         <tr>
-                            <td><strong><?php echo htmlspecialchars($item['nom']); ?></strong></td>
-                            <td><?php echo nl2br(htmlspecialchars($item['description'] ?? '')); ?></td>
-                            <td><?php echo $item['quantite']; ?></td>
-                            <td><?php echo number_format($item['prix_unitaire'], 2, ',', ' '); ?> €</td>
-                            <td><?php echo $item['taux_tva']; ?>%</td>
+                            <td><?php echo htmlspecialchars((string)$ref); ?></td>
+                            <td><?php echo nl2br(htmlspecialchars((string)$description_display)); ?></td>
+                            <td><?php echo htmlspecialchars((string)$conditionnement); ?></td>
+                            <td><?php echo (int)$quantite; ?></td>
+                            <td><?php echo number_format((float)$prix_unitaire, 2, ',', ' '); ?> €</td>
+                            <td><?php echo htmlspecialchars((string)$taux_tva); ?>%</td>
                             <td><?php echo number_format($ligne_ht, 2, ',', ' '); ?> €</td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <?php
+            // Calcul des frais de port : 13,95€ HT si total HT > 0 et < 200€, sinon offerts
+            $frais_port_ht = ($total_ht > 0 && $total_ht < 200) ? 13.95 : 0;
+            $frais_port_tva = $frais_port_ht * 0.20; // TVA 20% sur les frais de port
+            $total_ht_with_shipping = $total_ht + $frais_port_ht;
+            $total_tva_with_shipping = $total_tva + $frais_port_tva;
+            $total_ttc_final = $total_ht_with_shipping + $total_tva_with_shipping;
+            ?>
 
             <!-- Totaux -->
             <div class="totaux-section">
@@ -343,18 +425,30 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <td class="total-label">Total TVA :</td>
                         <td class="total-value"><?php echo number_format($total_tva, 2, ',', ' '); ?> €</td>
                     </tr>
-                    <tr class="total-final">
+                    <tr>
+                        <td class="total-label">Frais de port HT :</td>
+                        <td class="total-value">
+                            <?php if ($frais_port_ht > 0): ?>
+                                <?php echo number_format($frais_port_ht, 2, ',', ' '); ?> €
+                            <?php else: ?>
+                                <span style="color:green; font-weight:bold">Frais de port Offerts</span>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="total-label">Total TTC :</td>
-                        <td class="total-value"><?php echo number_format($total_ht + $total_tva, 2, ',', ' '); ?> €</td>
+                        <td class="total-value"><?php echo number_format($total_ttc_final, 2, ',', ' '); ?> €</td>
                     </tr>
                 </table>
             </div>
 
             <!-- Pied de page -->
             <div class="footer">
-                <p>Ce devis est valable <?php echo $devis['duree_validite']; ?> jours à partir de la date d'émission.</p>
+                <?php $duree_validite = isset($devis['duree_validite']) && $devis['duree_validite'] !== '' ? (int)$devis['duree_validite'] : 30; ?>
+                <p>Ce devis est valable <?php echo $duree_validite; ?> jours à partir de la date d'émission.</p>
                 <p>Conditions de paiement : <?php echo htmlspecialchars($devis['conditions_paiement'] ?? 'À réception de facture'); ?></p>
-                <p>SIRET: 123 456 789 00012 - TVA: FR12345678901</p>
+                <p>SIRET: 423 249 879 00010 - TVA: FR55423249879000010</p>
+                <p>Téléphone: 03 84 78 38 39 - Email: contact@bindy-studio.fr</p>
             </div>
         </div>
     <?php endif; ?>

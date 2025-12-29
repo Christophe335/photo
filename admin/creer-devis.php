@@ -158,7 +158,9 @@ include 'header.php';
         
         <div class="articles-container">
             <div class="articles-header">
+                <div>Ref</div>
                 <div>Désignation</div>
+                <div>Cdt</div>
                 <div>Quantité</div>
                 <div>Prix unitaire</div>
                 <div>Remise</div>

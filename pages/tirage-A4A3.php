@@ -31,6 +31,7 @@
                     afficherTableauProduits('Tirage Photo A4 et A3', false, 10);
                     ?>
                 </div> 
+                <p class="defile">Toute commande de tirage photo doit être en rapport avec un produit commandé. Pas de commande individuelle de tirage photo.</p>
                 </div>
             </div>  
                 

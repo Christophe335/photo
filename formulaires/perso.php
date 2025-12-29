@@ -20,11 +20,15 @@ if (empty($conditionnement) && $produit_id) {
     require_once __DIR__ . '/../includes/database.php';
     try {
         $db = Database::getInstance()->getConnection();
-        $stmt = $db->prepare("SELECT conditionnement FROM produits WHERE id = ?");
+        $stmt = $db->prepare("SELECT conditionnement, reference, designation, format, prixVente FROM produits WHERE id = ?");
         $stmt->execute([$produit_id]);
         $produit = $stmt->fetch();
         if ($produit) {
             $conditionnement = $produit['conditionnement'] ?? '';
+            if (empty($reference) && !empty($produit['reference'])) $reference = $produit['reference'];
+            if (empty($designation) && !empty($produit['designation'])) $designation = $produit['designation'];
+            if (empty($format) && !empty($produit['format'])) $format = $produit['format'];
+            if (empty($prix) && isset($produit['prixVente'])) $prix = $produit['prixVente'];
         }
     } catch (Exception $e) {
         error_log("Erreur récupération produit: " . $e->getMessage());
@@ -481,17 +485,52 @@ if (empty($conditionnement) && $produit_id) {
         <!-- ÉTAPE 2: PERSONNALISATION -->
         <div class="etape-contenu" id="contenu-etape-2">
             <div style="text-align: center; margin: 40px 0;">
-                <h3 style="color: #2a256d; font-size: 24px; margin-bottom: 20px;">Choisissez votre type de personnalisation</h3>
+                <h3 style="color: #2a256d; font-size: 24px; margin-bottom: 20px;">Type de personnalisation</h3>
                 <p style="color: #666; font-size: 16px; margin-bottom: 40px;">Sélectionnez le type de personnalisation que vous souhaitez ajouter à votre produit</p>
                 
+                <?php
+                // Déterminer quelles personnalisations sont disponibles pour ce produit via la table de liaisons
+                $has_dorure = false;
+                $has_imprime = false;
+                $has_feuilles = false;
+                if (!empty($reference)) {
+                    require_once __DIR__ . '/../includes/database.php';
+                    try {
+                        $db = Database::getInstance()->getConnection();
+                        $stmt = $db->prepare("SELECT ref_pre_encollage, ref_impression, ref_impression_2, ref_impression_3, enabled FROM personnalisation_liaisons WHERE produit_ref = ?");
+                        $stmt->execute([trim($reference)]);
+                        $liaisons = $stmt->fetchAll();
+                        foreach ($liaisons as $l) {
+                            $enabled = isset($l['enabled']) ? intval($l['enabled']) : 0;
+                            if ($enabled) $has_dorure = true; // case 'Actif' = dorure
+                            if (!empty($l['ref_impression']) || !empty($l['ref_impression_2']) || !empty($l['ref_impression_3'])) $has_imprime = true;
+                            if (!empty($l['ref_pre_encollage'])) $has_feuilles = true;
+                        }
+                    } catch (Exception $e) {
+                        error_log('Erreur liaison personnalisations: ' . $e->getMessage());
+                    }
+                }
+
+                // Affichage des boutons selon disponibilités
+                $countButtons = 0;
+                ?>
                 <div class="personnalisation-options">
-                    <button type="button" class="option-btn" onclick="afficherTableauPersonnalisation('dorure')">
-                        ✨ Dorure
-                    </button>
-                    <button type="button" class="option-btn" onclick="afficherTableauPersonnalisation('imprime')">
-                        🎨 Impression couleur
-                    </button>
+                    <?php if ($has_dorure): $countButtons++; ?>
+                        <button type="button" class="option-btn" onclick="afficherTableauPersonnalisation('dorure')">✨ Dorure</button>
+                    <?php endif; ?>
+
+                    <?php if ($has_imprime): $countButtons++; ?>
+                        <button type="button" class="option-btn" onclick="afficherTableauPersonnalisation('imprime')">🎨 Impression couleur</button>
+                    <?php endif; ?>
+
+                    <?php if ($has_feuilles): $countButtons++; ?>
+                        <button type="button" class="option-btn" onclick="afficherTableauPersonnalisation('feuilles')">📐 Feuilles pré-encollées</button>
+                    <?php endif; ?>
                 </div>
+
+                <?php if ($countButtons === 0): ?>
+                    <div style="text-align:center;padding:20px;background:#fff3f3;border:1px solid #ffd6d6;border-radius:8px;color:#8a1f1f;margin-top:20px;">Aucune personnalisation pour ce produit. Contactez-nous</div>
+                <?php endif; ?>
                 
                 <!-- Zone pour afficher le tableau de personnalisation -->
                 <div id="tableau-personnalisation" style="margin-top: 40px; display: none;">
@@ -557,6 +596,12 @@ if (empty($conditionnement) && $produit_id) {
                         margin: 20px 0;
                     ">
                         <!-- Les images apparaîtront ici -->
+                    </div>
+
+                    <!-- Champ message pour les détails de personnalisation -->
+                    <div style="margin-top:16px;">
+                        <label for="detailPersonnalisation" style="display:block;font-weight:600;margin-bottom:6px;color:#2a256d;">Détail de votre personnalisation</label>
+                        <input type="text" id="detailPersonnalisation" name="detail_personnalisation" placeholder="dimentions et placement" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
                     </div>
                     
                     <!-- Bouton final -->
@@ -645,6 +690,9 @@ let personnalisationChoisie = null;
 let fichiersUploadés = [];
 // Désactiver complètement l'affichage des popups panier sur cette page
 window.disablePanierPopup = true;
+// Référence et format du produit courant (disponibles côté serveur)
+const produitRef = <?= json_encode($reference) ?>;
+const produitFormat = <?= json_encode($format) ?>;
 
 /**
  * Affiche une étape spécifique
@@ -698,23 +746,31 @@ function afficherTableauPersonnalisation(type) {
         if (type === 'dorure') {
             chargerTableauPersonnalisation('dorure', <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>);
         } else if (type === 'imprime') {
-            // Construire plusieurs sections empilées pour les différents tirages
+            // Afficher un seul tableau centralisé pour l'impression couleur
+            const section = { id: 'imprime-tirage', family: 'Tirage Photo', title: 'Tirage Photo' };
+
+            tableauDiv.innerHTML = `
+                <div class="imprime-section" style="margin-bottom:24px;">
+                    <h4 style="margin:0 0 10px 0; color:#2a256d;">${section.title}</h4>
+                    <div id="${section.id}" class="personnalisation-subtable" style="background:#fff; border:1px solid #eee; padding:12px; border-radius:6px;">Chargement...</div>
+                </div>
+            `;
+
+            // Charger le tableau unique
+            chargerTableauPersonnalisation(section.family, <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>, section.id);
+        } else if (type === 'feuilles') {
+            // Nouvelle section 'Feuilles pré-encollées' contenant le tableau Panoramique
             const sections = [
-                { id: 'imprime-petit', family: 'Tirage Photo Petit Format', title: 'Tirage Photo Petit Format' },
-                { id: 'imprime-grand', family: 'Tirage Photo Grand Format', title: 'Tirage Photo Grand Format' },
-                { id: 'imprime-a4-a3', family: 'Tirage Photo A4 et A3', title: 'Tirage Photo A4 et A3' },
-                { id: 'imprime-panoramique', family: 'Tirage Panoramique', title: 'Tirage Photo Panoramique' }
+                { id: 'feuilles-panoramique', family: 'Tirage Panoramique', title: 'Impression de Feuilles Pré-encollées' }
             ];
 
-            // Remplacer le contenu par des conteneurs vides pour chaque section
             tableauDiv.innerHTML = sections.map(s => `
-                <div class="imprime-section" style="margin-bottom:24px;">
+                <div class="feuilles-section" style="margin-bottom:24px;">
                     <h4 style="margin:0 0 10px 0; color:#2a256d;">${s.title}</h4>
                     <div id="${s.id}" class="personnalisation-subtable" style="background:#fff; border:1px solid #eee; padding:12px; border-radius:6px;">Chargement...</div>
                 </div>
             `).join('');
 
-            // Lancer les requêtes AJAX pour remplir chaque conteneur (parallèle)
             sections.forEach(s => {
                 chargerTableauPersonnalisation(s.family, <?= intval($quantite_selectionnee) ?>, <?= intval($conditionnement ?: 1) ?>, s.id);
             });
@@ -734,8 +790,19 @@ async function chargerTableauPersonnalisation(famille, quantite = 1, conditionne
     const targetId = args.length >= 4 ? args[3] : null;
     const tableauDiv = targetId ? document.getElementById(targetId) : document.getElementById('tableau-personnalisation');
 
+    // Debug log pour surveiller les appels depuis l'UI
+    console.log('chargerTableauPersonnalisation called', {famille, quantite, conditionnement, produitRef, produitFormat, targetId});
+
     try {
-        const response = await fetch(`../ajax/charger-personnalisation.php?type=${encodeURIComponent(famille)}&quantite=${encodeURIComponent(quantite)}&conditionnement=${encodeURIComponent(conditionnement)}`);
+        // Ajouter référence produit et format si disponibles pour filtrage via table de liaison
+        const params = new URLSearchParams();
+        params.set('type', famille);
+        params.set('quantite', quantite);
+        params.set('conditionnement', conditionnement);
+        if (typeof produitRef !== 'undefined' && produitRef) params.set('produit_ref', produitRef);
+        if (typeof produitFormat !== 'undefined' && produitFormat) params.set('produit_format', produitFormat);
+
+        const response = await fetch(`../ajax/charger-personnalisation.php?${params.toString()}`);
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
@@ -1038,6 +1105,14 @@ function finaliserCommande() {
             nombrePhotos: fichiers.length,
             source: 'perso'
         };
+
+        // Récupérer le détail de personnalisation saisi par l'utilisateur (dimensions / placement)
+        try {
+            const detail = document.getElementById('detailPersonnalisation') ? document.getElementById('detailPersonnalisation').value.trim() : '';
+            if (detail) detailsProduit.personnalisation_detail = detail;
+        } catch (e) {
+            console.warn('Impossible de lire detailPersonnalisation:', e);
+        }
 
         // On ajoute l'article principal avec les photos attachées — ainsi le produit original n'est pas perdu
         panierManager.ajouterProduit(produitId, quantite, prix, detailsProduit);

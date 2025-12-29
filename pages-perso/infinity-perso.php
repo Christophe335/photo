@@ -6,16 +6,16 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 40px 0;">
-    <div class="container">
+<main style="padding: 60px 0;">
+    <!-- <div class="container">
         <h1 class="title-h1 bull">Infinity Personnalisé</h1>
-    </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/mariage-1.webp" alt="Un bandeau présentant des dépliants en accordéon personnalisés">
-    <div class="container">
+    </div> -->
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/mariage-perso.webp" alt="Un bandeau présentant des dépliants en accordéon personnalisés">
+    <!-- <div class="container">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Notre collection premium aux possibilités infinies de personnalisation.
         </p>
-    </div>    
+    </div>     -->
      <section class="section1" id="Album Dépliant en accordéon">
         <div class="container">
             <h2 class="title-h3 centre-text">ALBUM DÉPLIANT EN ACCORÉON personnalisé</h2>

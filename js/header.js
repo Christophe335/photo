@@ -203,3 +203,80 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Toggle du menu mobile (burger)
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('mobileMenuToggle');
+  if (!toggle) return;
+
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.body.classList.toggle('mobile-menu-open');
+  });
+
+  // Fermer le menu mobile quand on clique sur un lien de navigation (inclut le menu mobile)
+  const navLinks = document.querySelectorAll('.main-nav a, .main-nav .nav-btn, .mobile-menu a');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      document.body.classList.remove('mobile-menu-open');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu) mobileMenu.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  // Fermer le menu si on clique en dehors du nav quand il est ouvert
+  document.addEventListener('click', function (e) {
+    if (!document.body.classList.contains('mobile-menu-open')) return;
+    if (!e.target.closest('.main-nav') && !e.target.closest('#mobileMenuToggle') && !e.target.closest('.mobile-menu')) {
+      document.body.classList.remove('mobile-menu-open');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu) mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+  // Mettre à jour aria-hidden quand on ouvre/ferme
+  toggle.addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+      const open = document.body.classList.contains('mobile-menu-open');
+      mobileMenu.setAttribute('aria-hidden', (!open).toString());
+    }
+  });
+  // Ne pas forcer l'ouverture de tous les groupes au clic du burger.
+  // Laisser l'utilisateur ouvrir un groupe à la fois (accordion behavior).
+});
+
+// Gestion des groupes dans le menu mobile (ouvrir au toucher / clic)
+document.addEventListener('DOMContentLoaded', function () {
+  const groupTitles = document.querySelectorAll('.mobile-group-title');
+  groupTitles.forEach(function (title) {
+    title.addEventListener('click', function (e) {
+      e.preventDefault();
+      const group = this.closest('.mobile-group');
+      if (!group) return;
+
+      // Accordion: fermer tous les autres groupes
+      const allGroups = document.querySelectorAll('.mobile-group');
+      allGroups.forEach(function (g) {
+        if (g !== group) {
+          g.classList.remove('open');
+          const t = g.querySelector('.mobile-group-title');
+          if (t) t.setAttribute('aria-expanded', 'false');
+          const its = g.querySelector('.mobile-group-items');
+          if (its) its.style.maxHeight = null;
+        }
+      });
+
+      // Basculer le groupe cliqué
+      const isOpen = group.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen.toString());
+      const items = group.querySelector('.mobile-group-items');
+      if (items) {
+        if (isOpen) {
+          items.style.maxHeight = items.scrollHeight + 'px';
+        } else {
+          items.style.maxHeight = null;
+        }
+      }
+    });
+  });
+});

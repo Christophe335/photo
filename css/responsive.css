@@ -1,7 +1,93 @@
 /* Responsive Design */
 
+/* Top-banner layout: three rows
+   - .top-row : logo (left), phone (center/left), burger (right)
+   - .middle-row : full-width tagline
+   - .bottom-row : actions (search + buttons + cart)
+*/
+.top-banner .top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.top-banner .top-row .logo-img {
+  height: 70px;
+}
+
+.top-banner .top-row .tagcontact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.top-banner .top-row .mobile-menu-toggle {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  color: #111111;
+  display: none; /* hidden by default, will be shown under 768px */
+}
+
+.top-banner .middle-row .tagline {
+  width: 100%;
+  text-align: center;
+  margin: 12px 0;
+}
+
+.top-banner .middle-row .tagline h1 {
+  font-size: 39px;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.top-banner .bottom-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.top-banner .bottom-row .header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Forcer les boutons Compte / Contact / Devis / Panier sur une seule ligne */
+.top-banner .bottom-row .header-actions {
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.top-banner .bottom-row .header-actions .account-btn,
+.top-banner .bottom-row .header-actions .cart {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.top-banner .bottom-row .header-actions .search-bar {
+  margin-right: 8px;
+  flex: 0 1 320px; /* laisser la recherche occuper de l'espace sans forcer le wrapping */
+}
+
+@media (min-width: 1200px) {
+  .top-banner .middle-row .tagline h1 { font-size: 40px; }
+  .top-banner .top-row .logo-img { height: 90px; }
+}
+
 /* Gestion du scroll responsive */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
+  /* Afficher le burger seulement sur petits écrans */
+  .top-banner .top-row .mobile-menu-toggle {
+    display: inline-flex;
+  }
   .header.scrolled-down .navigation-banner {
     height: 50px;
   }
@@ -27,8 +113,8 @@
   }
 }
 
-/* Tablettes (768px et moins) */
-@media (max-width: 768px) {
+/* Tablettes (820px et moins) */
+@media (max-width: 820px) {
   .container {
     padding: 0 15px;
   }
@@ -78,6 +164,16 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
+  }
+
+  /* Cacher la navigation complète par défaut sur mobile (on utilise le menu burger) */
+  .main-nav {
+    display: none;
+  }
+
+  /* Cacher les actions compactes (elles sont dans le menu mobile) */
+  .nav-actions-compact {
+    display: none;
   }
 
   .nav-btn {
@@ -146,6 +242,65 @@
   }
 }
 
+/* Desktop XL (>=1600px) */
+@media (min-width: 1600px) {
+  .container { max-width: 1560px; }
+  .tagline h1 { font-size: 64px; }
+  .main-nav { gap: 48px; }
+  .nav-btn { font-size: 20px; padding: 8px 18px; }
+}
+
+/* Desktop L (>=1440px) */
+@media (min-width: 1440px) and (max-width: 1599px) {
+  .container { max-width: 1360px; }
+  .tagline h1 { font-size: 56px; }
+  .nav-btn { font-size: 18px; padding: 6px 16px; }
+}
+
+/* Desktop M (>=1280px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .container { max-width: 1200px; }
+  .tagline h1 { font-size: 48px; }
+  .main-nav { gap: 36px; }
+}
+
+/* Large tablet / small desktop breakpoint (<=1024px) */
+@media (max-width: 1024px) {
+  .container { padding: 0 20px; }
+  .tagline h1 { font-size: 32px; }
+  .main-nav { gap: 24px; }
+  .nav-btn { min-width: 140px; }
+}
+
+/* ZFold / narrow landscape (980px) */
+@media (max-width: 980px) and (min-width: 921px) {
+  /* Slightly reduce paddings to avoid wrapping on fold devices */
+  .nav-btn { padding: 6px 10px; font-size: 15px; }
+  .tagline h1 { font-size: 30px; }
+}
+
+/* Tablet large: 820 - 1024 */
+@media (min-width: 820px) and (max-width: 1024px) {
+  .container { max-width: 900px; padding: 0 18px; }
+  .tagline h1 { font-size: 28px; }
+  .main-nav { gap: 18px; }
+  .vignette-index { width: 48%; display: inline-block; vertical-align: top; }
+}
+
+/* Tablet small: 768 - 820 */
+@media (min-width: 768px) and (max-width: 819px) {
+  .container { padding: 0 16px; }
+  .tagline h1 { font-size: 26px; }
+  .vignette-index { width: 48%; display: inline-block; vertical-align: top; }
+}
+
+/* Mobile medium (phone-wide) 375px */
+@media (max-width: 375px) {
+  .tagline h1 { font-size: 1.05rem; }
+  .vignette-index { width: 100%; display: block; margin-bottom: 18px; }
+  .image-index { width: 100%; height: auto; }
+}
+
 /* Très petits écrans (320px et moins) */
 @media (max-width: 320px) {
   .container {
@@ -191,8 +346,10 @@
   }
 }
 
+
+
 /* Menu mobile toggle (optionnel pour version avancée) */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .mobile-menu-toggle {
     display: block;
     background: none;
@@ -201,6 +358,140 @@
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
+  }
+
+  /* Cacher la barre de recherche sur petits écrans */
+  .search-bar {
+    display: none;
+  }
+
+  
+
+  body.mobile-menu-open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    padding: 24px 20px;
+    gap: 14px;
+    overflow-y: auto;
+    z-index: 12000;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+  /* S'assurer que le toggle est visible et contrasté */
+  .mobile-menu-toggle i {
+    color: #111111;
+  }
+
+  /* Styles des liens du menu mobile */
+  .mobile-menu-link {
+    display: block;
+    padding: 12px 10px;
+    font-size: 18px;
+    color: #222;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  /* Palette harmonisée pour le menu mobile */
+  .mobile-menu {
+    background: linear-gradient(180deg, #ffffff 0%, #fcfaf7 100%); /* léger ton chaud */
+    color: #0f172a;
+  }
+
+  .mobile-group-title {
+    background: transparent;
+    color: #0b1220;
+    padding: 12px 10px;
+  }
+
+  .mobile-group-title .arrow {
+    color: #d97706; /* accent orange */
+  }
+
+  .mobile-menu-link {
+    color: #0b1220;
+  }
+
+  .mobile-menu-link:hover {
+    background: #fff7ed; /* hover chaude */
+    color: #92400e;
+  }
+
+  .mobile-menu-separator {
+    background: #f1e9df; /* clair, harmonisé */
+  }
+
+  /* Titres de groupes sur fond légèrement contrasté */
+  .mobile-group + .mobile-group {
+    margin-top: 6px;
+  }
+
+  .mobile-group.open .mobile-group-title {
+    background: #fff9f2;
+  }
+
+  .mobile-menu-link:hover {
+    background: #f0f0f0;
+  }
+
+  .mobile-menu-separator {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 10px 0;
+  }
+
+  /* Groupes déroulants dans le menu mobile */
+  .mobile-group {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .mobile-group-title {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 12px 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobile-group-title .arrow {
+    transition: transform 0.18s ease;
+    font-size: 14px;
+    margin-left: 8px;
+  }
+
+  .mobile-group.open .mobile-group-title .arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-group-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 6px;
+  }
+
+  /* Les sous-menus s'ouvrent à la demande (via la classe .open) - accordion géré par JS */
+
+  .mobile-group-items .mobile-menu-link {
+    padding-left: 8px;
+    font-size: 16px;
   }
 
   .main-nav.mobile-hidden {
@@ -299,5 +590,29 @@
     width: 20px;
     height: 20px;
     font-size: 10px;
+  }
+/* ajustement de la largeur des bulles */
+  .bull {
+    width: 100%;
+  }
+}
+
+/* Ensure mobile menu is always hidden on wider screens (>=821px) */
+@media (min-width: 821px) {
+  #mobileMenu,
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Large screens: rendre le container du top-banner élastique (plein écran avec petites marges) */
+@media (min-width: 1200px) {
+  .top-banner > .container {
+    max-width: none !important;
+    width: calc(100% - 40px) !important; /* laisse 20px de marge de chaque côté */
+    margin: 0 auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
   }
 }

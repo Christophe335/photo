@@ -6,18 +6,18 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 40px 0;">
+<main style="padding: 60px 0;">
     <div class="container">
-        <h1 class="title-h1 bull">Couverture Souple Personnalisée</h1>
+        <!-- <h1 class="title-h1 bull">Couverture Souple Personnalisée</h1> -->
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-souple-1.webp" alt="Un bandeau présentant des couvertures souples personnalisées">
-    <div class="container">
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-souple-perso.webp" alt="Un bandeau présentant des couvertures souples personnalisées">
+    <!-- <div class="container">
         <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
             Une option élégante et pratique avec couverture souple personnalisée.
         </p>
-    </div>
+    </div> -->
     
-    <section class="section2" id="Couverture Souple Personnalisée">
+    <section class="section1" id="Couverture Souple Personnalisée">
         <div class="container">
             
             <h2 class="title-h3 centre-text">COUVERTURE SOUPLE PERSONNALISÉE</h2>

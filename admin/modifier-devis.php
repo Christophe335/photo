@@ -31,11 +31,13 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         
         if ($devis) {
             // Récupérer les articles du devis
-            $stmt = $db->prepare("
-                SELECT * FROM devis_items 
-                WHERE devis_id = ? 
-                ORDER BY id
-            ");
+                $stmt = $db->prepare("
+                    SELECT di.*, p.reference AS reference, p.conditionnement AS conditionnement
+                    FROM devis_items di
+                    LEFT JOIN produits p ON di.produit_id = p.id
+                    WHERE di.devis_id = ? 
+                    ORDER BY di.id
+                ");
             $stmt->execute([$devis_id]);
             $devis_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else {
@@ -153,7 +155,9 @@ include 'header.php';
         
         <div class="articles-container">
             <div class="articles-header">
+                <div>Ref</div>
                 <div>Désignation</div>
+                <div>Cdt</div>
                 <div>Quantité</div>
                 <div>Prix unitaire</div>
                 <div>Remise</div>
@@ -164,37 +168,35 @@ include 'header.php';
             <?php if (!empty($devis_items)): ?>
                 <?php foreach ($devis_items as $index => $item): ?>
                     <div class="article-item" data-index="<?php echo $index; ?>">
+                        <div class="ref-col">
+                            <input type="text" name="produit_reference[]" value="<?php echo htmlspecialchars($item['reference'] ?? $item['produit_reference'] ?? ''); ?>" readonly class="ref-input">
+                        </div>
                         <div class="designation-col">
-                            <input type="text" name="articles[<?php echo $index; ?>][designation]" 
-                                   value="<?php echo htmlspecialchars($item['nom'] ?? $item['designation'] ?? ''); ?>" 
-                                   placeholder="Nom de l'article" required>
-                            <textarea name="articles[<?php echo $index; ?>][description]" 
-                                      placeholder="Description détaillée"><?php echo htmlspecialchars($item['description'] ?? ''); ?></textarea>
+                            <input type="text" name="designation[]" value="<?php echo htmlspecialchars($item['nom'] ?? $item['designation'] ?? ''); ?>" required>
+                            <textarea name="description[]" placeholder="Description détaillée"><?php echo htmlspecialchars($item['description'] ?? ''); ?></textarea>
+                        </div>
+                        <div class="cdt-col">
+                            <input type="text" name="conditionnement[]" value="<?php echo htmlspecialchars($item['conditionnement'] ?? ''); ?>" readonly class="cdt-input">
                         </div>
                         <div>
-                            <input type="number" name="articles[<?php echo $index; ?>][quantite]" 
-                                   value="<?php echo $item['quantite'] ?? 1; ?>" min="1" step="1" required class="input-quantite">
+                            <input type="number" name="quantite[]" value="<?php echo $item['quantite'] ?? 1; ?>" min="1" step="1" required class="quantite-input">
                         </div>
                         <div>
-                            <input type="number" name="articles[<?php echo $index; ?>][prix_unitaire]" 
-                                   value="<?php echo $item['prix_unitaire'] ?? 0; ?>" min="0" step="0.01" required class="input-prix">
+                            <input type="number" name="prix_unitaire[]" value="<?php echo $item['prix_unitaire'] ?? 0; ?>" min="0" step="0.01" required class="prix-input">
                         </div>
                         <div class="remise-group">
-                            <input type="number" name="articles[<?php echo $index; ?>][remise_valeur]" 
-                                   value="<?php echo $item['remise_valeur'] ?? 0; ?>" min="0" step="0.01" placeholder="0" class="input-remise">
-                            <select name="articles[<?php echo $index; ?>][remise_type]" class="select-remise-type">
+                            <input type="number" name="remise_valeur[]" value="<?php echo $item['remise_valeur'] ?? 0; ?>" min="0" step="0.01" class="remise-input">
+                            <select name="remise_type[]" class="remise-type">
                                 <option value="percent" <?php echo ($item['remise_type'] ?? 'percent') === 'percent' ? 'selected' : ''; ?>>%</option>
-                                <option value="fixed" <?php echo ($item['remise_type'] ?? '') === 'fixed' ? 'selected' : ''; ?>>€</option>
+                                <option value="fixe" <?php echo ($item['remise_type'] ?? '') === 'fixe' ? 'selected' : ''; ?>>€</option>
                             </select>
                         </div>
                         <div>
-                            <span class="total-ligne">
-                                <?php 
+                            <input type="text" name="total_ligne[]" class="total-ligne" value="<?php 
                                 $quantite = $item['quantite'] ?? 1;
                                 $prix = $item['prix_unitaire'] ?? 0;
                                 $remise = $item['remise_valeur'] ?? 0;
                                 $type_remise = $item['remise_type'] ?? 'percent';
-                                
                                 $total_ligne = $quantite * $prix;
                                 if ($remise > 0) {
                                     if ($type_remise === 'percent') {
@@ -203,10 +205,10 @@ include 'header.php';
                                         $total_ligne = $total_ligne - $remise;
                                     }
                                 }
-                                echo number_format(max(0, $total_ligne), 2, ',', ' ') . ' €';
-                                ?>
-                            </span>
+                                echo number_format(max(0, $total_ligne), 2, '.', ',');
+                            ?>" readonly>
                         </div>
+                        <input type="hidden" name="produit_id[]" value="<?php echo $item['produit_id'] ?? ''; ?>">
                         <div>
                             <button type="button" class="btn-remove-article" title="Supprimer">
                                 <i class="fas fa-trash"></i>
@@ -215,7 +217,7 @@ include 'header.php';
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
-            
+
             <div id="articles-container">
                 <!-- Les nouveaux articles seront ajoutés dynamiquement ici -->
             </div>

@@ -7,7 +7,8 @@ require_once __DIR__ . '/database.php';
  * @param string $famille - Code de la famille de produits à afficher
  * @param bool $afficherCouleur - Si true, affiche la colonne couleur (par défaut true)
  */
-function afficherTableauProduits($famille, $afficherCouleur = true) {
+if (!function_exists('afficherTableauProduits')) {
+    function afficherTableauProduits($famille, $afficherCouleur = true) {
     try {
         $db = Database::getInstance()->getConnection();
         
@@ -139,6 +140,7 @@ function afficherTableauProduits($famille, $afficherCouleur = true) {
         
     } catch (Exception $e) {
         echo '<p class="erreur">Erreur lors du chargement des produits : ' . htmlspecialchars($e->getMessage()) . '</p>';
+    }
     }
 }
 

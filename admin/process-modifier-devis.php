@@ -82,6 +82,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ]);
             }
         }
+            // Supporter deux formats d'envoi : nested 'articles' (historique) ou arrays plats (produit_reference[], designation[], ...)
+            $articles_source = [];
+
+            if (isset($_POST['articles']) && is_array($_POST['articles'])) {
+                $articles_source = $_POST['articles'];
+            } else if (isset($_POST['designation']) && is_array($_POST['designation'])) {
+                $count = count($_POST['designation']);
+                for ($i = 0; $i < $count; $i++) {
+                    $articles_source[] = [
+                        'nom' => $_POST['designation'][$i] ?? '',
+                        'description' => $_POST['description'][$i] ?? '',
+                        'quantite' => $_POST['quantite'][$i] ?? 0,
+                        'prix_unitaire' => $_POST['prix_unitaire'][$i] ?? 0,
+                        'remise_valeur' => $_POST['remise_valeur'][$i] ?? 0,
+                        'remise_type' => $_POST['remise_type'][$i] ?? 'percent',
+                        'produit_id' => $_POST['produit_id'][$i] ?? null,
+                    ];
+                }
+            }
+
+            foreach ($articles_source as $article) {
+                if (empty($article['nom']) || empty($article['quantite']) || empty($article['prix_unitaire'])) {
+                    continue;
+                }
+
+                $quantite = (int)$article['quantite'];
+                $prix_unitaire = (float)$article['prix_unitaire'];
+                $taux_tva = (float)($article['taux_tva'] ?? 20);
+
+                $ligne_ht = $quantite * $prix_unitaire;
+                $ligne_tva = $ligne_ht * ($taux_tva / 100);
+
+                $total_ht += $ligne_ht;
+                $total_tva += $ligne_tva;
+
+                $stmt = $db->prepare("INSERT INTO devis_items (devis_id, nom, description, quantite, prix_unitaire, taux_tva, produit_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+                $stmt->execute([
+                    $devis_id,
+                    $article['nom'],
+                    $article['description'] ?? '',
+                    $quantite,
+                    $prix_unitaire,
+                    $taux_tva,
+                    $article['produit_id'] ?? null,
+                ]);
+            }
         
         // Mettre à jour les totaux
         $total_ttc = $total_ht + $total_tva;
