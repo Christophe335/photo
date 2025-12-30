@@ -64,6 +64,15 @@ include 'header.php';
 ?>
 <head>
     <link rel="stylesheet" href="../css/admin.css">  
+    <style>
+        .color-swatch{width:32px;height:32px;border:1px solid #ccc;display:inline-block;vertical-align:middle;margin-left:8px;border-radius:4px;background-size:cover;background-position:center;background-repeat:no-repeat}
+        .couleur-fields{display:flex;gap:12px;align-items:flex-start}
+        .couleur-col{flex:1;min-width:0}
+        .couleur-item h4{display:flex;align-items:center;gap:8px;margin:0 0 6px 0}
+        .couleur-item .form-group{margin:0}
+        .couleur-item input[type="text"]{width:100%;box-sizing:border-box}
+        .couleur-item .form-help{display:block;margin-top:4px}
+    </style>
 </head>
     <div class="page-header">
         <h2><i class="fas fa-plus-circle"></i> Ajouter un nouveau produit</h2>
@@ -146,7 +155,7 @@ include 'header.php';
                 </div>
                 
                 <div class="form-group">
-                    <label for="matiere">Matière</label>
+                    <label for="matiere">Matière ou Dos</label>
                     <input type="text" id="matiere" name="matiere" 
                            value="<?= htmlspecialchars($_POST['matiere'] ?? '') ?>"
                            placeholder="Ex: Papier, Carton, Plastique">
@@ -285,24 +294,28 @@ include 'header.php';
             
             <div class="couleurs-container">
                 <?php for ($i = 1; $i <= 13; $i++): ?>
-                    <div class="couleur-item">
-                        <h4>Couleur <?= $i ?></h4>
-                        <div class="couleur-fields">
-                            <div class="form-group">
-                                <label for="couleur<?= $i ?>">Nom de la couleur</label>
-                                <input type="text" id="couleur<?= $i ?>" name="couleur<?= $i ?>" 
-                                       value="<?= htmlspecialchars($_POST["couleur$i"] ?? '') ?>"
-                                       placeholder="Exemple : Red">
-                            </div>
-                            <div class="form-group">
-                                <label for="imageCoul<?= $i ?>">Chemin de l'image</label>
-                                <input type="text" id="imageCoul<?= $i ?>" name="imageCoul<?= $i ?>" 
-                                       value="<?= htmlspecialchars($_POST["imageCoul$i"] ?? '') ?>"
-                                       placeholder="Exemple : mini/red.webp">
-                                <small class="form-help">Chemin relatif vers le fichier image de la couleur : taille 16x16px</small>
+                        <div class="couleur-item">
+                            <h4>Couleur <?= $i ?> <span class="color-swatch" id="swatch<?= $i ?>"></span></h4>
+                            <div class="couleur-fields">
+                                <div class="couleur-col">
+                                    <div class="form-group">
+                                        <label for="couleur<?= $i ?>">Nom de la couleur</label>
+                                        <input type="text" id="couleur<?= $i ?>" name="couleur<?= $i ?>"
+                                               value="<?= htmlspecialchars($_POST["couleur$i"] ?? '') ?>"
+                                               placeholder="Exemple : Red">
+                                    </div>
+                                </div>
+                                <div class="couleur-col">
+                                    <div class="form-group">
+                                        <label for="imageCoul<?= $i ?>">Chemin de l'image</label>
+                                        <input type="text" id="imageCoul<?= $i ?>" name="imageCoul<?= $i ?>"
+                                               value="<?= htmlspecialchars($_POST["imageCoul$i"] ?? '') ?>"
+                                               placeholder="Exemple : mini/red.webp">
+                                        <small class="form-help">Chemin relatif vers le fichier image de la couleur : taille 16x16px</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 <?php endfor; ?>
             </div>
         </div>
@@ -663,6 +676,90 @@ include 'header.php';
     }
 
 
+</script>
+
+<script>
+    (function(){
+        function normalize(name){
+            return name.toLowerCase().trim()
+                .normalize ? name.toLowerCase().trim().normalize('NFD').replace(/\p{Diacritic}/gu,'') : name.toLowerCase().trim()
+                .replace(/\s+/g,'-')
+                .replace(/[^a-z0-9\-]/g,'');
+        }
+
+        function trySetImage(url, sw, onOk, onErr){
+            var img = new Image();
+            img.onload = function(){ sw.style.backgroundImage = 'url("' + url + '")'; sw.style.backgroundColor = ''; if(onOk) onOk(true); };
+            img.onerror = function(){ if(onErr) onErr(false); };
+            img.src = url;
+        }
+
+        function setColorBg(sw, color){
+            sw.style.backgroundImage = '';
+            sw.style.backgroundColor = color || 'transparent';
+        }
+
+        function setSwatch(i){
+            var sw = document.getElementById('swatch'+i);
+            if(!sw) return;
+            var name = (document.getElementById('couleur'+i) || {}).value || '';
+            var imgField = (document.getElementById('imageCoul'+i) || {}).value || '';
+
+            // If user provided an explicit image path, try it first
+            var tried = false;
+            if(imgField.trim() !== ''){
+                var candidates = [];
+                var baseName = imgField.split('/').pop();
+                var baseNoExt = baseName.replace(/\.[^.]+$/, '');
+
+                candidates.push(imgField);
+                candidates.push('../' + imgField);
+                candidates.push('images/couleurs/mini/' + baseName);
+                candidates.push('../images/couleurs/mini/' + baseName);
+                // big variants
+                if(/-B(\.|$)/i.test(baseNoExt)){
+                    candidates.push('../images/couleurs/big/' + baseName);
+                } else {
+                    candidates.push('../images/couleurs/big/' + baseNoExt + '-B.webp');
+                }
+                candidates.push('/images/couleurs/mini/' + baseName);
+
+                (function tryNext(idx){
+                    if(idx >= candidates.length){
+                        // fallback to try by normalized name then css color
+                        attemptAutoByName();
+                        return;
+                    }
+                    trySetImage(candidates[idx], sw, function(ok){ if(ok) return; }, function(){ tryNext(idx+1); });
+                })(0);
+                return;
+            }
+
+            function attemptAutoByName(){
+                var baseMini = '../images/couleurs/mini/';
+                var baseBig = '../images/couleurs/big/';
+                var norm = normalize(name || '');
+                if(!norm){ setColorBg(sw, 'transparent'); return; }
+                var mini = baseMini + norm + '.webp';
+                var big = baseBig + norm + '-B.webp';
+
+                trySetImage(mini, sw, function(ok){ if(!ok) trySetImage(big, sw, function(ok2){ if(!ok2) setColorBg(sw, name); }, function(){ setColorBg(sw, name); }); }, function(){ trySetImage(big, sw, function(ok2){ if(!ok2) setColorBg(sw, name); }, function(){ setColorBg(sw, name); }); });
+            }
+
+            attemptAutoByName();
+        }
+
+        for (var i=1;i<=13;i++){
+            (function(i){
+                var inColor = document.getElementById('couleur'+i);
+                var inImg = document.getElementById('imageCoul'+i);
+                if(inColor) inColor.addEventListener('input', function(){ setSwatch(i); });
+                if(inImg) inImg.addEventListener('input', function(){ setSwatch(i); });
+                // initial
+                setSwatch(i);
+            })(i);
+        }
+    })();
 </script>
 
 <?php include 'footer_simple.php'; ?>

@@ -122,6 +122,10 @@ include 'header.php';
 
         <!-- Tableau des produits -->
         <div class="table-responsive">
+            <style>
+                .color-dot{width:16px;height:16px;border-radius:50%;display:inline-block;margin-right:6px;border:1px solid rgba(0,0,0,0.12);vertical-align:middle;background-size:cover;background-position:center}
+                .product-meta{margin-top:6px;font-size:0.9em;color:#666}
+            </style>
             <table class="table">
                 <thead>
                     <tr>
@@ -163,9 +167,51 @@ include 'header.php';
                                             <small style="color: #007bff; font-style: italic; margin-left: 5px;">(Composé)</small>
                                         <?php endif; ?>
                                     </div>
-                                    <?php if (!empty($produit['format'])): ?>
-                                        <small class="text-muted">Format: <?= htmlspecialchars($produit['format']) ?></small>
-                                    <?php endif; ?>
+                                    <div class="product-meta">
+                                        <?php if (!empty($produit['matiere'])): ?>
+                                            <span>Matière ou Dos: <?= htmlspecialchars($produit['matiere']) ?></span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($produit['format'])): ?>
+                                            <span style="margin-left:10px">Format: <?= htmlspecialchars($produit['format']) ?></span>
+                                        <?php endif; ?>
+                                        <?php
+                                            $dots = [];
+                                            for ($ci = 1; $ci <= 13; $ci++){
+                                                $colName = $produit["couleur_ext$ci"] ?? '';
+                                                $imgPath = $produit["imageCoul$ci"] ?? '';
+                                                if (empty($colName) && empty($imgPath)) continue;
+
+                                                $style = '';
+                                                // Attempt to resolve image path if provided
+                                                if (!empty($imgPath)){
+                                                    $candidates = [];
+                                                    $candidates[] = __DIR__ . '/../' . ltrim($imgPath, '/\\');
+                                                    $candidates[] = __DIR__ . '/../' . ltrim($imgPath, '\\');
+                                                    $baseName = basename($imgPath);
+                                                    $candidates[] = __DIR__ . '/../images/couleurs/mini/' . $baseName;
+                                                    $candidates[] = __DIR__ . '/../images/couleurs/big/' . $baseName;
+                                                    foreach ($candidates as $cand){
+                                                        if (file_exists($cand)){
+                                                            // convert to web path
+                                                            $web = str_replace('\\', '/', str_replace(realpath(__DIR__ . '/..'), '', realpath($cand)));
+                                                            $web = ltrim($web, '/');
+                                                            $style = "background-image: url('../$web');";
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                                // If no image resolved and color name present, use as background-color
+                                                if (empty($style) && !empty($colName)){
+                                                    $style = 'background-color: ' . htmlspecialchars($colName) . ';';
+                                                }
+
+                                                $dots[] = '<span class="color-dot" title="' . htmlspecialchars($colName ?: $imgPath) . '" style="' . $style . '"></span>';
+                                            }
+                                            if (!empty($dots)){
+                                                echo implode(' ', $dots);
+                                            }
+                                        ?>
+                                    </div>
                                 </td>
                                 <td class="col-prix">
                                     <?= number_format($produit['prixAchat'], 2, ',', ' ') ?> €
