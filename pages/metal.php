@@ -6,19 +6,14 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 40px 0;">
+<main style="padding: 40px 0 0 0;">
     <div class="container">
-        <h1 class="title-h1 bull">Impression sur Métal</h1>
+        <h1 class="title-h1 bull">Alu - Print</h1>
     </div>
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/impression-metal-1.webp" alt="Un bandeau présentant des impressions sur métal personnalisées">
-    <div class="container">
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Un support durable et moderne pour vos impressions les plus précieuses.
-        </p>
-    </div>
     <section class="section1" id="Plaque - Angle arrondi pour imprimante A4">
     <div class="container">
-        <h2 class="title-h3 centre-text">Impression sur métal</h2>
+        <h2 class="title-h3 centre-text">Alu-Print</h2>
         <p class="paragraphe">La technique d'impression sur métal est un procédé unique pour imprimer des plaques nominatives ou des photos sur métal. Ces plaques peuvent être utilisées pour l'identification, la personnalisation et la signalétique. Elles sont résistantes aux intempéries, aux UV et permanentes en couleur. Idéales pour un usage en extérieur.</p>
     </div>
     <div class="ligne">

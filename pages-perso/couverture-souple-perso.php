@@ -6,20 +6,10 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-    <div class="container">
-        <!-- <h1 class="title-h1 bull">Couverture Souple Personnalisée</h1> -->
-    </div>
+<main style="padding: 60px 0 0 0;">
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-souple-perso.webp" alt="Un bandeau présentant des couvertures souples personnalisées">
-    <!-- <div class="container">
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Une option élégante et pratique avec couverture souple personnalisée.
-        </p>
-    </div> -->
-    
     <section class="section1" id="Couverture Souple Personnalisée">
         <div class="container">
-            
             <h2 class="title-h3 centre-text">COUVERTURE SOUPLE PERSONNALISÉE</h2>
                 </br>
                 <p class="paragraphe">Parfois, nous devons aller vite et voyager léger. Notre couverture souple est votre compagnon idéal pour des couvertures professionnelles, élégantes et pratiques. Créez de puissants outils de marque avec votre propre design corporate ou votre œuvre d'art de choix. Un aspect premium sans le poids d'une couverture rigide. Disponible avec finition brillante, mate et soft-touch pour laisser une impression durable sur vos clients et prospects.</p>

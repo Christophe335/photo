@@ -6,16 +6,8 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-    <!-- <div class="container">
-        <h1 class="title-h1 bull">Album Photos Personnalisé</h1>
-    </div> -->
+<main style="padding: 60px 0 0 0;">
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/album-perso.webp" alt="Un bandeau présentant divers albums photos personnalisés">
-    <!-- <div class="container">  
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Créez un magnifique album photo pour conserver vos plus beaux souvenirs.
-        </p>
-    </div>     -->
         <section class="section1" id="Album Photo">
         <div class="container">
             <h2 class="title-h3 centre-text">ALBUM PHOTO Personnalisé</h2>

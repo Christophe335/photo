@@ -6,20 +6,12 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-    <!-- <div class="container">
-        <h1 class="title-h1 bull">Boîte personnalisée <span style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 32px;">A4</span></h1>
-    </div> -->
+<main style="padding: 60px 0 0 0;">
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/box-2perso.webp" alt="Un bandeau présentant des boîtes personnalisées au format A4">
-    <!-- <div class="container">        
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Créez votre boîte personnalisée au format A4 avec vos photos préférées.
-        </p>
-    </div> -->
-    <section class="section1" id="Boîte format A4 45mm">
+    <section class="section1" id="Coffret Prestige format A4 45mm">
     <div class="container">
-        <h2 class="title-h3 centre-text">Boîte format A4 45mm personnalisée</h2>
-        <p class="paragraphe">Nos boîtes au format A4 offrent une grande variété de possibilités pour personnaliser selon vos besoins et préférences grace à une large gamme de couleurs, un format 21 x 29.7cm et une épaisseur de 45mm ou 90mm. Plusieurs couleur sont disponibles et vous pouvez aussi de prendre nos boîtes à recouvrir pour y appliquer la finition de votre choix.</p> 
+        <h2 class="title-h3 centre-text">Coffret Prestige format A4 45mm personnalisée</h2>
+        <p class="paragraphe">Nos coffret au format A4 offrent une grande variété de possibilités pour personnaliser selon vos besoins et préférences grace à une large gamme de couleurs, un format 21 x 29.7cm et une épaisseur de 45mm ou 90mm. Plusieurs couleur sont disponibles et vous pouvez aussi de prendre nos boîtes à recouvrir pour y appliquer la finition de votre choix.</p> 
     </div>
     <div class="ligne">
         <div class="colonne-1 onleft">
@@ -77,9 +69,9 @@
             ?>
         </div>
 </section>
-<section class="section2" id="Boîte format A4 90mm">
+<section class="section2" id="Coffret Prestige format A4 90mm">
     <div class="container">
-        <h2 class="title-h3 centre-text">Boîte format A4 90mm personnalisée</h2>
+        <h2 class="title-h3 centre-text">Coffret Prestige format A4 90mm personnalisée</h2>
     </div>
     <div class="ligne">
         <div class="colonne-1 onleft">
@@ -145,9 +137,9 @@
             ?>
         </div>
 </section>
-<section class="section1" id="Boîte Flexibox">
+<section class="section1" id="Coffret Prestige Flexibox">
     <div class="container">
-        <h2 class="title-h3 centre-text">Boîte Flexibox personnalisée</h2>
+        <h2 class="title-h3 centre-text">Coffret Prestige Flexibox personnalisée</h2>
         <p class="paragraphe">Une solution écologique, entièrement en carton, offrant une flexibilité inégalée, vous permettant de choisir la taille exacte de la boîte.</p> 
     </div>
     <div class="ligne">

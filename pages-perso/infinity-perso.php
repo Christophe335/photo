@@ -6,20 +6,12 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-    <!-- <div class="container">
-        <h1 class="title-h1 bull">Infinity Personnalisé</h1>
-    </div> -->
+<main style="padding: 60px 0 0 0;">
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/mariage-perso.webp" alt="Un bandeau présentant des dépliants en accordéon personnalisés">
-    <!-- <div class="container">
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Notre collection premium aux possibilités infinies de personnalisation.
-        </p>
-    </div>     -->
-     <section class="section1" id="Album Dépliant en accordéon">
+     <section class="section1" id="Photo Book Infinity">
         <div class="container">
-            <h2 class="title-h3 centre-text">ALBUM DÉPLIANT EN ACCORÉON personnalisé</h2>
-            <p class="paragraphe">Le Photobook Infinity Lay-Flat est un nouveau et unique produit dans le monde de la photographie. 
+            <h2 class="title-h3 centre-text">Photo Book Infinity Lay-Flat personnalisé</h2>
+            <p class="paragraphe">Le Photo book Infinity Lay-Flat est un nouveau et unique produit dans le monde de la photographie. 
             Avec cette technologie conviviale, vous créez une expérience utilisateur fantastique en un rien de temps !
             Les photos peuvent être imprimées en continu sur 2 pages, sans fissure ni pli visible dans la ligne de séparation.</p>
             

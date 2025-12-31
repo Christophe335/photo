@@ -6,20 +6,12 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-    <!-- <div class="container">
-        <h1 class="title-h1 bull">Impression sur Toile Personnalisée</h1>
-    </div> -->
+<main style="padding: 60px 0 0 0;">
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/photo-sur-toile-perso.webp" alt="Un bandeau présentant des impressions sur toile personnalisées">
-    <!-- <div class="container">  
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Donnez vie à vos photos avec nos impressions sur toile de qualité artistique.
-        </p>
-    </div> -->
     <section class="section1" id="Impression sur Toile">
         <div class="container">
             
-            <h2 class="title-h3 centre-text">IMPRESSION SUR TOILE</h2>
+            <h2 class="title-h3 centre-text">IMPRESSION SUR TOILE Personnalisée</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft">
                     <img class="centre-div" src="../images/produits/impression-toile-1.webp" alt="Impression sur toile d'un cheval">
@@ -32,7 +24,7 @@
                         <img class="centre-div" src="../images/produits/impression-toile-4.webp" alt="Au dessus d'un canapé gris, le mur dispose de plein d'impressions sur toile">
                         <img class="centre-div" src="../images/produits/toile-2.webp" alt="Détail d'un coin d'mpression sur toile montrant bien l'épaisseur de l'ouvrage">
                     </div>
-                    <p class="paragraphe">La dernière nouveauté de notre gamme d'art mural permet aux utilisateurs de créer leurs propres pièces de décoration en moins d'une minute. Idéal pour les détaillants, les boutiques de cadeaux, les photographes, les amateurs ainsi que les décorateurs professionnels, ces supports transformeront n'importe quelle photo, dessin ou œuvre d'art créative en impressions sur toile personnalisées. Contrairement à d'autres solutions à cadre en bois sur le marché qui nécessitent souvent l'aide d'un professionnel qualifié pour tendre et envelopper le matériau de la toile, le Canvas Frame peut être assemblé par n'importe quel utilisateur - sans stress.</p>
+                    <p class="paragraphe">La dernière nouveauté de notre gamme d'art mural permet aux utilisateurs de créer leurs propres pièces de décoration en moins d'une minute. Idéal pour les détaillants, les boutiques de cadeaux, les photographes, les amateurs ainsi que les décorateurs professionnels, ces supports transformeront n'importe quelle photo, dessin ou œuvre d'art créative en impressions sur toile personnalisées. Contrairement à d'autres solutions à cadre en bois sur le marché qui nécessitent souvent l'aide d'un professionnel qualifié pour tendre et envelopper le matériau de la toile, le Canvas Frame peut être assemblé par n'importe quel utilisateur - sans stress.</br><strong>Pour vous faciliter encore plus la vie nous vous proposons d'imprimer la feuille de personnalisation.</strong></p>
                     <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
@@ -41,10 +33,7 @@
             // Afficher les produits de reliure directement
             afficherTableauProduits('Canvas');
             ?>
-        </div>
-
-        <?php include '../includes/bt-devis.php'; ?>
-        
+        </div>        
     </section>
 </main>
 

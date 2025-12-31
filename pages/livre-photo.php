@@ -6,17 +6,12 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 40px 0;">
+<main style="padding: 40px 0 0 0;">
     <div class="container">
-        <h1 class="title-h1 bull">Livre Photo</h1>
+        <h1 class="title-h1 bull">Livre Photos</h1>
     </div>
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/livre-photo-1.webp" alt="Un bandeau présentant des livres photo personnalisés">
-    <div class="container">
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Transformez vos photos en livre photo professionnel de haute qualité.
-        </p>
-    </div>
-</main>
+
 <section class="section1" id="Peel & Stick">
     <div class="container">
         <h2 class="title-h3 centre-text">Service de personnalisation</h2>
@@ -114,16 +109,9 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </div>
     <div class="ligne">
         <div>
-            <p class="paragraphe">Une image en dit plus que mille mots. Dans ces livres photo
-            instantanés colorés, il y a de la place pour 10 images de ce type (soit
-            plus de 10 000 mots) et pour ajouter un message spécial. Combien
-            de mots cela représente-t-il ? Nous avons perdu le compte ...</p>
-            <p class="paragraphe">Indispensable pour les créateurs de scrapbooking
-            Les livres photo instantanés constituent la base idéale pour un
-            scrapbook, une sorte de livre photo à l'ancienne, mais un peu plus
-            personnel. Ils comprennent des autocollants double face pour fixer
-            des photos et d'autres souvenirs, ainsi qu'un marqueur pour ajouter
-            des noms, des dates, des citations ou d'autres éléments d'écriture</p>
+            <p class="paragraphe">Une image en dit plus que mille mots. Dans ces livres photo instantanés colorés, il y a de la place pour 10 images de ce type (soit
+            plus de 10 000 mots) et pour ajouter un message spécial. Combien de mots cela représente-t-il ? Nous avons perdu le compte ...</p>
+            <p class="paragraphe">Indispensable pour les créateurs de scrapbooking instantanés constituent la base idéale pour un scrapbook, une sorte de livre photo à l'ancienne, mais un peu plus personnel. Ils comprennent des autocollants double face pour fixer des photos et d'autres souvenirs, ainsi qu'un marqueur pour ajouter des noms, des dates, des citations ou d'autres éléments d'écriture</p>
         </div>
         <div class="onright">
             <img src="../images/produits/livrephotocreatif-1.webp" alt="Livre photo créatif fermé montrant une couverture personnalisée avec des photos collées dessus">
@@ -133,13 +121,28 @@ Le cadeau idéal pour une personne très spéciale.</p>
         <div class="colonne-1">
             <img src="../images/produits/instant-photo-book-1.webp" alt="Présentation du livre photo créatif sous la forme de sa pochette contenant tout le néccessaire pour créer le livre photo">
         </div>
-        <div>
+        
         <div class="colonne-2 ligne">
-            <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur1.webp" alt="Exmple de la couleur noire disponible pour le livre créatif"></br>Black</div>
-            <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur2.webp" alt="Exmple de la couleur bleue disponible pour le livre créatif"></br>Blue</div>
-            <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur3.webp" alt="Exmple de la couleur rose disponible pour le livre créatif"></br>Pink</div>
-            <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur4.webp" alt="Exmple de la couleur violette disponible pour le livre créatif"></br>Purple</div>
-            <div><img style="width: 80px; height: 80px; margin-right: 25px;" src="../images/produits/livrephotocreatif-couleur5.webp" alt="Exmple de la couleur blanche disponible pour le livre créatif"></br>White</div>
+            <div>
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur1.webp" alt="Exmple de la couleur noire disponible pour le livre créatif">
+                <p class="pCrea">Noir</p>
+            </div>
+            <div>
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur2.webp" alt="Exmple de la couleur bleue disponible pour le livre créatif">
+                <p class="pCrea">Bleu Ciel</p>
+            </div>
+            <div>
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur3.webp" alt="Exmple de la couleur rose disponible pour le livre créatif">
+                <p class="pCrea">Rose</p>
+            </div>
+            <div>
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur4.webp" alt="Exmple de la couleur violette disponible pour le livre créatif">
+                <p class="pCrea">Violet Claire</p>
+            </div>
+            <div>
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur5.webp" alt="Exmple de la couleur blanche disponible pour le livre créatif">
+                <p class="pCrea">Blanc</p>
+            </div>
         </div>
             
         </div>
@@ -156,7 +159,7 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </br>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
-
+</main>
 <!-- Script nécessaire pour le panier -->
 <script src="/js/panier.js"></script>
 

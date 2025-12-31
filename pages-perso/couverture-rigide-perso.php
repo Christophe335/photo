@@ -6,11 +6,9 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-
+<main style="padding: 60px 0 0 0;">
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-rigide-perso.webp" alt="Un bandeau présentant des couvertures rigides personnalisées">
-
-        <section class="section1" id="Couverture Rigide">
+    <section class="section1" id="Couverture Rigide">
         <div class="container">
             <h2 class="title-h3 centre-text">COUVERTURE RIGIDE</h2>
                 </br>
@@ -112,10 +110,121 @@
             // Afficher les produits de reliure directement
             afficherTableauProduits('Thermal Hard Cover A4 Eco');
             ?>
-        
-            
         </div>
     </div>    
+</section>
+<section class="section1" id="Couverture rigide 1 face">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Couverture rigide 1 face personnalisable</br>système Peel & Stick</h2>
+        <p class="paragraphe">Les couvertures rigides Mono Hard sont des outils de personnalisation conviviales et rentables, créés en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures uniques préfabriquées vous permettent de personnaliser facilement le devant de votre HardCover. Son concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle. Les couvertures rigides sont la solution parfaite de fabrication de boîtiers pour toutes vos applications uniques ou en petite série.</p>
+    </div>
+    <div class="ligne">
+        <div class="colonne-3 onleft">
+            <img class="centre-div" src="../images/produits/couverture-rigide-1.webp" alt="Exemple d'une couverture rigide personnalisée format paysage avec une photo représentant diverses personnes sur la face avant">
+        </div>
+        <div class="colonne-3 ligne onright">
+            <img class="centre-div" src="../images/produits/peel-stick-hard-cover-black-1.webp" alt="Présentation de la mise en place du système autocollant pour couverture rigide personnalisée">
+            <img class="centre-div" src="../images/produits/couverture-rigide-2.webp" alt="Couverture rigide personnalisée avec un dessin graphique coloré sur la face avant">
+        </div>
+    </div>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Mono Hard Cover');
+            ?>
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Peel & Stick Hard Cover');
+            ?>
+        </div>
+        </br>
+    <?php include '../includes/bt-devis.php'; ?>
+</section>
+<section class="section2" id="Couverture rigide 2 faces">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Couverture rigide 2 faces personnalisables</br>système Peel & Stick</h2>
+        <p class="paragraphe">Les couvertures rigides Duo sont un outil de personnalisation convivial et économique créé en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures rigides Duo uniques préfabriquées vous permettent de personnaliser facilement la police et le dos de votre HardCover. C'est un concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle.  Les couvertures rigides Duo sont la solution parfaite de fabrication de boîtiers pour toutes vos applications uniques ou en petite série.</p>
+    </div>
+    <div class="ligne">
+        <div class="colonne-3 onleft">
+            <img class="centre-div" src="../images/produits/couverture-rigide-double-1.webp" alt="Couverture rigide format paysage avec personnalisation recto verso représentant ici une photo d'immeubles modernes">
+        </div>
+        <div class="colonne-3 onright">
+            <img class="centre-div" src="../images/produits/couverture-rigide-double-2.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente">
+        </div>  
+    </div>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Duo Hard Cover');
+            ?>
+        </div>
+</section>
+<section class="section1" id="Couverture rigide Panorama">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Couverture rigide Panorama</h2>
+        
+    </div>
+    <div class="ligne">
+        <div class="colonne-5 onleft">
+            <img class="centre-div" src="../images/produits/couverture-panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant 2 modèles différents">  
+        </div>
+        <div class="colonne-6">
+            <p>Personnalisez le recto, le dos et le verso de votre livre avec le Panorama HardCover Les Panorama Hard Covers sont un outil de personnalisation convivial et économique créé en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures rigides uniques préfabriquées vous permettent de personnaliser facilement le recto, le dos et le verso de votre HardCover. C'est un concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle.Les Panorama Hard Covers sont la solution parfaite de fabrication de caisses pour toutes vos applications uniques ou en petite série.</p>
+        </div>
+        <div class="colonne-5 onright">
+            <img src="../images/produits/couverture-panorama-2.webp" alt="Couverture rigide de livre photo panoramique format portrait montrant bien que l'image couvre toute la surface">
+        </div>
+    </div>
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Panorama Hard Cover');
+            ?>
+        </div>
+</section>
+<section class="section2" id="Couverture rigide Panorama personnalisée">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Couverture rigide Panorama personnalisée</h2>
+        <p class="paragraphe">Le Hard Cover Basic est une couverture préfabriquée avec un revêtement en papier et une fine couche de colle thermofusible sur ses bords extérieurs et intérieurs. Peleman a développé le Hard Cover Basic pour fabriquer un livre relié, un classeur à anneaux ou un présentoir parfaitement fini et personnalisé, sans utiliser de colles liquides, en petites ou grandes quantités.</p>
+    </div>
+    <img class="centre-div" src="../images/produits/hard-cover-basic-1.webp" alt="Présentation du système de couverture rigide panoramique personnalisée Hard Cover Basic"> 
+    
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Hard Cover Basic A4 Portrait');
+            afficherTableauProduits('Hard Cover Basic A4 Paysage');
+            afficherTableauProduits('Hard Cover Basic A5 Portrait');
+            afficherTableauProduits('Hard Cover Basic A5 Paysage');
+            afficherTableauProduits('Hard Cover Basic Lettersize Portrait');
+            ?>
+        </div>
+        </br>
+    <div class="ligne">
+        <div class="colonne-3 onleft">
+            <img class="centre-div" src="../images/produits/panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo d'un caméléon">  
+        </div>
+        
+        <div class="colonne-3 onright">
+            <img src="../images/produits/panorama-2.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo de maisons sur pilotis aux Maldives">
+        </div>
+    </div>
 </section>
 
 <section class="section1" id="Couverture rigide personnalisables">

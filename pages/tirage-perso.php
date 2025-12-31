@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 40px 0;">
+<main style="padding: 40px 0 0 0;">
     <section class="section1" id="Sure mesure">
         <div class="container">
             

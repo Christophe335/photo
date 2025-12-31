@@ -224,9 +224,9 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="photo">Livres / Albums</button>
                         <div class="dropdown-menu" id="photo-menu">
-                            <a href="<?php echo $pagesPath; ?>livre-photo.php" class="dropdown-item">Livre Photo</a>
+                            <a href="<?php echo $pagesPath; ?>livre-photo.php" class="dropdown-item">Livre Photos</a>
                             <a href="<?php echo $pagesPath; ?>album.php" class="dropdown-item">Album Photos</a>
-                            <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Dépliant Accordéon</a>
+                            <a href="<?php echo $pagesPath; ?>infinity.php" class="dropdown-item">Photo Book Infinity</a>
                             <a href="<?php echo $pagesPath; ?>toile.php" class="dropdown-item">Impression sur Toile</a>
                         </div>
                     </div>
@@ -244,23 +244,24 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <!-- Bouton Couvertures -->
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="personnalisation">Couvertures</button>
-                        <div class="dropdown-menu" id="personnalisation-menu">  
+                        <div class="dropdown-menu" id="personnalisation-menu"> 
+                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a> 
                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
-                            <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a>
-                            <a href="<?php echo $pagesPath; ?>couverture-panorama.php" class="dropdown-item">Couverture Panorama</a>
+                            <a href="<?php echo $pagesPath; ?>classeur.php" class="dropdown-item">Classeur</a>
                             <a href="<?php echo $pagesPath; ?>luxe.php" class="dropdown-item">Finition Luxe</a>
                         </div>
                     </div>
                     
                     <!-- Bouton Panneaux / Boîtes -->
                     <div class="nav-item">
-                        <button class="nav-btn" data-menu="cadeaux">Panneaux / Boîtes</button>
+                        <button class="nav-btn" data-menu="cadeaux">Panneaux / Coffrets</button>
                         <div class="dropdown-menu" id="cadeaux-menu">
+                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Prestige Box A4</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Prestige Box A5</a>
+                            <a href="<?php echo $pagesPath; ?>portfolio.php" class="dropdown-item">Portfolio Prestige</a>
+                            <a href="<?php echo $pagesPath; ?>panneau-photo.php" class="dropdown-item">Panneaux Photo</a>
                             <a href="<?php echo $pagesPath; ?>panneau-bambou.php" class="dropdown-item">Panneaux Bambou</a>
                             <a href="<?php echo $pagesPath; ?>panneau-acrylique.php" class="dropdown-item">Panneaux Acrylique</a>
-                            <a href="<?php echo $pagesPath; ?>panneau-photo.php" class="dropdown-item">Panneaux Photo</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Boîte A5</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Boîte A4</a>
                             <a href="<?php echo $pagesPath; ?>metal.php" class="dropdown-item">Alu-Print</a>
                             <a href="<?php echo $pagesPath; ?>magnet.php" class="dropdown-item">Magnets</a>
                         </div>
@@ -269,16 +270,22 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="photo">Personnalisation</button>
                         <div class="dropdown-menu" id="photo-menu">
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-rigide-perso.php" class="dropdown-item">Couv. Rigide Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-souple-perso.php" class="dropdown-item">Couv. Souple Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-panorama-perso.php" class="dropdown-item">Panorama Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/album-perso.php" class="dropdown-item">Album Photos Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/pochette-perso.php" class="dropdown-item">Pochettes Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a5-perso.php" class="dropdown-item">Boîte A5 Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a4-perso.php" class="dropdown-item">Boîte A4 Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/infinity-perso.php" class="dropdown-item">Infinity Personnalisé</a>
-                            <a href="<?php echo $pagesPath; ?>../pages-perso/luxe-perso.php" class="dropdown-item">Finition Luxe Personnalisé</a>
-                            <!-- <a href="<?php echo $pagesPath; ?>../pages-perso/toile-perso.php" class="dropdown-item">Toile Personnalisé</a> -->
+                            <div class="format-group">
+                                <div class="group-items">
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/album-perso.php" class="dropdown-item">Album Photos</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-souple-perso.php" class="dropdown-item">Couverture Souple</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-rigide-perso.php" class="dropdown-item">Couverture Rigide</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/pochette-perso.php" class="dropdown-item">Chemise</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a4-perso.php" class="dropdown-item">Coffret Prestige A4</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a5-perso.php" class="dropdown-item">Coffret Prestige A5</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/classeur-perso.php" class="dropdown-item">Classeur</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/portfolio-perso.php" class="dropdown-item">PortFolio Prestige</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/infinity-perso.php" class="dropdown-item">Photo Book Prestige</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/luxe-perso.php" class="dropdown-item">Finition Luxe</a>
+                                    <a href="<?php echo $pagesPath; ?>../pages-perso/toile-perso.php" class="dropdown-item">Toile</a>
+                                </div>
+                                <div class="group-label">Personnalisation</div>
+                            </div>
                         </div>
                     </div>
                 </nav>

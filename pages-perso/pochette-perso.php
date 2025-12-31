@@ -6,19 +6,11 @@
 <link rel="stylesheet" href="../css/tableau.css">
 <link rel="stylesheet" href="../css/panier.css">
 
-<main style="padding: 60px 0;">
-    <!-- <div class="container">
-        <h1 class="title-h1 bull">Pochette de Prospection Personnalisée</h1>
-    </div> -->
+<main style="padding: 60px 0 0 0;">
         <img style= "width: 100%;" class="centre-div pose" src="../images/bandeaux/pochette-perso.webp" alt="Un bandeau présentant des pochettes de prospection personnalisées">
-    <!-- <div class="container">
-        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
-            Pochettes professionnelles personnalisées pour vos présentations.
-        </p>
-    </div> -->
-<section class="section1" id="Pochette simple">
+<section class="section1" id="Chemise simple">
     <div class="container">
-        <h2 class="title-h3 centre-text">pochette simple personnalisée - format A4</h2>
+        <h2 class="title-h3 centre-text">Chemise simple personnalisée - format A4</h2>
         
     </div>
     <div class="ligne">
@@ -42,9 +34,9 @@
             ?>
         </div>
 </section>
-<section class="section2" id="Pochette Plus">
+<section class="section2" id="Chemise Plus">
     <div class="container">
-        <h2 class="title-h3 centre-text">pochette plus personnalisée - format A4</h2>
+        <h2 class="title-h3 centre-text">Chemise plus personnalisée - format A4</h2>
         
     </div>
     <div class="ligne">
