@@ -116,7 +116,7 @@ function afficherTableauPersonnalisation($famille, $quantiteParDefaut = 1, $prod
         <div style="display:flex; justify-content:center; margin: 20px 0;">
             <div class="tableau-produits<?= !$afficherCouleur ? ' sans-couleur' : '' ?>" style="max-width: 980px; width:100%;">
             <!-- Titre d'attention -->
-            <h4 style="color: #d63384; margin-bottom: 20px; text-align: center; font-weight: 700; background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #d63384;">
+            <h4 style="color: var(--noir1); margin-bottom: 20px; text-align: center; font-weight: 700; background: var(--or3); padding: 15px; border-radius: 8px; border-left: 4px solid var(--or2);">
                 ⚠️ ATTENTION : Choisir autant de quantité que vous avez de produits par conditionnement
             </h4>
             

@@ -38,7 +38,7 @@
 .menu-toggle {
     width: 50px;
     height: 50px;
-    background: #1a1b4d;
+    background: var(--or2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@
 }
 
 .menu-toggle:hover {
-    background: #24256d;
+    background: var(--or1);
     transform: scale(1.1);
 }
 
@@ -145,19 +145,19 @@
 }
 
 .menu-links a:hover {
-    background: #f8f9fa;
-    color: #24256d;
+    background: var(--or3);
+    color: var(--noir2);
     padding-left: 25px;
 }
 
 .menu-links a.active {
-    background: #2a256d;
+    background: var(--or3);
     color: white;
     font-weight: 500;
 }
 
 .menu-links a.active:hover {
-    background: #3032a1;
+    background: var(--or2);
     color: white;
 }
 
@@ -173,7 +173,7 @@ html {
     right: 30px;
     width: 40px;
     height: 40px;
-    background: #1a1b4d;
+    background: var(--or2);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -192,7 +192,7 @@ html {
 }
 
 .btn-retour-haut:hover {
-    background: #3032a1;
+    background: var(--or1);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
 }

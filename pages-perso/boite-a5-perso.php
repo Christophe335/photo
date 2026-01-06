@@ -7,10 +7,11 @@
 <link rel="stylesheet" href="../css/panier.css">
 
 <main style="padding: 60px 0 0 0;">
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/box-1perso.webp" alt="Un bandeau présentant des boîtes personnalisées au format A5">
+
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/box-1perso.webp" alt="Un bandeau présentant des boîtes personnalisées au format A5" loading="lazy">
 <section class="section1" id="Coffret Prestige format A5">
     <div class="container">
-        <h2 class="title-h3 centre-text">Coffret Prestige format A5 personnalisation par logo</h2>
+        <h1 class="title-h3 centre-text">Coffret Prestige format A5 personnalisation par logo</h1>
         <p class="paragraphe">Nous proposons un service de A à Z, avec un fort accent sur la personnalisation. Nous veillons à ce que votre identité de marque prenne forme. Nous proposons des Boîtes avec une touche douce en cachemire ou une finition soft touch avec un design de votre choix. Nos boîtes peuvent être utilisées pour une large gamme d'applications dans presque n'importe quelle industrie ou situation. Pensez : cadeaux classiques, marketing créatif, branding employeur, anniversaires, cadeaux pour nouveau-né, ...</br>Toutes nos boîtes sont conçues en 3 parties distinctes, le haut, le bas et le clip qui permet de relier le haut avec le bas en donnant une épaisseur bien définie.</p> 
     </div>
     <div class="ligne">
@@ -21,39 +22,39 @@
             <h3 class="title-h3 centre-text">Couleurs disponibles</h3>
             <div class="ligne" style="margin-left: 20%;">
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-1.webp" width="50px" height="60px" alt="Couleur de boite Pastel blue">
+                    <img class="centre-div" src="../images/produits/boite-couleur-1.webp" width="50px" height="60px" alt="Couleur de boite Pastel blue" loading="lazy">
                     <p>Pastel Blue</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-2.webp" width="50px" height="60px" alt="Couleur de boite Pastel pink">
+                    <img class="centre-div" src="../images/produits/boite-couleur-2.webp" width="50px" height="60px" alt="Couleur de boite Pastel pink" loading="lazy">
                     <p>Pastel Pink</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-3.webp" width="50px" height="60px" alt="Couleur de boite Pastel yellow">
+                    <img class="centre-div" src="../images/produits/boite-couleur-3.webp" width="50px" height="60px" alt="Couleur de boite Pastel yellow" loading="lazy">
                     <p>Pastel Yellow</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-4.webp" width="50px" height="60px" alt="Couleur de boite Pastel beige">
+                    <img class="centre-div" src="../images/produits/boite-couleur-4.webp" width="50px" height="60px" alt="Couleur de boite Pastel beige" loading="lazy">
                     <p>Pastel Beige</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-5.webp" width="50px" height="60px" alt="Couleur de boite Pastel green">
+                    <img class="centre-div" src="../images/produits/boite-couleur-5.webp" width="50px" height="60px" alt="Couleur de boite Pastel green" loading="lazy">
                     <p>Pastel Green</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-6.webp" width="50px" height="60px" alt="Couleur de boite Pastel purple">
+                    <img class="centre-div" src="../images/produits/boite-couleur-6.webp" width="50px" height="60px" alt="Couleur de boite Pastel purple" loading="lazy">
                     <p>Pastel Purple</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-7.webp" width="50px" height="60px" alt="Couleur de boite Pastel beige">
+                    <img class="centre-div" src="../images/produits/boite-couleur-7.webp" width="50px" height="60px" alt="Couleur de boite Pastel beige" loading="lazy">
                     <p>White soft touch</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-8.webp" width="50px" height="60px" alt="Couleur de boite Pastel green">
+                    <img class="centre-div" src="../images/produits/boite-couleur-8.webp" width="50px" height="60px" alt="Couleur de boite Pastel green" loading="lazy">
                     <p>Black</p> 
                 </div>
                 <div class="posCouleurBoite">
-                    <img class="centre-div" src="../images/produits/boite-couleur-10.webp" width="50px" height="60px" alt="Couleur de boite Stressed grey">
+                    <img class="centre-div" src="../images/produits/boite-couleur-10.webp" width="50px" height="60px" alt="Couleur de boite Stressed grey" loading="lazy">
                     <p>Stressed Grey</p> 
                 </div>
             </div>
@@ -79,10 +80,10 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/boite-2.webp" width="400px" height="300px" alt="Une boîte format A5 à recouvrir personnalisée ici avec du papier autocollant imprimé avec des motifs colorés">
+            <img class="centre-div" src="../images/produits/boite-2.webp" width="400px" height="300px" alt="Une boîte format A5 à recouvrir personnalisée ici avec du papier autocollant imprimé avec des motifs colorés" loading="lazy">
         </div>
         <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/boite-1.webp" width="400px" height="300px" alt="Une boîte format A5 à recouvrir personnalisée ici avec du papier autocollant imprimé avec des motifs colorés">
+            <img class="centre-div" src="../images/produits/boite-1.webp" width="400px" height="300px" alt="Une boîte format A5 à recouvrir personnalisée ici avec du papier autocollant imprimé avec des motifs colorés" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">

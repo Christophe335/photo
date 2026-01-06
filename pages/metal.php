@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="title-h1 bull">Alu - Print</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/impression-metal-1.webp" alt="Un bandeau présentant des impressions sur métal personnalisées">
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/impression-metal-1.webp" alt="Un bandeau présentant des impressions sur métal personnalisées" loading="lazy">
     <section class="section1" id="Plaque - Angle arrondi pour imprimante A4">
     <div class="container">
         <h2 class="title-h3 centre-text">Alu-Print</h2>
@@ -18,19 +18,19 @@
     </div>
     <div class="ligne">
         <div class="colonne-7">
-            <img class="centre-div" src="../images/produits/impression-metal-3.webp" alt="Photo imprimée sur une plaque en métal, montrant un homme aux cheveux gris">  
+            <img class="centre-div" src="../images/produits/impression-metal-3.webp" alt="Photo imprimée sur une plaque en métal, montrant un homme aux cheveux gris" loading="lazy">  
         </div>
         <div class="colonne-7">
-            <img class="centre-div" src="../images/produits/impression-metal-2.webp" alt="Photo imprimée sur une plaque en métal, montrant une femme aux cheveux gris">  
+            <img class="centre-div" src="../images/produits/impression-metal-2.webp" alt="Photo imprimée sur une plaque en métal, montrant une femme aux cheveux gris" loading="lazy">  
         </div>
         <div class="colonne-7">
-            <img class="centre-div" src="../images/produits/impression-metal-4.webp" alt="Photo imprimée sur une plaque en métal, montrant un texte marqué Room 361">  
+            <img class="centre-div" src="../images/produits/impression-metal-4.webp" alt="Photo imprimée sur une plaque en métal, montrant un texte marqué Room 361" loading="lazy">  
         </div>
         <div class="colonne-7">
-            <img class="centre-div" src="../images/produits/impression-metal-5.webp" alt="Photo imprimée sur une plaque en métal, montrant un texte marqué Guest Hotel">  
+            <img class="centre-div" src="../images/produits/impression-metal-5.webp" alt="Photo imprimée sur une plaque en métal, montrant un texte marqué Guest Hotel" loading="lazy">  
         </div>
         <div class="colonne-7">
-            <img class="centre-div" src="../images/produits/impression-metal-6.webp" alt="Photo imprimée sur une plaque en métal, montrant un texte marqué Guest Hotel">  
+            <img class="centre-div" src="../images/produits/impression-metal-6.webp" alt="Photo imprimée sur une plaque en métal, montrant un texte marqué Guest Hotel" loading="lazy">  
         </div>
     </div>
     <h3 class="sous-titre-h3">Plaque angle arrondi</h3>
@@ -49,13 +49,13 @@
 <section class="section2" id="Plaque - Angle arrondi pour imprimante A3">
     <div class="ligne">
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-coin-arrondi-5.webp" width="150px" height="150px" alt="Plaque en métal avec des coins arrondis, montrant un homme qui porte sa fille sur les épaules">
+            <img class="centre-div" src="../images/produits/plaque-coin-arrondi-5.webp" width="150px" height="150px" alt="Plaque en métal avec des coins arrondis, montrant un homme qui porte sa fille sur les épaules" loading="lazy">
         </div>
         <div class="colonne-6">
             <h3 class="sous-titre-h3">Plaque angle arrondi grand format</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-coin-arrondi-6.webp" width="260px" height="180px" alt="2 Plaque en métal avec des coins arrondis, montrant sur la première un couple portant chacun un enfant et sur l'autre portrait d'une jeune femme souriante">
+            <img class="centre-div" src="../images/produits/plaque-coin-arrondi-6.webp" width="260px" height="180px" alt="2 Plaque en métal avec des coins arrondis, montrant sur la première un couple portant chacun un enfant et sur l'autre portrait d'une jeune femme souriante" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">
@@ -74,13 +74,13 @@
 <section class="section1" id="Plaque - Angle droit pour imprimante A3">
     <div class="ligne">
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-1.webp" width="150px" height="150px" alt="Plaque en métal angles droits, montrant le portrait un homme aux cheveux gris">
+            <img class="centre-div" src="../images/produits/plaque-1.webp" width="150px" height="150px" alt="Plaque en métal angles droits, montrant le portrait un homme aux cheveux gris" loading="lazy">
         </div>
         <div class="colonne-6">
             <h3 class="sous-titre-h3">Plaque angle droit grand format</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/panneau photo-5.webp" width="150px" height="150px" alt="2 Plaque en métal angles droits, montrant une jeune fille qui ceuille des fleurs dans un champ">
+            <img class="centre-div" src="../images/produits/panneau photo-5.webp" width="150px" height="150px" alt="2 Plaque en métal angles droits, montrant une jeune fille qui ceuille des fleurs dans un champ" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">
@@ -98,13 +98,13 @@
 <section class="section2" id="Plaque - Angle droit pour imprimante A4">
     <div class="ligne">
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-angle-droit-1.webp" width="200px" height="200px" alt="Plaque en métal angles droits, montrant un baquebot en mer">
+            <img class="centre-div" src="../images/produits/plaque-angle-droit-1.webp" width="200px" height="200px" alt="Plaque en métal angles droits, montrant un baquebot en mer" loading="lazy">
         </div>
         <div class="colonne-6">
             <h3 class="sous-titre-h3">Plaque angle droit</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-angle-droit-2.webp" width="200px" height="200px" alt="2 Plaque en métal angles droits, montrant immitation de texture bois avec une inscription">
+            <img class="centre-div" src="../images/produits/plaque-angle-droit-2.webp" width="200px" height="200px" alt="2 Plaque en métal angles droits, montrant immitation de texture bois avec une inscription" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">
@@ -128,7 +128,7 @@
             <h3 class="sous-titre-h3">Plaque carré avec angle arrondi</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-coin-arrondi-3.webp" width="150px" height="150px" alt="Plaque en métal avec des coins arrondis, montrant une femme aux cheveux gris">
+            <img class="centre-div" src="../images/produits/plaque-coin-arrondi-3.webp" width="150px" height="150px" alt="Plaque en métal avec des coins arrondis, montrant une femme aux cheveux gris" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">
@@ -146,13 +146,13 @@
 <section class="section2" id="Plaque - Ovale ou Circulaire">
     <div class="ligne">
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-oval-1.webp" width="150px" height="150px" alt="Plaque oval, présentant la photo d'un homme">
+            <img class="centre-div" src="../images/produits/plaque-oval-1.webp" width="150px" height="150px" alt="Plaque oval, présentant la photo d'un homme" loading="lazy">
         </div>
         <div class="colonne-6">
             <h3 class="sous-titre-h3">Plaque ovale ou circulaire</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-oval-5.webp" width="150px" height="150px" alt="Plaque circulaire, montrant une famille qui courtsur la plage">
+            <img class="centre-div" src="../images/produits/plaque-oval-5.webp" width="150px" height="150px" alt="Plaque circulaire, montrant une famille qui courtsur la plage" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">
@@ -170,13 +170,13 @@
 <section class="section1" id="Plaque pliée">
     <div class="ligne">
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-plier-1.webp" width="150px" height="150px" alt="Plaque plié avec inscription du prénom John">
+            <img class="centre-div" src="../images/produits/plaque-plier-1.webp" width="150px" height="150px" alt="Plaque plié avec inscription du prénom John" loading="lazy">
         </div>
         <div class="colonne-6">
             <h3 class="sous-titre-h3">Plaque pliée</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-plier-2.webp" width="150px" height="150px" alt="Plaque plié présentant la carte des vins">
+            <img class="centre-div" src="../images/produits/plaque-plier-2.webp" width="150px" height="150px" alt="Plaque plié présentant la carte des vins" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">
@@ -194,13 +194,13 @@
 <section class="section2" id="Plaque flexible">
     <div class="ligne">
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-flexible-1.webp" width="150px" height="150px" alt="Plaque flexible apposée sur un mug">
+            <img class="centre-div" src="../images/produits/plaque-flexible-1.webp" width="150px" height="150px" alt="Plaque flexible apposée sur un mug" loading="lazy">
         </div>
         <div class="colonne-6">
             <h3 class="sous-titre-h3">Plaque flexible - Personnalisation d'objets</h3>
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/plaque-flexible-2.webp" width="150px" height="150px" alt="Plaque flexible seule avec impression d'un nom et prénom">
+            <img class="centre-div" src="../images/produits/plaque-flexible-2.webp" width="150px" height="150px" alt="Plaque flexible seule avec impression d'un nom et prénom" loading="lazy">
         </div>
     </div>
     <div class="tableau-container">

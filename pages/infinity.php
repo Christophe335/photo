@@ -8,9 +8,9 @@
 
 <main style="padding: 40px 0 0 0;">
     <div class="container">
-        <h1 class="title-h1 bull">Infinity</h1>
+        <h1 class="title-h1 bull">Photo Book Infinity</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/mariage-1.webp" alt="Un bandeau présentant des dépliants en accordéon personnalisés">  
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/mariage-1.webp" alt="Un bandeau présentant des dépliants en accordéon personnalisés" loading="lazy">  
      <section class="section1" id="Photo Book Infinity">
         <div class="container">
             <h2 class="title-h3 centre-text">Photo Book Infinity Lay-Flat</h2>
@@ -22,10 +22,10 @@
         <div class="container">
             <div class="ligne">
                 <div class="colonne-3 onleft">
-                    <img class="centre-div" src="../images/produits/lay-flat-1.webp" alt="Album photo en accordéon présenté ouvert montrant des photos imprimées au format paysage">
+                    <img class="centre-div" src="../images/produits/lay-flat-1.webp" alt="Album photo en accordéon présenté ouvert montrant des photos imprimées au format paysage" loading="lazy">
                 </div>
                 <div class="colonne-3 onright">
-                    <img class="centre-div" src="../images/produits/infinity-lay-flat-1.webp" alt="Album photo en accordéon présenté ouvert montrant des photos imprimées au format paysage">
+                    <img class="centre-div" src="../images/produits/infinity-lay-flat-1.webp" alt="Album photo en accordéon présenté ouvert montrant des photos imprimées au format paysage" loading="lazy">
                 </div>
             </div>
             </br>
@@ -60,11 +60,11 @@
         </div>
         <div>
                 <div class="ligne">
-                    <img class="centre-div" src="../images/produits/infinity-lay-flat-3.webp" alt="Album photo en accordéon présentation des 2 versions fermées avec couvertures rigides">
+                    <img class="centre-div" src="../images/produits/infinity-lay-flat-3.webp" alt="Album photo en accordéon présentation des 2 versions fermées avec couvertures rigides" loading="lazy">
                 
-                    <img class="centre-div" src="../images/produits/infinity-lay-flat-2.webp" alt="Album photo en accordéon présenté ouvert montrant une photo imprimées au format paysage">
+                    <img class="centre-div" src="../images/produits/infinity-lay-flat-2.webp" alt="Album photo en accordéon présenté ouvert montrant une photo imprimées au format paysage" loading="lazy">
                
-                    <img class="centre-div" src="../images/produits/infinity-lay-flat-4.webp" alt="Détail du rabat magnétique de l'album photo en accordéon">
+                    <img class="centre-div" src="../images/produits/infinity-lay-flat-4.webp" alt="Détail du rabat magnétique de l'album photo en accordéon" loading="lazy">
                 </div>
             </div>
         </br>

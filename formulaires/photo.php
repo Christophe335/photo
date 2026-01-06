@@ -32,8 +32,9 @@ if (empty($conditionnement) && $produit_id) {
 ?>
 
 <main class="cadre">
+
     <div class="container">
-        <h2 class="title-h3">Ajoutez vos photos pour mettre au panier</h2>
+        <h2 class="title-h1">Ajoutez vos photos pour mettre au panier</h1>
         
         <!-- Layout 2 colonnes -->
         <div class="layout-2-colonnes" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
@@ -68,10 +69,10 @@ if (empty($conditionnement) && $produit_id) {
                     align-items: center;
                     margin-bottom: 20px;
                     padding-bottom: 15px;
-                    border-bottom: 2px solid #f05124;
+                    border-bottom: 2px solid var(--or2);
                 ">
                     <div style="
-                        background: linear-gradient(135deg, #f05124 0%, #ff6b47 100%);
+                        background: linear-gradient(135deg, var(--or2) 0%, var(--or1) 100%);
                         color: white;
                         width: 40px;
                         height: 40px;
@@ -97,62 +98,47 @@ if (empty($conditionnement) && $produit_id) {
                     background: white;
                     border-radius: 8px;
                     box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-                    border-left: 4px solid #f05124;
+                    border-left: 4px solid var(--or2);
                 " data-id="<?= htmlspecialchars($produit_id) ?>" data-prix="<?= htmlspecialchars($prix) ?>">
 
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
                         <div style="flex: 0 0 auto;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Code</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#fff5f3;padding:6px 10px;border-radius:4px;"><?= htmlspecialchars($reference) ?></div>
+                            <div style="font-weight:600;color:var(--noir1);font-size:14px;background:var(--or3);padding:6px 10px;border-radius:4px;"><?= htmlspecialchars($reference) ?></div>
                         </div>
 
                         <div style="flex:1; min-width:200px;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Désignation</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:16px;line-height:1.3;"><?= htmlspecialchars($designation) ?></div>
+                            <div style="font-weight:600;color:var(--noir2);font-size:16px;line-height:1.3;"><?= htmlspecialchars($designation) ?></div>
                         </div>
 
                         <?php if ($format): ?>
                         <div style="flex:0 0 auto;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Format</div>
-                            <div style="font-size:14px;font-weight:500;color:#f05124;background:#fff5f3;padding:6px 10px;border-radius:4px;"><?= htmlspecialchars($format) ?></div>
+                            <div style="font-size:14px;font-weight:500;color:var(--noir2);background:var(--or3);padding:6px 10px;border-radius:4px;"><?= htmlspecialchars($format) ?></div>
                         </div>
                         <?php endif; ?>
                     </div>
 
-                    <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px; flex-wrap:wrap;">
-                        <?php if ($conditionnement): ?>
-                        <div style="flex:0 0 auto;">
+                    <?php $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix; ?>
+
+                    <div style="display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:6px;">
+                        <div style="flex:1 1 22%; min-width:140px;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Conditionnement</div>
-                            <div style="font-size:14px;font-weight:500;color:#6f42c1;background:#f8f5ff;padding:6px 10px;border-radius:4px;">Pack de <?= htmlspecialchars($conditionnement) ?></div>
+                            <div style="font-size:14px;font-weight:500;color:#6f42c1;background:#f8f5ff;padding:6px 10px;border-radius:4px;"><?= $conditionnement ? ' ' . htmlspecialchars($conditionnement) : '—' ?></div>
                         </div>
-                        <?php endif; ?>
 
-                        <?php if ($couleur): ?>
-                        <div style="flex:0 0 auto;">
-                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Couleur</div>
-                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#f0f0f0;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:8px;"> 
-                                <?= htmlspecialchars($couleur) ?>
-                                <?php if ($imageCouleur): ?>
-                                    <img src="<?= htmlspecialchars($imageCouleur) ?>" alt="<?= htmlspecialchars($couleur) ?>" style="width:20px;height:20px;border-radius:50%;border:1px solid #ddd;">
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-
-                        <div style="flex:0 0 auto;">
+                        <div style="flex:1 1 22%; min-width:120px;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Quantité</div>
                             <div style="font-weight:600;color:#2a256d;font-size:14px;background:#f0f0f0;padding:6px 10px;border-radius:4px;"><?= $quantite_selectionnee ?></div>
                         </div>
-                    </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top:20px; padding-top:20px; border-top:1px solid #eee;">
-                        <div>
+                        <div style="flex:1 1 22%; min-width:140px;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Prix unitaire</div>
-                            <div style="font-weight:600;color:#17a2b8;font-size:16px;background:#f0fbff;padding:8px 12px;border-radius:4px;border:1px solid #bee5eb;">
-                                <?php $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix; echo number_format($prixUnitaire,2,',',' '); ?> € HT
-                            </div>
+                            <div style="font-weight:600;color:#17a2b8;font-size:16px;background:#f0fbff;padding:8px 12px;border-radius:4px;border:1px solid #bee5eb;"><?= number_format($prixUnitaire,2,',',' ') ?> € HT</div>
                         </div>
-                        <div>
+
+                        <div style="flex:1 1 22%; min-width:140px;">
                             <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Total</div>
                             <div style="font-weight:700;color:#28a745;font-size:18px;background:#f8fff9;padding:10px 14px;border-radius:6px;border:1px solid #d4edda;"><?= number_format($prix * $quantite_selectionnee,2,',',' ') ?> € HT</div>
                         </div>
@@ -197,8 +183,8 @@ if (empty($conditionnement) && $produit_id) {
                             id="btnAjouterPanier"
                             onclick="ajouterAuPanierAvecPhotos(<?= $produit_id ?>, '<?= htmlspecialchars($reference, ENT_QUOTES) ?>', '<?= htmlspecialchars($designation, ENT_QUOTES) ?>', '<?= htmlspecialchars($format ?? '', ENT_QUOTES) ?>', <?= $prix ?>, '<?= htmlspecialchars($conditionnement ?? '', ENT_QUOTES) ?>')" 
                             style="
-                                background: #28a745; 
-                                color: white; 
+                                background: var(--vert1); 
+                                color: var(--blanc1); 
                                 border: none; 
                                 padding: 12px 30px; 
                                 border-radius: 6px; 
@@ -231,7 +217,7 @@ if (empty($conditionnement) && $produit_id) {
                 <div class="crop-preview-sidebar">
                     <h4>Aperçu final</h4>
                     <div class="preview-wrapper">
-                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage">
+                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage" loading="lazy">
                         <div class="preview-info"></div>
                     </div>
                 </div>
@@ -239,7 +225,7 @@ if (empty($conditionnement) && $produit_id) {
                 <!-- Zone principale de recadrage -->
                 <div class="crop-main">
                     <div class="crop-container">
-                        <img id="cropImage" src="" alt="Image à recadrer">
+                        <img id="cropImage" src="" alt="Image à recadrer" loading="lazy">
                     </div>
                     
                     <!-- Contrôles en bas -->
@@ -253,9 +239,9 @@ if (empty($conditionnement) && $produit_id) {
                         <!-- Contrôles de zoom à droite -->
                         <div class="zoom-controls-inline">
                             <button type="button" class="orientation-btn" id="orientationToggle" title="Basculer Portrait/Paysage">⟲</button>
-                            <button type="button" class="zoom-btn-inline" id="zoomOutInline">-</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomOutInline" aria-label="Diminuer">-</button>
                             <span class="zoom-display-inline">100%</span>
-                            <button type="button" class="zoom-btn-inline" id="zoomInInline">+</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomInInline" aria-label="Augmenter">+</button>
                             <button type="button" class="zoom-reset-inline">Reset</button>
                         </div>
                     </div>
@@ -394,11 +380,11 @@ function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, pr
             setTimeout(() => {
                 btn.disabled = false;
                 btn.textContent = 'Ajouter au panier';
-                btn.style.background = '#28a745';
+                btn.style.background = 'var(--vert1)';
             }, 2000);
         } else {
             // Erreur
-            btn.style.background = '#dc3545';
+            btn.style.background = 'var(--erreur)';
             btn.textContent = 'Erreur !';
             alert('Erreur lors de l\'ajout au panier: ' + data.message);
             
@@ -406,13 +392,13 @@ function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, pr
             setTimeout(() => {
                 btn.disabled = false;
                 btn.textContent = 'Ajouter au panier';
-                btn.style.background = '#28a745';
+                btn.style.background = 'var(--vert1)';
             }, 2000);
         }
     })
     .catch(error => {
         console.error('Erreur:', error);
-        btn.style.background = '#dc3545';
+        btn.style.background = 'var(--erreur)';
         btn.textContent = 'Erreur !';
         alert('Erreur de connexion lors de l\'ajout au panier.');
         
@@ -420,7 +406,7 @@ function ajouterAuPanierAvecPhotos(produitId, reference, designation, format, pr
         setTimeout(() => {
             btn.disabled = false;
             btn.textContent = 'Ajouter au panier';
-            btn.style.background = '#28a745';
+            btn.style.background = 'var(--vert1)';
         }, 2000);
     });
 }
@@ -480,7 +466,7 @@ const observer = new MutationObserver(function(mutations) {
             if (btn && btn.disabled) {
                 btn.disabled = false;
                 btn.textContent = 'Ajouter au panier';
-                btn.style.background = '#28a745';
+                btn.style.background = 'var(--vert1)';
             }
         }
     }

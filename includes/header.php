@@ -11,17 +11,45 @@ $jsPath = $basePath . 'js/';
 $imagesPath = $basePath . 'images/';
 $indexPath = $isInSubfolder ? '../index.php' : 'index.php';
 $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
+// page actuelle (utilisé pour titre SEO par défaut)
+$currentPageShort = basename($_SERVER['PHP_SELF'], '.php');
+$currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo - Impression et Personnalisation</title>
-    <link rel="stylesheet" href="<?php echo $cssPath; ?>style.css">
-    <link rel="stylesheet" href="<?php echo $cssPath; ?>responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <?php
+    if (!isset($seo_title) || $seo_title === 'Photo - Impression et Personnalisation') $seo_title = $currentPageLabel . ' - Bindy Studio';
+    if (!isset($seo_description)) $seo_description = $currentPageLabel . ' — Découvrez nos produits et services d\'impression photo.';
+    if (!isset($seo_image)) $seo_image = $imagesPath . 'bandeaux/index.webp';
+    if (!isset($canonical)) $canonical = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    if (!isset($seo_robots)) $seo_robots = 'index,follow';
+    // inclure le snippet SEO centralisé
+    include __DIR__ . '/seo.php';
+    ?>
+    <!-- Preconnect CDNs and Google Fonts -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <!-- Preload critical stylesheets to avoid render-blocking, then swap rel on load -->
+    <link rel="preload" href="<?php echo $cssPath; ?>style.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="<?php echo $cssPath; ?>responsive.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+
+    <!-- Preload local fonts for faster first paint (crossorigin) -->
+    <link rel="preload" href="<?php echo $basePath; ?>fonts/Kapakana-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+    <!-- Fallback for no-JS environments -->
+    <noscript>
+        <link rel="stylesheet" href="<?php echo $cssPath; ?>style.css">
+        <link rel="stylesheet" href="<?php echo $cssPath; ?>responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
     <!-- Gestion des cookies RGPD -->
     <script src="<?php echo $jsPath; ?>cookie-manager.js" defer></script>
     <script src="<?php echo $jsPath; ?>site-search.js" defer></script>
@@ -35,7 +63,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <div class="top-row">
                         <!-- Logo -->
                         <a class="logo" href="<?php echo $indexPath; ?>">
-                            <img src="<?php echo $imagesPath; ?>logo-icon/logo3.svg" alt="Logo" class="logo-img">
+                            <img src="<?php echo $imagesPath; ?>logo-icon/logo3.svg" alt="Logo représentant un livre ouvert avec le texte en dessous ALBUM PHOTO BOOK, en couleur or sur fond noir" class="logo-img">
                         </a>
 
                         <!-- Coordonnées (icone + numéro seulement) -->
@@ -128,30 +156,34 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                         'luxe' => 'Finition Luxe',
                         'couverture-souple' => 'Couverture Souple',
                         'couverture-rigide' => 'Couverture Rigide',
+                        'classeur' => 'Classeur',
                         // Pages panneaux/boîtes
                         'panneau-bambou' => 'Panneaux Bambou',
                         'panneau-acrylique' => 'Panneaux Acrylique',
                         'panneau-photo' => 'Panneaux Photo',
-                        'boite-a5' => 'Boîte A5',
-                        'boite-a4' => 'Boîte A4',
+                        'boite-a5' => 'Prestige Box A5',
+                        'boite-a4' => 'Prestige Box A4',
                         'metal' => 'Alu-Print',
                         'magnet' => 'Magnets',
                         // Pages cadeaux
                         'album' => 'Albums Photos',
                         'calendrier' => 'Calendriers',
                         'calendrier-glissant' => 'Calendrier Glissant',
-                        'infinity' => 'Infinity',
+                        'infinity' => 'Photo Book Infinity',
+                        'portfolio' => 'Portfolio Prestige',
+                        'livre-photo' => 'Livre Photos',
                         'toile' => 'Toiles',
-                        'pochette' => 'Pochettes',
+                        'pochette' => 'Chemises',
                         // Pages personnalisation
                         'couverture-rigide-perso' => 'Couverture Rigide Personnalisé',
-                        'couverture-panorama-perso' => 'Panorama Personnalisé',
+                        'classeur-perso' => 'Classeur Personnalisé',
                         'couverture-souple-perso' => 'Couverture Souple Personnalisé',
                         'album-perso' => 'Album Photos Personnalisé',
-                        'pochette-perso' => 'Pochettes Personnalisé',
-                        'boite-a5-perso' => 'Boîte A5 Personnalisé',
-                        'boite-a4-perso' => 'Boîte A4 Personnalisé',
-                        'infinity-perso' => 'Infinity Personnalisé',
+                        'pochette-perso' => 'Chemises Personnalisé',
+                        'boite-a5-perso' => 'Prestige Box A5 Personnalisé',
+                        'boite-a4-perso' => 'Prestige Box A4 Personnalisé',
+                        'infinity-perso' => 'Photo Book Infinity Personnalisé',
+                        'portfolio-perso' => 'Portfolio Prestige Personnalisé',
                         'toile-perso' => 'Toile Personnalisé',
                         // Pages formulaires
                         'photo' => 'Upload photos',
@@ -216,6 +248,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                             <div class="menu-separator"></div>
                             
                             <!-- Personnalisé -->
+                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php#papier" class="dropdown-item">Ramette de Papier</a>
                             <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="dropdown-item personalize-item">Personnalisé</a>
                         </div>
                     </div>
@@ -235,7 +268,7 @@ $pagesPath = $isInSubfolder ? '../pages/' : 'pages/';
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="calendrier">Calendriers</button>
                         <div class="dropdown-menu" id="calendrier-menu">
-                            <a href="<?php echo $pagesPath; ?>calendrier-bureau.php" class="dropdown-item">Calendrier de bureau</a>
+                            <a href="<?php echo $pagesPath; ?>calendrier-bureau.php" class="dropdown-item">Calendrier de Bureau</a>
                             <a href="<?php echo $pagesPath; ?>calendrier-mural.php" class="dropdown-item">Calendrier Mural</a>
                             <a href="<?php echo $pagesPath; ?>calendrier-glissant.php" class="dropdown-item">Calendrier Glissant</a>
                         </div>

@@ -106,7 +106,7 @@
                 <div class="crop-preview-sidebar">
                     <h4>Aperçu final</h4>
                     <div class="preview-wrapper">
-                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage">
+                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage" loading="lazy">
                         <div class="preview-info"></div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                 <!-- Zone principale de recadrage -->
                 <div class="crop-main">
                     <div class="crop-container">
-                        <img id="cropImage" src="" alt="Image à recadrer">
+                        <img id="cropImage" src="" alt="Image à recadrer" loading="lazy">
                     </div>
                     
                     <!-- Contrôles en bas -->
@@ -128,9 +128,9 @@
                         <!-- Contrôles de zoom à droite -->
                         <div class="zoom-controls-inline">
                             <button type="button" class="orientation-btn" id="orientationToggle" title="Basculer Portrait/Paysage">⟲</button>
-                            <button type="button" class="zoom-btn-inline" id="zoomOutInline">-</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomOutInline" aria-label="Diminuer">-</button>
                             <span class="zoom-display-inline">100%</span>
-                            <button type="button" class="zoom-btn-inline" id="zoomInInline">+</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomInInline" aria-label="Augmenter">+</button>
                             <button type="button" class="zoom-reset-inline">Reset</button>
                         </div>
                     </div>

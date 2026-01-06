@@ -15,8 +15,8 @@
             
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/tirage-grand-1.webp" alt="un album photo ouvert présentant des tirages photo grand format">
-                    <img class="centre-div" src="../images/produits/tirage-grand-2.webp" alt="des tirages photo grand format d'un couple et de photos de la ville de Paris">
+                    <img class="centre-div" src="../images/produits/tirage-grand-1.webp" alt="un album photo ouvert présentant des tirages photo grand format" loading="lazy">
+                    <img class="centre-div" src="../images/produits/tirage-grand-2.webp" alt="des tirages photo grand format d'un couple et de photos de la ville de Paris" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <p class="paragraphe">Donnez plus d’impact à vos photos avec nos tirages grand format. Ils offrent une présence visuelle forte tout en conservant une grande finesse de détail. Pensés pour être exposés, ces formats mettent en valeur vos plus beaux clichés et transforment vos images en véritables éléments de décoration.</p>

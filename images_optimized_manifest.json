@@ -1,0 +1,3073 @@
+{
+    "generated": "2026-01-01T17:18:23+00:00",
+    "quality": 78,
+    "manifest": {
+        "images\\bandeaux\\album-1.webp": {
+            "original_size": 73378,
+            "new_size": 40830,
+            "saved": 32548,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\album-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8678
+                },
+                {
+                    "path": "images\\bandeaux\\album-1-w800.webp",
+                    "width": 800,
+                    "filesize": 17658
+                },
+                {
+                    "path": "images\\bandeaux\\album-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 29994
+                }
+            ]
+        },
+        "images\\bandeaux\\album-perso.webp": {
+            "original_size": 68112,
+            "new_size": 18734,
+            "saved": 49378,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\album-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4412
+                },
+                {
+                    "path": "images\\bandeaux\\album-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 8742
+                },
+                {
+                    "path": "images\\bandeaux\\album-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 14522
+                }
+            ]
+        },
+        "images\\bandeaux\\album.webp": {
+            "original_size": 351442,
+            "new_size": 60418,
+            "saved": 291024,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\album-w480.webp",
+                    "width": 480,
+                    "filesize": 11948
+                },
+                {
+                    "path": "images\\bandeaux\\album-w800.webp",
+                    "width": 800,
+                    "filesize": 22574
+                },
+                {
+                    "path": "images\\bandeaux\\album-w1200.webp",
+                    "width": 1200,
+                    "filesize": 36166
+                }
+            ]
+        },
+        "images\\bandeaux\\bamboo-1.webp": {
+            "original_size": 79178,
+            "new_size": 46468,
+            "saved": 32710,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\bamboo-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8304
+                },
+                {
+                    "path": "images\\bandeaux\\bamboo-1-w800.webp",
+                    "width": 800,
+                    "filesize": 17022
+                },
+                {
+                    "path": "images\\bandeaux\\bamboo-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 30696
+                }
+            ]
+        },
+        "images\\bandeaux\\ban-classeur.webp": {
+            "original_size": 386446,
+            "new_size": 93826,
+            "saved": 292620,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\ban-classeur-w480.webp",
+                    "width": 480,
+                    "filesize": 7024
+                },
+                {
+                    "path": "images\\bandeaux\\ban-classeur-w800.webp",
+                    "width": 800,
+                    "filesize": 17390
+                },
+                {
+                    "path": "images\\bandeaux\\ban-classeur-w1200.webp",
+                    "width": 1200,
+                    "filesize": 35890
+                }
+            ]
+        },
+        "images\\bandeaux\\ban-portfolio.webp": {
+            "original_size": 255428,
+            "new_size": 62136,
+            "saved": 193292,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\ban-portfolio-w480.webp",
+                    "width": 480,
+                    "filesize": 8934
+                },
+                {
+                    "path": "images\\bandeaux\\ban-portfolio-w800.webp",
+                    "width": 800,
+                    "filesize": 18420
+                },
+                {
+                    "path": "images\\bandeaux\\ban-portfolio-w1200.webp",
+                    "width": 1200,
+                    "filesize": 32166
+                }
+            ]
+        },
+        "images\\bandeaux\\box-1.webp": {
+            "original_size": 80628,
+            "new_size": 47804,
+            "saved": 32824,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\box-1-w480.webp",
+                    "width": 480,
+                    "filesize": 9216
+                },
+                {
+                    "path": "images\\bandeaux\\box-1-w800.webp",
+                    "width": 800,
+                    "filesize": 18752
+                },
+                {
+                    "path": "images\\bandeaux\\box-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 32714
+                }
+            ]
+        },
+        "images\\bandeaux\\box-1perso.webp": {
+            "original_size": 71218,
+            "new_size": 19808,
+            "saved": 51410,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\box-1perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4734
+                },
+                {
+                    "path": "images\\bandeaux\\box-1perso-w800.webp",
+                    "width": 800,
+                    "filesize": 9266
+                },
+                {
+                    "path": "images\\bandeaux\\box-1perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 15514
+                }
+            ]
+        },
+        "images\\bandeaux\\box-2.webp": {
+            "original_size": 73136,
+            "new_size": 41762,
+            "saved": 31374,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\box-2-w480.webp",
+                    "width": 480,
+                    "filesize": 9344
+                },
+                {
+                    "path": "images\\bandeaux\\box-2-w800.webp",
+                    "width": 800,
+                    "filesize": 18734
+                },
+                {
+                    "path": "images\\bandeaux\\box-2-w1200.webp",
+                    "width": 1200,
+                    "filesize": 30924
+                }
+            ]
+        },
+        "images\\bandeaux\\box-2perso.webp": {
+            "original_size": 71844,
+            "new_size": 19968,
+            "saved": 51876,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\box-2perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4930
+                },
+                {
+                    "path": "images\\bandeaux\\box-2perso-w800.webp",
+                    "width": 800,
+                    "filesize": 9508
+                },
+                {
+                    "path": "images\\bandeaux\\box-2perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 15686
+                }
+            ]
+        },
+        "images\\bandeaux\\calendrier-bureau-1.webp": {
+            "original_size": 72832,
+            "new_size": 40742,
+            "saved": 32090,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\calendrier-bureau-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8592
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-bureau-1-w800.webp",
+                    "width": 800,
+                    "filesize": 17270
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-bureau-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 29408
+                }
+            ]
+        },
+        "images\\bandeaux\\calendrier-glissant-1.webp": {
+            "original_size": 68816,
+            "new_size": 37034,
+            "saved": 31782,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\calendrier-glissant-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8970
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-glissant-1-w800.webp",
+                    "width": 800,
+                    "filesize": 17118
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-glissant-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 27712
+                }
+            ]
+        },
+        "images\\bandeaux\\calendrier-mural-1.webp": {
+            "original_size": 79596,
+            "new_size": 47098,
+            "saved": 32498,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\calendrier-mural-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8998
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-mural-1-w800.webp",
+                    "width": 800,
+                    "filesize": 18050
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-mural-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 31628
+                }
+            ]
+        },
+        "images\\bandeaux\\calendrier.webp": {
+            "original_size": 435622,
+            "new_size": 94458,
+            "saved": 341164,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\calendrier-w480.webp",
+                    "width": 480,
+                    "filesize": 16730
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-w800.webp",
+                    "width": 800,
+                    "filesize": 33692
+                },
+                {
+                    "path": "images\\bandeaux\\calendrier-w1200.webp",
+                    "width": 1200,
+                    "filesize": 55760
+                }
+            ]
+        },
+        "images\\bandeaux\\classeur-perso.webp": {
+            "original_size": 84412,
+            "new_size": 18720,
+            "saved": 65692,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\classeur-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 3990
+                },
+                {
+                    "path": "images\\bandeaux\\classeur-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 7802
+                },
+                {
+                    "path": "images\\bandeaux\\classeur-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 13610
+                }
+            ]
+        },
+        "images\\bandeaux\\couverture-rigide-1.webp": {
+            "original_size": 218924,
+            "new_size": 138464,
+            "saved": 80460,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\couverture-rigide-1-w480.webp",
+                    "width": 480,
+                    "filesize": 13340
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-rigide-1-w800.webp",
+                    "width": 800,
+                    "filesize": 35250
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-rigide-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 78162
+                }
+            ]
+        },
+        "images\\bandeaux\\couverture-rigide-perso.webp": {
+            "original_size": 106194,
+            "new_size": 30358,
+            "saved": 75836,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\couverture-rigide-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4462
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-rigide-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 9682
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-rigide-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 18820
+                }
+            ]
+        },
+        "images\\bandeaux\\couverture-souple-1.webp": {
+            "original_size": 95158,
+            "new_size": 47940,
+            "saved": 47218,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\couverture-souple-1-w480.webp",
+                    "width": 480,
+                    "filesize": 7804
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-souple-1-w800.webp",
+                    "width": 800,
+                    "filesize": 16002
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-souple-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 29848
+                }
+            ]
+        },
+        "images\\bandeaux\\couverture-souple-perso.webp": {
+            "original_size": 71912,
+            "new_size": 17274,
+            "saved": 54638,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\couverture-souple-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4142
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-souple-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 7994
+                },
+                {
+                    "path": "images\\bandeaux\\couverture-souple-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 13350
+                }
+            ]
+        },
+        "images\\bandeaux\\dela-1.webp": {
+            "original_size": 65844,
+            "new_size": 35230,
+            "saved": 30614,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\dela-1-w480.webp",
+                    "width": 480,
+                    "filesize": 7134
+                },
+                {
+                    "path": "images\\bandeaux\\dela-1-w800.webp",
+                    "width": 800,
+                    "filesize": 14804
+                },
+                {
+                    "path": "images\\bandeaux\\dela-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 25166
+                }
+            ]
+        },
+        "images\\bandeaux\\france.webp": {
+            "original_size": 220666,
+            "new_size": 47196,
+            "saved": 173470,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\france-w480.webp",
+                    "width": 480,
+                    "filesize": 13782
+                },
+                {
+                    "path": "images\\bandeaux\\france-w800.webp",
+                    "width": 800,
+                    "filesize": 25178
+                },
+                {
+                    "path": "images\\bandeaux\\france-w1200.webp",
+                    "width": 1200,
+                    "filesize": 42632
+                }
+            ]
+        },
+        "images\\bandeaux\\impression-metal-1.webp": {
+            "original_size": 53792,
+            "new_size": 28786,
+            "saved": 25006,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\impression-metal-1-w480.webp",
+                    "width": 480,
+                    "filesize": 6562
+                },
+                {
+                    "path": "images\\bandeaux\\impression-metal-1-w800.webp",
+                    "width": 800,
+                    "filesize": 12612
+                },
+                {
+                    "path": "images\\bandeaux\\impression-metal-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 20952
+                }
+            ]
+        },
+        "images\\bandeaux\\index.webp": {
+            "original_size": 43888,
+            "new_size": 22102,
+            "saved": 21786,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\index-w480.webp",
+                    "width": 480,
+                    "filesize": 5796
+                },
+                {
+                    "path": "images\\bandeaux\\index-w800.webp",
+                    "width": 800,
+                    "filesize": 11752
+                }
+            ]
+        },
+        "images\\bandeaux\\livre-photo-1.webp": {
+            "original_size": 94546,
+            "new_size": 51064,
+            "saved": 43482,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\livre-photo-1-w480.webp",
+                    "width": 480,
+                    "filesize": 12954
+                },
+                {
+                    "path": "images\\bandeaux\\livre-photo-1-w800.webp",
+                    "width": 800,
+                    "filesize": 24694
+                },
+                {
+                    "path": "images\\bandeaux\\livre-photo-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 39408
+                }
+            ]
+        },
+        "images\\bandeaux\\luxe-1.webp": {
+            "original_size": 131446,
+            "new_size": 63200,
+            "saved": 68246,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\luxe-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8678
+                },
+                {
+                    "path": "images\\bandeaux\\luxe-1-w800.webp",
+                    "width": 800,
+                    "filesize": 21404
+                },
+                {
+                    "path": "images\\bandeaux\\luxe-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 41862
+                }
+            ]
+        },
+        "images\\bandeaux\\luxe-perso.webp": {
+            "original_size": 82674,
+            "new_size": 19302,
+            "saved": 63372,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\luxe-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 3564
+                },
+                {
+                    "path": "images\\bandeaux\\luxe-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 7382
+                },
+                {
+                    "path": "images\\bandeaux\\luxe-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 13502
+                }
+            ]
+        },
+        "images\\bandeaux\\magnet-1.webp": {
+            "original_size": 144962,
+            "new_size": 80874,
+            "saved": 64088,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\magnet-1-w480.webp",
+                    "width": 480,
+                    "filesize": 13856
+                },
+                {
+                    "path": "images\\bandeaux\\magnet-1-w800.webp",
+                    "width": 800,
+                    "filesize": 29934
+                },
+                {
+                    "path": "images\\bandeaux\\magnet-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 54200
+                }
+            ]
+        },
+        "images\\bandeaux\\mariage-1.webp": {
+            "original_size": 109486,
+            "new_size": 57554,
+            "saved": 51932,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\mariage-1-w480.webp",
+                    "width": 480,
+                    "filesize": 13658
+                },
+                {
+                    "path": "images\\bandeaux\\mariage-1-w800.webp",
+                    "width": 800,
+                    "filesize": 26492
+                },
+                {
+                    "path": "images\\bandeaux\\mariage-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 42800
+                }
+            ]
+        },
+        "images\\bandeaux\\mariage-perso.webp": {
+            "original_size": 79538,
+            "new_size": 19922,
+            "saved": 59616,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\mariage-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4974
+                },
+                {
+                    "path": "images\\bandeaux\\mariage-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 9556
+                },
+                {
+                    "path": "images\\bandeaux\\mariage-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 15844
+                }
+            ]
+        },
+        "images\\bandeaux\\panneau-acrylique-1.webp": {
+            "original_size": 65810,
+            "new_size": 34696,
+            "saved": 31114,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\panneau-acrylique-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8322
+                },
+                {
+                    "path": "images\\bandeaux\\panneau-acrylique-1-w800.webp",
+                    "width": 800,
+                    "filesize": 16470
+                },
+                {
+                    "path": "images\\bandeaux\\panneau-acrylique-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 26260
+                }
+            ]
+        },
+        "images\\bandeaux\\panneau-photo-1.webp": {
+            "original_size": 151624,
+            "new_size": 85684,
+            "saved": 65940,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\panneau-photo-1-w480.webp",
+                    "width": 480,
+                    "filesize": 16536
+                },
+                {
+                    "path": "images\\bandeaux\\panneau-photo-1-w800.webp",
+                    "width": 800,
+                    "filesize": 36144
+                },
+                {
+                    "path": "images\\bandeaux\\panneau-photo-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 62092
+                }
+            ]
+        },
+        "images\\bandeaux\\panneau.webp": {
+            "original_size": 608876,
+            "new_size": 217402,
+            "saved": 391474,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\panneau-w480.webp",
+                    "width": 480,
+                    "filesize": 38338
+                },
+                {
+                    "path": "images\\bandeaux\\panneau-w800.webp",
+                    "width": 800,
+                    "filesize": 73632
+                },
+                {
+                    "path": "images\\bandeaux\\panneau-w1200.webp",
+                    "width": 1200,
+                    "filesize": 123292
+                }
+            ]
+        },
+        "images\\bandeaux\\panorama-1.webp": {
+            "original_size": 210344,
+            "new_size": 116556,
+            "saved": 93788,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\panorama-1-w480.webp",
+                    "width": 480,
+                    "filesize": 16054
+                },
+                {
+                    "path": "images\\bandeaux\\panorama-1-w800.webp",
+                    "width": 800,
+                    "filesize": 37084
+                },
+                {
+                    "path": "images\\bandeaux\\panorama-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 71498
+                }
+            ]
+        },
+        "images\\bandeaux\\panorama-perso.webp": {
+            "original_size": 100738,
+            "new_size": 27950,
+            "saved": 72788,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\panorama-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 5586
+                },
+                {
+                    "path": "images\\bandeaux\\panorama-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 11492
+                },
+                {
+                    "path": "images\\bandeaux\\panorama-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 19998
+                }
+            ]
+        },
+        "images\\bandeaux\\photo-album.webp": {
+            "original_size": 247038,
+            "new_size": 64780,
+            "saved": 182258,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\photo-album-w480.webp",
+                    "width": 480,
+                    "filesize": 16822
+                },
+                {
+                    "path": "images\\bandeaux\\photo-album-w800.webp",
+                    "width": 800,
+                    "filesize": 31640
+                },
+                {
+                    "path": "images\\bandeaux\\photo-album-w1200.webp",
+                    "width": 1200,
+                    "filesize": 51870
+                }
+            ]
+        },
+        "images\\bandeaux\\photo-sur-toile-1.webp": {
+            "original_size": 93670,
+            "new_size": 41392,
+            "saved": 52278,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\photo-sur-toile-1-w480.webp",
+                    "width": 480,
+                    "filesize": 7646
+                },
+                {
+                    "path": "images\\bandeaux\\photo-sur-toile-1-w800.webp",
+                    "width": 800,
+                    "filesize": 15792
+                },
+                {
+                    "path": "images\\bandeaux\\photo-sur-toile-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 28106
+                }
+            ]
+        },
+        "images\\bandeaux\\photo-sur-toile-perso.webp": {
+            "original_size": 69714,
+            "new_size": 15948,
+            "saved": 53766,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\photo-sur-toile-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 3700
+                },
+                {
+                    "path": "images\\bandeaux\\photo-sur-toile-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 7366
+                },
+                {
+                    "path": "images\\bandeaux\\photo-sur-toile-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 12400
+                }
+            ]
+        },
+        "images\\bandeaux\\photo.webp": {
+            "original_size": 1069282,
+            "new_size": 352212,
+            "saved": 717070,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\photo-w480.webp",
+                    "width": 480,
+                    "filesize": 36612
+                },
+                {
+                    "path": "images\\bandeaux\\photo-w800.webp",
+                    "width": 800,
+                    "filesize": 94738
+                },
+                {
+                    "path": "images\\bandeaux\\photo-w1200.webp",
+                    "width": 1200,
+                    "filesize": 185016
+                }
+            ]
+        },
+        "images\\bandeaux\\pochette-1.webp": {
+            "original_size": 59844,
+            "new_size": 33778,
+            "saved": 26066,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\pochette-1-w480.webp",
+                    "width": 480,
+                    "filesize": 7214
+                },
+                {
+                    "path": "images\\bandeaux\\pochette-1-w800.webp",
+                    "width": 800,
+                    "filesize": 14106
+                },
+                {
+                    "path": "images\\bandeaux\\pochette-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 23540
+                }
+            ]
+        },
+        "images\\bandeaux\\pochette-perso.webp": {
+            "original_size": 61208,
+            "new_size": 16086,
+            "saved": 45122,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\pochette-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4282
+                },
+                {
+                    "path": "images\\bandeaux\\pochette-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 7874
+                },
+                {
+                    "path": "images\\bandeaux\\pochette-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 13108
+                }
+            ]
+        },
+        "images\\bandeaux\\portfolio-perso.webp": {
+            "original_size": 76150,
+            "new_size": 20498,
+            "saved": 55652,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\portfolio-perso-w480.webp",
+                    "width": 480,
+                    "filesize": 4750
+                },
+                {
+                    "path": "images\\bandeaux\\portfolio-perso-w800.webp",
+                    "width": 800,
+                    "filesize": 9394
+                },
+                {
+                    "path": "images\\bandeaux\\portfolio-perso-w1200.webp",
+                    "width": 1200,
+                    "filesize": 15716
+                }
+            ]
+        },
+        "images\\bandeaux\\tirage-1.webp": {
+            "original_size": 481028,
+            "new_size": 139488,
+            "saved": 341540,
+            "variants": [
+                {
+                    "path": "images\\bandeaux\\tirage-1-w480.webp",
+                    "width": 480,
+                    "filesize": 10620
+                },
+                {
+                    "path": "images\\bandeaux\\tirage-1-w800.webp",
+                    "width": 800,
+                    "filesize": 23486
+                },
+                {
+                    "path": "images\\bandeaux\\tirage-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 41550
+                }
+            ]
+        },
+        "images\\couleurs\\big\\aluminium-B.webp": {
+            "original_size": 894,
+            "new_size": 894,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\aqua-B.webp": {
+            "original_size": 2140,
+            "new_size": 2140,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\azur-B.webp": {
+            "original_size": 360,
+            "new_size": 360,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\basil-B.webp": {
+            "original_size": 1996,
+            "new_size": 1996,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\beaujolais-B.webp": {
+            "original_size": 1904,
+            "new_size": 1904,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\black-B.webp": {
+            "original_size": 276,
+            "new_size": 276,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\black-leather-B.webp": {
+            "original_size": 336,
+            "new_size": 336,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\black-silk-B.webp": {
+            "original_size": 358,
+            "new_size": 358,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\blossom-B.webp": {
+            "original_size": 332,
+            "new_size": 332,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\bordo-B.webp": {
+            "original_size": 490,
+            "new_size": 490,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\charcoal-B.webp": {
+            "original_size": 290,
+            "new_size": 290,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\charme-nero-B.webp": {
+            "original_size": 1852,
+            "new_size": 1852,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\cobalt-B.webp": {
+            "original_size": 856,
+            "new_size": 856,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\dark-blue-B.webp": {
+            "original_size": 508,
+            "new_size": 508,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\dark-green-B.webp": {
+            "original_size": 438,
+            "new_size": 438,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\flower-B.webp": {
+            "original_size": 2146,
+            "new_size": 2146,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\full-colour-B.webp": {
+            "original_size": 696,
+            "new_size": 696,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\lime-B.webp": {
+            "original_size": 368,
+            "new_size": 368,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\marron-B.webp": {
+            "original_size": 290,
+            "new_size": 290,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\napura-eco-cumin-B.webp": {
+            "original_size": 634,
+            "new_size": 634,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\naqura-eco-cumin-B.webp": {
+            "original_size": 634,
+            "new_size": 634,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\naranja-B.webp": {
+            "original_size": 448,
+            "new_size": 448,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\ocean-B.webp": {
+            "original_size": 814,
+            "new_size": 814,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\oyster-B.webp": {
+            "original_size": 416,
+            "new_size": 416,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\pastel-beige-B.webp": {
+            "original_size": 186,
+            "new_size": 186,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\pastel-blue-B.webp": {
+            "original_size": 662,
+            "new_size": 662,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\pastel-green-B.webp": {
+            "original_size": 418,
+            "new_size": 418,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\pastel-pink-B.webp": {
+            "original_size": 524,
+            "new_size": 524,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\pastel-purple-B.webp": {
+            "original_size": 534,
+            "new_size": 534,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\pastel-yellow-B.webp": {
+            "original_size": 442,
+            "new_size": 442,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\quartz-B.webp": {
+            "original_size": 348,
+            "new_size": 348,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\red-B.webp": {
+            "original_size": 460,
+            "new_size": 460,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\red-v-B.webp": {
+            "original_size": 360,
+            "new_size": 360,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\red-wood-B.webp": {
+            "original_size": 2002,
+            "new_size": 2002,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\rose-red-B.webp": {
+            "original_size": 352,
+            "new_size": 352,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\sahara-B.webp": {
+            "original_size": 1882,
+            "new_size": 1882,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\stone-grey-B.webp": {
+            "original_size": 1670,
+            "new_size": 1670,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\stressed-B.webp": {
+            "original_size": 1346,
+            "new_size": 1346,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\sunrise-B.webp": {
+            "original_size": 702,
+            "new_size": 702,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\turquoise-B.webp": {
+            "original_size": 358,
+            "new_size": 358,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\ultra-marine-B.webp": {
+            "original_size": 334,
+            "new_size": 334,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\white-B.webp": {
+            "original_size": 404,
+            "new_size": 404,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\white-pearl-B.webp": {
+            "original_size": 334,
+            "new_size": 334,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\white-soft-touch-B.webp": {
+            "original_size": 286,
+            "new_size": 286,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\big\\wood-B.webp": {
+            "original_size": 18126,
+            "new_size": 18126,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\aluminium.webp": {
+            "original_size": 246,
+            "new_size": 246,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\aqua.webp": {
+            "original_size": 282,
+            "new_size": 282,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\azur.webp": {
+            "original_size": 198,
+            "new_size": 198,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\basil.webp": {
+            "original_size": 278,
+            "new_size": 278,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\beaujolais.webp": {
+            "original_size": 290,
+            "new_size": 290,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\black-leather.webp": {
+            "original_size": 232,
+            "new_size": 232,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\black-silk.webp": {
+            "original_size": 186,
+            "new_size": 186,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\black.webp": {
+            "original_size": 220,
+            "new_size": 220,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\blossom.webp": {
+            "original_size": 194,
+            "new_size": 194,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\bordo.webp": {
+            "original_size": 228,
+            "new_size": 228,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\charcoal.webp": {
+            "original_size": 172,
+            "new_size": 172,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\charme-nero.webp": {
+            "original_size": 262,
+            "new_size": 262,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\cobalt.webp": {
+            "original_size": 240,
+            "new_size": 240,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\dark-blue.webp": {
+            "original_size": 232,
+            "new_size": 232,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\dark-green.webp": {
+            "original_size": 218,
+            "new_size": 218,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\flower.webp": {
+            "original_size": 442,
+            "new_size": 442,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\full-colour.webp": {
+            "original_size": 284,
+            "new_size": 284,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\lime.webp": {
+            "original_size": 194,
+            "new_size": 194,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\marron.webp": {
+            "original_size": 192,
+            "new_size": 192,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\napura-eco-cumin.webp": {
+            "original_size": 250,
+            "new_size": 250,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\naqura-eco-cumin.webp": {
+            "original_size": 250,
+            "new_size": 250,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\naranja.webp": {
+            "original_size": 206,
+            "new_size": 206,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\ocean.webp": {
+            "original_size": 246,
+            "new_size": 246,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\oyster.webp": {
+            "original_size": 200,
+            "new_size": 200,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\pastel-beige.webp": {
+            "original_size": 176,
+            "new_size": 176,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\pastel-blue.webp": {
+            "original_size": 278,
+            "new_size": 278,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\pastel-green.webp": {
+            "original_size": 250,
+            "new_size": 250,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\pastel-pink.webp": {
+            "original_size": 254,
+            "new_size": 254,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\pastel-purple.webp": {
+            "original_size": 262,
+            "new_size": 262,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\pastel-yellow.webp": {
+            "original_size": 256,
+            "new_size": 256,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\quartz.webp": {
+            "original_size": 188,
+            "new_size": 188,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\red-v.webp": {
+            "original_size": 200,
+            "new_size": 200,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\red-wood.webp": {
+            "original_size": 290,
+            "new_size": 290,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\red.webp": {
+            "original_size": 248,
+            "new_size": 248,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\rose-red.webp": {
+            "original_size": 192,
+            "new_size": 192,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\sahara.webp": {
+            "original_size": 282,
+            "new_size": 282,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\stone-grey.webp": {
+            "original_size": 254,
+            "new_size": 254,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\stressed.webp": {
+            "original_size": 258,
+            "new_size": 258,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\sunrise.webp": {
+            "original_size": 208,
+            "new_size": 208,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\turquoise.webp": {
+            "original_size": 190,
+            "new_size": 190,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\ultra-marine.webp": {
+            "original_size": 190,
+            "new_size": 190,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\white-pearl.webp": {
+            "original_size": 230,
+            "new_size": 230,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\white-soft-touch.webp": {
+            "original_size": 220,
+            "new_size": 220,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\white.webp": {
+            "original_size": 226,
+            "new_size": 226,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\couleurs\\mini\\wood.webp": {
+            "original_size": 16250,
+            "new_size": 16250,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\logo-icon\\bgMonCompte.webp": {
+            "original_size": 131144,
+            "new_size": 19114,
+            "saved": 112030,
+            "variants": [
+                {
+                    "path": "images\\logo-icon\\bgMonCompte-w480.webp",
+                    "width": 480,
+                    "filesize": 8148
+                },
+                {
+                    "path": "images\\logo-icon\\bgMonCompte-w800.webp",
+                    "width": 800,
+                    "filesize": 14386
+                }
+            ]
+        },
+        "images\\logo-icon\\caddie-vide.webp": {
+            "original_size": 97220,
+            "new_size": 37638,
+            "saved": 59582,
+            "variants": [
+                {
+                    "path": "images\\logo-icon\\caddie-vide-w480.webp",
+                    "width": 480,
+                    "filesize": 43104
+                }
+            ]
+        },
+        "images\\logo-icon\\homme-avec-du-papier-1.webp": {
+            "original_size": 107296,
+            "new_size": 35082,
+            "saved": 72214,
+            "variants": [
+                {
+                    "path": "images\\logo-icon\\homme-avec-du-papier-1-w480.webp",
+                    "width": 480,
+                    "filesize": 25356
+                }
+            ]
+        },
+        "images\\produits\\accessoires classeur-1.webp": {
+            "original_size": 2532,
+            "new_size": 2532,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\album-photo-autocollant-1.webp": {
+            "original_size": 22822,
+            "new_size": 18652,
+            "saved": 4170,
+            "variants": [
+                {
+                    "path": "images\\produits\\album-photo-autocollant-1-w480.webp",
+                    "width": 480,
+                    "filesize": 10470
+                }
+            ]
+        },
+        "images\\produits\\album-photo-autocollant-2.webp": {
+            "original_size": 21282,
+            "new_size": 21282,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\album-photo-kasmir-a-fenetre-1.webp": {
+            "original_size": 13804,
+            "new_size": 13804,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\album-photo-kasmir-a-fenetre-couleurs-1.webp": {
+            "original_size": 3630,
+            "new_size": 3630,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\bamboo-1.webp": {
+            "original_size": 19404,
+            "new_size": 19404,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\bamboo-3.webp": {
+            "original_size": 17158,
+            "new_size": 17158,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\bamboo-4.webp": {
+            "original_size": 13498,
+            "new_size": 13498,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\bamboo-magnet-1.webp": {
+            "original_size": 17508,
+            "new_size": 17508,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\bamboo-magnet-2.webp": {
+            "original_size": 15228,
+            "new_size": 15228,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-1.webp": {
+            "original_size": 5232,
+            "new_size": 5232,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-10.webp": {
+            "original_size": 5558,
+            "new_size": 5558,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-2.webp": {
+            "original_size": 12540,
+            "new_size": 12540,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-3.webp": {
+            "original_size": 7406,
+            "new_size": 7406,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-4.webp": {
+            "original_size": 6680,
+            "new_size": 6680,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-6.webp": {
+            "original_size": 8712,
+            "new_size": 8712,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-7-flexibox-1.webp": {
+            "original_size": 5058,
+            "new_size": 5058,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-8-flexibox-1.webp": {
+            "original_size": 13450,
+            "new_size": 13450,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-1.webp": {
+            "original_size": 92,
+            "new_size": 92,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-10.webp": {
+            "original_size": 652,
+            "new_size": 652,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-2.webp": {
+            "original_size": 84,
+            "new_size": 84,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-21.webp": {
+            "original_size": 92,
+            "new_size": 92,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-210.webp": {
+            "original_size": 652,
+            "new_size": 652,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-211.webp": {
+            "original_size": 1062,
+            "new_size": 1062,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-22.webp": {
+            "original_size": 84,
+            "new_size": 84,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-23.webp": {
+            "original_size": 246,
+            "new_size": 246,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-24.webp": {
+            "original_size": 90,
+            "new_size": 90,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-25.webp": {
+            "original_size": 90,
+            "new_size": 90,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-26.webp": {
+            "original_size": 84,
+            "new_size": 84,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-27.webp": {
+            "original_size": 76,
+            "new_size": 76,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-28.webp": {
+            "original_size": 104,
+            "new_size": 104,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-29.webp": {
+            "original_size": 344,
+            "new_size": 344,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-3.webp": {
+            "original_size": 246,
+            "new_size": 246,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-4.webp": {
+            "original_size": 90,
+            "new_size": 90,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-5.webp": {
+            "original_size": 90,
+            "new_size": 90,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-6.webp": {
+            "original_size": 84,
+            "new_size": 84,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-7.webp": {
+            "original_size": 76,
+            "new_size": 76,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boite-couleur-8.webp": {
+            "original_size": 104,
+            "new_size": 104,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\boiteA5-1.webp": {
+            "original_size": 17206,
+            "new_size": 14484,
+            "saved": 2722,
+            "variants": [
+                {
+                    "path": "images\\produits\\boiteA5-1-w480.webp",
+                    "width": 480,
+                    "filesize": 8230
+                }
+            ]
+        },
+        "images\\produits\\boiteA5-2.webp": {
+            "original_size": 12884,
+            "new_size": 10342,
+            "saved": 2542,
+            "variants": [
+                {
+                    "path": "images\\produits\\boiteA5-2-w480.webp",
+                    "width": 480,
+                    "filesize": 7438
+                }
+            ]
+        },
+        "images\\produits\\cahier-de-reunion-01.webp": {
+            "original_size": 7390,
+            "new_size": 7390,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\cahier-de-reunion-02.webp": {
+            "original_size": 3814,
+            "new_size": 3814,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\cahier-de-reunion-couleur-01.webp": {
+            "original_size": 76,
+            "new_size": 76,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\cahier-de-reunion-couleur-02.webp": {
+            "original_size": 108,
+            "new_size": 108,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendar-05.webp": {
+            "original_size": 9254,
+            "new_size": 9254,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-bureau-1.webp": {
+            "original_size": 19768,
+            "new_size": 19768,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-bureau-2.webp": {
+            "original_size": 16340,
+            "new_size": 16340,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-bureau-3.webp": {
+            "original_size": 20502,
+            "new_size": 20502,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-enfants-1.webp": {
+            "original_size": 17070,
+            "new_size": 17070,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-glissant-2.webp": {
+            "original_size": 12172,
+            "new_size": 12172,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-glissant-3.webp": {
+            "original_size": 7616,
+            "new_size": 7616,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-glissant-4.webp": {
+            "original_size": 6260,
+            "new_size": 6260,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-glissant-5.webp": {
+            "original_size": 23814,
+            "new_size": 23814,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-mural-2.webp": {
+            "original_size": 8920,
+            "new_size": 8920,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\calendrier-mural-3.webp": {
+            "original_size": 11088,
+            "new_size": 11088,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\carnet-de-note-personnalise-1.webp": {
+            "original_size": 12226,
+            "new_size": 12226,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\clamp.webp": {
+            "original_size": 106138,
+            "new_size": 41156,
+            "saved": 64982,
+            "variants": [
+                {
+                    "path": "images\\produits\\clamp-w480.webp",
+                    "width": 480,
+                    "filesize": 21354
+                }
+            ]
+        },
+        "images\\produits\\classeur-1.webp": {
+            "original_size": 5170,
+            "new_size": 5170,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-2.webp": {
+            "original_size": 14218,
+            "new_size": 14218,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-3.webp": {
+            "original_size": 3392,
+            "new_size": 3392,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-4.webp": {
+            "original_size": 5074,
+            "new_size": 5074,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-5.webp": {
+            "original_size": 7640,
+            "new_size": 7640,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-1.webp": {
+            "original_size": 304,
+            "new_size": 304,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-2.webp": {
+            "original_size": 884,
+            "new_size": 884,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-3.webp": {
+            "original_size": 856,
+            "new_size": 856,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-4.webp": {
+            "original_size": 868,
+            "new_size": 868,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-5.webp": {
+            "original_size": 1074,
+            "new_size": 1074,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-6.webp": {
+            "original_size": 786,
+            "new_size": 786,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-cuir-couleur-7.webp": {
+            "original_size": 714,
+            "new_size": 714,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-kasmir-1.webp": {
+            "original_size": 5102,
+            "new_size": 5102,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-kasmir-2.webp": {
+            "original_size": 7814,
+            "new_size": 7814,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-kasmir-couleur1.webp": {
+            "original_size": 830,
+            "new_size": 830,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-kasmir-couleur2.webp": {
+            "original_size": 140,
+            "new_size": 140,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\classeur-kasmir-couleur3.webp": {
+            "original_size": 442,
+            "new_size": 442,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-panorama-1.webp": {
+            "original_size": 21666,
+            "new_size": 21666,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-panorama-2.webp": {
+            "original_size": 23456,
+            "new_size": 23456,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-1.webp": {
+            "original_size": 11172,
+            "new_size": 11172,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-2.webp": {
+            "original_size": 5420,
+            "new_size": 5420,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-double-1.webp": {
+            "original_size": 15372,
+            "new_size": 15372,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-double-2.webp": {
+            "original_size": 12604,
+            "new_size": 12604,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-eco-1.webp": {
+            "original_size": 5440,
+            "new_size": 5440,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-01.webp": {
+            "original_size": 110,
+            "new_size": 110,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-02.webp": {
+            "original_size": 102,
+            "new_size": 102,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-03.webp": {
+            "original_size": 126,
+            "new_size": 126,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-04.webp": {
+            "original_size": 118,
+            "new_size": 118,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-05.webp": {
+            "original_size": 132,
+            "new_size": 132,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-06.webp": {
+            "original_size": 112,
+            "new_size": 112,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-07.webp": {
+            "original_size": 114,
+            "new_size": 114,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-08.webp": {
+            "original_size": 110,
+            "new_size": 110,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-09.webp": {
+            "original_size": 150,
+            "new_size": 150,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-10.webp": {
+            "original_size": 100,
+            "new_size": 100,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-101.webp": {
+            "original_size": 110,
+            "new_size": 110,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-102.webp": {
+            "original_size": 102,
+            "new_size": 102,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-103.webp": {
+            "original_size": 126,
+            "new_size": 126,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-104.webp": {
+            "original_size": 118,
+            "new_size": 118,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-105.webp": {
+            "original_size": 132,
+            "new_size": 132,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-106.webp": {
+            "original_size": 112,
+            "new_size": 112,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-107.webp": {
+            "original_size": 114,
+            "new_size": 114,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-108.webp": {
+            "original_size": 110,
+            "new_size": 110,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-109.webp": {
+            "original_size": 150,
+            "new_size": 150,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-rigide-personnalise-couleur-110.webp": {
+            "original_size": 100,
+            "new_size": 100,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-1.webp": {
+            "original_size": 6196,
+            "new_size": 6196,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-2.webp": {
+            "original_size": 6070,
+            "new_size": 6070,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-4.webp": {
+            "original_size": 5764,
+            "new_size": 5764,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-couleur-1.webp": {
+            "original_size": 86,
+            "new_size": 86,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-couleur-2.webp": {
+            "original_size": 112,
+            "new_size": 112,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-couleur-3.webp": {
+            "original_size": 136,
+            "new_size": 136,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-couleur-4.webp": {
+            "original_size": 272,
+            "new_size": 272,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-couleurs-1.webp": {
+            "original_size": 8706,
+            "new_size": 8068,
+            "saved": 638,
+            "variants": [
+                {
+                    "path": "images\\produits\\couverture-souple-couleurs-1-w480.webp",
+                    "width": 480,
+                    "filesize": 6116
+                }
+            ]
+        },
+        "images\\produits\\couverture-souple-detail-1.webp": {
+            "original_size": 786,
+            "new_size": 786,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-detail-2.webp": {
+            "original_size": 958,
+            "new_size": 958,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-detail-3.webp": {
+            "original_size": 692,
+            "new_size": 692,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\couverture-souple-personnalise-1.webp": {
+            "original_size": 26666,
+            "new_size": 26666,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\dela-1.webp": {
+            "original_size": 3388,
+            "new_size": 3388,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\dela-2.webp": {
+            "original_size": 5316,
+            "new_size": 5316,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\dela-open-1.webp": {
+            "original_size": 16408,
+            "new_size": 15082,
+            "saved": 1326,
+            "variants": [
+                {
+                    "path": "images\\produits\\dela-open-1-w480.webp",
+                    "width": 480,
+                    "filesize": 10964
+                }
+            ]
+        },
+        "images\\produits\\forme-triangle-2.webp": {
+            "original_size": 8788,
+            "new_size": 8788,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\hard-cover-basic-1.webp": {
+            "original_size": 76546,
+            "new_size": 24248,
+            "saved": 52298,
+            "variants": [
+                {
+                    "path": "images\\produits\\hard-cover-basic-1-w480.webp",
+                    "width": 480,
+                    "filesize": 10982
+                },
+                {
+                    "path": "images\\produits\\hard-cover-basic-1-w800.webp",
+                    "width": 800,
+                    "filesize": 20718
+                }
+            ]
+        },
+        "images\\produits\\hard-cover-basic-2.webp": {
+            "original_size": 69868,
+            "new_size": 25386,
+            "saved": 44482,
+            "variants": [
+                {
+                    "path": "images\\produits\\hard-cover-basic-2-w480.webp",
+                    "width": 480,
+                    "filesize": 13272
+                }
+            ]
+        },
+        "images\\produits\\hard-cover-basic-3.webp": {
+            "original_size": 187864,
+            "new_size": 68418,
+            "saved": 119446,
+            "variants": [
+                {
+                    "path": "images\\produits\\hard-cover-basic-3-w480.webp",
+                    "width": 480,
+                    "filesize": 13226
+                },
+                {
+                    "path": "images\\produits\\hard-cover-basic-3-w800.webp",
+                    "width": 800,
+                    "filesize": 28640
+                },
+                {
+                    "path": "images\\produits\\hard-cover-basic-3-w1200.webp",
+                    "width": 1200,
+                    "filesize": 51956
+                }
+            ]
+        },
+        "images\\produits\\hardcover-1.webp": {
+            "original_size": 839040,
+            "new_size": 210042,
+            "saved": 628998,
+            "variants": [
+                {
+                    "path": "images\\produits\\hardcover-1-w480.webp",
+                    "width": 480,
+                    "filesize": 17236
+                },
+                {
+                    "path": "images\\produits\\hardcover-1-w800.webp",
+                    "width": 800,
+                    "filesize": 47522
+                },
+                {
+                    "path": "images\\produits\\hardcover-1-w1200.webp",
+                    "width": 1200,
+                    "filesize": 95254
+                }
+            ]
+        },
+        "images\\produits\\hardcover-2.webp": {
+            "original_size": 821340,
+            "new_size": 210588,
+            "saved": 610752,
+            "variants": [
+                {
+                    "path": "images\\produits\\hardcover-2-w480.webp",
+                    "width": 480,
+                    "filesize": 20094
+                },
+                {
+                    "path": "images\\produits\\hardcover-2-w800.webp",
+                    "width": 800,
+                    "filesize": 50944
+                },
+                {
+                    "path": "images\\produits\\hardcover-2-w1200.webp",
+                    "width": 1200,
+                    "filesize": 98670
+                }
+            ]
+        },
+        "images\\produits\\hardcover-3.webp": {
+            "original_size": 822104,
+            "new_size": 141314,
+            "saved": 680790,
+            "variants": [
+                {
+                    "path": "images\\produits\\hardcover-3-w480.webp",
+                    "width": 480,
+                    "filesize": 16926
+                },
+                {
+                    "path": "images\\produits\\hardcover-3-w800.webp",
+                    "width": 800,
+                    "filesize": 42628
+                },
+                {
+                    "path": "images\\produits\\hardcover-3-w1200.webp",
+                    "width": 1200,
+                    "filesize": 82452
+                }
+            ]
+        },
+        "images\\produits\\hardcover-4.webp": {
+            "original_size": 567550,
+            "new_size": 126246,
+            "saved": 441304,
+            "variants": [
+                {
+                    "path": "images\\produits\\hardcover-4-w480.webp",
+                    "width": 480,
+                    "filesize": 13092
+                },
+                {
+                    "path": "images\\produits\\hardcover-4-w800.webp",
+                    "width": 800,
+                    "filesize": 39044
+                },
+                {
+                    "path": "images\\produits\\hardcover-4-w1200.webp",
+                    "width": 1200,
+                    "filesize": 74566
+                }
+            ]
+        },
+        "images\\produits\\hardcoverbasic-1.webp": {
+            "original_size": 26764,
+            "new_size": 23224,
+            "saved": 3540,
+            "variants": [
+                {
+                    "path": "images\\produits\\hardcoverbasic-1-w480.webp",
+                    "width": 480,
+                    "filesize": 9788
+                },
+                {
+                    "path": "images\\produits\\hardcoverbasic-1-w800.webp",
+                    "width": 800,
+                    "filesize": 18182
+                }
+            ]
+        },
+        "images\\produits\\hard_cover_basic_box-1.webp": {
+            "original_size": 12136,
+            "new_size": 12136,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\hard_cover_basic_clamp-1.webp": {
+            "original_size": 5288,
+            "new_size": 5288,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\hard_cover_basic_classeur-1.webp": {
+            "original_size": 4776,
+            "new_size": 4776,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\hard_cover_basic_display-1.webp": {
+            "original_size": 17882,
+            "new_size": 16204,
+            "saved": 1678,
+            "variants": [
+                {
+                    "path": "images\\produits\\hard_cover_basic_display-1-w480.webp",
+                    "width": 480,
+                    "filesize": 14244
+                }
+            ]
+        },
+        "images\\produits\\impression-metal-2.webp": {
+            "original_size": 9192,
+            "new_size": 9192,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-metal-3.webp": {
+            "original_size": 16770,
+            "new_size": 16770,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-metal-4.webp": {
+            "original_size": 4066,
+            "new_size": 4066,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-metal-5.webp": {
+            "original_size": 8990,
+            "new_size": 8990,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-metal-6.webp": {
+            "original_size": 8600,
+            "new_size": 8600,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-toile-1.webp": {
+            "original_size": 24292,
+            "new_size": 24292,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-toile-3.webp": {
+            "original_size": 22092,
+            "new_size": 22092,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\impression-toile-4.webp": {
+            "original_size": 13008,
+            "new_size": 13008,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\infinity-lay-flat-1.webp": {
+            "original_size": 33842,
+            "new_size": 29954,
+            "saved": 3888,
+            "variants": [
+                {
+                    "path": "images\\produits\\infinity-lay-flat-1-w480.webp",
+                    "width": 480,
+                    "filesize": 22654
+                }
+            ]
+        },
+        "images\\produits\\infinity-lay-flat-2.webp": {
+            "original_size": 26884,
+            "new_size": 26884,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\infinity-lay-flat-3.webp": {
+            "original_size": 12810,
+            "new_size": 12810,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\infinity-lay-flat-4.webp": {
+            "original_size": 6542,
+            "new_size": 6542,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\instant-photo-book-1.webp": {
+            "original_size": 18812,
+            "new_size": 18812,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\lay-flat-1.webp": {
+            "original_size": 25424,
+            "new_size": 22700,
+            "saved": 2724,
+            "variants": [
+                {
+                    "path": "images\\produits\\lay-flat-1-w480.webp",
+                    "width": 480,
+                    "filesize": 13650
+                }
+            ]
+        },
+        "images\\produits\\livrephotoautocollant-1.webp": {
+            "original_size": 7298,
+            "new_size": 7298,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotoautocollant-3.webp": {
+            "original_size": 4038,
+            "new_size": 4038,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotoautocollant-couleur1.webp": {
+            "original_size": 1646,
+            "new_size": 1646,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotoautocollant-couleur2.webp": {
+            "original_size": 1626,
+            "new_size": 1626,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotoautocollant-couleur3.webp": {
+            "original_size": 1538,
+            "new_size": 1538,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotoautocollant-couleur4.webp": {
+            "original_size": 1846,
+            "new_size": 1846,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotoautocollant-couleur5.webp": {
+            "original_size": 1562,
+            "new_size": 1562,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotocreatif-1.webp": {
+            "original_size": 35942,
+            "new_size": 31118,
+            "saved": 4824,
+            "variants": [
+                {
+                    "path": "images\\produits\\livrephotocreatif-1-w480.webp",
+                    "width": 480,
+                    "filesize": 16762
+                }
+            ]
+        },
+        "images\\produits\\livrephotocreatif-couleur1.webp": {
+            "original_size": 762,
+            "new_size": 762,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotocreatif-couleur2.webp": {
+            "original_size": 668,
+            "new_size": 668,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotocreatif-couleur3.webp": {
+            "original_size": 562,
+            "new_size": 562,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotocreatif-couleur4.webp": {
+            "original_size": 634,
+            "new_size": 634,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\livrephotocreatif-couleur5.webp": {
+            "original_size": 560,
+            "new_size": 560,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\luxe-1.webp": {
+            "original_size": 17062,
+            "new_size": 14880,
+            "saved": 2182,
+            "variants": [
+                {
+                    "path": "images\\produits\\luxe-1-w480.webp",
+                    "width": 480,
+                    "filesize": 12606
+                }
+            ]
+        },
+        "images\\produits\\luxe-2.webp": {
+            "original_size": 55034,
+            "new_size": 51046,
+            "saved": 3988,
+            "variants": [
+                {
+                    "path": "images\\produits\\luxe-2-w480.webp",
+                    "width": 480,
+                    "filesize": 30202
+                }
+            ]
+        },
+        "images\\produits\\luxe-3.webp": {
+            "original_size": 3920,
+            "new_size": 3920,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\luxe-4.webp": {
+            "original_size": 4316,
+            "new_size": 4316,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\luxe-5.webp": {
+            "original_size": 6984,
+            "new_size": 6984,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\luxe-6.webp": {
+            "original_size": 8606,
+            "new_size": 8606,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\magnet-1.webp": {
+            "original_size": 8858,
+            "new_size": 8858,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\magnet-2.webp": {
+            "original_size": 4806,
+            "new_size": 4806,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau photo-1.webp": {
+            "original_size": 8820,
+            "new_size": 8820,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau photo-2.webp": {
+            "original_size": 8006,
+            "new_size": 8006,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau photo-3.webp": {
+            "original_size": 7928,
+            "new_size": 7928,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau photo-4.webp": {
+            "original_size": 8242,
+            "new_size": 8242,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau photo-5.webp": {
+            "original_size": 7488,
+            "new_size": 7488,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau-acrylic-1.webp": {
+            "original_size": 8746,
+            "new_size": 8746,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panneau-acrylic-2.webp": {
+            "original_size": 10834,
+            "new_size": 10834,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panorama-1.webp": {
+            "original_size": 24304,
+            "new_size": 24304,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\panorama-2.webp": {
+            "original_size": 18272,
+            "new_size": 18272,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\peel-stick 1.webp": {
+            "original_size": 12894,
+            "new_size": 12894,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\peel-stick-hard-cover-black-1.webp": {
+            "original_size": 11032,
+            "new_size": 11032,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\peel-stick-panel-1.webp": {
+            "original_size": 11438,
+            "new_size": 11438,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\peel-stick-panel-2.webp": {
+            "original_size": 10602,
+            "new_size": 10602,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\peel-stick-utilisation1.webp": {
+            "original_size": 23988,
+            "new_size": 23224,
+            "saved": 764,
+            "variants": [
+                {
+                    "path": "images\\produits\\peel-stick-utilisation1-w480.webp",
+                    "width": 480,
+                    "filesize": 7554
+                },
+                {
+                    "path": "images\\produits\\peel-stick-utilisation1-w800.webp",
+                    "width": 800,
+                    "filesize": 13402
+                }
+            ]
+        },
+        "images\\produits\\personnalisation-1.webp": {
+            "original_size": 5084,
+            "new_size": 5084,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\personnalisation-2.webp": {
+            "original_size": 2498,
+            "new_size": 2498,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\photo-book-a3-landscape-1.webp": {
+            "original_size": 15958,
+            "new_size": 15958,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\photo-book-a4-landscape-2.webp": {
+            "original_size": 4414,
+            "new_size": 4414,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\photo-book-a4-portrait-1.webp": {
+            "original_size": 4338,
+            "new_size": 4338,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\photo-book-a5-landscape-1.webp": {
+            "original_size": 16302,
+            "new_size": 16302,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-1.webp": {
+            "original_size": 4266,
+            "new_size": 4266,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-angle-droit-1.webp": {
+            "original_size": 125500,
+            "new_size": 32828,
+            "saved": 92672,
+            "variants": [
+                {
+                    "path": "images\\produits\\plaque-angle-droit-1-w480.webp",
+                    "width": 480,
+                    "filesize": 15406
+                },
+                {
+                    "path": "images\\produits\\plaque-angle-droit-1-w800.webp",
+                    "width": 800,
+                    "filesize": 29970
+                }
+            ]
+        },
+        "images\\produits\\plaque-angle-droit-2.webp": {
+            "original_size": 107560,
+            "new_size": 25274,
+            "saved": 82286,
+            "variants": [
+                {
+                    "path": "images\\produits\\plaque-angle-droit-2-w480.webp",
+                    "width": 480,
+                    "filesize": 16212
+                }
+            ]
+        },
+        "images\\produits\\plaque-coin-arrondi-1.webp": {
+            "original_size": 9984,
+            "new_size": 9984,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-coin-arrondi-2.webp": {
+            "original_size": 1528,
+            "new_size": 1528,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-coin-arrondi-3.webp": {
+            "original_size": 5302,
+            "new_size": 5302,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-coin-arrondi-4.webp": {
+            "original_size": 2034,
+            "new_size": 2034,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-coin-arrondi-5.webp": {
+            "original_size": 137294,
+            "new_size": 45222,
+            "saved": 92072,
+            "variants": [
+                {
+                    "path": "images\\produits\\plaque-coin-arrondi-5-w480.webp",
+                    "width": 480,
+                    "filesize": 34356
+                }
+            ]
+        },
+        "images\\produits\\plaque-coin-arrondi-6.webp": {
+            "original_size": 206632,
+            "new_size": 65522,
+            "saved": 141110,
+            "variants": [
+                {
+                    "path": "images\\produits\\plaque-coin-arrondi-6-w480.webp",
+                    "width": 480,
+                    "filesize": 19358
+                },
+                {
+                    "path": "images\\produits\\plaque-coin-arrondi-6-w800.webp",
+                    "width": 800,
+                    "filesize": 38496
+                }
+            ]
+        },
+        "images\\produits\\plaque-flexible-1.webp": {
+            "original_size": 33954,
+            "new_size": 33954,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-flexible-2.webp": {
+            "original_size": 36862,
+            "new_size": 36862,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-oval-1.webp": {
+            "original_size": 4356,
+            "new_size": 4356,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-oval-2.webp": {
+            "original_size": 5676,
+            "new_size": 5676,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-oval-4.webp": {
+            "original_size": 2826,
+            "new_size": 2826,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-oval-5.webp": {
+            "original_size": 8144,
+            "new_size": 8144,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-plier-1.webp": {
+            "original_size": 21476,
+            "new_size": 21476,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\plaque-plier-2.webp": {
+            "original_size": 28584,
+            "new_size": 28584,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\pochette-4.webp": {
+            "original_size": 7390,
+            "new_size": 7390,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\pochette-prospection-1.webp": {
+            "original_size": 27048,
+            "new_size": 27048,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\pochette-prospection-2.webp": {
+            "original_size": 11158,
+            "new_size": 11158,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\pochette-prospection-4.webp": {
+            "original_size": 66868,
+            "new_size": 19328,
+            "saved": 47540,
+            "variants": [
+                {
+                    "path": "images\\produits\\pochette-prospection-4-w480.webp",
+                    "width": 480,
+                    "filesize": 11952
+                }
+            ]
+        },
+        "images\\produits\\sac-1.webp": {
+            "original_size": 4386,
+            "new_size": 4386,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\sac-2.webp": {
+            "original_size": 7250,
+            "new_size": 7250,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\tirage-grand-1.webp": {
+            "original_size": 59296,
+            "new_size": 15176,
+            "saved": 44120,
+            "variants": [
+                {
+                    "path": "images\\produits\\tirage-grand-1-w480.webp",
+                    "width": 480,
+                    "filesize": 11836
+                }
+            ]
+        },
+        "images\\produits\\tirage-grand-2.webp": {
+            "original_size": 60810,
+            "new_size": 14158,
+            "saved": 46652,
+            "variants": [
+                {
+                    "path": "images\\produits\\tirage-grand-2-w480.webp",
+                    "width": 480,
+                    "filesize": 12860
+                }
+            ]
+        },
+        "images\\produits\\tirage-petit-1.webp": {
+            "original_size": 79148,
+            "new_size": 79148,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\tirage-petit-2.webp": {
+            "original_size": 74588,
+            "new_size": 19072,
+            "saved": 55516,
+            "variants": [
+                {
+                    "path": "images\\produits\\tirage-petit-2-w480.webp",
+                    "width": 480,
+                    "filesize": 17532
+                }
+            ]
+        },
+        "images\\produits\\toile-1.webp": {
+            "original_size": 9584,
+            "new_size": 9584,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\toile-2.webp": {
+            "original_size": 6428,
+            "new_size": 6428,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\triangle.webp": {
+            "original_size": 4456,
+            "new_size": 4456,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\unibackcover.webp": {
+            "original_size": 144472,
+            "new_size": 8322,
+            "saved": 136150,
+            "variants": [
+                {
+                    "path": "images\\produits\\unibackcover-w480.webp",
+                    "width": 480,
+                    "filesize": 1488
+                },
+                {
+                    "path": "images\\produits\\unibackcover-w800.webp",
+                    "width": 800,
+                    "filesize": 3340
+                },
+                {
+                    "path": "images\\produits\\unibackcover-w1200.webp",
+                    "width": 1200,
+                    "filesize": 6464
+                }
+            ]
+        },
+        "images\\produits\\unicalendar-01.webp": {
+            "original_size": 7354,
+            "new_size": 7354,
+            "saved": 0,
+            "variants": []
+        },
+        "images\\produits\\unicalendar-02.webp": {
+            "original_size": 20482,
+            "new_size": 20482,
+            "saved": 0,
+            "variants": []
+        }
+    }
+}

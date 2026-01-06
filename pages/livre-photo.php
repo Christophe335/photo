@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="title-h1 bull">Livre Photos</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/livre-photo-1.webp" alt="Un bandeau présentant des livres photo personnalisés">
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/livre-photo-1.webp" alt="Un bandeau présentant des livres photo personnalisés" loading="lazy">
 
 <section class="section1" id="Peel & Stick">
     <div class="container">
@@ -18,14 +18,14 @@
         <h3 class="title-h2 centre-text">Peel & Stick Sheets</h3>
         <div class="ligne">
             <div class="colonne-1 onleft">
-                <img src="../images/produits/peel-stick 1.webp" alt="Image en avant de feuilles Peel & Stick Sheets">
+                <img src="../images/produits/peel-stick 1.webp" alt="Image en avant de feuilles Peel & Stick Sheets" loading="lazy">
             </div>
             <div class="colonne-2 onright">
                 <p>Cette solution prête à l'emploi dispose d'une zone auto-adhésive qui vous permet de coller n'importe quel type d'impression directement dans notre produit. Pas de situation collante avec de la colle renversée pour vous ! Une innovation intelligente et unique qui simplifiera votre vie. Imprimez vos photos et créez votre propre livre photo / panneau en un rien de temps. Le cadeau idéal pour quelqu'un de très spécial.Entièrement personnalisable avec l'œuvre de votre choix. Améliorez vos produits en leur donnant la touche finale que vos clients se souviendront. Ajoutez une touche personnelle pour en faire de puissants outils de marque avec votre propre design d'entreprise ou une œuvre en couleur pleine de paillettes. Sortez du lot. Boostez la notoriété de premier plan.</p>
             </div>
         </div>
         <div class="container">
-            <img src="../images/produits/peel-stick-utilisation1.webp" alt="4 images montrant l'utilisation des Peel & Stick Sheets">
+            <img src="../images/produits/peel-stick-utilisation1.webp" alt="4 images montrant l'utilisation des Peel & Stick Sheets" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">
@@ -49,18 +49,18 @@ En un rien de temps, les clients créent leur propre souvenir ou cadeau personna
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img src="../images/produits/livrephotoautocollant-1.webp" alt="Livre photo autocollant de couleur vert pâle montrant le résultat de l'application des Peel & Stick Sheets sur la couverture">
+            <img src="../images/produits/livrephotoautocollant-1.webp" alt="Livre photo autocollant de couleur vert pâle montrant le résultat de l'application des Peel & Stick Sheets sur la couverture" loading="lazy">
         </div>
         <div class="colonne-3 onright">
-            <img src="../images/produits/livrephotoautocollant-3.webp" alt="Livre photo autocollant ouvert, de couleur bleu pâle montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album">
+            <img src="../images/produits/livrephotoautocollant-3.webp" alt="Livre photo autocollant ouvert, de couleur bleu pâle montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album" loading="lazy">
         </div>
     </div>
     <div class="ligne centre-div" style="width:500px;">
-        <img src="../images/produits/livrephotoautocollant-couleur1.webp" alt="Album photo peel & stick fermé de couleur bleu pâle">
-        <img src="../images/produits/livrephotoautocollant-couleur2.webp" alt="Album photo peel & stick fermé de couleur vert pâle">
-        <img src="../images/produits/livrephotoautocollant-couleur3.webp" alt="Album photo peel & stick fermé de couleur violet pâle">
-        <img src="../images/produits/livrephotoautocollant-couleur4.webp" alt="Album photo peel & stick fermé de couleur jaune pâle">
-        <img src="../images/produits/livrephotoautocollant-couleur5.webp" alt="Album photo peel & stick fermé de couleur rose pâle">
+        <img src="../images/produits/livrephotoautocollant-couleur1.webp" alt="Album photo peel & stick fermé de couleur bleu pâle" loading="lazy">
+        <img src="../images/produits/livrephotoautocollant-couleur2.webp" alt="Album photo peel & stick fermé de couleur vert pâle" loading="lazy">
+        <img src="../images/produits/livrephotoautocollant-couleur3.webp" alt="Album photo peel & stick fermé de couleur violet pâle" loading="lazy">
+        <img src="../images/produits/livrephotoautocollant-couleur4.webp" alt="Album photo peel & stick fermé de couleur jaune pâle" loading="lazy">
+        <img src="../images/produits/livrephotoautocollant-couleur5.webp" alt="Album photo peel & stick fermé de couleur rose pâle" loading="lazy">
     </div>
 </br>
         <div class="tableau-container">
@@ -85,10 +85,10 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </div>
     <div class="ligne">
         <div class="colonne-2">
-            <img src="../images/produits/album-photo-autocollant-1.webp" alt="Livre photo autocollant ouvert, de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album">  
+            <img src="../images/produits/album-photo-autocollant-1.webp" alt="Livre photo autocollant ouvert, de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album" loading="lazy">  
         </div>
         <div class="colonne-1 onright">
-            <img src="../images/produits/album-photo-autocollant-2.webp" alt="Livre photo autocollant de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur la couverture">
+            <img src="../images/produits/album-photo-autocollant-2.webp" alt="Livre photo autocollant de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur la couverture" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">
@@ -114,33 +114,33 @@ Le cadeau idéal pour une personne très spéciale.</p>
             <p class="paragraphe">Indispensable pour les créateurs de scrapbooking instantanés constituent la base idéale pour un scrapbook, une sorte de livre photo à l'ancienne, mais un peu plus personnel. Ils comprennent des autocollants double face pour fixer des photos et d'autres souvenirs, ainsi qu'un marqueur pour ajouter des noms, des dates, des citations ou d'autres éléments d'écriture</p>
         </div>
         <div class="onright">
-            <img src="../images/produits/livrephotocreatif-1.webp" alt="Livre photo créatif fermé montrant une couverture personnalisée avec des photos collées dessus">
+            <img src="../images/produits/livrephotocreatif-1.webp" alt="Livre photo créatif fermé montrant une couverture personnalisée avec des photos collées dessus" loading="lazy">
         </div>
     </div>
     <div class="ligne">
         <div class="colonne-1">
-            <img src="../images/produits/instant-photo-book-1.webp" alt="Présentation du livre photo créatif sous la forme de sa pochette contenant tout le néccessaire pour créer le livre photo">
+            <img src="../images/produits/instant-photo-book-1.webp" alt="Présentation du livre photo créatif sous la forme de sa pochette contenant tout le néccessaire pour créer le livre photo" loading="lazy">
         </div>
         
         <div class="colonne-2 ligne">
             <div>
-                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur1.webp" alt="Exmple de la couleur noire disponible pour le livre créatif">
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur1.webp" alt="Exmple de la couleur noire disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Noir</p>
             </div>
             <div>
-                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur2.webp" alt="Exmple de la couleur bleue disponible pour le livre créatif">
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur2.webp" alt="Exmple de la couleur bleue disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Bleu Ciel</p>
             </div>
             <div>
-                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur3.webp" alt="Exmple de la couleur rose disponible pour le livre créatif">
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur3.webp" alt="Exmple de la couleur rose disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Rose</p>
             </div>
             <div>
-                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur4.webp" alt="Exmple de la couleur violette disponible pour le livre créatif">
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur4.webp" alt="Exmple de la couleur violette disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Violet Claire</p>
             </div>
             <div>
-                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur5.webp" alt="Exmple de la couleur blanche disponible pour le livre créatif">
+                <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur5.webp" alt="Exmple de la couleur blanche disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Blanc</p>
             </div>
         </div>

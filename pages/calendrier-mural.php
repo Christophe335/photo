@@ -10,14 +10,14 @@
     <div class="container">
         <h1 class="title-h1 bull">Calendrier Mural</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/calendrier-mural-1.webp" alt="Un bandeau présentant des calendriers muraux personnalisés">
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/calendrier-mural-1.webp" alt="Un bandeau présentant des calendriers muraux personnalisés" loading="lazy">
     <section class="section1" id="Calendrier Mural pour la maison">
         <div class="container">
             
             <h2 class="title-h3 centre-text">CALENDRIER MURAL POUR LA MAISON</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 50%; height: auto;" src="../images/produits/calendrier-enfants-1.webp" alt="Présentation d'un calendrier à suspendre personnalisé avec des photos d'enfants">
+                    <img class="centre-div" style="width: 50%; height: auto;" src="../images/produits/calendrier-enfants-1.webp" alt="Présentation d'un calendrier à suspendre personnalisé avec des photos d'enfants" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <div class="tableau-container">
@@ -43,8 +43,8 @@
             <h2 class="title-h3 centre-text">CALENDRIER MURAL PROFESSIONNEL</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft ligne">
-                    <img class="centre-div" style="width: 170px; height: 272px; margin-left: 200px;" src="../images/produits/unicalendar-01.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 1 femme qui marche dans un champ et portant une robe bleue">
-                    <img class="centre-div" style="width: 245px; height: 346px; margin-left: -398px;" src="../images/produits/calendar-05.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 3 femmes">
+                    <img class="centre-div" style="width: 170px; height: 272px; margin-left: 200px;" src="../images/produits/unicalendar-01.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 1 femme qui marche dans un champ et portant une robe bleue" loading="lazy">
+                    <img class="centre-div" style="width: 245px; height: 346px; margin-left: -398px;" src="../images/produits/calendar-05.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 3 femmes" loading="lazy">
                     
                 </div>
                 <div class="colonne-2">
@@ -71,8 +71,8 @@
             <h2 class="title-h3 centre-text">PORTE-AFFICHE OU CALENDRIER EN BOIS</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft ligne">
-                    <img class="centre-div" style="width: 204px; height: 375px; " src="../images/produits/calendrier-mural-3.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 1 femme qui marche dans un champ et portant une robe bleue">
-                    <img class="centre-div" style="width: 204px; height: 309px; margin-left: -138px; margin-top: 91px;" src="../images/produits/calendrier-mural-2.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 3 femmes">
+                    <img class="centre-div" style="width: 204px; height: 375px; " src="../images/produits/calendrier-mural-3.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 1 femme qui marche dans un champ et portant une robe bleue" loading="lazy">
+                    <img class="centre-div" style="width: 204px; height: 309px; margin-left: -138px; margin-top: 91px;" src="../images/produits/calendrier-mural-2.webp" alt="Présentation d'un calendrier professionnel à suspendre personnalisé avec photo représentant 3 femmes" loading="lazy">
                     
                 </div>
                 <div class="colonne-2">

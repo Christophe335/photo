@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="title-h1 bull">Classeur</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/ban-classeur.webp" alt="Un bandeau présentant des couvertures rigides personnalisées">
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/ban-classeur.webp" alt="Un bandeau présentant des couvertures rigides personnalisées" loading="lazy">
 <section class="section1" id="Classeur">
     <div class="container">
         <h2 class="title-h3 centre-text">Classeur - 2 ou 4 anneaux</h2>
@@ -18,10 +18,10 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/hard_cover_basic_classeur-1.webp" alt="Présentation de la conception des couvertures rigide pour classeur personnalisables">
+            <img class="centre-div" src="../images/produits/hard_cover_basic_classeur-1.webp" alt="Présentation de la conception des couvertures rigide pour classeur personnalisables" loading="lazy">
         </div>
         <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/accessoires classeur-1.webp" alt="Présentation des accessoires nécessaires à la conception des couvertures rigide pour classeur, tels que les anneaux et les rivets">
+            <img class="centre-div" src="../images/produits/accessoires classeur-1.webp" alt="Présentation des accessoires nécessaires à la conception des couvertures rigide pour classeur, tels que les anneaux et les rivets" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">
@@ -35,13 +35,13 @@
         </div>
     <div class="ligne">
         <div class="colonne-5 onleft">
-            <img class="centre-div" src="../images/produits/classeur-1.webp" alt="Classeur au format A4 blanc avec des dessins d'ordinateurs et de bonhommes bleus avec couverture rigide personnalisée et système de reliure à anneaux">
+            <img class="centre-div" src="../images/produits/classeur-1.webp" alt="Classeur au format A4 blanc avec des dessins d'ordinateurs et de bonhommes bleus avec couverture rigide personnalisée et système de reliure à anneaux" loading="lazy">
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/classeur-2.webp" alt="Classeur au format A4 blanc ouvert montrant le système de reliure à 2 anneaux et un document d'architecte">
+            <img class="centre-div" src="../images/produits/classeur-2.webp" alt="Classeur au format A4 blanc ouvert montrant le système de reliure à 2 anneaux et un document d'architecte" loading="lazy">
         </div>
         <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/classeur-4.webp" alt="Classeur au format A4 noir ouvert montrant le système de reliure à 2 anneaux avec des  documents déjà en place">
+            <img class="centre-div" src="../images/produits/classeur-4.webp" alt="Classeur au format A4 noir ouvert montrant le système de reliure à 2 anneaux avec des  documents déjà en place" loading="lazy">
         </div>
         <div class="colonne-5 onright">
             <img class="centre-div" src="../images/produits/classeur-3.webp" alt="Classeur au format A4 noir entre ouvert avec un logo vert personnalisé sur la couverture rigide et système de reliure à anneaux">
@@ -56,21 +56,21 @@
         <h3 class="sous-titre-h3">Cuir Vegan</h3>
         <div class="ligne">
             <div class="colonne-3 onleft">
-                <img class="centre-div" src="../images/produits/classeur-5.webp" alt="Présentation d'un classeur recouvert de cuir vegan personnalisés avec un logo">
+                <img class="centre-div" src="../images/produits/classeur-5.webp" alt="Présentation d'un classeur recouvert de cuir vegan personnalisés avec un logo" loading="lazy">
             </div>
             <div class="colonne-3">
                 <div class="ligne">
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-1.webp" alt="Couleur Sunrise Yellow (Jaune)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-1.webp" alt="Couleur Sunrise Yellow (Jaune)" loading="lazy">
                     <p>Jaune</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-2.webp" alt="Couleur Redwood Brown (Marron)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-2.webp" alt="Couleur Redwood Brown (Marron)" loading="lazy">
                     <p>Marron</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-3.webp" alt="Couleur Beaujolais Red (Rouge)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-3.webp" alt="Couleur Beaujolais Red (Rouge)" loading="lazy">
                     <p>Rouge</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-4.webp" alt="Couleur Basil Green (Vert)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-4.webp" alt="Couleur Basil Green (Vert)" loading="lazy">
                     <p>Vert</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-5.webp" alt="Couleur Aqua Blue (Bleu)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-5.webp" alt="Couleur Aqua Blue (Bleu)" loading="lazy">
                     <p>Bleu</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-6.webp" alt="Couleur Charme Nero (Noir)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-cuir-couleur-6.webp" alt="Couleur Charme Nero (Noir)" loading="lazy">
                     <p>Noir</p></div>
                 </div>
             </div>
@@ -92,11 +92,11 @@
             </div>
             <div class="colonne-1">
                 <div class="ligne" style="margin-left: 25%; margin-right: 25%;">
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-kasmir-couleur1.webp" alt="Couleur Sahara Yellow (Jaune)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-kasmir-couleur1.webp" alt="Couleur Sahara Yellow (Jaune)" loading="lazy">
                     <p>Jaune</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-kasmir-couleur2.webp" alt="Couleur Rose Red (Rouge)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-kasmir-couleur2.webp" alt="Couleur Rose Red (Rouge)" loading="lazy">
                     <p>Rouge</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/classeur-kasmir-couleur3.webp" alt="Couleur Cobalt Blue (Bleu)">
+                    <div class="posCouleurRigide"><img src="../images/produits/classeur-kasmir-couleur3.webp" alt="Couleur Cobalt Blue (Bleu)" loading="lazy">
                     <p>Bleu</p></div>
                 </div>
             </div>

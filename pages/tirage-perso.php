@@ -15,8 +15,8 @@
             
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/hardcoverbasic-1.webp" width="300" height="auto" alt="Présentation de la feuille à imprimer pour une couverture panoramique">
-                    <img class="centre-div" src="../images/produits/hard_cover_basic_clamp-1.webp" width="220" height="auto" alt="Présentation de la feuille à imprimer pour une couverture panoramique avec pince">
+                    <img class="centre-div" src="../images/produits/hardcoverbasic-1.webp" width="300" height="auto" alt="Présentation de la feuille à imprimer pour une couverture panoramique" loading="lazy">
+                    <img class="centre-div" src="../images/produits/hard_cover_basic_clamp-1.webp" width="220" height="auto" alt="Présentation de la feuille à imprimer pour une couverture panoramique avec pince" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <p class="paragraphe">Parce que certaines images méritent un format unique, Bindy Studio vous propose des tirages entièrement sur mesure. Ce service est spécialement conçu pour les couvertures panoramiques d’albums photo ou les projets créatifs nécessitant des dimensions spécifiques. Nous adaptons le format à votre image afin de garantir un rendu harmonieux, sans compromis sur la qualité ou l’émotion.</h1>

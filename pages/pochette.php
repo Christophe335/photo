@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="title-h1 bull">Chemise de Prospection</h1>
     </div>
-        <img style= "width: 100%;" class="centre-div pose" src="../images/bandeaux/pochette-1.webp" alt="Un bandeau présentant des pochettes de prospection personnalisées">
+        <img style= "width: 100%;" class="centre-div pose" src="../images/bandeaux/pochette-1.webp" alt="Un bandeau présentant des pochettes de prospection personnalisées" loading="lazy">
 <section class="section1" id="Chemise simple">
     <div class="container">
         <h2 class="title-h3 centre-text">Chemise simple personnalisée - format A4</h2>
@@ -46,7 +46,7 @@
     </div>
     <div class="ligne">
         <div class="colonne-5 onleft">
-            <img class="centre-div" src="../images/produits/pochette-prospection-1.webp" alt="Pochette souple de prospection avec un rabat intérieur,couleur blanche au format A4 personnalisée, présentée ouverte" width="300" height="300">  
+            <img class="centre-div" src="../images/produits/pochette-prospection-1.webp" alt="Pochette souple de prospection avec un rabat intérieur,couleur blanche au format A4 personnalisée, présentée ouverte" width="300" height="300" loading="lazy">  
         </div>
         <div class="colonne-6">
             <p> Vous envisagez de faire de la prospection, organiser une réunion  importante ou vous souhaitez présenter vos documents de manière élégante ? Une alternative aux chemises de présentation en carton. Au recto et  au verso de la couverture, vous trouverez des poches pour ajouter des  documents supplémentaires. Deux découpes dans Pocket Folder Plus où vous pouvez insérer votre carte de visite. Impressionnez vos clients et  prospects avec cette nouvelle chemise de présentation personnalisée.</p>

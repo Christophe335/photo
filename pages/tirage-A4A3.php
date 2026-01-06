@@ -15,8 +15,8 @@
             </br>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/impression-toile-1.webp" width="150" height="auto" alt="Photo d'un cheval imprimé sur une toile de format A3">
-                    <img class="centre-div" src="../images/produits/panneau photo-3.webp"  width="150" height="auto" alt="Photo d'un hôtel de luxe dans les tropiques imprimée sur un panneau rigide de format A3">
+                    <img class="centre-div" src="../images/produits/impression-toile-1.webp" width="150" height="auto" alt="Photo d'un cheval imprimé sur une toile de format A3" loading="lazy">
+                    <img class="centre-div" src="../images/produits/panneau photo-3.webp"  width="150" height="auto" alt="Photo d'un hôtel de luxe dans les tropiques imprimée sur un panneau rigide de format A3" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <p class="paragraphe">Les formats A4 et A3 sont parfaits pour ceux qui souhaitent un rendu spectaculaire. Grâce à leur grande surface d’impression, chaque détail prend vie et chaque photo raconte pleinement son histoire. Imprimés avec le savoir-faire Bindy Studio, ces tirages offrent une profondeur exceptionnelle et un rendu professionnel, digne d’une exposition.</p>

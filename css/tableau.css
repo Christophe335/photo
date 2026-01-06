@@ -56,7 +56,7 @@
 .tableau-header {
   background: var(--background-light);
   font-weight: 500;
-  color: var(--primary-orange);
+  color: var(--or2);
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.5px;
@@ -79,7 +79,7 @@
 .col-code {
   font-family: "Roboto Mono", monospace;
   font-weight: 500;
-  color: var(--primary-orange);
+  color: var(--or2);
   font-size: 14px;
 }
 
@@ -230,8 +230,8 @@
 
 /* Bouton ajouter au panier */
 .btn-ajouter-panier {
-  background: var(--primary-green);
-  color: white;
+  background: var(--vert1);
+  color: var(--blanc1);
   border: none;
   padding: 4px 8px;
   border-radius: 6px;
@@ -245,7 +245,7 @@
 }
 
 .btn-ajouter-panier:hover {
-  background: #0e5d16;
+  background: var(--vert2);
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(240, 81, 36, 0.3);
 }
@@ -256,9 +256,9 @@
 
 /* Messages d'erreur */
 .erreur {
-  color: #dc3545;
-  background: #f8d7da;
-  border: 1px solid #f5c6cb;
+  color: var(--rouge1);
+  background: var(--blanc3);
+  border: 1px solid var(--blanc3);
   padding: 15px;
   border-radius: 6px;
   margin: 20px;
@@ -281,7 +281,7 @@
   font-size: 16px;
 }
 .table-panier th {
-  background: var(--primary-dark);
+  background: var(--fond-principal);
   color: #fff;
   font-weight: 500;
 }

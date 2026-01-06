@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qui sommes-nous ? | Photo</title>
+    <?php
+    $seo_title = 'Qui sommes-nous - Bindy Studio';
+    $seo_description = 'Découvrez Bindy Studio : notre histoire, nos valeurs et notre savoir-faire pour sublimer vos photos en albums et produits personnalisés.';
+    $seo_image = '/images/bandeaux/photo-album.webp';
+    $canonical = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    include 'includes/seo.php';
+    ?>
     <link rel="icon" type="image/x-icon" href="images/logo-icon/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +32,7 @@
                 </div>
                 <div class="hero-image">
                     
-                        <img src="../images/bandeaux/photo-album.webp" width="400px" height="auto" style="border-radius: 8px;" alt="Photo noir et blanc d'un album photo ouvert" >
+                        <img src="../images/bandeaux/photo-album.webp" width="400px" height="auto" style="border-radius: 8px;" alt="Photo noir et blanc d'un album photo ouvert"  loading="lazy">
                         
                     
                 </div>
@@ -247,7 +253,7 @@
                     </div>
                     
                     <div class="contact-map">
-                        <img src="../images/bandeaux/france.webp" width="200px" height="auto" alt="carte de la france en forme de drapeau">
+                        <img src="../images/bandeaux/france.webp" width="200px" height="auto" alt="carte de la france en forme de drapeau" loading="lazy">
                         <h3>General Cover Office Products</br>depuis 1999</h3>
                     </div>
                 </div>

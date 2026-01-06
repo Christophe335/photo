@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité | Photo</title>
+    <?php
+    $seo_title = 'Politique de confidentialité - Bindy Studio';
+    $seo_description = 'Politique de confidentialité et protection des données personnelles de Bindy Studio. Informations RGPD et gestion des cookies.';
+    $seo_image = '/images/logo-icon/logo3.svg';
+    $canonical = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    include 'includes/seo.php';
+    ?>
     <link rel="icon" type="image/x-icon" href="images/logo-icon/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -275,105 +281,7 @@
         </div>
     </main>
 
-    <style>
-        .legal-content {
-            background: #f8f9fa;
-            min-height: 100vh;
-            padding: 40px 0;
-        }
-
-        .privacy-intro {
-            text-align: center;
-            font-style: italic;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .legal-section {
-            margin-bottom: 40px;
-        }
-
-        .legal-section h2 {
-            color: #2c5aa0;
-            border-bottom: 3px solid #2c5aa0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .legal-content-box {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-left: 5px solid #2c5aa0;
-            text-align: left;
-        }
-
-        .legal-content-box h3 {
-            color: #333;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .legal-content-box h4 {
-            color: #555;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .legal-content-box h3:first-child {
-            margin-top: 0;
-        }
-
-        .legal-content-box p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .legal-content-box ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .legal-content-box li {
-            line-height: 1.6;
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        .legal-content-box strong {
-            color: #2c5aa0;
-            font-weight: 600;
-        }
-
-        .legal-content-box a {
-            color: #2c5aa0;
-            text-decoration: none;
-        }
-
-        .legal-content-box a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .legal-content {
-                padding: 20px 0;
-            }
-            
-            .legal-content-box {
-                padding: 20px;
-                margin: 0 10px;
-            }
-        }
-    </style>
+ 
 
     <?php include 'includes/footer.php'; ?>
 </body>

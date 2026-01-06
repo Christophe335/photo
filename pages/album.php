@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="title-h1 bull">Album Photos</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/album-1.webp" alt="Un bandeau présentant divers albums photos personnalisés"> 
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/album-1.webp" alt="Un bandeau présentant divers albums photos personnalisés" loading="lazy"> 
         <section class="section1" id="Album Photo">
         <div class="container">
             <h2 class="title-h3 centre-text">ALBUM PHOTO</h2>
@@ -20,10 +20,10 @@
         <div class="container">
             <div class="ligne">
                 <div class="colonne-3 onleft">
-                    <img class="centre-div" src="../images/produits/photo-book-a5-landscape-1.webp" alt="Album photo A4 paysage présentant la face avant grise avec sa personnalisation">
+                    <img class="centre-div" src="../images/produits/photo-book-a5-landscape-1.webp" alt="Album photo A4 paysage présentant la face avant grise avec sa personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-3 onright">
-                    <img class="centre-div" src="../images/produits/photo-book-a4-landscape-2.webp" alt="Album photo A4 paysage présentant la face avant noir avec sa personnalisation">
+                    <img class="centre-div" src="../images/produits/photo-book-a4-landscape-2.webp" alt="Album photo A4 paysage présentant la face avant noir avec sa personnalisation" loading="lazy">
                 </div>
             </div>
             </br>
@@ -48,10 +48,10 @@
             <p class="paragraphe">La version A4 format portrait, notre best-seller de notre Livre Photo. Un album photo classique avec une finition professionnelle et un aspect haute qualité. Notre système de reliure thermique en acier breveté assure une liaison solide et durable. La manière parfaite de célébrer et partager les moments uniques de la vie.</p>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/photo-book-a4-portrait-1.webp" alt="Album photo A4 portrait présentant la face avant noire avec sa personnalisation">
+                    <img class="centre-div" src="../images/produits/photo-book-a4-portrait-1.webp" alt="Album photo A4 portrait présentant la face avant noire avec sa personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-2 onright">
-                    <img class="centre-div" src="../images/produits/photo-book-a3-landscape-1.webp" alt="Album photo A3 paysage ouvert à plat présentant des photos imprimées au format A3">
+                    <img class="centre-div" src="../images/produits/photo-book-a3-landscape-1.webp" alt="Album photo A3 paysage ouvert à plat présentant des photos imprimées au format A3" loading="lazy">
                 </div>
             </div>
             </br>
@@ -76,10 +76,10 @@
         </div>
         <div>
             <div class="ontop">
-                <img class="centre-div" src="../images/produits/personnalisation-1.webp" alt="Album photo entièrement personnalisé">
+                <img class="centre-div" src="../images/produits/personnalisation-1.webp" alt="Album photo entièrement personnalisé" loading="lazy">
             </div>
             <div class="onbottom">
-                <img class="centre-div" src="../images/produits/personnalisation-2.webp" alt="Album photo entièrement personnalisé">
+                <img class="centre-div" src="../images/produits/personnalisation-2.webp" alt="Album photo entièrement personnalisé" loading="lazy">
             </div>
         </div>
         </br>
@@ -95,24 +95,24 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/album-photo-kasmir-a-fenetre-1.webp" alt="Livre relier en tissus finition kasmir avec fenêtre découpée sur la couverture">
+            <img class="centre-div" src="../images/produits/album-photo-kasmir-a-fenetre-1.webp" alt="Livre relier en tissus finition kasmir avec fenêtre découpée sur la couverture" loading="lazy">
         </div>
         <div class="colonne-3 ligne">
             <div class="posCouleur">
-                <img src="../images/couleurs/big/oyster-B.webp" alt="Couleur kasmir oyster">
-                <p>Kashmir</br>Oyster</p>
+                <img src="../images/couleurs/big/oyster-B.webp" alt="Couleur kasmir oyster" loading="lazy">
+                <p>Kashmir</br>Huître</p>
             </div>
             <div class="posCouleur">
-                <img src="../images/couleurs/big/red-B.webp" alt="Couleur kasmir red">
-                <p>Kashmir</br>Red</p>
+                <img src="../images/couleurs/big/red-B.webp" alt="Couleur kasmir red" loading="lazy">
+                <p>Kashmir</br>Rouge</p>
             </div>
             <div class="posCouleur">
-                <img src="../images/couleurs/big/ultra-marine-B.webp" alt="Couleur kasmir ultra-marine">
-                <p>Kashmir</br>Ultra Marine</p>
+                <img src="../images/couleurs/big/ultra-marine-B.webp" alt="Couleur kasmir ultra-marine" loading="lazy">
+                <p>Kashmir</br>Bleu Marine</p>
             </div>
             <div class="posCouleur">
-                <img src="../images/couleurs/big/black-silk-B.webp" alt="Couleur kasmir black silk">
-                <p>Black</br>Silk</p>
+                <img src="../images/couleurs/big/black-silk-B.webp" alt="Couleur kasmir black silk" loading="lazy">
+                <p>Soie</br>Noire</p>
             </div>
 
         </div>

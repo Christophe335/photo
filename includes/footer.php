@@ -1,15 +1,21 @@
-    <footer style="background-color: #24256d; color: #f1f1f1; padding: 20px 0; text-align: center; margin-top: auto;">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </head>
+    <footer style="background: var(--fond-principal); color: #f1f1f1; padding: 20px 0; text-align: center; margin-top: auto;">
         <div class="top-banner-content">
                     
         <!-- Liens légaux -->
             <div class="account-btn">
-                <a href="../mentions.php" class="btn-footer">
+                <a href="../mentions.php" class="btn-account">
                     <i class="fa-solid fa-book"></i>
                     <span>Mentions Légales</span>
                 </a>
             </div>
             <div class="account-btn">
-                <a href="../politique.php" class="btn-footer">
+                <a href="../politique.php" class="btn-account">
                     <i class="fa-solid fa-file-contract"></i>
                     <span>Politique de Confidentialité</span>
                 </a>
@@ -49,7 +55,7 @@
         <div class="container">
             <p>&copy; 2025 Bindy Studio - Impression et Personnalisation d'albums photos. Tous droits réservés.</p>
             <p style="font-size: 0.8rem; margin-top: 10px;">
-                <a href="javascript:void(0)" onclick="openCookiePreferences()" style="color: #f1f1f1; text-decoration: underline;">
+                <a href="#" onclick="openCookiePreferences(); return false;" style="color: #f1f1f1; text-decoration: underline;">
                     Gérer mes préférences cookies
                 </a>
             </p>

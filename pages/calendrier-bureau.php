@@ -10,15 +10,15 @@
     <div class="container">
         <h1 class="title-h1 bull">Calendrier de Bureau</h1>
     </div>
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/calendrier-bureau-1.webp" alt="Un bandeau présentant des calendriers de bureau personnalisés">
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/calendrier-bureau-1.webp" alt="Un bandeau présentant des calendriers de bureau personnalisés" loading="lazy">
     <section class="section1" id="Calendrier de Bureau">
         <div class="container">
             
             <h2 class="title-h3 centre-text">CALENDRIER DE BUREAU</h2>
             <div class="ligne">
                 <div class="colonne-1 onleft ligne">
-                    <img class="centre-div" style="width: 50%; height: 85%;" src="../images/produits/calendrier-bureau-1.webp" alt="Présentation d'un calendrier de bureau personnalisé avec des photos">
-                    <img class="centre-div" style="width: 50%; height: 85%;" src="../images/produits/calendrier-bureau-2.webp" alt="Présentation du support d'un calendrier de bureau">
+                    <img class="centre-div" style="width: 50%; height: 85%;" src="../images/produits/calendrier-bureau-1.webp" alt="Présentation d'un calendrier de bureau personnalisé avec des photos" loading="lazy">
+                    <img class="centre-div" style="width: 50%; height: 85%;" src="../images/produits/calendrier-bureau-2.webp" alt="Présentation du support d'un calendrier de bureau" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <div class="tableau-container">
@@ -56,12 +56,12 @@
                     </div> 
                 </div>
                 <div class="colonne-1 onright">
-                    <img style="width: 74%; height: auto; padding-top: 27% !important; padding-left: 15%;" class="centre-div" src="../images/produits/calendrier-bureau-3.webp" alt="Ensemble de calendriers de bureau personnalisés montrant le support seul et le calendrier en place">
+                    <img style="width: 74%; height: auto; padding-top: 27% !important; padding-left: 15%;" class="centre-div" src="../images/produits/calendrier-bureau-3.webp" alt="Ensemble de calendriers de bureau personnalisés montrant le support seul et le calendrier en place" loading="lazy">
                 </div>
             </div>
             <div>
             <div class="onbottom">
-                <img class="centre-div" src="../images/produits/unicalendar-02.webp" alt="Présentation d'un calendrier de bureau personnalisé avec des photos">
+                <img class="centre-div" src="../images/produits/unicalendar-02.webp" alt="Présentation d'un calendrier de bureau personnalisé avec des photos" loading="lazy">
             </div>
         </div>
         <?php include '../includes/bt-devis.php'; ?>

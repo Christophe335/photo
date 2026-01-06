@@ -133,6 +133,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
     <meta charset="UTF-8">
     <title>Mon Panier</title>
     <link rel="stylesheet" href="/css/tableau.css">
+    <style>
+    /* Animation pour le caddie : entrer depuis la droite hors-écran, traverser et sortir à gauche en rétrécissant */
+    .animated-caddie {
+        position: fixed;
+        top: 40%;
+        left: 0;
+        width: 375px;
+        max-width: 90vw;
+        transform-origin: center;
+        z-index: 9999;
+        pointer-events: none;
+        animation: caddieSlide 16s linear infinite;
+    }
+
+    @keyframes caddieSlide {
+        0% {
+            transform: translateX(110vw) translateY(0) scale(1);
+            opacity: 1;
+        }
+       
+        100% {
+            transform: translateX(-110vw) translateY(-50vh) scale(0.35);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .animated-caddie { top: 45%; width: 300px; }
+    }
+    @media (max-width: 420px) {
+        .animated-caddie { top: 48%; width: 220px; }
+    }
+    /* Empêcher le débordement horizontal causé par l'animation */
+    html, body { overflow-x: hidden; }
+
+    /* Conteneur réservé pour le caddie afin que la hauteur de la page reste stable */
+    .caddie-container {
+        min-height: 491px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media (max-width: 768px) {
+        .caddie-container { min-height: 260px; }
+    }
+    @media (max-width: 420px) {
+        .caddie-container { min-height: 200px; }
+    }
+    </style>
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
@@ -175,7 +225,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
         $panier = $_SESSION['panier'];
         if (empty($panier)) {
             echo '<p style="text-align:center;">Votre panier est vide.</p>';
-            echo '<img src="/images/logo-icon/caddie-vide.webp" alt="Panier vide" style="display:block; margin:20px auto; width:375px;">';
+            echo '<div class="caddie-container">';
+            echo '<img src="/images/logo-icon/caddie.webp" alt="Panier vide" class="animated-caddie">';
+            echo '</div>';
         } else {
             echo '<div class="table-responsive">';
             echo '<table class="table-panier">';
@@ -212,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
                         if (strpos($cheminImage, '/') !== 0) {
                             $cheminImage = '/' . $cheminImage; // Ajouter '/' au début si absent
                         }
-                        echo ' <img src="' . $cheminImage . '" alt="' . $couleur . '" style="width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;" onerror="this.style.display=\'none\'">';
+                        echo ' <img src="' . $cheminImage . '" alt="' . $couleur . '" style="width:22px;height:22px;border-radius:50%;margin-left:6px;vertical-align:middle;" onerror="this.style.display=\'none\'" loading="lazy">';
                     }
                     echo '</span>';
                 }
@@ -258,7 +310,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
                 // Colonne Total HT
                 echo '<td>' . number_format($total, 2, ',', ' ') . ' €</td>';
                 // Colonne Action
-                echo '<td><button class="btn-supprimer-panier" onclick="supprimerDuPanierPage(\'' . $id . '\')">🗑️</button></td>';
+                echo '<td><button class="btn-supprimer-panier" onclick="supprimerDuPanierPage(\'' . $id . '\')" aria-label="Supprimer du panier">🗑️</button></td>';
                 echo '</tr>';
             }
             echo '</tbody></table>';

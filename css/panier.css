@@ -1,8 +1,8 @@
 /* Variables CSS globales (valeurs par défaut pour pages qui ne chargent pas le fichier de variables) */
 :root {
-  --primary-dark: #2a256d;
-  --primary-orange: #f05124;
-  --primary-green: #28a745;
+  --primary-dark: #2d2d2d;
+  --primary-orange: #c9980b;
+  --primary-green: #708d23;
   --background-light: #f8f9fa;
   --border-color: #dee2e6;
   --text-dark: #333;
@@ -429,7 +429,7 @@
   background: #f8f9fa;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .commande-form h3,
@@ -580,19 +580,184 @@
     padding: 20px;
     margin-top: 20px;
   }
-  
+
   .connexion-actions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .btn-connexion,
   .btn-creer-compte {
     width: 200px;
     text-align: center;
   }
-  
+
   .commande-resume {
     padding: 15px;
+  }
+}
+/* Formulaire perso */
+.etapes-ascenseur {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.etape {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.etape:hover {
+  background: #f8f9fa;
+}
+
+.etape-numero {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.etape-numero.active {
+  background: var(--or2);
+  color: var(--blanc1);
+}
+
+.etape-numero:not(.active) {
+  background: var(--border-color);
+  color: var(--gris6);
+}
+
+.etape-texte {
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.etape.active .etape-texte {
+  color: var(--bleu2);
+}
+
+.etape:not(.active) .etape-texte {
+  color: var(--gris6);
+}
+
+.separateur {
+  width: 30px;
+  height: 2px;
+  background: var(--border-color);
+  align-self: center;
+  margin: 0 20px;
+}
+
+.etape-contenu {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.etape-contenu.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.produit-selectionne-cadre {
+  background: linear-gradient(135deg, var(--or3) 0%, var(--blanc1) 100%);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.personnalisation-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.option-btn {
+  background: linear-gradient(135deg, var(--or2) 0%, var(--or3) 100%);
+  color: var(--blanc1);
+  border: none;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(240, 81, 36, 0.3);
+  min-width: 200px;
+}
+
+.option-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 81, 36, 0.4);
+}
+
+.btn-suivant {
+  background: var(--vert1);
+  color: var(--blanc1);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.btn-suivant:hover {
+  background: var(--vert2);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .etapes-ascenseur {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .etape {
+    margin: 5px;
+  }
+
+  .separateur {
+    display: none;
+  }
+
+  .personnalisation-options {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 }

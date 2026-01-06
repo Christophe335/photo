@@ -36,170 +36,11 @@ if (empty($conditionnement) && $produit_id) {
 }
 ?>
 
-<style>
-.etapes-ascenseur {
-    display: flex; 
-    justify-content: center; 
-    margin: 30px 0; 
-    background: #fff; 
-    border-radius: 10px; 
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.etape {
-    display: flex; 
-    align-items: center; 
-    margin-right: 40px; 
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.etape:hover {
-    background: #f8f9fa;
-}
-
-.etape-numero {
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-weight: bold;
-    margin-right: 10px;
-    transition: all 0.3s ease;
-}
-
-.etape-numero.active {
-    background: #f05124; 
-    color: white;
-}
-
-.etape-numero:not(.active) {
-    background: #ddd; 
-    color: #666;
-}
-
-.etape-texte {
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.etape.active .etape-texte {
-    color: #2a256d;
-}
-
-.etape:not(.active) .etape-texte {
-    color: #666;
-}
-
-.separateur {
-    width: 30px; 
-    height: 2px; 
-    background: #ddd; 
-    align-self: center; 
-    margin: 0 20px;
-}
-
-.etape-contenu {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.etape-contenu.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.produit-selectionne-cadre {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    border: 2px solid #e9ecef;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.05);
-    padding: 25px;
-    position: relative;
-    overflow: hidden;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.personnalisation-options {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.option-btn {
-    background: linear-gradient(135deg, #f05124 0%, #ff6b47 100%);
-    color: white;
-    border: none;
-    padding: 20px 40px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(240, 81, 36, 0.3);
-    min-width: 200px;
-}
-
-.option-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(240, 81, 36, 0.4);
-}
-
-.btn-suivant {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    margin: 20px auto;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.btn-suivant:hover {
-    background: #218838;
-    transform: translateY(-1px);
-}
-
-@media (max-width: 768px) {
-    .etapes-ascenseur {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .etape {
-        margin: 5px;
-    }
-    
-    .separateur {
-        display: none;
-    }
-    
-    .personnalisation-options {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-}
-</style>
 
 <main class="cadre">
+
     <div class="container">
-        <h2 class="title-h3">Personnalisation de votre produit</h2>
+        <h1 class="title-h3">Personnalisation de votre produit</h1>
         
         <!-- Ascenseur horizontal des étapes -->
         <div class="etapes-ascenseur">
@@ -236,11 +77,11 @@ if (empty($conditionnement) && $produit_id) {
                     align-items: center;
                     margin-bottom: 20px;
                     padding-bottom: 15px;
-                    border-bottom: 2px solid #f05124;
+                    border-bottom: 2px solid var(--or2);
                 ">
                     <div style="
-                        background: linear-gradient(135deg, #f05124 0%, #ff6b47 100%);
-                        color: white;
+                        background: linear-gradient(135deg, var(--or2) 0%, var(--or3) 100%);
+                        color: var(--blanc1);
                         width: 40px;
                         height: 40px;
                         border-radius: 50%;
@@ -265,7 +106,7 @@ if (empty($conditionnement) && $produit_id) {
                     background: white;
                     border-radius: 8px;
                     box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-                    border-left: 4px solid #f05124;
+                    border-left: 4px solid var(--or2);
                 ">
 
                     
@@ -288,9 +129,9 @@ if (empty($conditionnement) && $produit_id) {
                             ">Code</div>
                             <div style="
                                 font-weight: 600;
-                                color: #2a256d;
+                                color: var(--noir2);
                                 font-size: 14px;
-                                background: #fff5f3;
+                                background: var(--or3);
                                 padding: 6px 10px;
                                 border-radius: 4px;
                             "><?= htmlspecialchars($reference) ?></div>
@@ -326,8 +167,8 @@ if (empty($conditionnement) && $produit_id) {
                             <div style="
                                 font-size: 14px;
                                 font-weight: 500;
-                                color: #f05124;
-                                background: #fff5f3;
+                                color: var(--noir2);
+                                background: var(--or3);
                                 padding: 6px 10px;
                                 border-radius: 4px;
                             "><?= htmlspecialchars($format) ?></div>
@@ -335,141 +176,39 @@ if (empty($conditionnement) && $produit_id) {
                         <?php endif; ?>
                     </div>
                     
-                    <!-- Ligne 2: Conditionnement - Couleur - Quantité -->
-                    <div style="
-                        display: flex; 
-                        align-items: center; 
-                        gap: 15px; 
-                        margin-bottom: 15px;
-                        flex-wrap: wrap;
-                    ">
-                        <?php if ($conditionnement): ?>
-                        <div style="flex: 0 0 auto;">
-                            <div style="
-                                font-size: 11px;
-                                color: #6c757d;
-                                text-transform: uppercase;
-                                font-weight: 500;
-                                margin-bottom: 5px;
-                                letter-spacing: 0.5px;
-                            ">Conditionnement</div>
-                            <div style="
-                                font-size: 14px;
-                                font-weight: 500;
-                                color: #6f42c1;
-                                background: #f8f5ff;
-                                padding: 6px 10px;
-                                border-radius: 4px;
-                            ">Pack de <?= htmlspecialchars($conditionnement) ?></div>
+                    <?php $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix; ?>
+
+                    <!-- Ligne unique: Conditionnement - Couleur - Quantité - Prix unitaire - Total -->
+                    <div style="display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:6px;">
+                        <div style="flex:1 1 18%; min-width:120px;">
+                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Conditionnement</div>
+                            <div style="font-size:14px;font-weight:500;color:#6f42c1;background:#f8f5ff;padding:6px 10px;border-radius:4px;"><?= $conditionnement ? ' ' . htmlspecialchars($conditionnement) : '-' ?></div>
                         </div>
-                        <?php endif; ?>
-                        
-                        <?php if ($couleur): ?>
-                        <div style="flex: 0 0 auto;">
-                            <div style="
-                                font-size: 11px;
-                                color: #6c757d;
-                                text-transform: uppercase;
-                                font-weight: 500;
-                                margin-bottom: 5px;
-                                letter-spacing: 0.5px;
-                            ">Couleur</div>
-                            <div style="
-                                font-weight: 600;
-                                color: #2a256d;
-                                font-size: 14px;
-                                background: #f0f0f0;
-                                padding: 6px 10px;
-                                border-radius: 4px;
-                                display: flex;
-                                align-items: center;
-                                gap: 8px;
-                            ">
-                                <?= htmlspecialchars($couleur) ?>
+
+                        <div style="flex:1 1 18%; min-width:140px;">
+                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Couleur</div>
+                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#f0f0f0;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:8px;"> 
+                                <?= $couleur ? htmlspecialchars($couleur) : '-' ?>
                                 <?php if ($imageCouleur): ?>
-                                    <img src="<?= htmlspecialchars($imageCouleur) ?>" 
-                                         alt="<?= htmlspecialchars($couleur) ?>" 
-                                         style="width:20px;height:20px;border-radius:50%;border:1px solid #ddd;">
+                                    <?php $img = htmlspecialchars($imageCouleur); if (strpos($img, '../') === 0) $img = substr($img, 3); if (strpos($img, '/') !== 0) $img = '/' . $img; ?>
+                                    <img src="<?= $img ?>" alt="<?= htmlspecialchars($couleur) ?>" loading="lazy" style="width:20px;height:20px;border-radius:50%;border:1px solid #ddd;">
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php endif; ?>
-                        
-                        <div style="flex: 0 0 auto;">
-                            <div style="
-                                font-size: 11px;
-                                color: #6c757d;
-                                text-transform: uppercase;
-                                font-weight: 500;
-                                margin-bottom: 5px;
-                                letter-spacing: 0.5px;
-                            ">Quantité</div>
-                            <div style="
-                                font-weight: 600;
-                                color: #2a256d;
-                                font-size: 14px;
-                                background: #f0f0f0;
-                                padding: 6px 10px;
-                                border-radius: 4px;
-                            "><?= $quantite_selectionnee ?></div>
+
+                        <div style="flex:1 1 12%; min-width:100px;">
+                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Quantité</div>
+                            <div style="font-weight:600;color:#2a256d;font-size:14px;background:#f0f0f0;padding:6px 10px;border-radius:4px;"><?= $quantite_selectionnee ?></div>
                         </div>
-                    </div>
-                    </div>
-                    
-                    <!-- Prix -->
-                    <div style="
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        gap: 20px;
-                        margin-top: 20px;
-                        padding-top: 20px;
-                        border-top: 1px solid #eee;
-                    ">
-                        <!-- Prix unitaire -->
-                        <div>
-                            <div style="
-                                font-size: 11px;
-                                color: #6c757d;
-                                text-transform: uppercase;
-                                font-weight: 500;
-                                margin-bottom: 5px;
-                                letter-spacing: 0.5px;
-                            ">Prix unitaire</div>
-                            <div style="
-                                font-weight: 600;
-                                color: #17a2b8;
-                                font-size: 16px;
-                                background: #f0fbff;
-                                padding: 8px 12px;
-                                border-radius: 4px;
-                                border: 1px solid #bee5eb;
-                            ">
-                                <?php 
-                                $prixUnitaire = $conditionnement && intval($conditionnement) > 0 ? $prix / intval($conditionnement) : $prix;
-                                echo number_format($prixUnitaire, 2, ',', ' ');
-                                ?> € HT
-                            </div>
+
+                        <div style="flex:1 1 20%; min-width:140px;">
+                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Prix unitaire</div>
+                            <div style="font-weight:600;color:#17a2b8;font-size:16px;background:#f0fbff;padding:8px 12px;border-radius:4px;border:1px solid #bee5eb;"><?= number_format($prixUnitaire,2,',',' ') ?> € HT</div>
                         </div>
-                        
-                        <!-- Prix total -->
-                        <div>
-                            <div style="
-                                font-size: 11px;
-                                color: #6c757d;
-                                text-transform: uppercase;
-                                font-weight: 500;
-                                margin-bottom: 5px;
-                                letter-spacing: 0.5px;
-                            ">Total</div>
-                            <div style="
-                                font-weight: 700;
-                                color: #28a745;
-                                font-size: 18px;
-                                background: #f8fff9;
-                                padding: 10px 14px;
-                                border-radius: 6px;
-                                border: 1px solid #d4edda;
-                            "><?= number_format($prix * $quantite_selectionnee, 2, ',', ' ') ?> € HT</div>
+
+                        <div style="flex:1 1 20%; min-width:140px;">
+                            <div style="font-size:11px;color:#6c757d;text-transform:uppercase;font-weight:500;margin-bottom:5px;letter-spacing:0.5px;">Total</div>
+                            <div style="font-weight:700;color:#28a745;font-size:18px;background:#f8fff9;padding:10px 14px;border-radius:6px;border:1px solid #d4edda;"><?= number_format($prix * $quantite_selectionnee,2,',',' ') ?> € HT</div>
                         </div>
                     </div>
                 </div>
@@ -649,7 +388,7 @@ if (empty($conditionnement) && $produit_id) {
                 <div class="crop-preview-sidebar">
                     <h4>Aperçu final</h4>
                     <div class="preview-wrapper">
-                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage">
+                        <img id="cropPreviewImage" src="" alt="Aperçu du recadrage" loading="lazy">
                         <div class="preview-info"></div>
                     </div>
                 </div>
@@ -657,7 +396,7 @@ if (empty($conditionnement) && $produit_id) {
                 <!-- Zone principale de recadrage -->
                 <div class="crop-main">
                     <div class="crop-container">
-                        <img id="cropImage" src="" alt="Image à recadrer">
+                        <img id="cropImage" src="" alt="Image à recadrer" loading="lazy">
                     </div>
                     
                     <!-- Contrôles en bas -->
@@ -671,9 +410,9 @@ if (empty($conditionnement) && $produit_id) {
                         <!-- Contrôles de zoom à droite -->
                         <div class="zoom-controls-inline">
                             <button type="button" class="orientation-btn" id="orientationToggle" title="Basculer Portrait/Paysage">⟲</button>
-                            <button type="button" class="zoom-btn-inline" id="zoomOutInline">-</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomOutInline" aria-label="Diminuer">-</button>
                             <span class="zoom-display-inline">100%</span>
-                            <button type="button" class="zoom-btn-inline" id="zoomInInline">+</button>
+                            <button type="button" class="zoom-btn-inline" id="zoomInInline" aria-label="Augmenter">+</button>
                             <button type="button" class="zoom-reset-inline">Reset</button>
                         </div>
                     </div>

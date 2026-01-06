@@ -15,8 +15,8 @@
             </br>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/tirage-petit-1.webp" alt="Ensemble de tirages photo petit format disposés en éventail">
-                    <img class="centre-div" src="../images/produits/tirage-petit-2.webp" alt="Ensemble de tirages photo petit format disposés en éventail">
+                    <img class="centre-div" src="../images/produits/tirage-petit-1.webp" alt="Ensemble de tirages photo petit format disposés en éventail" loading="lazy">
+                    <img class="centre-div" src="../images/produits/tirage-petit-2.webp" alt="Ensemble de tirages photo petit format disposés en éventail" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <p class="paragraphe">Les petits formats sont idéaux pour faire vivre vos souvenirs au quotidien. Discrets et élégants, ils se glissent parfaitement dans un album photo, un cadre ou une boîte à souvenirs. Chez Bindy Studio, chaque tirage petit format bénéficie d’une impression de haute qualité, avec des couleurs fidèles, des contrastes équilibrés et un papier soigneusement sélectionné pour sublimer vos images.</p>

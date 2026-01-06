@@ -7,27 +7,28 @@
 <link rel="stylesheet" href="../css/panier.css">
 
 <main style="padding: 60px 0 0 0;">
-        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-souple-perso.webp" alt="Un bandeau présentant des couvertures souples personnalisées">
+
+        <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/couverture-souple-perso.webp" alt="Un bandeau présentant des couvertures souples personnalisées" loading="lazy">
     <section class="section1" id="Couverture Souple Personnalisée">
         <div class="container">
-            <h2 class="title-h3 centre-text">COUVERTURE SOUPLE PERSONNALISÉE</h2>
+            <h1 class="title-h3 centre-text">COUVERTURE SOUPLE PERSONNALISÉE</h1>
                 </br>
                 <p class="paragraphe">Parfois, nous devons aller vite et voyager léger. Notre couverture souple est votre compagnon idéal pour des couvertures professionnelles, élégantes et pratiques. Créez de puissants outils de marque avec votre propre design corporate ou votre œuvre d'art de choix. Un aspect premium sans le poids d'une couverture rigide. Disponible avec finition brillante, mate et soft-touch pour laisser une impression durable sur vos clients et prospects.</p>
                 </br>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/couverture-souple-4.webp" alt="Couverture souple transparente style crystal avec document à l'intérieur">
+                    <img class="centre-div" src="../images/produits/couverture-souple-4.webp" alt="Couverture souple transparente style crystal avec document à l'intérieur" loading="lazy">
                 </div>
                 <div class="colonne-1">
                     <div class="ligne">
-                        <img class="centre-div" style="width: 80px; height: 80px; margin: 10px;" src="../images/produits/couverture-souple-detail-1.webp" alt="Couverture souple mat avec document à l'intérieur">
+                        <img class="centre-div" style="width: 80px; height: 80px; margin: 10px;" src="../images/produits/couverture-souple-detail-1.webp" alt="Couverture souple mat avec document à l'intérieur" loading="lazy">
                         <div>
                             <h3 class="titre-h3">Flexible</h3>
                             <p class="interp">Le carnet flexible parfait, fabriqué dans un matériau souple, flexible et robuste.</p>
                         </div>
                     </div>
                     <div class="ligne">
-                        <img class="centre-div" style="width: 80px; height: 80px; margin: 10px;" src="../images/produits/couverture-souple-detail-2.webp" alt="Couverture souple mat avec document à l'intérieur">
+                        <img class="centre-div" style="width: 80px; height: 80px; margin: 10px;" src="../images/produits/couverture-souple-detail-2.webp" alt="Couverture souple mat avec document à l'intérieur" loading="lazy">
                         <div>
                             <h3 class="titre-h3">Couleurs</h3>
                             <p class="interp">Trois couleurs professionnelles pour s’adapter à tout profil d’entreprise.
@@ -35,7 +36,7 @@
                         </div>
                     </div>
                     <div class="ligne">
-                        <img class="centre-div" style="width: 80px; height: 80px; margin: 10px;" src="../images/produits/couverture-souple-detail-3.webp" alt="Couverture souple mat avec document à l'intérieur">
+                        <img class="centre-div" style="width: 80px; height: 80px; margin: 10px;" src="../images/produits/couverture-souple-detail-3.webp" alt="Couverture souple mat avec document à l'intérieur" loading="lazy">
                         <div>
                             <h3 class="titre-h3">Personnalisation</h3>
                             <p class="interp">Personnalisez la couverture avec l’imprimante à plat. Choix de nombreuses couleurs.</p>
@@ -46,26 +47,26 @@
                         <div class="ligne" style="margin-top: -20px;">
                             <div class="petiteVignette">
                                 <p class="interp"></br>Black</p>
-                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-1.webp" alt="Couleur Noir">
+                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-1.webp" alt="Couleur Noir" loading="lazy">
                             </div>
                             <div class="petiteVignette">
                                 <p class="interp">White</br> soft touch</p>
-                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-2.webp" alt="Couleur Noir">
+                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-2.webp" alt="Couleur Noir" loading="lazy">
                             </div>
                             <div class="petiteVignette">
                                 <p class="interp"></br>Dark Blue</p>
-                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-3.webp" alt="Couleur Noir">
+                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-3.webp" alt="Couleur Noir" loading="lazy">
                             </div>
                             <div class="petiteVignette">
                                 <p class="interp"></br>Full colour</p>
-                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-4.webp" alt="Couleur Noir">
+                                <img class="centre-div" src="../images/produits/couverture-souple-couleur-4.webp" alt="Couleur Noir" loading="lazy">
                             </div>
                         </div>
                     </div>
                 </div>
                 
                  <div class="colonne-1 onright">
-                    <img class="centre-div" src="../images/produits/couverture-souple-personnalise-1.webp" alt="Couverture souple personnalisé">
+                    <img class="centre-div" src="../images/produits/couverture-souple-personnalise-1.webp" alt="Couverture souple personnalisé" loading="lazy">
                     <h3 class="titre-h3">Personnalisez votre propre création avec la couverture souple en couleur.</h3>
                 </div>
             </div> 

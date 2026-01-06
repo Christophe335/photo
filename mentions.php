@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales | Photo</title>
+    <?php
+    $seo_title = 'Mentions légales - Bindy Studio';
+    $seo_description = 'Mentions légales et informations légales de Bindy Studio, société spécialisée dans l\'impression photo et produits personnalisés.';
+    $seo_image = '/images/logo-icon/logo3.svg';
+    $canonical = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    include 'includes/seo.php';
+    ?>
     <link rel="icon" type="image/x-icon" href="images/logo-icon/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

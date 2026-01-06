@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../includes/database.php';
+require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/header.php';
 
 // Override container width for cette page uniquement (rendre pleine largeur)
@@ -127,8 +128,26 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
     header('Location: liaisons_personnalisation.php'); exit;
 }
 
-// Récupérer toutes les liaisons
-$stmt = $db->query('SELECT * FROM personnalisation_liaisons ORDER BY id DESC');
+// Paramètres de recherche
+$q = trim($_GET['q'] ?? '');
+$familleFilter = trim($_GET['famille'] ?? '');
+
+// Récupérer toutes les liaisons (avec possibilité de filtrer par référence/description et famille)
+$baseSql = "SELECT pl.*, p.famille AS produit_famille, p.designation AS produit_designation FROM personnalisation_liaisons pl LEFT JOIN produits p ON p.reference = pl.produit_ref";
+$conditions = [];
+$params = [];
+if ($q !== '') {
+    $conditions[] = "(pl.produit_ref LIKE ? OR p.designation LIKE ?)";
+    $params[] = "%$q%";
+    $params[] = "%$q%";
+}
+if ($familleFilter !== '') {
+    $conditions[] = "p.famille = ?";
+    $params[] = $familleFilter;
+}
+$sql = $baseSql . (!empty($conditions) ? ' WHERE ' . implode(' AND ', $conditions) : '') . ' ORDER BY pl.id DESC';
+$stmt = $db->prepare($sql);
+$stmt->execute($params);
 $liaisons = $stmt->fetchAll();
 
 // Helper pour récupérer la désignation d'une référence produit
@@ -195,11 +214,26 @@ function getDesignation($db, $ref) {
 
         <div style="flex:2;">
             <h3>Liste des associations</h3>
+
+            <form method="get" style="margin-bottom:12px;display:flex;gap:8px;align-items:center;">
+                <input type="text" name="q" placeholder="Ref ou Désignation" value="<?= htmlspecialchars($q) ?>" style="padding:8px;flex:1;" />
+                <?php $familles = getFamilles(); ?>
+                <select name="famille" style="padding:8px;">
+                    <option value="">Toutes les familles</option>
+                    <?php foreach ($familles as $f): ?>
+                        <option value="<?= htmlspecialchars($f) ?>" <?= $familleFilter == $f ? 'selected' : '' ?>><?= htmlspecialchars($f) ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+                <a href="liaisons_personnalisation.php" class="btn">Reset</a>
+            </form>
+
             <table style="width:100%;border-collapse:collapse;">
                 <thead>
                     <tr style="background:#f5f5f5;text-align:left;">
                         <th style="padding:8px;border:1px solid #eee;">ID</th>
                         <th style="padding:8px;border:1px solid #eee;">Réf produit</th>
+                        <th style="padding:8px;border:1px solid #eee;">Famille</th>
                         <th style="padding:8px;border:1px solid #eee;">Désignation produit</th>
                         <th style="padding:8px;border:1px solid #eee;">Ref pré-encollage</th>
                         <th style="padding:8px;border:1px solid #eee;">Ref Impression 1</th>
@@ -214,7 +248,8 @@ function getDesignation($db, $ref) {
                         <tr>
                             <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['id']) ?></td>
                             <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['produit_ref']) ?></td>
-                            <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars(getDesignation($db, $l['produit_ref'])) ?></td>
+                            <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['produit_famille'] ?? '') ?></td>
+                            <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['produit_designation'] ?: getDesignation($db, $l['produit_ref'])) ?></td>
                             <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['ref_pre_encollage'] ?? '') ?></td>
                             <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['ref_impression'] ?? '') ?></td>
                             <td style="padding:8px;border:1px solid #eee;vertical-align:top;"><?= htmlspecialchars($l['ref_impression_2'] ?? '') ?></td>
