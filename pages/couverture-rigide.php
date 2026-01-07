@@ -20,7 +20,8 @@
                 <!-- tableau 1 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 270px; height: 310px; margin-top: 200px;" src="../images/produits/hardcover-1.webp" alt="Couverture rigide de couleur noir avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="320" height="340" style="margin-top: 200px;" src="../images/produits/hardcover-1.webp" alt="Couverture rigide de couleur noir avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="360" height="320" style="margin-top: 135px;" src="../images/produits/CouvertureRigideA5Perso-4.webp" alt="2 Couvertures rigide de couleur noir et bleu avec personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -39,7 +40,9 @@
                 <!-- tableau 2 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 135px; height: 170px; margin-top: 20px;" src="../images/produits/hardcover-3.webp" alt="Couverture rigide de couleur blanche avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="250" height="300" style="margin-top: 2px;" src="../images/produits/CouvertureRigideA5Perso-3.webp" alt="Couverture rigide de couleur rose avec logo de personnalisation" loading="lazy">
+                    <img class="centre-div" width="250" height="300" style="margin-top: -150px;" src="../images/produits/hardcover-3.webp" alt="Couverture rigide de couleur bleu avec feuilles blanches à l'intérieur" loading="lazy">
+                    
                 </div>
                 <div class="colonne-2">
                     
@@ -55,20 +58,31 @@
                     <p>** Choisissez en cliquant la bonne couleur</p>
                 </div>
             </div> 
-        </div>
-    <div class="container">
-        <h2 class="title-h3 centre-text">Kit de Couverture Rigide</h2>
-        <p class="paragraphe">Le Kit de Présentation rendra facile la reliure de votre présentation sans nécessiter de machine. Et en plus, en utilisant notre V-Paper, il n'y aura plus de pages qui se soulèvent. Ainsi, désormais, votre présentation reposera à plat magnifiquement. Venez assembler votre propre kit. Ça ne peut pas être plus simple ! Le poids du V-Paper est de 120 g. Ajouter de belles pages en utilisant <a href="#papier">notre papier</a> en 120 ou 160 g/m².</p>
-        <div class="tableau-container">
-            <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
-            // Afficher les produits de reliure directement
-            afficherTableauProduits('Presentation Kit Hard Cover');
-            ?>
-        </div>
-    </div>   
+        
+            <div class="ligne">
+                <div class="colonne-1 onleft">
+                    <div class="ligne">
+                        <img class="centre-div" style="width: 270px; height: 400px; margin-top: 65px; margin-left: 100px;" src="../images/produits/kitHardCover-2.webp" alt="Kit de Couverture Rigide" loading="lazy">
+                        <img class="centre-div" style="width: 270px; height: 400px; margin-top: 65px; margin-left: -580px;" src="../images/produits/kitHardCover-1.webp" alt="Kit de Couverture Rigide" loading="lazy">
+                    </div>
+                    
+                </div>
+                <div class="colonne-2">
+                <div class="container">
+                    <h2 class="title-h3 centre-text">Kit de Couverture Rigide</h2>
+                    <p class="paragraphe">Le Kit de Présentation rendra facile la reliure de votre présentation sans nécessiter de machine. Et en plus, en utilisant notre V-Paper, il n'y aura plus de pages qui se soulèvent. Ainsi, désormais, votre présentation reposera à plat magnifiquement. Venez assembler votre propre kit. Ça ne peut pas être plus simple ! Le poids du V-Paper est de 120 g. Ajouter de belles pages en utilisant <a href="#papier">notre papier</a> en 120 ou 160 g/m².</p>
+                    <div class="tableau-container">
+                        <?php
+                        // IMPORTANT: Ajuster le chemin selon votre structure
+                        require_once __DIR__ . '/../includes/tableau.php';
+                        
+                        // Afficher les produits de reliure directement
+                        afficherTableauProduits('Presentation Kit Hard Cover');
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>   
     </section>
     <section class="section2" id="Carnet de Notes">
     <div class="container">
@@ -116,7 +130,7 @@
         <p class="paragraphe">Les couvertures thermiques écologiques sont des livres à couverture rigide haut de gamme, respectueux de l'environnement. Idéales pour créer des matériaux de présentation personnalisés, durables et reliés de manière permanente. Ces couvertures avec du papier recyclé offrent un choix éco-responsable. Avec le système de reliure thermique, vous pouvez sertir le dos pour un ajustement parfait.</p>
     <div class="ligne">
         <div class="colonne-1 onleft">
-            <img src="../images/produits/couverture-rigide-eco-1.webp" alt="Carnet de notes personnalisé à couverture rigide finition écologique" loading="lazy">
+            <img width="400" height="300" src="../images/produits/couverture-rigide-eco-1.webp" alt="Carnet de notes personnalisé à couverture rigide finition écologique" loading="lazy">
         </div>
         <div class="tableau-container" id="papier">
             <?php
@@ -147,11 +161,11 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/couverture-rigide-1.webp" alt="Exemple d'une couverture rigide personnalisée format paysage avec une photo représentant diverses personnes sur la face avant" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-1.webp" alt="Exemple d'une couverture rigide personnalisée format paysage avec une photo représentant diverses personnes sur la face avant" loading="lazy">
         </div>
         <div class="colonne-3 ligne onright">
-            <img class="centre-div" src="../images/produits/peel-stick-hard-cover-black-1.webp" alt="Présentation de la mise en place du système autocollant pour couverture rigide personnalisée" loading="lazy">
-            <img class="centre-div" src="../images/produits/couverture-rigide-2.webp" alt="Couverture rigide personnalisée avec un dessin graphique coloré sur la face avant" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/peel-stick-hard-cover-black-1.webp" alt="Présentation de la mise en place du système autocollant pour couverture rigide personnalisée" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-2.webp" alt="Couverture rigide personnalisée avec un dessin graphique coloré sur la face avant" loading="lazy">
         </div>
         
     </div>
@@ -183,10 +197,10 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/couverture-rigide-double-1.webp" alt="Couverture rigide format paysage avec personnalisation recto verso représentant ici une photo d'immeubles modernes" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-double-1.webp" alt="Couverture rigide format paysage avec personnalisation recto verso représentant ici une photo d'immeubles modernes" loading="lazy">
         </div>
         <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/couverture-rigide-double-2.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-double-2.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente" loading="lazy">
         </div>
         
     </div>
@@ -211,13 +225,13 @@
     </div>
     <div class="ligne">
         <div class="colonne-5 onleft">
-            <img class="centre-div" src="../images/produits/couverture-panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant 2 modèles différents" loading="lazy">  
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant 2 modèles différents" loading="lazy">  
         </div>
         <div class="colonne-6">
             <p>Personnalisez le recto, le dos et le verso de votre livre avec le Panorama HardCover Les Panorama Hard Covers sont un outil de personnalisation convivial et économique créé en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures rigides uniques préfabriquées vous permettent de personnaliser facilement le recto, le dos et le verso de votre HardCover. C'est un concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle.Les Panorama Hard Covers sont la solution parfaite de fabrication de caisses pour toutes vos applications uniques ou en petite série.</p>
         </div>
         <div class="colonne-5 onright">
-            <img src="../images/produits/couverture-panorama-2.webp" alt="Couverture rigide de livre photo panoramique format portrait montrant bien que l'image couvre toute la surface" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-panorama-2.webp" alt="Couverture rigide de livre photo panoramique format portrait montrant bien que l'image couvre toute la surface" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">
@@ -254,12 +268,14 @@
         </div>
         </br>
     <div class="ligne">
-        <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo d'un caméléon" loading="lazy">  
+        <div class="colonne-1 onleft">
+            <img class="centre-div" src="../images/produits/panorama-1.webp" width="400" height="300" style="margin-top: 40px;" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo d'un caméléon" loading="lazy">  
         </div>
-        
-        <div class="colonne-3 onright">
-            <img src="../images/produits/panorama-2.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo de maisons sur pilotis aux Maldives" loading="lazy">
+        <div class="colonne-1">
+            <img class="centre-div" src="../images/produits/CouvertureRigidePerso-1.webp" width="400" height="400" alt="Couverture rigide de livre photo panoramique format portrait montrant un montage photo de plusieurs images d'entreprises" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" src="../images/produits/panorama-2.webp" width="400" height="300" style="margin-top: 50px;" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo de maisons sur pilotis aux Maldives" loading="lazy">
         </div>
     </div>
         
@@ -292,7 +308,7 @@
     </div>
     <div class="ligne">
             <div class="colonne-3">
-                <img style="margin-left: 95px;" src="../images/produits/detail-clamp.webp" alt="Vue détaillée des couvertures rigide clamp" width="200" height="300" loading="lazy">
+                <img class="centre-div" width="250" height="350" style="margin-top:40px; margin-left: 130px;" src="../images/produits/detail-clamp.webp" alt="Vue détaillée des couvertures rigide clamp" loading="lazy">
             </div>
             <div class="colonne-2">
                 <div class="ligne">
@@ -347,11 +363,14 @@
             
         </div>
     <div class="ligne">
-        <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/hard_cover_basic_clamp-1.webp" alt="Présentation de la conception des couvertures rigide clamp personnalisables " loading="lazy">
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="500" height="400" src="../images/produits/hard_cover_basic_clamp-1.webp" alt="Présentation de la conception des couvertures rigide clamp personnalisables " loading="lazy">
         </div>
-        <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/clamp.webp" alt="Présentation de la conception des couvertures rigide clamp" loading="lazy">
+        <div class="colonne-1">
+            <img class="centre-div" width="500" height="400" src="../images/produits/carte-vin-menu.webp" alt="Présentation de carte des vins et menus avec couvertures rigide clamp" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="500" height="400" src="../images/produits/clamp.webp" alt="Présentation de la conception des couvertures rigide clamp" loading="lazy">
         </div>
     </div>
         
@@ -362,6 +381,39 @@
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic Clamp Binding');
+            ?>
+            
+        </div>
+    
+</br>
+    <?php include '../includes/bt-devis.php'; ?>
+</section>
+<section class="section1" id="Prestige Clip Papier">
+    <div class="container">
+        <h2 class="title-h3 centre-text">Prestige clip papier à fermeture magnétique</h2>
+        <p class="paragraphe">Le prestige clip papier à fermeture magnétique offre une solution élégante et pratique pour vos présentations. Grâce à son système de fermeture magnétique, il assure une tenue sécurisée tout en facilitant l'accès à vos documents. Présentation de menu ou prise de note c'est un support multi-fonctions.</p>
+    </div>
+    
+        
+    <div class="ligne">
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="300" height="400" src="../images/produits/prestigeClip-2.webp" alt="Présentation du prestige clip papier à fermeture magnétique" loading="lazy">
+        </div>
+        <div class="colonne-1">
+            <img class="centre-div" width="400" height="400" src="../images/produits/prestigeClip-1.webp" alt="Présentation du prestige clip papier à fermeture magnétique" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="300" height="400" src="../images/produits/prestigeClip-3.webp" alt="Présentation du prestige clip papier à fermeture magnétique" loading="lazy">
+        </div>
+    </div>
+        
+        <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('HardCover Basic Clip Board');
             ?>
             
         </div>

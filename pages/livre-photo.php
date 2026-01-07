@@ -49,10 +49,10 @@ En un rien de temps, les clients créent leur propre souvenir ou cadeau personna
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img src="../images/produits/livrephotoautocollant-1.webp" alt="Livre photo autocollant de couleur vert pâle montrant le résultat de l'application des Peel & Stick Sheets sur la couverture" loading="lazy">
+            <img class="centre-div" width="400" height="400" src="../images/produits/livrephotoautocollant-1.webp" alt="Livre photo autocollant de couleur vert pâle montrant le résultat de l'application des Peel & Stick Sheets sur la couverture" loading="lazy">
         </div>
         <div class="colonne-3 onright">
-            <img src="../images/produits/livrephotoautocollant-3.webp" alt="Livre photo autocollant ouvert, de couleur bleu pâle montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album" loading="lazy">
+            <img class="centre-div" width="400" height="400" src="../images/produits/livrephotoautocollant-3.webp" alt="Livre photo autocollant ouvert, de couleur bleu pâle montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album" loading="lazy">
         </div>
     </div>
     <div class="ligne centre-div" style="width:500px;">
@@ -85,10 +85,10 @@ Le cadeau idéal pour une personne très spéciale.</p>
     </div>
     <div class="ligne">
         <div class="colonne-2">
-            <img src="../images/produits/album-photo-autocollant-1.webp" alt="Livre photo autocollant ouvert, de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album" loading="lazy">  
+            <img class="centre-div" width="600" height="400" src="../images/produits/album-photo-autocollant-1.webp" alt="Livre photo autocollant ouvert, de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur l'intérieur de l'album" loading="lazy">  
         </div>
         <div class="colonne-1 onright">
-            <img src="../images/produits/album-photo-autocollant-2.webp" alt="Livre photo autocollant de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur la couverture" loading="lazy">
+            <img class="centre-div" width="350" height="320" src="../images/produits/album-photo-autocollant-2.webp" alt="Livre photo autocollant de couleur noir montrant le résultat de l'application des Peel & Stick Sheets sur la couverture" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">
@@ -108,21 +108,21 @@ Le cadeau idéal pour une personne très spéciale.</p>
         <h2 class="title-h3 centre-text">Livre Photo Créatif</h2>
     </div>
     <div class="ligne">
-        <div>
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="500" height="320"  src="../images/produits/livrephotocreatif-1.webp" alt="Livre photo créatif fermé montrant une couverture personnalisée avec des photos collées dessus" loading="lazy">
+            
+        </div>
+        <div class="colonne-1">
             <p class="paragraphe">Une image en dit plus que mille mots. Dans ces livres photo instantanés colorés, il y a de la place pour 10 images de ce type (soit
             plus de 10 000 mots) et pour ajouter un message spécial. Combien de mots cela représente-t-il ? Nous avons perdu le compte ...</p>
             <p class="paragraphe">Indispensable pour les créateurs de scrapbooking instantanés constituent la base idéale pour un scrapbook, une sorte de livre photo à l'ancienne, mais un peu plus personnel. Ils comprennent des autocollants double face pour fixer des photos et d'autres souvenirs, ainsi qu'un marqueur pour ajouter des noms, des dates, des citations ou d'autres éléments d'écriture</p>
         </div>
-        <div class="onright">
-            <img src="../images/produits/livrephotocreatif-1.webp" alt="Livre photo créatif fermé montrant une couverture personnalisée avec des photos collées dessus" loading="lazy">
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="380" height="320"  src="../images/produits/instant-photo-book-1.webp" alt="Présentation du livre photo créatif sous la forme de sa pochette contenant tout le néccessaire pour créer le livre photo" loading="lazy">
         </div>
     </div>
-    <div class="ligne">
-        <div class="colonne-1">
-            <img src="../images/produits/instant-photo-book-1.webp" alt="Présentation du livre photo créatif sous la forme de sa pochette contenant tout le néccessaire pour créer le livre photo" loading="lazy">
-        </div>
-        
-        <div class="colonne-2 ligne">
+    <div class="container" style="margin-left: 30%; margin-right: 30%;">    
+        <div class="ligne">
             <div>
                 <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur1.webp" alt="Exmple de la couleur noire disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Noir</p>
@@ -143,8 +143,6 @@ Le cadeau idéal pour une personne très spéciale.</p>
                 <img class="posCouleurCrea" src="../images/produits/livrephotocreatif-couleur5.webp" alt="Exmple de la couleur blanche disponible pour le livre créatif" loading="lazy">
                 <p class="pCrea">Blanc</p>
             </div>
-        </div>
-            
         </div>
     </div>
     <div class="tableau-container">

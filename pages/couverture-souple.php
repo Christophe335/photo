@@ -21,7 +21,8 @@
                 <!-- tableau 1 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 270px; height: 400px; margin-top: 200px;" src="../images/produits/couverture-souple-1.webp" alt="Couverture souple transparente style crystal avec document à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="160" height="250" style="margin-top: 150px;" src="../images/produits/couverture-souple-1.webp" alt="Couverture souple transparente style crystal avec document à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="400" height="300" style="margin-top: 20px;" src="../images/produits/CouvertureSouple-2.webp" alt="Couverture souple transparente style crystal avec document à l'intérieur" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -40,7 +41,8 @@
                 <!-- tableau 2 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 270px; height: 400px; margin-top: 200px;" src="../images/produits/unibackcover.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    <img class="centre-div" style="width: 180px; height: 260px; margin-top: 150px;" src="../images/produits/unibackcover.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    <img class="centre-div" style="width: 420px; height: 300px; margin-top: 20px;" src="../images/produits/unibackcover-2.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -59,7 +61,8 @@
                 <!-- tableau 3 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 135px; height: 200px; margin-top: 200px;" src="../images/produits/unibackcover.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    <img class="centre-div" width="135" height="200" style="margin-top: 200px;" src="../images/produits/unibackcover.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    <img class="centre-div"  width="200" height="300" style="margin-top: 20px;" src="../images/produits/unibackcover-3.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -78,12 +81,13 @@
             </br>   
             <p class="paragraphe">Les couvertures Mat Flex sont la solution idéale pour toute présentation de documents. Elles présentent un fini semi-transparent mat givré des deux côtés de la couverture. Avec les machines de reliure thermique, vous pouvez relier et sertir le dos pour un ajustement optimal.</p>
                 </br>
+                <!-- tableau 4 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 270px; height: 400px; margin-top: 200px;" src="../images/produits/couverture-souple-2.webp" alt="Couverture souple mat avec document à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="160" height="250" style="margin-top: 150px;" src="../images/produits/couverture-souple-2.webp" alt="Couverture souple mat avec document à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="400" height="320" style="margin-top: 20px;" src="../images/produits/CouvertureSouple-4.webp" alt="Couverture souple mat avec document à l'intérieur" loading="lazy">
                 </div>
                 <div class="colonne-2">
-                    
                     <div class="tableau-container">
                         <?php
                         // IMPORTANT: Ajuster le chemin selon votre structure
@@ -95,20 +99,27 @@
                     </div>
                 </div>
             </div> 
-        </div>
-        <div class="container">
-        <h2 class="title-h3 centre-text">Kit de Couverture Souple</h2>
-        <p class="paragraphe">Le Kit de Présentation rendra facile la reliure de votre présentation sans nécessiter de machine. Et en plus, en utilisant notre V-Paper, il n'y aura plus de pages qui se soulèvent. Ainsi, désormais, votre présentation reposera à plat magnifiquement. Venez assembler votre propre kit. Ça ne peut pas être plus simple ! Le poids du V-Paper est de 120 g. Ajouter de belles pages en utilisant <a href="../pages/couverture-rigide.php#papier">notre papier</a> en 120 ou 160 g/m².</p>
-        <div class="tableau-container">
-            <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
-            // Afficher les produits de reliure directement
-            afficherTableauProduits('Presentation Kit Soft Cover');
-            ?>
-        </div>
-    </div>   
+            <div class="ligne">
+                <div class="colonne-1 onleft">
+                    <img class="centre-div" style="width: 270px; height: 400px; margin-top: 45px;" src="../images/produits/kitSoftCover.webp" alt="Kit de Couverture Souple" loading="lazy">
+                </div>
+                <div class="colonne-2">
+                    
+                <div class="container">
+                    <h2 class="title-h3 centre-text">Kit de Couverture Souple</h2>
+                    <p class="paragraphe">Le Kit de Présentation rendra facile la reliure de votre présentation sans nécessiter de machine. Et en plus, en utilisant notre V-Paper, il n'y aura plus de pages qui se soulèvent. Ainsi, désormais, votre présentation reposera à plat magnifiquement. Venez assembler votre propre kit. Ça ne peut pas être plus simple ! Le poids du V-Paper est de 120 g. Ajouter de belles pages en utilisant <a href="../pages/couverture-rigide.php#papier">notre papier</a> en 120 ou 160 g/m².</p>
+                    <div class="tableau-container">
+                        <?php
+                        // IMPORTANT: Ajuster le chemin selon votre structure
+                        require_once __DIR__ . '/../includes/tableau.php';
+                        
+                        // Afficher les produits de reliure directement
+                        afficherTableauProduits('Presentation Kit Soft Cover');
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>   
         <?php include '../includes/bt-devis.php'; ?>
     </section>
     
