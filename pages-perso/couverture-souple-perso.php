@@ -13,6 +13,51 @@
         <div class="container">
             <h1 class="title-h3 centre-text">COUVERTURE SOUPLE PERSONNALISÉE</h1>
                 </br>
+
+                            <!-- tableau 2 -->
+            <div class="ligne">
+                <div class="colonne-1 onleft">
+                    <img class="centre-div" style="width: 180px; height: 260px; margin-top: 150px;" src="../images/produits/PlusFlexCover-Red-perso-1.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    <img class="centre-div" style="width: 420px; height: 300px; margin-top: 20px;" src="../images/produits/unibackcover-2.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                </div>
+                <div class="colonne-2">
+                    
+                    <div class="tableau-container">
+                        <?php
+                        // IMPORTANT: Ajuster le chemin selon votre structure
+                        require_once __DIR__ . '/../includes/tableau-perso.php';
+                        
+                        // Afficher les produits de reliure directement
+                        afficherTableauProduits('Uniback Cover A4');
+                        ?>
+                    </div>
+                    <p>** Choisissez en cliquant la bonne couleur</p>
+                </div>
+            </div> 
+                <!-- tableau 3 -->
+            <div class="ligne">
+                <div class="colonne-1 onleft">
+                    <div class="ligne">
+                    <img class="centre-div" width="135" height="200" style="margin-top: 200px;" src="../images/produits/PlusFlexCover XS DUITS.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    <img class="centre-div"  width="135" height="200" style="margin-top: 200px;" src="../images/produits/unibackcover-3.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                    </div>
+                    
+                    <img class="centre-div"  width="200" height="300" style="margin-top: 20px;" src="../images/produits/PlusFlexCover-Vert-perso-1.webp" alt="Couverture souple Uniback doté d'un guide en papier détachable" loading="lazy">
+                </div>
+                <div class="colonne-2">
+                    
+                    <div class="tableau-container">
+                        <?php
+                        // IMPORTANT: Ajuster le chemin selon votre structure
+                        require_once __DIR__ . '/../includes/tableau-perso.php';
+                        
+                        // Afficher les produits de reliure directement
+                        afficherTableauProduits('Uniback Cover A5');
+                        ?>
+                    </div>
+                    <p>** Choisissez en cliquant la bonne couleur</p>
+                </div>
+            </div> 
                 <p class="paragraphe">Parfois, nous devons aller vite et voyager léger. Notre couverture souple est votre compagnon idéal pour des couvertures professionnelles, élégantes et pratiques. Créez de puissants outils de marque avec votre propre design corporate ou votre œuvre d'art de choix. Un aspect premium sans le poids d'une couverture rigide. Disponible avec finition brillante, mate et soft-touch pour laisser une impression durable sur vos clients et prospects.</p>
                 </br>
             <div class="ligne">

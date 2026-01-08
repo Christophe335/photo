@@ -20,15 +20,15 @@
             </br>
             <div class="ligne">
                 <div class="colonne-3 onleft">
-                    <img class="centre-div" src="../images/produits/luxe-1.webp" alt="3 types de finitions luxe au format portrait couleur aluminium, blanc et noir" loading="lazy">
+                    <img class="centre-div" width="316" height="226" src="../images/produits/luxe-1.webp" alt="3 types de finitions luxe au format portrait couleur aluminium, blanc et noir" loading="lazy">
                 </div>
                 <div class="colonne-3 onright">
-                    <img class="centre-div" src="../images/produits/luxe-2.webp" alt="Présentation de 2 dipômes version portrait avec une finition luxe" loading="lazy">
+                    <img class="centre-div" width="316" height="226" src="../images/produits/Certificate-perso-4.webp" alt="Présentation de 2 dipômes version portrait avec une finition luxe" loading="lazy">
                 </div>
             </div>  
             <div class="ligne">
                 <div class="colonne-4 onleft">
-                    <img class="centre-div" style="margin-top: 160px;" src="../images/produits/luxe-3.webp" alt="Support de certificat finition luxe au format portrait de couleur gris claire avec dorure en or" loading="lazy">
+                    <img class="centre-div" width="176" height="267" style="margin-top: 160px;" src="../images/produits/luxe-3.webp" alt="Support de certificat finition luxe au format portrait de couleur gris claire avec dorure en or" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     <div class="tableau-container">
@@ -42,60 +42,14 @@
                     </div>
                 </div>
                 <div class="colonne-4 onright">
-                    <img class="centre-div" style="margin-top: 160px;" src="../images/produits/luxe-4.webp" alt="Support de certificat finition luxe sans coins de protection avec une finition écologique" loading="lazy">
+                    <img class="centre-div" width="176" height="267" style="margin-top: 160px;" src="../images/produits/luxe-4.webp" alt="Support de certificat finition luxe sans coins de protection avec une finition écologique" loading="lazy">
                 </div>
             </div>  
             </br> 
         </div>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
-    <section class="section2" id="Portfolio et Classeur">
-        <div class="container">
-            
-            <h2 class="title-h3 centre-text">PORTFOLIO / CLASSEUR À 2 ANNEAUX</h2>
-                </br>
-                <p class="paragraphe">Cette boîte de rangement professionnelle présente et stocke vos documents et livres reliés de manière pratique et élégante. Disponible en 2 hauteurs de clip standard 15-30 mm/espace de rangement.</p>
-                </br>
-            <div class="ligne">
-                <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/luxe-5.webp" alt="Portfolio à 2 anneaux de couleur blanc perle" loading="lazy">
-                </div>
-                <div class="colonne-2">
-                    
-                    <div class="tableau-container">
-                        <?php
-                        // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
-                        
-                        // Afficher les produits de reliure directement
-                        afficherTableauProduits('PortFolio A4');
-                        ?>
-                    </div>
-                </div>
-            </div> 
-            </br>   
-            <p class="paragraphe">Le DuoBinder, un classeur à anneaux et une boîte de rangement en un seul, vous offre le meilleur des deux mondes. Vos présentations n'ont jamais été aussi belles. Parlons-en du professionnel : le DuoBinder peut être personnalisé avec n'importe quel logo ou œuvre d'art.</p>
-                </br>
-            <div class="ligne">
-                <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/luxe-6.webp" alt="Classeur à 2 anneaux et en même temps boite de rangement" loading="lazy">
-                </div>
-                <div class="colonne-2">
-                    
-                    <div class="tableau-container">
-                        <?php
-                        // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
-                        
-                        // Afficher les produits de reliure directement
-                        afficherTableauProduits('DuoBinder A4');
-                        ?>
-                    </div>
-                </div>
-            </div> 
-        </div>
-        <?php include '../includes/bt-devis.php'; ?>
-    </section>
+   
 </main>
 
 <script src="/js/panier.js"></script>

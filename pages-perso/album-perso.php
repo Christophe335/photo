@@ -18,10 +18,10 @@
         <div class="container">
             <div class="ligne">
                 <div class="colonne-3 onleft">
-                    <img class="centre-div" src="../images/produits/photo-book-a5-landscape-1.webp" alt="Album photo A4 paysage présentant la face avant grise avec sa personnalisation" loading="lazy">
+                    <img class="centre-div" width="300" height="300" src="../images/produits/photo-book-a5-landscape-1.webp" alt="Album photo A4 paysage présentant la face avant grise avec sa personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-3 onright">
-                    <img class="centre-div" src="../images/produits/photo-book-a4-landscape-2.webp" alt="Album photo A4 paysage présentant la face avant noir avec sa personnalisation" loading="lazy">
+                    <img class="centre-div" width="300" height="300" src="../images/produits/photo-book-a4-landscape-2.webp" alt="Album photo A4 paysage présentant la face avant noir avec sa personnalisation" loading="lazy">
                 </div>
             </div>
             </br>
@@ -46,10 +46,10 @@
             <p class="paragraphe">La version A4 format portrait, notre best-seller de notre Livre Photo. Un album photo classique avec une finition professionnelle et un aspect haute qualité. Notre système de reliure thermique en acier breveté assure une liaison solide et durable. La manière parfaite de célébrer et partager les moments uniques de la vie.</p>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/photo-book-a4-portrait-1.webp" alt="Album photo A4 portrait présentant la face avant noire avec sa personnalisation" loading="lazy">
+                    <img class="centre-div" width="180" height="250" src="../images/produits/photo-book-a4-portrait-1.webp" alt="Album photo A4 portrait présentant la face avant noire avec sa personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-2 onright">
-                    <img class="centre-div" src="../images/produits/photo-book-a3-landscape-1.webp" alt="Album photo A3 paysage ouvert à plat présentant des photos imprimées au format A3" loading="lazy">
+                    <img class="centre-div" width="500" height="300" src="../images/produits/photo-book-a3-landscape-1.webp" alt="Album photo A3 paysage ouvert à plat présentant des photos imprimées au format A3" loading="lazy">
                 </div>
             </div>
             </br>

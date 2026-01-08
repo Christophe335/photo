@@ -101,26 +101,26 @@
         <div class="ligne">
             <div class="colonne-3 onleft">
                 <div class="ligne">
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-01.webp" alt="Couleur Blossom (une variété de rose)" loading="lazy">
-                    <p>Rose</p></div>
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-02.webp" alt="Couleur Charcoal (un noir)" loading="lazy">
                     <p>Charbon</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-06.webp" alt="Couleur Silver (argent)" loading="lazy">
+                    <p>Argent</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-05.webp" alt="Couleur Red (rouge)" loading="lazy">
+                    <p>Rouge</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-08.webp" alt="Couleur Ultra-marine (bleu marine)" loading="lazy">
+                    <p>Ultra-marine</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-10.webp" alt="Couleur Marron" loading="lazy">
+                    <p>Marron</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-09.webp" alt="Couleur Naranja (orange)" loading="lazy">
+                    <p>Orange</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-01.webp" alt="Couleur Blossom (une variété de rose)" loading="lazy">
+                    <p>Rose</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-07.webp" alt="Couleur Turqoise (bleu turquoise)" loading="lazy">
+                    <p>Turqoise</p></div>
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-03.webp" alt="Couleur Lime (vert citron)" loading="lazy">
                     <p>Citron Vert</p></div>
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-04.webp" alt="Couleur Oyster (beige)" loading="lazy">
                     <p>Huître</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-05.webp" alt="Couleur Red (rouge)" loading="lazy">
-                    <p>Rouge</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-06.webp" alt="Couleur Silver (argent)" loading="lazy">
-                    <p>Argent</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-07.webp" alt="Couleur Turqoise (bleu turquoise)" loading="lazy">
-                    <p>Turqoise</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-08.webp" alt="Couleur Ultra-marine (bleu marine)" loading="lazy">
-                    <p>Ultra-marine</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-09.webp" alt="Couleur Naranja (orange)" loading="lazy">
-                    <p>Orange</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-10.webp" alt="Couleur Marron" loading="lazy">
-                    <p>Marron</p></div>
                 </div>
             </div>
             <div class="colonne-3 onright">
@@ -130,7 +130,7 @@
         <p class="paragraphe">Les couvertures thermiques écologiques sont des livres à couverture rigide haut de gamme, respectueux de l'environnement. Idéales pour créer des matériaux de présentation personnalisés, durables et reliés de manière permanente. Ces couvertures avec du papier recyclé offrent un choix éco-responsable. Avec le système de reliure thermique, vous pouvez sertir le dos pour un ajustement parfait.</p>
     <div class="ligne">
         <div class="colonne-1 onleft">
-            <img width="400" height="300" src="../images/produits/couverture-rigide-eco-1.webp" alt="Carnet de notes personnalisé à couverture rigide finition écologique" loading="lazy">
+            <img width="300" height="200" src="../images/produits/couverture-rigide-eco-1.webp" alt="Carnet de notes personnalisé à couverture rigide finition écologique" loading="lazy">
         </div>
         <div class="tableau-container" id="papier">
             <?php
@@ -166,8 +166,7 @@
         <div class="colonne-3 ligne onright">
             <img class="centre-div" width="400" height="300" src="../images/produits/peel-stick-hard-cover-black-1.webp" alt="Présentation de la mise en place du système autocollant pour couverture rigide personnalisée" loading="lazy">
             <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-2.webp" alt="Couverture rigide personnalisée avec un dessin graphique coloré sur la face avant" loading="lazy">
-        </div>
-        
+        </div> 
     </div>
     
 </br>
@@ -201,8 +200,7 @@
         </div>
         <div class="colonne-3 onright">
             <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-double-2.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente" loading="lazy">
-        </div>
-        
+        </div> 
     </div>
     
 </br>

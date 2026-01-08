@@ -161,8 +161,8 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                         'panneau-bambou' => 'Panneaux Bambou',
                         'panneau-acrylique' => 'Panneaux Acrylique',
                         'panneau-photo' => 'Panneaux Photo',
-                        'boite-a5' => 'Prestige Box A5',
-                        'boite-a4' => 'Prestige Box A4',
+                        'boite-a5' => 'Coffret Prestige A5',
+                        'boite-a4' => 'Coffret Prestige A4',
                         'metal' => 'Alu-Print',
                         'magnet' => 'Magnets',
                         // Pages cadeaux
@@ -180,8 +180,8 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                         'couverture-souple-perso' => 'Couverture Souple Personnalisé',
                         'album-perso' => 'Album Photos Personnalisé',
                         'pochette-perso' => 'Chemises Personnalisé',
-                        'boite-a5-perso' => 'Prestige Box A5 Personnalisé',
-                        'boite-a4-perso' => 'Prestige Box A4 Personnalisé',
+                        'boite-a5-perso' => 'Coffret Prestige A5 Personnalisé',
+                        'boite-a4-perso' => 'Coffret Prestige A4 Personnalisé',
                         'infinity-perso' => 'Photo Book Infinity Personnalisé',
                         'portfolio-perso' => 'Portfolio Prestige Personnalisé',
                         'toile-perso' => 'Toile Personnalisé',
@@ -289,8 +289,8 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                     <div class="nav-item">
                         <button class="nav-btn" data-menu="cadeaux">Panneaux / Coffrets</button>
                         <div class="dropdown-menu" id="cadeaux-menu">
-                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Prestige Box A4</a>
-                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Prestige Box A5</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a4.php" class="dropdown-item">Coffret Prestige A4</a>
+                            <a href="<?php echo $pagesPath; ?>boite-a5.php" class="dropdown-item">Coffret Prestige A5</a>
                             <a href="<?php echo $pagesPath; ?>portfolio.php" class="dropdown-item">Portfolio Prestige</a>
                             <a href="<?php echo $pagesPath; ?>panneau-photo.php" class="dropdown-item">Panneaux Photo</a>
                             <a href="<?php echo $pagesPath; ?>panneau-bambou.php" class="dropdown-item">Panneaux Bambou</a>

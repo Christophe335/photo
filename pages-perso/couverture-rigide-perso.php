@@ -18,7 +18,8 @@
                 <!-- tableau 1 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 270px; height: 310px; margin-top: 200px;" src="../images/produits/hardcover-1.webp" alt="Couverture rigide de couleur noir avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="320" height="340" style="margin-top: 200px;" src="../images/produits/CouvertureRigideA5Perso-2.webp" alt="Couverture rigide de couleur bleu et logo Carlton Cannes avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="360" height="320" style="margin-top: 135px;" src="../images/produits/CouvertureRigideA5Perso-4.webp" alt="2 Couvertures rigide de couleur noir et bleu avec personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -37,7 +38,8 @@
                 <!-- tableau 2 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" style="width: 135px; height: 170px; margin-top: 20px;" src="../images/produits/hardcover-3.webp" alt="Couverture rigide de couleur blanche avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="250" height="300" style="margin-top: 2px;" src="../images/produits/CouvertureRigideA5Perso-3.webp" alt="Couverture rigide de couleur rose avec logo de personnalisation" loading="lazy">
+                    <img class="centre-div" width="250" height="300" style="margin-top: -150px;" src="../images/produits/Hardcover-bleu-perso1.webp" alt="Couverture rigide de couleur bleu personnalisé avec feuilles blanches à l'intérieur" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -70,38 +72,41 @@
         </div>
         <p class="paragraphe">*** Choisissez bien votre couleur dans la colonne <span style="color: #ff5500;text-transform: uppercase;">couleur</span></p>
         <div class="ligne">
-            <div class="colonne-3 onleft">
+            <div class="colonne-1 onleft">
+                <img class="centre-div" width="300" height="350" src="../images/produits/Hardcover-rouge-perso1.webp" alt="Présentation de la gamme de carnets de notes personnalisés à couverture rigide" loading="lazy">
+            </div>
+            <div class="colonne-1">
                 <div class="ligne">
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-01.webp" alt="Couleur Blossom (une variété de rose)" loading="lazy">
-                    <p>Rose</p></div>
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-02.webp" alt="Couleur Charcoal (un noir)" loading="lazy">
                     <p>Charbon</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-06.webp" alt="Couleur Silver (argent)" loading="lazy">
+                    <p>Argent</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-05.webp" alt="Couleur Red (rouge)" loading="lazy">
+                    <p>Rouge</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-08.webp" alt="Couleur Ultra-marine (bleu marine)" loading="lazy">
+                    <p>Ultra-marine</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-10.webp" alt="Couleur Marron" loading="lazy">
+                    <p>Marron</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-09.webp" alt="Couleur Naranja (orange)" loading="lazy">
+                    <p>Orange</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-01.webp" alt="Couleur Blossom (une variété de rose)" loading="lazy">
+                    <p>Rose</p></div>
+                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-07.webp" alt="Couleur Turqoise (bleu turquoise)" loading="lazy">
+                    <p>Turqoise</p></div>
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-03.webp" alt="Couleur Lime (vert citron)" loading="lazy">
                     <p>Citron Vert</p></div>
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-04.webp" alt="Couleur Oyster (beige)" loading="lazy">
                     <p>Huître</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-05.webp" alt="Couleur Red (rouge)" loading="lazy">
-                    <p>Rouge</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-06.webp" alt="Couleur Silver (argent)" loading="lazy">
-                    <p>Argent</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-07.webp" alt="Couleur Turqoise (bleu turquoise)" loading="lazy">
-                    <p>Turqoise</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-08.webp" alt="Couleur Ultra-marine (bleu marine)" loading="lazy">
-                    <p>Ultra-marine</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-09.webp" alt="Couleur Naranja (orange)" loading="lazy">
-                    <p>Orange</p></div>
-                    <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-10.webp" alt="Couleur Marron" loading="lazy">
-                    <p>Marron</p></div>
                 </div>
             </div>
-            <div class="colonne-3 onright">
-                <img src="../images/produits/carnet-de-note-personnalise-1.webp" alt="Présentation de la gamme de carnets de notes personnalisés à couverture rigide" loading="lazy">
+            <div class="colonne-1 onright">
+                <img class="centre-div" width="350" height="200" src="../images/produits/carnet-de-note-personnalise-1.webp" alt="Présentation de la gamme de carnets de notes personnalisés à couverture rigide" loading="lazy">
             </div>
         </div>
         <p class="paragraphe">Les couvertures thermiques écologiques sont des livres à couverture rigide haut de gamme, respectueux de l'environnement. Idéales pour créer des matériaux de présentation personnalisés, durables et reliés de manière permanente. Ces couvertures avec du papier recyclé offrent un choix éco-responsable. Avec le système de reliure thermique, vous pouvez sertir le dos pour un ajustement parfait.</p>
     <div class="ligne">
         <div class="colonne-1 onleft">
-            <img src="../images/produits/couverture-rigide-eco-1.webp" alt="Carnet de notes personnalisé à couverture rigide finition écologique" loading="lazy">
+            <img width="300" height="200" src="../images/produits/couverture-rigide-eco-1.webp" alt="Carnet de notes personnalisé à couverture rigide finition écologique" loading="lazy">
         </div>
         <div class="tableau-container">
             <?php
@@ -121,24 +126,24 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/couverture-rigide-1.webp" alt="Exemple d'une couverture rigide personnalisée format paysage avec une photo représentant diverses personnes sur la face avant" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-1.webp" alt="Exemple d'une couverture rigide personnalisée format paysage avec une photo représentant diverses personnes sur la face avant" loading="lazy">
         </div>
         <div class="colonne-3 ligne onright">
-            <img class="centre-div" src="../images/produits/peel-stick-hard-cover-black-1.webp" alt="Présentation de la mise en place du système autocollant pour couverture rigide personnalisée" loading="lazy">
-            <img class="centre-div" src="../images/produits/couverture-rigide-2.webp" alt="Couverture rigide personnalisée avec un dessin graphique coloré sur la face avant" loading="lazy">
-        </div>
+            <img class="centre-div" width="400" height="300" src="../images/produits/peel-stick-hard-cover-black-1.webp" alt="Présentation de la mise en place du système autocollant pour couverture rigide personnalisée" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-2.webp" alt="Couverture rigide personnalisée avec un dessin graphique coloré sur la face avant" loading="lazy">
+        </div> 
     </div>
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-perso.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Mono Hard Cover');
             ?>
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-perso.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peel & Stick Hard Cover');
@@ -154,16 +159,16 @@
     </div>
     <div class="ligne">
         <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/couverture-rigide-double-1.webp" alt="Couverture rigide format paysage avec personnalisation recto verso représentant ici une photo d'immeubles modernes" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-double-1.webp" alt="Couverture rigide format paysage avec personnalisation recto verso représentant ici une photo d'immeubles modernes" loading="lazy">
         </div>
         <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/couverture-rigide-double-2.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente" loading="lazy">
-        </div>  
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-rigide-double-2.webp" alt="Couverture rigide format portrait avec personnalisation recto verso représentant ici une photo de deux personnes en réunion d'affaires coupées en son centre mettant ainsi chaque personnage sur une face différente" loading="lazy">
+        </div> 
     </div>
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-perso.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Duo Hard Cover');
@@ -177,13 +182,13 @@
     </div>
     <div class="ligne">
         <div class="colonne-5 onleft">
-            <img class="centre-div" src="../images/produits/couverture-panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant 2 modèles différents" loading="lazy">  
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant 2 modèles différents" loading="lazy">  
         </div>
         <div class="colonne-6">
             <p>Personnalisez le recto, le dos et le verso de votre livre avec le Panorama HardCover Les Panorama Hard Covers sont un outil de personnalisation convivial et économique créé en réponse à la demande croissante pour des couvertures rigides personnalisées. Les couvertures rigides uniques préfabriquées vous permettent de personnaliser facilement le recto, le dos et le verso de votre HardCover. C'est un concept complètement sec ne nécessitant aucun liquide, produit chimique ou colle.Les Panorama Hard Covers sont la solution parfaite de fabrication de caisses pour toutes vos applications uniques ou en petite série.</p>
         </div>
         <div class="colonne-5 onright">
-            <img src="../images/produits/couverture-panorama-2.webp" alt="Couverture rigide de livre photo panoramique format portrait montrant bien que l'image couvre toute la surface" loading="lazy">
+            <img class="centre-div" width="400" height="300" src="../images/produits/couverture-panorama-2.webp" alt="Couverture rigide de livre photo panoramique format portrait montrant bien que l'image couvre toute la surface" loading="lazy">
         </div>
     </div>
         <div class="tableau-container">
@@ -206,7 +211,7 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-perso.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic A4 Portrait');
@@ -218,12 +223,14 @@
         </div>
         </br>
     <div class="ligne">
-        <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/panorama-1.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo d'un caméléon" loading="lazy">  
+        <div class="colonne-1 onleft">
+            <img class="centre-div" src="../images/produits/panorama-1.webp" width="400" height="300" style="margin-top: 40px;" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo d'un caméléon" loading="lazy">  
         </div>
-        
-        <div class="colonne-3 onright">
-            <img src="../images/produits/panorama-2.webp" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo de maisons sur pilotis aux Maldives" loading="lazy">
+        <div class="colonne-1">
+            <img class="centre-div" src="../images/produits/CouvertureRigidePerso-1.webp" width="400" height="400" alt="Couverture rigide de livre photo panoramique format portrait montrant un montage photo de plusieurs images d'entreprises" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" src="../images/produits/panorama-2.webp" width="400" height="300" style="margin-top: 50px;" alt="Couverture rigide de livre photo panoramique format paysage montrant la photo de maisons sur pilotis aux Maldives" loading="lazy">
         </div>
     </div>
 </section>
@@ -237,7 +244,7 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-perso.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic');
@@ -246,21 +253,81 @@
 </section>
 <section class="section2" id="Couverture rigide clamps">
     <div class="container">
-        <h2 class="title-h3 centre-text">Couverture rigide clamps personnalisables</h2>
+        <h2 class="title-h3 centre-text">Porte Document Prestige Rigide Clamp</h2>
         <p class="paragraphe">Les couvertures Hard Cover Basic reliure clamps sont des couvertures de  reliure personnalisable à l'aide de la machine de personnalisation Hard  Cover Maker 650. Le système Clamps est une baguette plastique qui permet de relier des feuilles sans l'utilisation de relieure.</p>
     </div>
     <div class="ligne">
-        <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/hard_cover_basic_clamp-1.webp" alt="Présentation de la conception des couvertures rigide clamp personnalisables " loading="lazy">
+            <div class="colonne-3">
+                <img class="centre-div" width="250" height="350" style="margin-top:40px; margin-left: 130px;" src="../images/produits/detail-clamp.webp" alt="Vue détaillée des couvertures rigide clamp" loading="lazy">
+            </div>
+            <div class="colonne-2">
+                <div class="ligne">
+                    <h3 class="posClamp1">Standard</h3>
+                    <h3 class="posClamp2">Toile de Jute</h3>
+                </div>
+                <div class="ligne">
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-noir.webp" alt="Couleur Noir" loading="lazy">
+                    <p>Noir</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-bordeaux.webp" alt="Couleur Bordeaux" loading="lazy">
+                    <p>Bordeaux</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-bleu-foncé.webp" alt="Couleur Bleu Foncé" loading="lazy">
+                    <p>Bleu Foncé</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-cuir-noir.webp" alt="Couleur Cuir Noir" loading="lazy">
+                    <p>Cuir Noir</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-gris-anthracite.webp" alt="Couleur Gris Anthracite" loading="lazy">
+                    <p>Gris</br>Anthracite</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-gris-ciment.webp" alt="Couleur Gris Ciment" loading="lazy">
+                    <p>Gris</br>Ciment</p></div>
+                </div>
+                <div class="ligne">
+                    <h3 class="posClamp1">Simili Cuir</h3>
+                    <h3 class="posClamp2">Cuir Vegan</h3>
+                </div>
+                <div class="ligne">
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-marron.webp" alt="Couleur Marron" loading="lazy">
+                    <p>Marron</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-petrol.webp" alt="Couleur Bleu Pétrol" loading="lazy">
+                    <p>Bleu Pétrol</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-vert-foncé.webp" alt="Couleur Vert Foncé" loading="lazy">
+                    <p>Vert Foncé</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-noir.webp" alt="Couleur Noir" loading="lazy">
+                    <p>Noir</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-charme-nero.webp" alt="Couleur Gris Foncé" loading="lazy">
+                    <p>Gris Foncé</p></div>
+                    <div class="posCouleurClamp"><img src="../images/produits/clamp-stone-grey.webp" alt="Couleur Gris Clair" loading="lazy">
+                    <p>Gris Clair</p></div>
+                </div>
+            </div>
         </div>
-        <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/clamp.webp" alt="Présentation de la conception des couvertures rigide clamp" loading="lazy">
+        <div class="container">
+        <p class="paragraphe">Créez une couverture rigide élégante et professionnelle sans aucune machine. Avec cette couverture rigide à pince, vous recevez 25 feuilles de V-Papier haute qualité 160 grammes. Il est très facile à utiliser : regroupez vos impressions ou documents, insérez-les dans la pince puis glissez-la dans le dos. Le résultat : Une couverture rigide.</p>
+    </div>
+    <div class="tableau-container">
+            <?php
+            // IMPORTANT: Ajuster le chemin selon votre structure
+            require_once __DIR__ . '/../includes/tableau-perso.php';
+            
+            // Afficher les produits de reliure directement
+            afficherTableauProduits('Clamp Hard Cover');
+            ?>
+            
+        </div>
+    <div class="ligne">
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="500" height="400" src="../images/produits/hard_cover_basic_clamp-1.webp" alt="Présentation de la conception des couvertures rigide clamp personnalisables " loading="lazy">
+        </div>
+        <div class="colonne-1">
+            <img class="centre-div" width="500" height="400" src="../images/produits/carte-vin-menu.webp" alt="Présentation de carte des vins et menus avec couvertures rigide clamp" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="500" height="400" src="../images/produits/clamp.webp" alt="Présentation de la conception des couvertures rigide clamp" loading="lazy">
         </div>
     </div>
+        
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-perso.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic Clamp Binding');
@@ -268,44 +335,7 @@
             
         </div>
 </section>
-<section class="section1" id="Classeurs">
-    <div class="container">
-        <h2 class="title-h3 centre-text">Classeur - 2 ou 4 anneaux</h2>
-        <p class="paragraphe">Présentez vos documents de manière élégante et professionnelle. Le RingBinder est parfait pour organiser vos documents. Le RingBinder peut être personnalisé avec n'importe quel logo ou œuvre d'art.</br>Choisissez entre 2 anneaux ou 4 anneaux.</p>
-    </div>
-    <div class="ligne">
-        <div class="colonne-3 onleft">
-            <img class="centre-div" src="../images/produits/hard_cover_basic_classeur-1.webp" alt="Présentation de la conception des couvertures rigide pour classeur personnalisables" loading="lazy">
-        </div>
-        <div class="colonne-3 onright">
-            <img class="centre-div" src="../images/produits/accessoires classeur-1.webp" alt="Présentation des accessoires nécessaires à la conception des couvertures rigide pour classeur, tels que les anneaux et les rivets" loading="lazy">
-        </div>
-    </div>
-        <div class="tableau-container">
-            <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
-            // Afficher les produits de reliure directement
-            afficherTableauProduits('Hard Cover Basic Ringbinder');
-            ?>
-        </div>
-    <div class="ligne">
-        <div class="colonne-5 onleft">
-            <img class="centre-div" src="../images/produits/classeur-1.webp" alt="Classeur au format A4 blanc avec des dessins d'ordinateurs et de bonhommes bleus avec couverture rigide personnalisée et système de reliure à anneaux" loading="lazy">
-        </div>
-        <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/classeur-2.webp" alt="Classeur au format A4 blanc ouvert montrant le système de reliure à 2 anneaux et un document d'architecte" loading="lazy">
-        </div>
-        <div class="colonne-5">
-            <img class="centre-div" src="../images/produits/classeur-4.webp" alt="Classeur au format A4 noir ouvert montrant le système de reliure à 2 anneaux avec des  documents déjà en place" loading="lazy">
-        </div>
-        <div class="colonne-5 onright">
-            <img class="centre-div" src="../images/produits/classeur-3.webp" alt="Classeur au format A4 noir entre ouvert avec un logo vert personnalisé sur la couverture rigide et système de reliure à anneaux">
-        </div>
-    </div>
 
-</section>
 </main>
 
 <script src="/js/panier.js"></script>

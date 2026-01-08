@@ -11,7 +11,7 @@
         <h1 class="title-h1 bull">Portfolio Prestige</h1>
     </div>
         <img style="width: 100%;" class="centre-div pose" src="../images/bandeaux/ban-portfolio.webp" alt="Un bandeau présentant des finitions luxe pour livres photo" loading="lazy">
-    <section class="section1" id="Portfolio et Classeur">
+    <section class="section2" id="Portfolio et Classeur">
         <div class="container"> 
             <h2 class="title-h3 centre-text">PORTFOLIO PRESTIGE / CLASSEUR À 2 ANNEAUX</h2>
                 </br>
@@ -19,7 +19,7 @@
                 </br>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/luxe-5.webp" alt="Portfolio à 2 anneaux de couleur blanc perle" loading="lazy">
+                    <img class="centre-div" width="280" height="280" src="../images/produits/luxe-5.webp" alt="Portfolio à 2 anneaux de couleur blanc perle" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
@@ -40,7 +40,7 @@
                 </br>
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" src="../images/produits/luxe-6.webp" alt="Classeur à 2 anneaux et en même temps boite de rangement" loading="lazy">
+                    <img class="centre-div" width="250" height="250" src="../images/produits/luxe-6.webp" alt="Classeur à 2 anneaux et en même temps boite de rangement" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
