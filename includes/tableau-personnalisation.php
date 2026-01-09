@@ -108,13 +108,13 @@ function afficherTableauPersonnalisation($famille, $quantiteParDefaut = 1, $prod
         $afficherCouleur = (strtolower($famille) === 'dorure');
         $titreFamille = ($afficherCouleur) ? 'Dorure' : 'Impression Couleur';
             // Colonnes de grille : spécifique pour dorure
-            $gridColsDorure = '80px 1fr 200px 100px 90px 120px';
-            $gridColsDefault = '140px 1fr 120px 120px 160px 100px';
+            $gridColsDorure = '65px 1fr 160px 112px 43px 112px 162px';
+            $gridColsDefault = '78px 1fr 120px 91px 127px 170px';
             $gridCols = $afficherCouleur ? $gridColsDorure : $gridColsDefault;
         
         ?>
         <div style="display:flex; justify-content:center; margin: 20px 0;">
-            <div class="tableau-produits<?= !$afficherCouleur ? ' sans-couleur' : '' ?>" style="max-width: 980px; width:100%;">
+            <div class="tableau-produits<?= !$afficherCouleur ? ' sans-couleur' : '' ?>" style="max-width: 1080px; width:100%;">
             <!-- Titre d'attention -->
             <h4 style="color: var(--noir1); margin-bottom: 20px; text-align: center; font-weight: 700; background: var(--or3); padding: 15px; border-radius: 8px; border-left: 4px solid var(--or2);">
                 ⚠️ ATTENTION : Choisir autant de quantité que vous avez de produits par conditionnement
@@ -220,7 +220,7 @@ function afficherTableauPersonnalisation($famille, $quantiteParDefaut = 1, $prod
                 <div class="col-action<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?php if ($produit['prixVente'] > 0): ?>
                         <button type="button" class="btn-ajouter-panier" onclick="ajouterPersonnalisationAuPanierDepuisTableau(this)">
-                            Ajouter au panier
+                            Panier
                         </button>
                     <?php else: ?>
                         <button type="button" class="btn-nous-consulter" style="background-color: orange; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: default;" disabled>

@@ -72,6 +72,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: liaisons_personnalisation.php'); exit;
         }
 
+        // Vérifier qu'il n'existe pas déjà une liaison pour cette référence (évite doublons)
+        try {
+            $chk = $db->prepare('SELECT id FROM personnalisation_liaisons WHERE produit_ref = ? LIMIT 1');
+            $chk->execute([$produit_ref]);
+            $exists = $chk->fetch();
+            if ($exists) {
+                $_SESSION['message'] = 'Une liaison existe déjà pour cette référence (ID ' . intval($exists['id']) . '). Ajout annulé.';
+                $_SESSION['message_type'] = 'error';
+                header('Location: liaisons_personnalisation.php'); exit;
+            }
+        } catch (Exception $e) {
+            // ignore
+        }
+
         $ref_impression_final = $ref_impression ?: null;
         $ref_impression_2_final = $ref_impression_2 ?: null;
         $ref_impression_3_final = $ref_impression_3 ?: null;
@@ -145,7 +159,7 @@ if ($familleFilter !== '') {
     $conditions[] = "p.famille = ?";
     $params[] = $familleFilter;
 }
-$sql = $baseSql . (!empty($conditions) ? ' WHERE ' . implode(' AND ', $conditions) : '') . ' ORDER BY pl.id DESC';
+$sql = $baseSql . (!empty($conditions) ? ' WHERE ' . implode(' AND ', $conditions) : '') . ' ORDER BY produit_famille ASC, pl.produit_ref ASC, pl.id DESC';
 $stmt = $db->prepare($sql);
 $stmt->execute($params);
 $liaisons = $stmt->fetchAll();
@@ -299,15 +313,74 @@ function editLiaison(id, produitRef, refPre, refImpr, refImpr2, refImpr3, enable
 }
 
 function lookupRef(ref, targetId){
-    if (!ref) return;
+    const target = document.getElementById(targetId);
+    if (!ref) {
+        if (target) target.textContent = '';
+        return;
+    }
     fetch('../ajax/get-produit-par-ref.php?ref=' + encodeURIComponent(ref))
         .then(r => r.json())
         .then(data => {
-            document.getElementById(targetId).textContent = data.designation || '';
+            if (target) target.textContent = data.designation || '';
+
+            // show info and prevent duplicates (only for the main produit_ref field)
+            const isProduitField = (targetId === 'produit_designation');
+            let infoEl = document.getElementById(targetId + '_info');
+            if (!infoEl && target) {
+                infoEl = document.createElement('div');
+                infoEl.id = targetId + '_info';
+                infoEl.style.fontSize = '13px';
+                infoEl.style.marginTop = '4px';
+                target.parentNode.insertBefore(infoEl, target.nextSibling);
+            }
+
+            const submitBtn = document.querySelector('#formLiaison .btn-success');
+
+            if (infoEl) {
+                if (isProduitField) {
+                    if (!data.produit_exists) {
+                        infoEl.textContent = 'Produit introuvable';
+                        infoEl.style.color = '#c0392b';
+                        if (submitBtn) submitBtn.disabled = true;
+                    } else if (data.liaison_exists && (document.getElementById('formAction').value === 'add')) {
+                        infoEl.textContent = 'Une liaison existe déjà (ID ' + data.liaison_id + ') — ajout impossible';
+                        infoEl.style.color = '#c0392b';
+                        if (submitBtn) submitBtn.disabled = true;
+                    } else {
+                        infoEl.textContent = data.produit_exists ? 'Produit existant' : '';
+                        infoEl.style.color = '#28a745';
+                        if (submitBtn) submitBtn.disabled = false;
+                    }
+                } else {
+                    // For other reference fields, only show designation if found, do not block form submission
+                    if (!data.produit_exists) {
+                        infoEl.textContent = '';
+                    } else {
+                        infoEl.textContent = 'Produit existant';
+                        infoEl.style.color = '#28a745';
+                    }
+                }
+            }
         }).catch(e => console.error(e));
 }
 
-document.getElementById('produit_ref').addEventListener('blur', function(){ lookupRef(this.value, 'produit_designation'); });
+// Debounce helper
+function debounce(fn, wait){
+    let t;
+    return function(){
+        const args = arguments;
+        clearTimeout(t);
+        t = setTimeout(function(){ fn.apply(null, args); }, wait);
+    };
+}
+
+// Lookup on input (debounced) and on blur for produit_ref
+var prodRefEl = document.getElementById('produit_ref');
+if (prodRefEl) {
+    prodRefEl.addEventListener('input', debounce(function(){ lookupRef(this.value, 'produit_designation'); }, 300));
+    prodRefEl.addEventListener('blur', function(){ lookupRef(this.value, 'produit_designation'); });
+}
+
 if (document.getElementById('ref_pre_encollage')) document.getElementById('ref_pre_encollage').addEventListener('blur', function(){ lookupRef(this.value, 'preencollage_designation'); });
 if (document.getElementById('ref_impression')) document.getElementById('ref_impression').addEventListener('blur', function(){ lookupRef(this.value, 'impression_designation'); });
 if (document.getElementById('ref_impression_2')) document.getElementById('ref_impression_2').addEventListener('blur', function(){ lookupRef(this.value, 'impression2_designation'); });

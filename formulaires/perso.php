@@ -470,14 +470,44 @@ function afficherTableauPersonnalisation(type) {
     
     const tableauDiv = document.getElementById('tableau-personnalisation');
     tableauDiv.style.display = 'block';
-    
-    // Simuler le chargement (vous pourrez remplacer par un vrai appel AJAX)
-    tableauDiv.innerHTML = `
+
+    // Contenu de chargement (sera remplacé par le tableau chargé)
+    const loadingHtml = `
         <div style="text-align: center; padding: 20px;">
             <div style="font-size: 24px; margin-bottom: 15px;">⏳</div>
             <p>Chargement du tableau ${type}...</p>
         </div>
     `;
+
+    // Si l'utilisateur a choisi la dorure, afficher les groupes explicatifs dans un conteneur
+    const groupesContainerId = 'tableau-personnalisation-groups';
+    let groupesContainer = document.getElementById(groupesContainerId);
+
+    if (type === 'dorure') {
+        const groupesHtml = `
+            <div class="dorure-groups" style="background:#fff;border:1px solid #eee;border-radius:6px;">
+                <div style="font-size:14px;color:#444;line-height:1.4;"><span style="font-weight:700;color:#2a256d;">Groupe A: </span>Papier couché, PVC, ABS, Acrylique, Cuir lisse, Touché doux</div>
+                <div style="font-size:14px;color:#444;line-height:1.4;"><span style="font-weight:700;color:#2a256d;">Groupe B: </span>Papier non couché, Papier à lettre, Carton</div>
+                <div style="font-size:14px;color:#444;line-height:1.4;"><span style="font-weight:700;color:#2a256d;">Groupe C: </span>Papier couché, ABS, Acrylique</div>
+                <div style="font-size:14px;color:#444;line-height:1.4;"><span style="font-weight:700;color:#2a256d;">Groupe D: </span>Papier couché, PVC, Acrylique, Bois lisse</div>
+                <div style="font-size:14px;color:#444;line-height:1.4;"><span style="font-weight:700;color:#2a256d;">Groupe E: </span>PVC, PE</div>
+            </div>
+        `;
+
+        if (!groupesContainer) {
+            groupesContainer = document.createElement('div');
+            groupesContainer.id = groupesContainerId;
+            tableauDiv.parentNode.insertBefore(groupesContainer, tableauDiv);
+        }
+        groupesContainer.innerHTML = groupesHtml;
+        tableauDiv.innerHTML = loadingHtml;
+    } else {
+        // supprimer le conteneur groupes s'il existe
+        if (groupesContainer) {
+            groupesContainer.parentNode.removeChild(groupesContainer);
+        }
+        tableauDiv.innerHTML = loadingHtml;
+    }
     
     // Simuler le chargement des produits de personnalisation
     setTimeout(() => {

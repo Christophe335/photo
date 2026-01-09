@@ -112,7 +112,7 @@ if (!function_exists('afficherTableauProduits')) {
                 <div class="col-action<?= !$afficherCouleur ? ' sans-couleur' : '' ?>">
                     <?php if ($produit['prixVente'] > 0): ?>
                         <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)">
-                            Ajouter au panier
+                            Panier
                         </button>
                     <?php else: ?>
                         <button type="button" class="btn-nous-consulter" style="background-color: orange; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: default;" disabled>

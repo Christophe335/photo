@@ -239,7 +239,7 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                             
                             <!-- Personnalisé -->
                              <a href="<?php echo $pagesPath; ?>couverture-rigide.php#papier" class="dropdown-item">Ramette de Papier</a>
-                            <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="dropdown-item personalize-item">Personnalisé</a>
+                            <!-- <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="dropdown-item personalize-item">Personnalisé</a> -->
                         </div>
                     </div>
                     
@@ -305,7 +305,8 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                             <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="mobile-menu-link">20 x 20 cm</a>
                             <a href="<?php echo $pagesPath; ?>tirage-grand.php" class="mobile-menu-link">20 x 25 cm</a>
                             <a href="<?php echo $pagesPath; ?>tirage-A4A3.php" class="mobile-menu-link">A4 / A3</a>
-                            <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="mobile-menu-link">Personnalisé</a>
+                            <a href="<?php echo $pagesPath; ?>couverture-rigide.php#papier" class="mobile-menu-link">Ramette de Papier</a>
+                            <!-- <a href="<?php echo $pagesPath; ?>tirage-Perso.php" class="mobile-menu-link">Personnalisé</a> -->
                         </div>
                     </div>
 

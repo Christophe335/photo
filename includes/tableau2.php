@@ -114,7 +114,7 @@ function afficherTableauProduits($famille, $afficherCouleur = true, $quantitePar
                         <div class="upload-status" id="upload-status-<?= $produit['id'] ?>" style="display: none;">
                             <span class="images-uploaded" id="images-count-<?= $produit['id'] ?>">0</span> photos uploadées
                             <button type="button" class="btn-ajouter-panier" onclick="ajouterAuPanier(this)" data-uploaded="true">
-                                Ajouter au panier
+                                Panier
                             </button>
                         </div>
                         <button type="button" 
