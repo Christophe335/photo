@@ -2054,6 +2054,29 @@ body.nav-fixed {
   box-shadow: 0 4px 15px rgba(240, 81, 36, 0.3);
 }
 
+/* Ajustements pour le bouton Personnaliser dans les tableaux produits */
+.tableau-produits .col-action {
+  min-width: 170px; /* élargit légèrement la colonne d'action pour tenir le bouton */
+}
+
+.tableau-produits .personalize-item {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--or2) 0%, var(--or1) 100%);
+}
+
+.tableau-produits .personalize-item:hover {
+  background: linear-gradient(135deg, var(--or1) 0%, var(--or2) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 /* Responsive pour le menu tirage */
 @media (max-width: 768px) {
   .format-group .group-brace {

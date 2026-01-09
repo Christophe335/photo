@@ -30,7 +30,7 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-choix.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A4 Landscape (black mirror)');
@@ -38,9 +38,6 @@
             </div>
             <div class="tableau-container">
                 <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A5 Landscape (black mirror)');
                  ?>
@@ -57,18 +54,12 @@
             </br>
             <div class="tableau-container">
                 <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A4 Portrait (black mirror)');
                  ?>
             </div>
             <div class="tableau-container">
-                <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
+                <?php   
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Photo Book A3 Landscape (black mirror)');
                  ?>
@@ -122,9 +113,6 @@
 </br>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Photo Books with window');
             ?>

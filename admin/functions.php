@@ -60,7 +60,7 @@ function creerProduit($data) {
     
     $sql = "INSERT INTO produits (
         famille, nomDeLaFamille, reference, designation, format, 
-        ordre, est_compose, composition_auto,
+        ordre, est_compose, composition_auto, personnalisation,
         prixAchat, prixVente, conditionnement, matiere, couleur_interieur,
         couleur_ext1, imageCoul1, couleur_ext2, imageCoul2, couleur_ext3, imageCoul3,
         couleur_ext4, imageCoul4, couleur_ext5, imageCoul5, couleur_ext6, imageCoul6,
@@ -69,7 +69,7 @@ function creerProduit($data) {
         couleur_ext13, imageCoul13
     ) VALUES (
         :famille, :nomDeLaFamille, :reference, :designation, :format,
-        :ordre, :est_compose, :composition_auto,
+        :ordre, :est_compose, :composition_auto, :personnalisation,
         :prixAchat, :prixVente, :conditionnement, :matiere, :couleur_interieur,
         :couleur_ext1, :imageCoul1, :couleur_ext2, :imageCoul2, :couleur_ext3, :imageCoul3,
         :couleur_ext4, :imageCoul4, :couleur_ext5, :imageCoul5, :couleur_ext6, :imageCoul6,
@@ -95,7 +95,7 @@ function modifierProduit($id, $data) {
     
     $sql = "UPDATE produits SET 
         famille = :famille, nomDeLaFamille = :nomDeLaFamille, reference = :reference, 
-        ordre = :ordre, est_compose = :est_compose, composition_auto = :composition_auto,
+        ordre = :ordre, est_compose = :est_compose, composition_auto = :composition_auto, personnalisation = :personnalisation,
         designation = :designation, format = :format, prixAchat = :prixAchat, 
         prixVente = :prixVente, conditionnement = :conditionnement, matiere = :matiere, 
         couleur_interieur = :couleur_interieur,

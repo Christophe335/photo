@@ -32,7 +32,7 @@
             <div class="tableau-container">
                 <?php
                 // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
+                require_once __DIR__ . '/../includes/tableau-choix.php';
                         
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Infinity Lay-Flat sans couverture');
@@ -40,18 +40,12 @@
             </div>
             <div class="tableau-container">
                 <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Infinity Lay-Flat avec couverture rigide');
                  ?>
             </div>
             <div class="tableau-container">
-                <?php
-                // IMPORTANT: Ajuster le chemin selon votre structure
-                require_once __DIR__ . '/../includes/tableau.php';
-                        
+                <?php    
                 // Afficher les produits de reliure directement
                 afficherTableauProduits('Infinity Lay Flat Hard Cover Basic 21,6x21,6 cm');
                  ?>

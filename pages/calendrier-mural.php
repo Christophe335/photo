@@ -23,7 +23,7 @@
                     <div class="tableau-container">
                         <?php
                         // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
+                        require_once __DIR__ . '/../includes/tableau-choix.php';
                         
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Peel & Stick Calendar Home');
@@ -50,9 +50,6 @@
                 <div class="colonne-2">
                     <div class="tableau-container">
                         <?php
-                        // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
-                        
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Peel & Stick Calendar Pro - Wall Model');
                         ?>
@@ -79,9 +76,6 @@
                     <p class="paragraphe">Ce porte-affiche stylé en bois de 8 pouces est une alternative sympa aux cadres photo classiques. Il est également très populaire pour les calendriers personnalisés. Après une petite perforation, les impressions sont maintenues par des chevilles en bois. Il ne faut que quelques secondes pour assembler le porte-affiche en bois.</p>
                     <div class="tableau-container">
                         <?php
-                        // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
-                        
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Wood Hanger');
                         ?>

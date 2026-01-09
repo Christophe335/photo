@@ -65,13 +65,23 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-choix.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peleman Box A4 - 45mm');
             ?>
         </div>
-        </br>
+        <div class="ligne">
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="250" height="200" style=" transform: scaleX(-1);" src="../images/produits/prestigeBox-1.webp" alt="Une boîte format A4 recouverte d'une personnalisation pour architecte représentant une serrure avec une clé dedans et le porte clé est en forme de petite maison" loading="lazy">
+        </div>
+        <div class="colonne-1">
+            <img class="centre-div" width="320" height="250" style="margin-top: 50px;" src="../images/produits/prestigeBox-5.webp"  alt="Une boîte format A4 personnalisée avec un logo en dorure pour la boutique de luxe d'un hotel" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="250" height="200" src="../images/produits/prestigeBox-3.webp"  alt="Une boîte format A4 recouverte d'une personnalisation représentant une rose posée sur une planche" loading="lazy">
+        </div>
+    </div>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
 <section class="section2" id="Coffret Prestige format A4 90mm">
@@ -134,14 +144,21 @@
     </div>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peleman Box A4 - 90mm');
             ?>
         </div>
-        </br>
+        <div class="ligne">
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="330" height="220" src="../images/produits/prestigeBox-4.webp" alt="Une boîte format A4 recouverte d'une personnalisation pour architecte représentant une serrure avec une clé dedans et le porte clé est en forme de petite maison" loading="lazy">
+        </div>
+        <div class="colonne-1">
+            <img class="centre-div" width="290" height="200" src="../images/produits/prestigeBox-2.webp" alt="Une boîte format A4 personnalisée avec un logo en dorure pour la boutique de luxe d'un hotel" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="330" height="220" src="../images/produits/prestigeBox-6.webp" alt="Une boîte format A4 recouverte d'une personnalisation représentant une rose posée sur une planche" loading="lazy">
+        </div>
+    </div>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
 <section class="section1" id="Boîte format A4 à recouvrir">
@@ -161,9 +178,6 @@
 
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peleman Box Basic A4');
             ?>
@@ -188,9 +202,6 @@
 
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Flexibox');
             ?>
@@ -215,9 +226,6 @@
 
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Carrier Bags');
             ?>

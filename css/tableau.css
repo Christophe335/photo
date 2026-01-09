@@ -41,7 +41,7 @@
 .tableau-header,
 .ligne-produit {
   display: grid;
-  grid-template-columns: 125px 1fr 150px 25px 100px 80px 100px;
+  grid-template-columns: 125px 1fr 150px 25px 100px 80px 200px;
   /* grid-template-columns: 125px 1fr 76px 78px 100px 90px 6px; */
   gap: 10px;
   align-items: center;
@@ -233,7 +233,7 @@
   background: var(--vert1);
   color: var(--blanc1);
   border: none;
-  padding: 4px 8px;
+  padding: 8px 8px;
   border-radius: 6px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -247,7 +247,7 @@
 .btn-ajouter-panier:hover {
   background: var(--vert2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(240, 81, 36, 0.3);
+  box-shadow: 0 4px 8px rgba(170, 170, 170, 0.3);
 }
 
 .btn-ajouter-panier:active {
@@ -334,7 +334,7 @@
 @media (max-width: 1200px) {
   .tableau-header,
   .ligne-produit {
-    grid-template-columns: 100px 1fr 160px 70px 120px 100px 120px;
+    grid-template-columns: 100px 1fr 160px 70px 120px 100px 165px;
     gap: 10px;
     padding: 12px 15px;
   }
@@ -398,11 +398,36 @@
   content: " ✓";
 }
 
+/* Actions: colonne dédiée aux boutons (panier + personnaliser) */
+.col-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Bouton personnaliser : s'assurer qu'il tient dans la colonne */
+.personalize-item {
+  background: #f05124;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.personalize-item:hover { transform: translateY(-1px); }
+
 /* Ajustements des largeurs quand la colonne couleur est masquée */
 
 .tableau-header.sans-couleur,
 .ligne-produit.sans-couleur {
-  grid-template-columns: 140px 1fr 30px 120px 90px 120px;
+  /* grid-template-columns: 140px 1fr 30px 120px 90px 120px; */
+  grid-template-columns: 103px 1fr 46px 89px 73px 174px;
+
 }
 
 .tableau-header.sans-couleur .col-description.sans-couleur {

@@ -65,7 +65,7 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-choix.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peleman Box A5- 40 mm');
@@ -92,14 +92,21 @@
 
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peleman Box Basic A5');
             ?>
         </div>
-        </br>
+        <div class="ligne">
+        <div class="colonne-1 onleft">
+            <img class="centre-div" width="280" height="200" src="../images/produits/prestigeBoxA5-2.webp" alt="Une boîte format A5 de couleur bleu personnalisée avec logo et texte blanc" loading="lazy">
+        </div>
+        <div class="colonne-1">
+            <img class="centre-div" width="450" height="300" style="margin-top: 50px;" src="../images/produits/prestigeBoxA5-1.webp" alt="Une boîte format A5 personnalisée sur toute sa surface" loading="lazy">
+        </div>
+        <div class="colonne-1 onright">
+            <img class="centre-div" width="280" height="200" src="../images/produits/prestigeBoxA5-3.webp" alt="Une boîte format A5 à de couleur blanche personnalisée avec un logo type code barre réalisé en dorure" loading="lazy">
+        </div>
+    </div>
     <?php include '../includes/bt-devis.php'; ?>
 </section>
 </main>

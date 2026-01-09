@@ -32,6 +32,7 @@ if ($_POST) {
     // Préparer les données selon la vraie structure de la table
     $estCompose = isset($_POST['est_compose']) && $_POST['est_compose'] == '1';
     $compositionAuto = isset($_POST['composition_auto']) && $_POST['composition_auto'] == '1';
+        $personnalisation = isset($_POST['personnalisation']) && $_POST['personnalisation'] == '1';
     
     $donnees = [
         'famille' => $_POST['famille'] ?? '',
@@ -42,6 +43,7 @@ if ($_POST) {
         'ordre' => isset($_POST['ordre']) ? intval($_POST['ordre']) : 0,
         'est_compose' => $estCompose ? 1 : 0,
         'composition_auto' => $compositionAuto ? 1 : 0,
+        'personnalisation' => $personnalisation ? 1 : 0,
         'prixAchat' => floatval($_POST['prixAchat'] ?? 0),
         'prixVente' => floatval($_POST['prixVente'] ?? 0),
         'conditionnement' => $_POST['conditionnement'] ?? '',
@@ -139,7 +141,15 @@ include 'header.php';
                            placeholder="Ex: Reliure spirale A4" class="admin-input-full">
                 </div>
             </div>
-
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="personnalisation" name="personnalisation" value="1" <?= isset($_POST['personnalisation']) ? (($_POST['personnalisation'] == '1') ? 'checked' : '') : (($produit['personnalisation'] ?? false) ? 'checked' : '') ?>>
+                        <span>Personnalisation</span>
+                    </label>
+                    <small class="form-help">Afficher le bouton "Personnalisation" pour ce produit permettant d'imprimer ou de faire de la dorure.</small>
+                </div>
+            </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="famille">Famille *</label>
@@ -201,6 +211,7 @@ include 'header.php';
                            placeholder="Ex: Blanc, Ivoire, Couleur">
                 </div>
             </div>
+            
         </div>
 
         <!-- Prix et marge - Section importante -->

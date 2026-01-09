@@ -136,13 +136,14 @@ include 'header.php';
                         <th class="col-designation">Désignation</th>
                         <th class="col-prix">Prix d'achat</th>
                         <th class="col-prix">Prix de vente</th>
+                        <th class="col-personnalisation">Personnalisation</th>
                         <th class="col-actions">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($produits)): ?>
                         <tr>
-                            <td colspan="8" style="text-align: center; color: var(--text-muted); font-style: italic;">
+                            <td colspan="9" style="text-align: center; color: var(--text-muted); font-style: italic;">
                                 Aucun produit trouvé
                             </td>
                         </tr>
@@ -218,6 +219,13 @@ include 'header.php';
                                 </td>
                                 <td class="col-prix">
                                     <?= number_format($produit['prixVente'], 2, ',', ' ') ?> €
+                                </td>
+                                <td class="col-personnalisation" style="text-align:center;">
+                                    <?php if (!empty($produit['personnalisation'])): ?>
+                                        <i class="fas fa-check-circle" style="color: #28a745; font-size: 18px;" title="Personnalisation activée"></i>
+                                    <?php else: ?>
+                                        <i class="fas fa-times-circle" style="color: #c4c4c4; font-size: 18px;" title="Personnalisation désactivée"></i>
+                                    <?php endif; ?>
                                 </td>
                                 <td class="col-actions">
                                     <?php if ($produit['est_compose'] ?? false): ?>

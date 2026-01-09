@@ -30,7 +30,7 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-choix.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Soft Cover A4');
@@ -57,9 +57,6 @@
     </div>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Pocket Folder Plus');
             ?>

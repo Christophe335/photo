@@ -29,7 +29,7 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-choix.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Acrylic Panel');
@@ -49,9 +49,6 @@
     </div>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Peel & Stick Panel');
             ?>
@@ -67,9 +64,6 @@
     </div>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic Display');
             ?>

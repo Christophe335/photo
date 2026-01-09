@@ -37,7 +37,7 @@
         <div class="tableau-container">
             <?php
             // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
+            require_once __DIR__ . '/../includes/tableau-choix.php';
             
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates with round corners for A4 Printer');
@@ -60,9 +60,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates with round corners for A3 Printer');
             ?>
@@ -85,9 +82,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates straight corners for A3 Printer');
             ?>
@@ -109,9 +103,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates straight corners for A4 Printer');
             ?>
@@ -133,9 +124,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates square round corners A4');
             ?>
@@ -157,9 +145,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates oval and circle for A4 Printer');
             ?>
@@ -181,9 +166,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates bended for A4 Printer');
             ?>
@@ -205,9 +187,6 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Print-In Plates felexible thin');
             ?>

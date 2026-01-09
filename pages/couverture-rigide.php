@@ -20,7 +20,7 @@
                 <!-- tableau 1 -->
             <div class="ligne">
                 <div class="colonne-1 onleft">
-                    <img class="centre-div" width="320" height="340" style="margin-top: 200px;" src="../images/produits/hardcover-1.webp" alt="Couverture rigide de couleur noir avec feuilles blanches à l'intérieur" loading="lazy">
+                    <img class="centre-div" width="320" height="340" style="margin-top: 200px;" src="../images/produits/CouvertureRigideA5Perso-2.webp" alt="Couverture rigide de couleur bleu et logo Carlton Cannes avec feuilles blanches à l'intérieur" loading="lazy">
                     <img class="centre-div" width="360" height="320" style="margin-top: 135px;" src="../images/produits/CouvertureRigideA5Perso-4.webp" alt="2 Couvertures rigide de couleur noir et bleu avec personnalisation" loading="lazy">
                 </div>
                 <div class="colonne-2">
@@ -28,7 +28,7 @@
                     <div class="tableau-container">
                         <?php
                         // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
+                        require_once __DIR__ . '/../includes/tableau-choix.php';
                         
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Unihard Cover A4');
@@ -41,15 +41,12 @@
             <div class="ligne">
                 <div class="colonne-1 onleft">
                     <img class="centre-div" width="250" height="300" style="margin-top: 2px;" src="../images/produits/CouvertureRigideA5Perso-3.webp" alt="Couverture rigide de couleur rose avec logo de personnalisation" loading="lazy">
-                    <img class="centre-div" width="250" height="300" style="margin-top: -150px;" src="../images/produits/hardcover-3.webp" alt="Couverture rigide de couleur bleu avec feuilles blanches à l'intérieur" loading="lazy">
-                    
+                    <img class="centre-div" width="250" height="300" style="margin-top: -150px;" src="../images/produits/Hardcover-bleu-perso1.webp" alt="Couverture rigide de couleur bleu personnalisé avec feuilles blanches à l'intérieur" loading="lazy">
                 </div>
                 <div class="colonne-2">
                     
                     <div class="tableau-container">
                         <?php
-                        // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
                         
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Unihard Cover A5');
@@ -73,9 +70,6 @@
                     <p class="paragraphe">Le Kit de Présentation rendra facile la reliure de votre présentation sans nécessiter de machine. Et en plus, en utilisant notre V-Paper, il n'y aura plus de pages qui se soulèvent. Ainsi, désormais, votre présentation reposera à plat magnifiquement. Venez assembler votre propre kit. Ça ne peut pas être plus simple ! Le poids du V-Paper est de 120 g. Ajouter de belles pages en utilisant <a href="#papier">notre papier</a> en 120 ou 160 g/m².</p>
                     <div class="tableau-container">
                         <?php
-                        // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
-                        
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Presentation Kit Hard Cover');
                         ?>
@@ -90,16 +84,17 @@
         <p class="paragraphe">Ce carnet, avec une couverture rigide au toucher cachemire, est un plaisir à écrire. Le papier pointillé est agréablement lisse, de sorte que l'encre ne bave pas. Personnalisez votre couverture rigide avec votre propre logo d'entreprise et le nom de votre employé. Ajouter de belles pages en utilisant <a href="#papier">notre papier</a> en 120 ou 160 g/m².</p>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Thermal Hard Cover Kashmir Touch');
             ?>
         </div>
         <p class="paragraphe">*** Choisissez bien votre couleur dans la colonne <span style="color: #ff5500;text-transform: uppercase;">couleur</span></p>
         <div class="ligne">
-            <div class="colonne-3 onleft">
+            <div class="colonne-1 onleft">
+                <img class="centre-div" width="300" height="350" src="../images/produits/Hardcover-rouge-perso1.webp" alt="Présentation de la gamme de carnets de notes personnalisés à couverture rigide" loading="lazy">
+            </div>
+            <div class="colonne-1">
                 <div class="ligne">
                     <div class="posCouleurRigide"><img src="../images/produits/couverture-rigide-personnalise-couleur-02.webp" alt="Couleur Charcoal (un noir)" loading="lazy">
                     <p>Charbon</p></div>
@@ -123,8 +118,8 @@
                     <p>Huître</p></div>
                 </div>
             </div>
-            <div class="colonne-3 onright">
-                <img src="../images/produits/carnet-de-note-personnalise-1.webp" alt="Présentation de la gamme de carnets de notes personnalisés à couverture rigide" loading="lazy">
+            <div class="colonne-1 onright">
+                <img class="centre-div" width="350" height="200" src="../images/produits/carnet-de-note-personnalise-1.webp" alt="Présentation de la gamme de carnets de notes personnalisés à couverture rigide" loading="lazy">
             </div>
         </div>
         <p class="paragraphe">Les couvertures thermiques écologiques sont des livres à couverture rigide haut de gamme, respectueux de l'environnement. Idéales pour créer des matériaux de présentation personnalisés, durables et reliés de manière permanente. Ces couvertures avec du papier recyclé offrent un choix éco-responsable. Avec le système de reliure thermique, vous pouvez sertir le dos pour un ajustement parfait.</p>
@@ -134,17 +129,13 @@
         </div>
         <div class="tableau-container" id="papier">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Thermal Hard Cover A4 Eco');
             ?>
         
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('V-Paper');
             ?>
@@ -172,9 +163,7 @@
 </br>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Mono Hard Cover');
             ?>
@@ -206,9 +195,6 @@
 </br>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Duo Hard Cover');
             ?>
@@ -234,9 +220,7 @@
     </div>
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Panorama Hard Cover');
             ?>
@@ -253,9 +237,7 @@
     
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic A4 Portrait');
             afficherTableauProduits('Hard Cover Basic A4 Paysage');
@@ -287,9 +269,7 @@
     <img class="centre-div" src="../images/produits/hard-cover-basic-1.webp" alt="Présentation de la conception des couvertures rigide personnalisables formats 10x15 cm - 20x20 cm - 30x30 cm" loading="lazy">
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic');
             ?>
@@ -352,9 +332,7 @@
     </div>
     <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
+
             // Afficher les produits de reliure directement
             afficherTableauProduits('Clamp Hard Cover');
             ?>
@@ -374,9 +352,6 @@
         
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('Hard Cover Basic Clamp Binding');
             ?>
@@ -407,9 +382,6 @@
         
         <div class="tableau-container">
             <?php
-            // IMPORTANT: Ajuster le chemin selon votre structure
-            require_once __DIR__ . '/../includes/tableau.php';
-            
             // Afficher les produits de reliure directement
             afficherTableauProduits('HardCover Basic Clip Board');
             ?>
@@ -422,5 +394,6 @@
 </main>
 
 <script src="/js/panier.js"></script>
+<script src="../js/upload-perso.js"></script>
 
 <?php include '../includes/footer.php'; ?>

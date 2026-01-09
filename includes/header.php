@@ -157,6 +157,7 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                         'couverture-souple' => 'Couverture Souple',
                         'couverture-rigide' => 'Couverture Rigide',
                         'classeur' => 'Classeur',
+                        'pochette' => 'Chemise',
                         // Pages panneaux/boîtes
                         'panneau-bambou' => 'Panneaux Bambou',
                         'panneau-acrylique' => 'Panneaux Acrylique',
@@ -174,17 +175,6 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                         'livre-photo' => 'Livre Photos',
                         'toile' => 'Toiles',
                         'pochette' => 'Chemises',
-                        // Pages personnalisation
-                        'couverture-rigide-perso' => 'Couverture Rigide Personnalisé',
-                        'classeur-perso' => 'Classeur Personnalisé',
-                        'couverture-souple-perso' => 'Couverture Souple Personnalisé',
-                        'album-perso' => 'Album Photos Personnalisé',
-                        'pochette-perso' => 'Chemises Personnalisé',
-                        'boite-a5-perso' => 'Coffret Prestige A5 Personnalisé',
-                        'boite-a4-perso' => 'Coffret Prestige A4 Personnalisé',
-                        'infinity-perso' => 'Photo Book Infinity Personnalisé',
-                        'portfolio-perso' => 'Portfolio Prestige Personnalisé',
-                        'toile-perso' => 'Toile Personnalisé',
                         // Pages formulaires
                         'photo' => 'Upload photos',
                         'perso' => 'Upload personnalisation',
@@ -280,6 +270,7 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                         <div class="dropdown-menu" id="personnalisation-menu"> 
                             <a href="<?php echo $pagesPath; ?>couverture-souple.php" class="dropdown-item">Couverture Souple</a> 
                             <a href="<?php echo $pagesPath; ?>couverture-rigide.php" class="dropdown-item">Couverture Rigide</a>
+                            <a href="<?php echo $pagesPath; ?>pochette.php" class="dropdown-item">Chemise</a>
                             <a href="<?php echo $pagesPath; ?>classeur.php" class="dropdown-item">Classeur</a>
                             <a href="<?php echo $pagesPath; ?>luxe.php" class="dropdown-item">Finition Luxe</a>
                         </div>
@@ -299,28 +290,7 @@ $currentPageLabel = ucfirst(str_replace('-', ' ', $currentPageShort));
                             <a href="<?php echo $pagesPath; ?>magnet.php" class="dropdown-item">Magnets</a>
                         </div>
                     </div>
-                    <!-- Bouton Personnalisation -->
-                    <div class="nav-item">
-                        <button class="nav-btn" data-menu="photo">Personnalisation</button>
-                        <div class="dropdown-menu" id="photo-menu">
-                            <div class="format-group">
-                                <div class="group-items">
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/album-perso.php" class="dropdown-item">Album Photos</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-souple-perso.php" class="dropdown-item">Couverture Souple</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/couverture-rigide-perso.php" class="dropdown-item">Couverture Rigide</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/pochette-perso.php" class="dropdown-item">Chemise</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a4-perso.php" class="dropdown-item">Coffret Prestige A4</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/boite-a5-perso.php" class="dropdown-item">Coffret Prestige A5</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/classeur-perso.php" class="dropdown-item">Classeur</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/portfolio-perso.php" class="dropdown-item">PortFolio Prestige</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/infinity-perso.php" class="dropdown-item">Photo Book Prestige</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/luxe-perso.php" class="dropdown-item">Finition Luxe</a>
-                                    <a href="<?php echo $pagesPath; ?>../pages-perso/toile-perso.php" class="dropdown-item">Toile</a>
-                                </div>
-                                <div class="group-label">Personnalisation</div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </nav>
                 <!-- Menu mobile (contenu affiché par le burger) -->
                 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">

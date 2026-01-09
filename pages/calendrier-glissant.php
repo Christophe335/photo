@@ -21,7 +21,7 @@
                 <div class="tableau-container">
                     <?php
                     // IMPORTANT: Ajuster le chemin selon votre structure
-                    require_once __DIR__ . '/../includes/tableau.php';
+                    require_once __DIR__ . '/../includes/tableau-choix.php';
                         
                     // Afficher les produits de reliure directement
                     afficherTableauProduits('Slide-In Calendar 8” x 10”');

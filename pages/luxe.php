@@ -19,13 +19,16 @@
             <p class="paragraphe">La présentation d’un certificat, diplôme ou tout document de congratulation mérite d’être protégée correctement et présentée dans un style élégant. Avec nos couvertures rigides possédant des coins renforcés et une personnalisation par film de dorure, vous aurez sous la main un produit d’excellente qualité.</p>
             </br>
             <div class="ligne">
-                <div class="colonne-3 onleft">
+                <div class="colonne-1 onleft">
                     <img class="centre-div" width="316" height="226" src="../images/produits/luxe-1.webp" alt="3 types de finitions luxe au format portrait couleur aluminium, blanc et noir" loading="lazy">
                 </div>
-                <div class="colonne-3 onright">
+                <div class="colonne-1">
+                    <img class="centre-div" width="316" height="226" src="../images/produits/Certificate-perso-3.webp" alt="Présentation d'un dipôme version paysage avec une finition luxe la couverture étant retournée" loading="lazy">
+                </div>
+                <div class="colonne-1 onright">
                     <img class="centre-div" width="316" height="226" src="../images/produits/Certificate-perso-4.webp" alt="Présentation de 2 dipômes version portrait avec une finition luxe" loading="lazy">
                 </div>
-            </div>  
+            </div>   
             <div class="ligne">
                 <div class="colonne-4 onleft">
                     <img class="centre-div" width="176" height="267" style="margin-top: 160px;" src="../images/produits/luxe-3.webp" alt="Support de certificat finition luxe au format portrait de couleur gris claire avec dorure en or" loading="lazy">
@@ -34,7 +37,7 @@
                     <div class="tableau-container">
                         <?php
                         // IMPORTANT: Ajuster le chemin selon votre structure
-                        require_once __DIR__ . '/../includes/tableau.php';
+                        require_once __DIR__ . '/../includes/tableau-choix.php';
                             
                         // Afficher les produits de reliure directement
                         afficherTableauProduits('Certificate Holder');
@@ -45,7 +48,17 @@
                     <img class="centre-div" width="176" height="267" style="margin-top: 160px;" src="../images/produits/luxe-4.webp" alt="Support de certificat finition luxe sans coins de protection avec une finition écologique" loading="lazy">
                 </div>
             </div>  
-            </br> 
+            <div class="ligne">
+                <div class="colonne-1 onleft">
+                    <img class="centre-div" width="200" height="300" src="../images/produits/Certificate-perso-2.webp" alt="3 types de finitions luxe au format portrait couleur aluminium, blanc et noir" loading="lazy">
+                </div>
+                <div class="colonne-1">
+                    <img class="centre-div" width="316" height="226" src="../images/produits/Certificate-perso-1.webp" alt="Présentation d'un dipôme version paysage avec une finition luxe la couverture étant retournée" loading="lazy">
+                </div>
+                <div class="colonne-1 onright">
+                    <img class="centre-div" width="200" height="300" src="../images/produits/Certificate-perso-5.webp" alt="Présentation de 2 dipômes version portrait avec une finition luxe" loading="lazy">
+                </div>
+            </div>   
         </div>
         <?php include '../includes/bt-devis.php'; ?>
     </section>
